@@ -30,172 +30,232 @@ namespace Staff_Management
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Staff));
+            this.tabPageUpdate = new System.Windows.Forms.TabPage();
+            this.grpBoxUpdateWorkDetail = new System.Windows.Forms.GroupBox();
+            this.CmbDeptUpdate = new System.Windows.Forms.ComboBox();
+            this.CmbDesgUpdate = new System.Windows.Forms.ComboBox();
+            this.lblUpdateDepartment = new System.Windows.Forms.Label();
+            this.CmbRoleUpdate = new System.Windows.Forms.ComboBox();
+            this.lblUpdateDesignation = new System.Windows.Forms.Label();
+            this.lblUpdateRole = new System.Windows.Forms.Label();
             this.CmbSubject3Update = new System.Windows.Forms.ComboBox();
             this.CmbSubject2Update = new System.Windows.Forms.ComboBox();
             this.TxtSalaryUpdate = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
+            this.lblUpdateSalary = new System.Windows.Forms.Label();
             this.CmbSubject1Update = new System.Windows.Forms.ComboBox();
-            this.label34 = new System.Windows.Forms.Label();
+            this.lblUpdateSubject = new System.Windows.Forms.Label();
             this.DtJoiningDateUpdate = new System.Windows.Forms.DateTimePicker();
             this.CmbQualUpdate = new System.Windows.Forms.ComboBox();
             this.TxtExpUpdate = new System.Windows.Forms.TextBox();
-            this.label35 = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
+            this.lblUpdateExp = new System.Windows.Forms.Label();
+            this.lblUpdateJoiningDate = new System.Windows.Forms.Label();
+            this.lblUpdateQualification = new System.Windows.Forms.Label();
             this.BtnResetUpdatePage = new System.Windows.Forms.Button();
-            this.BtnUpdateStaff = new System.Windows.Forms.Button();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.BtnUpdate = new System.Windows.Forms.Button();
+            this.grpBoxUpdateContactDetail = new System.Windows.Forms.GroupBox();
+            this.TxtPasswordUpdate = new System.Windows.Forms.TextBox();
+            this.lblUpdatePassword = new System.Windows.Forms.Label();
             this.TxtAddressUpdate = new System.Windows.Forms.TextBox();
-            this.label32 = new System.Windows.Forms.Label();
+            this.lblUpdateAddress = new System.Windows.Forms.Label();
             this.CmbStateUpdate = new System.Windows.Forms.ComboBox();
             this.CmbCityUpdate = new System.Windows.Forms.ComboBox();
             this.TxtOtherConNoUpdate = new System.Windows.Forms.TextBox();
             this.TxtMobNoUpdate = new System.Windows.Forms.TextBox();
             this.TxtEmailUpdate = new System.Windows.Forms.TextBox();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.lblUpdateOther = new System.Windows.Forms.Label();
+            this.lblUpdateMobile = new System.Windows.Forms.Label();
+            this.lblUpdateEmail = new System.Windows.Forms.Label();
+            this.lblUpdateCity = new System.Windows.Forms.Label();
+            this.lblUpdateState = new System.Windows.Forms.Label();
+            this.grpBoxUpdatePersonalDetail = new System.Windows.Forms.GroupBox();
             this.DtDOBUpdate = new System.Windows.Forms.DateTimePicker();
             this.CmbCategoryUpdate = new System.Windows.Forms.ComboBox();
             this.CmbGenderUpdate = new System.Windows.Forms.ComboBox();
             this.TxtFatherNameUpdate = new System.Windows.Forms.TextBox();
             this.TxtMotherNameUpdate = new System.Windows.Forms.TextBox();
             this.TxtStaffNameUpdate = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
+            this.lblUpdateCategory = new System.Windows.Forms.Label();
+            this.lblUpdateDOB = new System.Windows.Forms.Label();
+            this.lblUpdateGender = new System.Windows.Forms.Label();
+            this.lblUpdateMName = new System.Windows.Forms.Label();
+            this.lblUpdateFName = new System.Windows.Forms.Label();
+            this.lblUpdateName = new System.Windows.Forms.Label();
             this.BtnSearch = new System.Windows.Forms.Button();
             this.TxtIDUpdate = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblSearchStaff = new System.Windows.Forms.Label();
+            this.tabPageAdd = new System.Windows.Forms.TabPage();
+            this.grpBoxContactDetail = new System.Windows.Forms.GroupBox();
+            this.TxtPassword = new System.Windows.Forms.TextBox();
+            this.lblpassword = new System.Windows.Forms.Label();
             this.TxtAddress = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblAddress = new System.Windows.Forms.Label();
             this.CmbState = new System.Windows.Forms.ComboBox();
             this.CmbCity = new System.Windows.Forms.ComboBox();
             this.TxtOtherConNo = new System.Windows.Forms.TextBox();
             this.TxtMobNo = new System.Windows.Forms.TextBox();
             this.TxtEmail = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.BtnResetStaff = new System.Windows.Forms.Button();
-            this.BtnSaveStaff = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lblOtherContact = new System.Windows.Forms.Label();
+            this.lblMobile = new System.Windows.Forms.Label();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.lblCity = new System.Windows.Forms.Label();
+            this.lblState = new System.Windows.Forms.Label();
+            this.BtnReset = new System.Windows.Forms.Button();
+            this.BtnSave = new System.Windows.Forms.Button();
+            this.grpBoxWorkDetail = new System.Windows.Forms.GroupBox();
+            this.CmbDept = new System.Windows.Forms.ComboBox();
+            this.lblDepartment = new System.Windows.Forms.Label();
+            this.CmbRole = new System.Windows.Forms.ComboBox();
+            this.lblRole = new System.Windows.Forms.Label();
             this.CmbSubject3 = new System.Windows.Forms.ComboBox();
             this.CmbSubject2 = new System.Windows.Forms.ComboBox();
             this.TxtSalary = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
+            this.lblSalary = new System.Windows.Forms.Label();
             this.CmbSubject1 = new System.Windows.Forms.ComboBox();
-            this.label15 = new System.Windows.Forms.Label();
+            this.lblSubject = new System.Windows.Forms.Label();
             this.DtJoiningDate = new System.Windows.Forms.DateTimePicker();
             this.CmbDesg = new System.Windows.Forms.ComboBox();
             this.CmbQual = new System.Windows.Forms.ComboBox();
             this.TxtExp = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblExp = new System.Windows.Forms.Label();
+            this.lblJoiningDate = new System.Windows.Forms.Label();
+            this.lblQualification = new System.Windows.Forms.Label();
+            this.lblDesignation = new System.Windows.Forms.Label();
+            this.grpBoxPersonalDetail = new System.Windows.Forms.GroupBox();
             this.TxtStaffID = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
+            this.lblID = new System.Windows.Forms.Label();
             this.DtDOB = new System.Windows.Forms.DateTimePicker();
             this.CmbCategory = new System.Windows.Forms.ComboBox();
             this.CmbGender = new System.Windows.Forms.ComboBox();
             this.TxtFatherName = new System.Windows.Forms.TextBox();
             this.TxtMotherName = new System.Windows.Forms.TextBox();
             this.TxtStaffName = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblCategory = new System.Windows.Forms.Label();
+            this.lblDOB = new System.Windows.Forms.Label();
+            this.lblGender = new System.Windows.Forms.Label();
+            this.lblMName = new System.Windows.Forms.Label();
+            this.lblFName = new System.Windows.Forms.Label();
             this.LblName = new System.Windows.Forms.Label();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPageView = new System.Windows.Forms.TabPage();
+            this.BtnQuit = new System.Windows.Forms.Button();
             this.BtnDelete = new System.Windows.Forms.Button();
             this.DataGridViewStaff = new System.Windows.Forms.DataGridView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.lblpassword = new System.Windows.Forms.Label();
-            this.TxtPassword = new System.Windows.Forms.TextBox();
-            this.TxtPasswordUpdate = new System.Windows.Forms.TextBox();
-            this.label40 = new System.Windows.Forms.Label();
-            this.lblrole = new System.Windows.Forms.Label();
-            this.CmbRoleUpdate = new System.Windows.Forms.ComboBox();
-            this.CmbDeptUpdate = new System.Windows.Forms.ComboBox();
-            this.label37 = new System.Windows.Forms.Label();
-            this.CmbDesgUpdate = new System.Windows.Forms.ComboBox();
-            this.label39 = new System.Windows.Forms.Label();
-            this.CmbRole = new System.Windows.Forms.ComboBox();
-            this.label41 = new System.Windows.Forms.Label();
-            this.CmbDept = new System.Windows.Forms.ComboBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.tabPage3.SuspendLayout();
-            this.groupBox6.SuspendLayout();
-            this.groupBox5.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.LblStaff = new System.Windows.Forms.Label();
+            this.tabPageUpdate.SuspendLayout();
+            this.grpBoxUpdateWorkDetail.SuspendLayout();
+            this.grpBoxUpdateContactDetail.SuspendLayout();
+            this.grpBoxUpdatePersonalDetail.SuspendLayout();
+            this.tabPageAdd.SuspendLayout();
+            this.grpBoxContactDetail.SuspendLayout();
+            this.grpBoxWorkDetail.SuspendLayout();
+            this.grpBoxPersonalDetail.SuspendLayout();
+            this.tabPageView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewStaff)).BeginInit();
             this.tabControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
-            // tabPage3
+            // tabPageUpdate
             // 
-            this.tabPage3.BackColor = System.Drawing.Color.MediumTurquoise;
-            this.tabPage3.Controls.Add(this.groupBox6);
-            this.tabPage3.Controls.Add(this.BtnResetUpdatePage);
-            this.tabPage3.Controls.Add(this.BtnUpdateStaff);
-            this.tabPage3.Controls.Add(this.groupBox5);
-            this.tabPage3.Controls.Add(this.groupBox4);
-            this.tabPage3.Controls.Add(this.BtnSearch);
-            this.tabPage3.Controls.Add(this.TxtIDUpdate);
-            this.tabPage3.Controls.Add(this.label20);
-            this.tabPage3.Location = new System.Drawing.Point(4, 37);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1211, 821);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Update";
+            this.tabPageUpdate.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.tabPageUpdate.Controls.Add(this.grpBoxUpdateWorkDetail);
+            this.tabPageUpdate.Controls.Add(this.BtnResetUpdatePage);
+            this.tabPageUpdate.Controls.Add(this.BtnUpdate);
+            this.tabPageUpdate.Controls.Add(this.grpBoxUpdateContactDetail);
+            this.tabPageUpdate.Controls.Add(this.grpBoxUpdatePersonalDetail);
+            this.tabPageUpdate.Controls.Add(this.BtnSearch);
+            this.tabPageUpdate.Controls.Add(this.TxtIDUpdate);
+            this.tabPageUpdate.Controls.Add(this.lblSearchStaff);
+            this.tabPageUpdate.Location = new System.Drawing.Point(4, 37);
+            this.tabPageUpdate.Name = "tabPageUpdate";
+            this.tabPageUpdate.Size = new System.Drawing.Size(1354, 844);
+            this.tabPageUpdate.TabIndex = 2;
+            this.tabPageUpdate.Text = "Update";
             // 
-            // groupBox6
+            // grpBoxUpdateWorkDetail
             // 
-            this.groupBox6.Controls.Add(this.CmbDeptUpdate);
-            this.groupBox6.Controls.Add(this.CmbDesgUpdate);
-            this.groupBox6.Controls.Add(this.label37);
-            this.groupBox6.Controls.Add(this.CmbRoleUpdate);
-            this.groupBox6.Controls.Add(this.label39);
-            this.groupBox6.Controls.Add(this.lblrole);
-            this.groupBox6.Controls.Add(this.CmbSubject3Update);
-            this.groupBox6.Controls.Add(this.CmbSubject2Update);
-            this.groupBox6.Controls.Add(this.TxtSalaryUpdate);
-            this.groupBox6.Controls.Add(this.label21);
-            this.groupBox6.Controls.Add(this.CmbSubject1Update);
-            this.groupBox6.Controls.Add(this.label34);
-            this.groupBox6.Controls.Add(this.DtJoiningDateUpdate);
-            this.groupBox6.Controls.Add(this.CmbQualUpdate);
-            this.groupBox6.Controls.Add(this.TxtExpUpdate);
-            this.groupBox6.Controls.Add(this.label35);
-            this.groupBox6.Controls.Add(this.label36);
-            this.groupBox6.Controls.Add(this.label38);
-            this.groupBox6.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.groupBox6.Location = new System.Drawing.Point(28, 497);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(1156, 257);
-            this.groupBox6.TabIndex = 23;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Work Details";
+            this.grpBoxUpdateWorkDetail.Controls.Add(this.CmbDeptUpdate);
+            this.grpBoxUpdateWorkDetail.Controls.Add(this.CmbDesgUpdate);
+            this.grpBoxUpdateWorkDetail.Controls.Add(this.lblUpdateDepartment);
+            this.grpBoxUpdateWorkDetail.Controls.Add(this.CmbRoleUpdate);
+            this.grpBoxUpdateWorkDetail.Controls.Add(this.lblUpdateDesignation);
+            this.grpBoxUpdateWorkDetail.Controls.Add(this.lblUpdateRole);
+            this.grpBoxUpdateWorkDetail.Controls.Add(this.CmbSubject3Update);
+            this.grpBoxUpdateWorkDetail.Controls.Add(this.CmbSubject2Update);
+            this.grpBoxUpdateWorkDetail.Controls.Add(this.TxtSalaryUpdate);
+            this.grpBoxUpdateWorkDetail.Controls.Add(this.lblUpdateSalary);
+            this.grpBoxUpdateWorkDetail.Controls.Add(this.CmbSubject1Update);
+            this.grpBoxUpdateWorkDetail.Controls.Add(this.lblUpdateSubject);
+            this.grpBoxUpdateWorkDetail.Controls.Add(this.DtJoiningDateUpdate);
+            this.grpBoxUpdateWorkDetail.Controls.Add(this.CmbQualUpdate);
+            this.grpBoxUpdateWorkDetail.Controls.Add(this.TxtExpUpdate);
+            this.grpBoxUpdateWorkDetail.Controls.Add(this.lblUpdateExp);
+            this.grpBoxUpdateWorkDetail.Controls.Add(this.lblUpdateJoiningDate);
+            this.grpBoxUpdateWorkDetail.Controls.Add(this.lblUpdateQualification);
+            this.grpBoxUpdateWorkDetail.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.grpBoxUpdateWorkDetail.Location = new System.Drawing.Point(28, 497);
+            this.grpBoxUpdateWorkDetail.Name = "grpBoxUpdateWorkDetail";
+            this.grpBoxUpdateWorkDetail.Size = new System.Drawing.Size(1156, 257);
+            this.grpBoxUpdateWorkDetail.TabIndex = 23;
+            this.grpBoxUpdateWorkDetail.TabStop = false;
+            this.grpBoxUpdateWorkDetail.Text = "Work Details";
+            // 
+            // CmbDeptUpdate
+            // 
+            this.CmbDeptUpdate.FormattingEnabled = true;
+            this.CmbDeptUpdate.Location = new System.Drawing.Point(483, 41);
+            this.CmbDeptUpdate.Name = "CmbDeptUpdate";
+            this.CmbDeptUpdate.Size = new System.Drawing.Size(207, 36);
+            this.CmbDeptUpdate.TabIndex = 90;
+            // 
+            // CmbDesgUpdate
+            // 
+            this.CmbDesgUpdate.FormattingEnabled = true;
+            this.CmbDesgUpdate.Location = new System.Drawing.Point(148, 137);
+            this.CmbDesgUpdate.Name = "CmbDesgUpdate";
+            this.CmbDesgUpdate.Size = new System.Drawing.Size(198, 36);
+            this.CmbDesgUpdate.TabIndex = 80;
+            // 
+            // lblUpdateDepartment
+            // 
+            this.lblUpdateDepartment.AutoSize = true;
+            this.lblUpdateDepartment.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblUpdateDepartment.Location = new System.Drawing.Point(370, 41);
+            this.lblUpdateDepartment.Name = "lblUpdateDepartment";
+            this.lblUpdateDepartment.Size = new System.Drawing.Size(114, 25);
+            this.lblUpdateDepartment.TabIndex = 25;
+            this.lblUpdateDepartment.Text = "Department";
+            // 
+            // CmbRoleUpdate
+            // 
+            this.CmbRoleUpdate.FormattingEnabled = true;
+            this.CmbRoleUpdate.Location = new System.Drawing.Point(148, 83);
+            this.CmbRoleUpdate.Name = "CmbRoleUpdate";
+            this.CmbRoleUpdate.Size = new System.Drawing.Size(198, 36);
+            this.CmbRoleUpdate.TabIndex = 75;
+            // 
+            // lblUpdateDesignation
+            // 
+            this.lblUpdateDesignation.AutoSize = true;
+            this.lblUpdateDesignation.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblUpdateDesignation.Location = new System.Drawing.Point(27, 137);
+            this.lblUpdateDesignation.Name = "lblUpdateDesignation";
+            this.lblUpdateDesignation.Size = new System.Drawing.Size(113, 25);
+            this.lblUpdateDesignation.TabIndex = 37;
+            this.lblUpdateDesignation.Text = "Designation";
+            // 
+            // lblUpdateRole
+            // 
+            this.lblUpdateRole.AutoSize = true;
+            this.lblUpdateRole.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblUpdateRole.Location = new System.Drawing.Point(28, 89);
+            this.lblUpdateRole.Name = "lblUpdateRole";
+            this.lblUpdateRole.Size = new System.Drawing.Size(49, 25);
+            this.lblUpdateRole.TabIndex = 37;
+            this.lblUpdateRole.Text = "Role";
             // 
             // CmbSubject3Update
             // 
@@ -203,7 +263,7 @@ namespace Staff_Management
             this.CmbSubject3Update.Location = new System.Drawing.Point(483, 173);
             this.CmbSubject3Update.Name = "CmbSubject3Update";
             this.CmbSubject3Update.Size = new System.Drawing.Size(207, 36);
-            this.CmbSubject3Update.TabIndex = 34;
+            this.CmbSubject3Update.TabIndex = 105;
             // 
             // CmbSubject2Update
             // 
@@ -211,7 +271,7 @@ namespace Staff_Management
             this.CmbSubject2Update.Location = new System.Drawing.Point(483, 131);
             this.CmbSubject2Update.Name = "CmbSubject2Update";
             this.CmbSubject2Update.Size = new System.Drawing.Size(207, 36);
-            this.CmbSubject2Update.TabIndex = 33;
+            this.CmbSubject2Update.TabIndex = 100;
             this.CmbSubject2Update.SelectedIndexChanged += new System.EventHandler(this.CmbSubject2Update_SelectedIndexChanged);
             // 
             // TxtSalaryUpdate
@@ -219,17 +279,18 @@ namespace Staff_Management
             this.TxtSalaryUpdate.Location = new System.Drawing.Point(147, 187);
             this.TxtSalaryUpdate.Name = "TxtSalaryUpdate";
             this.TxtSalaryUpdate.Size = new System.Drawing.Size(199, 34);
-            this.TxtSalaryUpdate.TabIndex = 32;
+            this.TxtSalaryUpdate.TabIndex = 85;
+            this.TxtSalaryUpdate.Validating += new System.ComponentModel.CancelEventHandler(this.TxtSalaryUpdate_Validating);
             // 
-            // label21
+            // lblUpdateSalary
             // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label21.Location = new System.Drawing.Point(27, 190);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(62, 25);
-            this.label21.TabIndex = 31;
-            this.label21.Text = "Salary";
+            this.lblUpdateSalary.AutoSize = true;
+            this.lblUpdateSalary.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblUpdateSalary.Location = new System.Drawing.Point(27, 190);
+            this.lblUpdateSalary.Name = "lblUpdateSalary";
+            this.lblUpdateSalary.Size = new System.Drawing.Size(62, 25);
+            this.lblUpdateSalary.TabIndex = 31;
+            this.lblUpdateSalary.Text = "Salary";
             // 
             // CmbSubject1Update
             // 
@@ -237,25 +298,25 @@ namespace Staff_Management
             this.CmbSubject1Update.Location = new System.Drawing.Point(483, 89);
             this.CmbSubject1Update.Name = "CmbSubject1Update";
             this.CmbSubject1Update.Size = new System.Drawing.Size(207, 36);
-            this.CmbSubject1Update.TabIndex = 30;
+            this.CmbSubject1Update.TabIndex = 95;
             this.CmbSubject1Update.SelectedIndexChanged += new System.EventHandler(this.CmbSubject1Update_SelectedIndexChanged);
             // 
-            // label34
+            // lblUpdateSubject
             // 
-            this.label34.AutoSize = true;
-            this.label34.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label34.Location = new System.Drawing.Point(378, 89);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(74, 25);
-            this.label34.TabIndex = 29;
-            this.label34.Text = "Subject";
+            this.lblUpdateSubject.AutoSize = true;
+            this.lblUpdateSubject.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblUpdateSubject.Location = new System.Drawing.Point(378, 89);
+            this.lblUpdateSubject.Name = "lblUpdateSubject";
+            this.lblUpdateSubject.Size = new System.Drawing.Size(74, 25);
+            this.lblUpdateSubject.TabIndex = 29;
+            this.lblUpdateSubject.Text = "Subject";
             // 
             // DtJoiningDateUpdate
             // 
             this.DtJoiningDateUpdate.Location = new System.Drawing.Point(862, 41);
             this.DtJoiningDateUpdate.Name = "DtJoiningDateUpdate";
             this.DtJoiningDateUpdate.Size = new System.Drawing.Size(205, 34);
-            this.DtJoiningDateUpdate.TabIndex = 18;
+            this.DtJoiningDateUpdate.TabIndex = 110;
             // 
             // CmbQualUpdate
             // 
@@ -263,7 +324,7 @@ namespace Staff_Management
             this.CmbQualUpdate.Location = new System.Drawing.Point(148, 35);
             this.CmbQualUpdate.Name = "CmbQualUpdate";
             this.CmbQualUpdate.Size = new System.Drawing.Size(198, 36);
-            this.CmbQualUpdate.TabIndex = 18;
+            this.CmbQualUpdate.TabIndex = 70;
             // 
             // TxtExpUpdate
             // 
@@ -271,37 +332,37 @@ namespace Staff_Management
             this.TxtExpUpdate.Multiline = true;
             this.TxtExpUpdate.Name = "TxtExpUpdate";
             this.TxtExpUpdate.Size = new System.Drawing.Size(288, 75);
-            this.TxtExpUpdate.TabIndex = 22;
+            this.TxtExpUpdate.TabIndex = 115;
             // 
-            // label35
+            // lblUpdateExp
             // 
-            this.label35.AutoSize = true;
-            this.label35.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label35.Location = new System.Drawing.Point(737, 108);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(102, 25);
-            this.label35.TabIndex = 21;
-            this.label35.Text = "Experience";
+            this.lblUpdateExp.AutoSize = true;
+            this.lblUpdateExp.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblUpdateExp.Location = new System.Drawing.Point(737, 108);
+            this.lblUpdateExp.Name = "lblUpdateExp";
+            this.lblUpdateExp.Size = new System.Drawing.Size(102, 25);
+            this.lblUpdateExp.TabIndex = 21;
+            this.lblUpdateExp.Text = "Experience";
             // 
-            // label36
+            // lblUpdateJoiningDate
             // 
-            this.label36.AutoSize = true;
-            this.label36.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label36.Location = new System.Drawing.Point(737, 35);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(78, 50);
-            this.label36.TabIndex = 20;
-            this.label36.Text = "Joining \r\nDate";
+            this.lblUpdateJoiningDate.AutoSize = true;
+            this.lblUpdateJoiningDate.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblUpdateJoiningDate.Location = new System.Drawing.Point(737, 35);
+            this.lblUpdateJoiningDate.Name = "lblUpdateJoiningDate";
+            this.lblUpdateJoiningDate.Size = new System.Drawing.Size(78, 50);
+            this.lblUpdateJoiningDate.TabIndex = 20;
+            this.lblUpdateJoiningDate.Text = "Joining \r\nDate";
             // 
-            // label38
+            // lblUpdateQualification
             // 
-            this.label38.AutoSize = true;
-            this.label38.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label38.Location = new System.Drawing.Point(27, 41);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(118, 25);
-            this.label38.TabIndex = 8;
-            this.label38.Text = "Qualification";
+            this.lblUpdateQualification.AutoSize = true;
+            this.lblUpdateQualification.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblUpdateQualification.Location = new System.Drawing.Point(27, 41);
+            this.lblUpdateQualification.Name = "lblUpdateQualification";
+            this.lblUpdateQualification.Size = new System.Drawing.Size(118, 25);
+            this.lblUpdateQualification.TabIndex = 8;
+            this.lblUpdateQualification.Text = "Qualification";
             // 
             // BtnResetUpdatePage
             // 
@@ -316,42 +377,61 @@ namespace Staff_Management
             this.BtnResetUpdatePage.UseVisualStyleBackColor = false;
             this.BtnResetUpdatePage.Click += new System.EventHandler(this.BtnResetUpdatePage_Click);
             // 
-            // BtnUpdateStaff
+            // BtnUpdate
             // 
-            this.BtnUpdateStaff.BackColor = System.Drawing.Color.Azure;
-            this.BtnUpdateStaff.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.BtnUpdateStaff.Location = new System.Drawing.Point(262, 760);
-            this.BtnUpdateStaff.Name = "BtnUpdateStaff";
-            this.BtnUpdateStaff.Padding = new System.Windows.Forms.Padding(5);
-            this.BtnUpdateStaff.Size = new System.Drawing.Size(112, 46);
-            this.BtnUpdateStaff.TabIndex = 21;
-            this.BtnUpdateStaff.Text = "Update";
-            this.BtnUpdateStaff.UseVisualStyleBackColor = false;
-            this.BtnUpdateStaff.Click += new System.EventHandler(this.BtnUpdateStaff_Click);
+            this.BtnUpdate.BackColor = System.Drawing.Color.Azure;
+            this.BtnUpdate.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.BtnUpdate.Location = new System.Drawing.Point(262, 760);
+            this.BtnUpdate.Name = "BtnUpdate";
+            this.BtnUpdate.Padding = new System.Windows.Forms.Padding(5);
+            this.BtnUpdate.Size = new System.Drawing.Size(112, 46);
+            this.BtnUpdate.TabIndex = 21;
+            this.BtnUpdate.Text = "Update";
+            this.BtnUpdate.UseVisualStyleBackColor = false;
+            this.BtnUpdate.Click += new System.EventHandler(this.BtnUpdateStaff_Click);
             // 
-            // groupBox5
+            // grpBoxUpdateContactDetail
             // 
-            this.groupBox5.Controls.Add(this.TxtPasswordUpdate);
-            this.groupBox5.Controls.Add(this.label40);
-            this.groupBox5.Controls.Add(this.TxtAddressUpdate);
-            this.groupBox5.Controls.Add(this.label32);
-            this.groupBox5.Controls.Add(this.CmbStateUpdate);
-            this.groupBox5.Controls.Add(this.CmbCityUpdate);
-            this.groupBox5.Controls.Add(this.TxtOtherConNoUpdate);
-            this.groupBox5.Controls.Add(this.TxtMobNoUpdate);
-            this.groupBox5.Controls.Add(this.TxtEmailUpdate);
-            this.groupBox5.Controls.Add(this.label28);
-            this.groupBox5.Controls.Add(this.label29);
-            this.groupBox5.Controls.Add(this.label30);
-            this.groupBox5.Controls.Add(this.label31);
-            this.groupBox5.Controls.Add(this.label33);
-            this.groupBox5.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.groupBox5.Location = new System.Drawing.Point(619, 92);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(524, 399);
-            this.groupBox5.TabIndex = 19;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Contact Details";
+            this.grpBoxUpdateContactDetail.Controls.Add(this.TxtPasswordUpdate);
+            this.grpBoxUpdateContactDetail.Controls.Add(this.lblUpdatePassword);
+            this.grpBoxUpdateContactDetail.Controls.Add(this.TxtAddressUpdate);
+            this.grpBoxUpdateContactDetail.Controls.Add(this.lblUpdateAddress);
+            this.grpBoxUpdateContactDetail.Controls.Add(this.CmbStateUpdate);
+            this.grpBoxUpdateContactDetail.Controls.Add(this.CmbCityUpdate);
+            this.grpBoxUpdateContactDetail.Controls.Add(this.TxtOtherConNoUpdate);
+            this.grpBoxUpdateContactDetail.Controls.Add(this.TxtMobNoUpdate);
+            this.grpBoxUpdateContactDetail.Controls.Add(this.TxtEmailUpdate);
+            this.grpBoxUpdateContactDetail.Controls.Add(this.lblUpdateOther);
+            this.grpBoxUpdateContactDetail.Controls.Add(this.lblUpdateMobile);
+            this.grpBoxUpdateContactDetail.Controls.Add(this.lblUpdateEmail);
+            this.grpBoxUpdateContactDetail.Controls.Add(this.lblUpdateCity);
+            this.grpBoxUpdateContactDetail.Controls.Add(this.lblUpdateState);
+            this.grpBoxUpdateContactDetail.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.grpBoxUpdateContactDetail.Location = new System.Drawing.Point(619, 92);
+            this.grpBoxUpdateContactDetail.Name = "grpBoxUpdateContactDetail";
+            this.grpBoxUpdateContactDetail.Size = new System.Drawing.Size(524, 399);
+            this.grpBoxUpdateContactDetail.TabIndex = 19;
+            this.grpBoxUpdateContactDetail.TabStop = false;
+            this.grpBoxUpdateContactDetail.Text = "Contact Details";
+            // 
+            // TxtPasswordUpdate
+            // 
+            this.TxtPasswordUpdate.Location = new System.Drawing.Point(204, 172);
+            this.TxtPasswordUpdate.Name = "TxtPasswordUpdate";
+            this.TxtPasswordUpdate.PasswordChar = '*';
+            this.TxtPasswordUpdate.Size = new System.Drawing.Size(254, 34);
+            this.TxtPasswordUpdate.TabIndex = 50;
+            this.TxtPasswordUpdate.Validating += new System.ComponentModel.CancelEventHandler(this.TxtPasswordUpdate_Validating);
+            // 
+            // lblUpdatePassword
+            // 
+            this.lblUpdatePassword.AutoSize = true;
+            this.lblUpdatePassword.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblUpdatePassword.Location = new System.Drawing.Point(31, 177);
+            this.lblUpdatePassword.Name = "lblUpdatePassword";
+            this.lblUpdatePassword.Size = new System.Drawing.Size(90, 25);
+            this.lblUpdatePassword.TabIndex = 28;
+            this.lblUpdatePassword.Text = "Password";
             // 
             // TxtAddressUpdate
             // 
@@ -359,17 +439,17 @@ namespace Staff_Management
             this.TxtAddressUpdate.Multiline = true;
             this.TxtAddressUpdate.Name = "TxtAddressUpdate";
             this.TxtAddressUpdate.Size = new System.Drawing.Size(294, 75);
-            this.TxtAddressUpdate.TabIndex = 25;
+            this.TxtAddressUpdate.TabIndex = 65;
             // 
-            // label32
+            // lblUpdateAddress
             // 
-            this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label32.Location = new System.Drawing.Point(29, 295);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(79, 25);
-            this.label32.TabIndex = 24;
-            this.label32.Text = "Address";
+            this.lblUpdateAddress.AutoSize = true;
+            this.lblUpdateAddress.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblUpdateAddress.Location = new System.Drawing.Point(29, 295);
+            this.lblUpdateAddress.Name = "lblUpdateAddress";
+            this.lblUpdateAddress.Size = new System.Drawing.Size(79, 25);
+            this.lblUpdateAddress.TabIndex = 24;
+            this.lblUpdateAddress.Text = "Address";
             // 
             // CmbStateUpdate
             // 
@@ -377,7 +457,7 @@ namespace Staff_Management
             this.CmbStateUpdate.Location = new System.Drawing.Point(204, 45);
             this.CmbStateUpdate.Name = "CmbStateUpdate";
             this.CmbStateUpdate.Size = new System.Drawing.Size(254, 36);
-            this.CmbStateUpdate.TabIndex = 23;
+            this.CmbStateUpdate.TabIndex = 35;
             this.CmbStateUpdate.SelectedIndexChanged += new System.EventHandler(this.CmbStateUpdate_SelectedIndexChanged);
             // 
             // CmbCityUpdate
@@ -386,107 +466,110 @@ namespace Staff_Management
             this.CmbCityUpdate.Location = new System.Drawing.Point(204, 87);
             this.CmbCityUpdate.Name = "CmbCityUpdate";
             this.CmbCityUpdate.Size = new System.Drawing.Size(254, 36);
-            this.CmbCityUpdate.TabIndex = 22;
+            this.CmbCityUpdate.TabIndex = 40;
             // 
             // TxtOtherConNoUpdate
             // 
             this.TxtOtherConNoUpdate.Location = new System.Drawing.Point(204, 251);
             this.TxtOtherConNoUpdate.Name = "TxtOtherConNoUpdate";
             this.TxtOtherConNoUpdate.Size = new System.Drawing.Size(254, 34);
-            this.TxtOtherConNoUpdate.TabIndex = 21;
+            this.TxtOtherConNoUpdate.TabIndex = 60;
+            this.TxtOtherConNoUpdate.Validating += new System.ComponentModel.CancelEventHandler(this.TxtOtherConNoUpdate_Validating);
             // 
             // TxtMobNoUpdate
             // 
             this.TxtMobNoUpdate.Location = new System.Drawing.Point(204, 211);
             this.TxtMobNoUpdate.Name = "TxtMobNoUpdate";
             this.TxtMobNoUpdate.Size = new System.Drawing.Size(254, 34);
-            this.TxtMobNoUpdate.TabIndex = 20;
+            this.TxtMobNoUpdate.TabIndex = 55;
+            this.TxtMobNoUpdate.Validating += new System.ComponentModel.CancelEventHandler(this.TxtMobNoUpdate_Validating);
             // 
             // TxtEmailUpdate
             // 
             this.TxtEmailUpdate.Location = new System.Drawing.Point(204, 132);
             this.TxtEmailUpdate.Name = "TxtEmailUpdate";
             this.TxtEmailUpdate.Size = new System.Drawing.Size(254, 34);
-            this.TxtEmailUpdate.TabIndex = 19;
+            this.TxtEmailUpdate.TabIndex = 45;
+            this.TxtEmailUpdate.Validating += new System.ComponentModel.CancelEventHandler(this.TxtEmailUpdate_Validating);
             // 
-            // label28
+            // lblUpdateOther
             // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label28.Location = new System.Drawing.Point(31, 256);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(163, 25);
-            this.label28.TabIndex = 17;
-            this.label28.Text = "Other Contact No.";
+            this.lblUpdateOther.AutoSize = true;
+            this.lblUpdateOther.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblUpdateOther.Location = new System.Drawing.Point(31, 256);
+            this.lblUpdateOther.Name = "lblUpdateOther";
+            this.lblUpdateOther.Size = new System.Drawing.Size(163, 25);
+            this.lblUpdateOther.TabIndex = 17;
+            this.lblUpdateOther.Text = "Other Contact No.";
             // 
-            // label29
+            // lblUpdateMobile
             // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label29.Location = new System.Drawing.Point(31, 217);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(105, 25);
-            this.label29.TabIndex = 16;
-            this.label29.Text = "Mobile No.";
+            this.lblUpdateMobile.AutoSize = true;
+            this.lblUpdateMobile.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblUpdateMobile.Location = new System.Drawing.Point(31, 217);
+            this.lblUpdateMobile.Name = "lblUpdateMobile";
+            this.lblUpdateMobile.Size = new System.Drawing.Size(105, 25);
+            this.lblUpdateMobile.TabIndex = 16;
+            this.lblUpdateMobile.Text = "Mobile No.";
             // 
-            // label30
+            // lblUpdateEmail
             // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label30.Location = new System.Drawing.Point(31, 138);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(79, 25);
-            this.label30.TabIndex = 15;
-            this.label30.Text = "Email ID";
+            this.lblUpdateEmail.AutoSize = true;
+            this.lblUpdateEmail.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblUpdateEmail.Location = new System.Drawing.Point(31, 138);
+            this.lblUpdateEmail.Name = "lblUpdateEmail";
+            this.lblUpdateEmail.Size = new System.Drawing.Size(79, 25);
+            this.lblUpdateEmail.TabIndex = 15;
+            this.lblUpdateEmail.Text = "Email ID";
             // 
-            // label31
+            // lblUpdateCity
             // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label31.Location = new System.Drawing.Point(31, 94);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(44, 25);
-            this.label31.TabIndex = 14;
-            this.label31.Text = "City";
+            this.lblUpdateCity.AutoSize = true;
+            this.lblUpdateCity.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblUpdateCity.Location = new System.Drawing.Point(31, 94);
+            this.lblUpdateCity.Name = "lblUpdateCity";
+            this.lblUpdateCity.Size = new System.Drawing.Size(44, 25);
+            this.lblUpdateCity.TabIndex = 14;
+            this.lblUpdateCity.Text = "City";
             // 
-            // label33
+            // lblUpdateState
             // 
-            this.label33.AutoSize = true;
-            this.label33.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label33.Location = new System.Drawing.Point(31, 51);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(54, 25);
-            this.label33.TabIndex = 12;
-            this.label33.Text = "State";
+            this.lblUpdateState.AutoSize = true;
+            this.lblUpdateState.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblUpdateState.Location = new System.Drawing.Point(31, 51);
+            this.lblUpdateState.Name = "lblUpdateState";
+            this.lblUpdateState.Size = new System.Drawing.Size(54, 25);
+            this.lblUpdateState.TabIndex = 12;
+            this.lblUpdateState.Text = "State";
             // 
-            // groupBox4
+            // grpBoxUpdatePersonalDetail
             // 
-            this.groupBox4.Controls.Add(this.DtDOBUpdate);
-            this.groupBox4.Controls.Add(this.CmbCategoryUpdate);
-            this.groupBox4.Controls.Add(this.CmbGenderUpdate);
-            this.groupBox4.Controls.Add(this.TxtFatherNameUpdate);
-            this.groupBox4.Controls.Add(this.TxtMotherNameUpdate);
-            this.groupBox4.Controls.Add(this.TxtStaffNameUpdate);
-            this.groupBox4.Controls.Add(this.label22);
-            this.groupBox4.Controls.Add(this.label23);
-            this.groupBox4.Controls.Add(this.label24);
-            this.groupBox4.Controls.Add(this.label25);
-            this.groupBox4.Controls.Add(this.label26);
-            this.groupBox4.Controls.Add(this.label27);
-            this.groupBox4.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.groupBox4.Location = new System.Drawing.Point(28, 92);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(521, 358);
-            this.groupBox4.TabIndex = 18;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Personal Details";
+            this.grpBoxUpdatePersonalDetail.Controls.Add(this.DtDOBUpdate);
+            this.grpBoxUpdatePersonalDetail.Controls.Add(this.CmbCategoryUpdate);
+            this.grpBoxUpdatePersonalDetail.Controls.Add(this.CmbGenderUpdate);
+            this.grpBoxUpdatePersonalDetail.Controls.Add(this.TxtFatherNameUpdate);
+            this.grpBoxUpdatePersonalDetail.Controls.Add(this.TxtMotherNameUpdate);
+            this.grpBoxUpdatePersonalDetail.Controls.Add(this.TxtStaffNameUpdate);
+            this.grpBoxUpdatePersonalDetail.Controls.Add(this.lblUpdateCategory);
+            this.grpBoxUpdatePersonalDetail.Controls.Add(this.lblUpdateDOB);
+            this.grpBoxUpdatePersonalDetail.Controls.Add(this.lblUpdateGender);
+            this.grpBoxUpdatePersonalDetail.Controls.Add(this.lblUpdateMName);
+            this.grpBoxUpdatePersonalDetail.Controls.Add(this.lblUpdateFName);
+            this.grpBoxUpdatePersonalDetail.Controls.Add(this.lblUpdateName);
+            this.grpBoxUpdatePersonalDetail.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.grpBoxUpdatePersonalDetail.Location = new System.Drawing.Point(28, 92);
+            this.grpBoxUpdatePersonalDetail.Name = "grpBoxUpdatePersonalDetail";
+            this.grpBoxUpdatePersonalDetail.Size = new System.Drawing.Size(521, 358);
+            this.grpBoxUpdatePersonalDetail.TabIndex = 18;
+            this.grpBoxUpdatePersonalDetail.TabStop = false;
+            this.grpBoxUpdatePersonalDetail.Text = "Personal Details";
             // 
             // DtDOBUpdate
             // 
             this.DtDOBUpdate.Location = new System.Drawing.Point(205, 217);
             this.DtDOBUpdate.Name = "DtDOBUpdate";
             this.DtDOBUpdate.Size = new System.Drawing.Size(254, 34);
-            this.DtDOBUpdate.TabIndex = 17;
+            this.DtDOBUpdate.TabIndex = 25;
             // 
             // CmbCategoryUpdate
             // 
@@ -494,7 +577,7 @@ namespace Staff_Management
             this.CmbCategoryUpdate.Location = new System.Drawing.Point(205, 257);
             this.CmbCategoryUpdate.Name = "CmbCategoryUpdate";
             this.CmbCategoryUpdate.Size = new System.Drawing.Size(254, 36);
-            this.CmbCategoryUpdate.TabIndex = 16;
+            this.CmbCategoryUpdate.TabIndex = 30;
             // 
             // CmbGenderUpdate
             // 
@@ -502,88 +585,89 @@ namespace Staff_Management
             this.CmbGenderUpdate.Location = new System.Drawing.Point(207, 177);
             this.CmbGenderUpdate.Name = "CmbGenderUpdate";
             this.CmbGenderUpdate.Size = new System.Drawing.Size(254, 36);
-            this.CmbGenderUpdate.TabIndex = 15;
+            this.CmbGenderUpdate.TabIndex = 20;
             // 
             // TxtFatherNameUpdate
             // 
             this.TxtFatherNameUpdate.Location = new System.Drawing.Point(206, 94);
             this.TxtFatherNameUpdate.Name = "TxtFatherNameUpdate";
             this.TxtFatherNameUpdate.Size = new System.Drawing.Size(254, 34);
-            this.TxtFatherNameUpdate.TabIndex = 14;
+            this.TxtFatherNameUpdate.TabIndex = 10;
             // 
             // TxtMotherNameUpdate
             // 
             this.TxtMotherNameUpdate.Location = new System.Drawing.Point(206, 137);
             this.TxtMotherNameUpdate.Name = "TxtMotherNameUpdate";
             this.TxtMotherNameUpdate.Size = new System.Drawing.Size(254, 34);
-            this.TxtMotherNameUpdate.TabIndex = 13;
+            this.TxtMotherNameUpdate.TabIndex = 15;
             // 
             // TxtStaffNameUpdate
             // 
             this.TxtStaffNameUpdate.Location = new System.Drawing.Point(206, 54);
             this.TxtStaffNameUpdate.Name = "TxtStaffNameUpdate";
             this.TxtStaffNameUpdate.Size = new System.Drawing.Size(254, 34);
-            this.TxtStaffNameUpdate.TabIndex = 12;
+            this.TxtStaffNameUpdate.TabIndex = 5;
+            this.TxtStaffNameUpdate.Validating += new System.ComponentModel.CancelEventHandler(this.TxtStaffNameUpdate_Validating);
             // 
-            // label22
+            // lblUpdateCategory
             // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label22.Location = new System.Drawing.Point(28, 263);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(88, 25);
-            this.label22.TabIndex = 11;
-            this.label22.Text = "Category";
+            this.lblUpdateCategory.AutoSize = true;
+            this.lblUpdateCategory.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblUpdateCategory.Location = new System.Drawing.Point(28, 263);
+            this.lblUpdateCategory.Name = "lblUpdateCategory";
+            this.lblUpdateCategory.Size = new System.Drawing.Size(88, 25);
+            this.lblUpdateCategory.TabIndex = 11;
+            this.lblUpdateCategory.Text = "Category";
             // 
-            // label23
+            // lblUpdateDOB
             // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label23.Location = new System.Drawing.Point(28, 215);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(56, 25);
-            this.label23.TabIndex = 10;
-            this.label23.Text = "D.O.B";
+            this.lblUpdateDOB.AutoSize = true;
+            this.lblUpdateDOB.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblUpdateDOB.Location = new System.Drawing.Point(28, 215);
+            this.lblUpdateDOB.Name = "lblUpdateDOB";
+            this.lblUpdateDOB.Size = new System.Drawing.Size(56, 25);
+            this.lblUpdateDOB.TabIndex = 10;
+            this.lblUpdateDOB.Text = "D.O.B";
             // 
-            // label24
+            // lblUpdateGender
             // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label24.Location = new System.Drawing.Point(28, 177);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(74, 25);
-            this.label24.TabIndex = 9;
-            this.label24.Text = "Gender";
+            this.lblUpdateGender.AutoSize = true;
+            this.lblUpdateGender.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblUpdateGender.Location = new System.Drawing.Point(28, 177);
+            this.lblUpdateGender.Name = "lblUpdateGender";
+            this.lblUpdateGender.Size = new System.Drawing.Size(74, 25);
+            this.lblUpdateGender.TabIndex = 9;
+            this.lblUpdateGender.Text = "Gender";
             // 
-            // label25
+            // lblUpdateMName
             // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label25.Location = new System.Drawing.Point(28, 132);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(140, 25);
-            this.label25.TabIndex = 8;
-            this.label25.Text = "Mother\'s Name";
+            this.lblUpdateMName.AutoSize = true;
+            this.lblUpdateMName.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblUpdateMName.Location = new System.Drawing.Point(28, 132);
+            this.lblUpdateMName.Name = "lblUpdateMName";
+            this.lblUpdateMName.Size = new System.Drawing.Size(140, 25);
+            this.lblUpdateMName.TabIndex = 8;
+            this.lblUpdateMName.Text = "Mother\'s Name";
             // 
-            // label26
+            // lblUpdateFName
             // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label26.Location = new System.Drawing.Point(28, 91);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(129, 25);
-            this.label26.TabIndex = 7;
-            this.label26.Text = "Father\'s Name";
+            this.lblUpdateFName.AutoSize = true;
+            this.lblUpdateFName.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblUpdateFName.Location = new System.Drawing.Point(28, 91);
+            this.lblUpdateFName.Name = "lblUpdateFName";
+            this.lblUpdateFName.Size = new System.Drawing.Size(129, 25);
+            this.lblUpdateFName.TabIndex = 7;
+            this.lblUpdateFName.Text = "Father\'s Name";
             // 
-            // label27
+            // lblUpdateName
             // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label27.Location = new System.Drawing.Point(28, 48);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(61, 25);
-            this.label27.TabIndex = 6;
-            this.label27.Text = "Name";
+            this.lblUpdateName.AutoSize = true;
+            this.lblUpdateName.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblUpdateName.Location = new System.Drawing.Point(28, 48);
+            this.lblUpdateName.Name = "lblUpdateName";
+            this.lblUpdateName.Size = new System.Drawing.Size(61, 25);
+            this.lblUpdateName.TabIndex = 6;
+            this.lblUpdateName.Text = "Name";
             // 
             // BtnSearch
             // 
@@ -604,531 +688,64 @@ namespace Staff_Management
             this.TxtIDUpdate.Name = "TxtIDUpdate";
             this.TxtIDUpdate.Size = new System.Drawing.Size(150, 32);
             this.TxtIDUpdate.TabIndex = 1;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(41, 34);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(84, 28);
-            this.label20.TabIndex = 0;
-            this.label20.Text = "Staff ID";
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.BackColor = System.Drawing.Color.MediumTurquoise;
-            this.tabPage2.Controls.Add(this.groupBox2);
-            this.tabPage2.Controls.Add(this.BtnResetStaff);
-            this.tabPage2.Controls.Add(this.BtnSaveStaff);
-            this.tabPage2.Controls.Add(this.groupBox3);
-            this.tabPage2.Controls.Add(this.groupBox1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 37);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1211, 821);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Add";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.TxtPassword);
-            this.groupBox2.Controls.Add(this.lblpassword);
-            this.groupBox2.Controls.Add(this.TxtAddress);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.CmbState);
-            this.groupBox2.Controls.Add(this.CmbCity);
-            this.groupBox2.Controls.Add(this.TxtOtherConNo);
-            this.groupBox2.Controls.Add(this.TxtMobNo);
-            this.groupBox2.Controls.Add(this.TxtEmail);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.groupBox2.Location = new System.Drawing.Point(610, 24);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(524, 390);
-            this.groupBox2.TabIndex = 20;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Contact Details";
-            // 
-            // TxtAddress
-            // 
-            this.TxtAddress.Location = new System.Drawing.Point(202, 294);
-            this.TxtAddress.Multiline = true;
-            this.TxtAddress.Name = "TxtAddress";
-            this.TxtAddress.Size = new System.Drawing.Size(294, 75);
-            this.TxtAddress.TabIndex = 25;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(29, 297);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(79, 25);
-            this.label6.TabIndex = 24;
-            this.label6.Text = "Address";
-            // 
-            // CmbState
-            // 
-            this.CmbState.DropDownWidth = 213;
-            this.CmbState.FormattingEnabled = true;
-            this.CmbState.Location = new System.Drawing.Point(204, 45);
-            this.CmbState.Name = "CmbState";
-            this.CmbState.Size = new System.Drawing.Size(254, 36);
-            this.CmbState.TabIndex = 23;
-            this.CmbState.SelectedIndexChanged += new System.EventHandler(this.CmbState_SelectedIndexChanged);
-            // 
-            // CmbCity
-            // 
-            this.CmbCity.FormattingEnabled = true;
-            this.CmbCity.Location = new System.Drawing.Point(204, 87);
-            this.CmbCity.Name = "CmbCity";
-            this.CmbCity.Size = new System.Drawing.Size(254, 36);
-            this.CmbCity.TabIndex = 22;
-            // 
-            // TxtOtherConNo
-            // 
-            this.TxtOtherConNo.Location = new System.Drawing.Point(204, 253);
-            this.TxtOtherConNo.Name = "TxtOtherConNo";
-            this.TxtOtherConNo.Size = new System.Drawing.Size(254, 34);
-            this.TxtOtherConNo.TabIndex = 21;
-            // 
-            // TxtMobNo
-            // 
-            this.TxtMobNo.Location = new System.Drawing.Point(204, 213);
-            this.TxtMobNo.Name = "TxtMobNo";
-            this.TxtMobNo.Size = new System.Drawing.Size(254, 34);
-            this.TxtMobNo.TabIndex = 20;
-            // 
-            // TxtEmail
-            // 
-            this.TxtEmail.Location = new System.Drawing.Point(204, 132);
-            this.TxtEmail.Name = "TxtEmail";
-            this.TxtEmail.Size = new System.Drawing.Size(254, 34);
-            this.TxtEmail.TabIndex = 19;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(31, 258);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(163, 25);
-            this.label7.TabIndex = 17;
-            this.label7.Text = "Other Contact No.";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(31, 219);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(105, 25);
-            this.label8.TabIndex = 16;
-            this.label8.Text = "Mobile No.";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(31, 138);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(79, 25);
-            this.label9.TabIndex = 15;
-            this.label9.Text = "Email ID";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label10.Location = new System.Drawing.Point(31, 94);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(44, 25);
-            this.label10.TabIndex = 14;
-            this.label10.Text = "City";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label11.Location = new System.Drawing.Point(31, 51);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(54, 25);
-            this.label11.TabIndex = 12;
-            this.label11.Text = "State";
-            // 
-            // BtnResetStaff
-            // 
-            this.BtnResetStaff.BackColor = System.Drawing.Color.Azure;
-            this.BtnResetStaff.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.BtnResetStaff.Location = new System.Drawing.Point(405, 728);
-            this.BtnResetStaff.Name = "BtnResetStaff";
-            this.BtnResetStaff.Padding = new System.Windows.Forms.Padding(5);
-            this.BtnResetStaff.Size = new System.Drawing.Size(112, 46);
-            this.BtnResetStaff.TabIndex = 17;
-            this.BtnResetStaff.Text = "Reset";
-            this.BtnResetStaff.UseVisualStyleBackColor = false;
-            this.BtnResetStaff.Click += new System.EventHandler(this.BtnResetStaff_Click);
-            // 
-            // BtnSaveStaff
-            // 
-            this.BtnSaveStaff.BackColor = System.Drawing.Color.Azure;
-            this.BtnSaveStaff.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.BtnSaveStaff.Location = new System.Drawing.Point(233, 728);
-            this.BtnSaveStaff.Name = "BtnSaveStaff";
-            this.BtnSaveStaff.Padding = new System.Windows.Forms.Padding(5);
-            this.BtnSaveStaff.Size = new System.Drawing.Size(112, 46);
-            this.BtnSaveStaff.TabIndex = 16;
-            this.BtnSaveStaff.Text = "Save";
-            this.BtnSaveStaff.UseVisualStyleBackColor = false;
-            this.BtnSaveStaff.Click += new System.EventHandler(this.BtnSaveStaff_Click);
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.CmbDept);
-            this.groupBox3.Controls.Add(this.label14);
-            this.groupBox3.Controls.Add(this.CmbRole);
-            this.groupBox3.Controls.Add(this.label41);
-            this.groupBox3.Controls.Add(this.CmbSubject3);
-            this.groupBox3.Controls.Add(this.CmbSubject2);
-            this.groupBox3.Controls.Add(this.TxtSalary);
-            this.groupBox3.Controls.Add(this.label16);
-            this.groupBox3.Controls.Add(this.CmbSubject1);
-            this.groupBox3.Controls.Add(this.label15);
-            this.groupBox3.Controls.Add(this.DtJoiningDate);
-            this.groupBox3.Controls.Add(this.CmbDesg);
-            this.groupBox3.Controls.Add(this.CmbQual);
-            this.groupBox3.Controls.Add(this.TxtExp);
-            this.groupBox3.Controls.Add(this.label18);
-            this.groupBox3.Controls.Add(this.label17);
-            this.groupBox3.Controls.Add(this.label13);
-            this.groupBox3.Controls.Add(this.label12);
-            this.groupBox3.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.groupBox3.Location = new System.Drawing.Point(27, 446);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1156, 257);
-            this.groupBox3.TabIndex = 15;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Work Details";
-            // 
-            // CmbSubject3
-            // 
-            this.CmbSubject3.FormattingEnabled = true;
-            this.CmbSubject3.Location = new System.Drawing.Point(483, 173);
-            this.CmbSubject3.Name = "CmbSubject3";
-            this.CmbSubject3.Size = new System.Drawing.Size(210, 36);
-            this.CmbSubject3.TabIndex = 34;
-            // 
-            // CmbSubject2
-            // 
-            this.CmbSubject2.FormattingEnabled = true;
-            this.CmbSubject2.Location = new System.Drawing.Point(483, 131);
-            this.CmbSubject2.Name = "CmbSubject2";
-            this.CmbSubject2.Size = new System.Drawing.Size(210, 36);
-            this.CmbSubject2.TabIndex = 33;
-            this.CmbSubject2.SelectedIndexChanged += new System.EventHandler(this.CmbSubject2_SelectedIndexChanged);
-            // 
-            // TxtSalary
-            // 
-            this.TxtSalary.Location = new System.Drawing.Point(146, 187);
-            this.TxtSalary.Name = "TxtSalary";
-            this.TxtSalary.Size = new System.Drawing.Size(200, 34);
-            this.TxtSalary.TabIndex = 32;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label16.Location = new System.Drawing.Point(27, 190);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(62, 25);
-            this.label16.TabIndex = 31;
-            this.label16.Text = "Salary";
-            // 
-            // CmbSubject1
-            // 
-            this.CmbSubject1.FormattingEnabled = true;
-            this.CmbSubject1.Location = new System.Drawing.Point(483, 91);
-            this.CmbSubject1.Name = "CmbSubject1";
-            this.CmbSubject1.Size = new System.Drawing.Size(210, 36);
-            this.CmbSubject1.TabIndex = 30;
-            this.CmbSubject1.SelectedIndexChanged += new System.EventHandler(this.CmbSubject1_SelectedIndexChanged);
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label15.Location = new System.Drawing.Point(378, 91);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(74, 25);
-            this.label15.TabIndex = 29;
-            this.label15.Text = "Subject";
-            // 
-            // DtJoiningDate
-            // 
-            this.DtJoiningDate.Location = new System.Drawing.Point(847, 40);
-            this.DtJoiningDate.Name = "DtJoiningDate";
-            this.DtJoiningDate.Size = new System.Drawing.Size(205, 34);
-            this.DtJoiningDate.TabIndex = 18;
-            // 
-            // CmbDesg
-            // 
-            this.CmbDesg.FormattingEnabled = true;
-            this.CmbDesg.Location = new System.Drawing.Point(146, 136);
-            this.CmbDesg.Name = "CmbDesg";
-            this.CmbDesg.Size = new System.Drawing.Size(200, 36);
-            this.CmbDesg.TabIndex = 23;
-            // 
-            // CmbQual
-            // 
-            this.CmbQual.FormattingEnabled = true;
-            this.CmbQual.Location = new System.Drawing.Point(148, 35);
-            this.CmbQual.Name = "CmbQual";
-            this.CmbQual.Size = new System.Drawing.Size(198, 36);
-            this.CmbQual.TabIndex = 18;
-            // 
-            // TxtExp
-            // 
-            this.TxtExp.Location = new System.Drawing.Point(847, 91);
-            this.TxtExp.Multiline = true;
-            this.TxtExp.Name = "TxtExp";
-            this.TxtExp.Size = new System.Drawing.Size(288, 75);
-            this.TxtExp.TabIndex = 22;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label18.Location = new System.Drawing.Point(729, 91);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(102, 25);
-            this.label18.TabIndex = 21;
-            this.label18.Text = "Experience";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label17.Location = new System.Drawing.Point(729, 35);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(78, 50);
-            this.label17.TabIndex = 20;
-            this.label17.Text = "Joining \r\nDate";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label13.Location = new System.Drawing.Point(27, 41);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(118, 25);
-            this.label13.TabIndex = 8;
-            this.label13.Text = "Qualification";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label12.Location = new System.Drawing.Point(27, 137);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(113, 25);
-            this.label12.TabIndex = 7;
-            this.label12.Text = "Designation";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.TxtStaffID);
-            this.groupBox1.Controls.Add(this.label19);
-            this.groupBox1.Controls.Add(this.DtDOB);
-            this.groupBox1.Controls.Add(this.CmbCategory);
-            this.groupBox1.Controls.Add(this.CmbGender);
-            this.groupBox1.Controls.Add(this.TxtFatherName);
-            this.groupBox1.Controls.Add(this.TxtMotherName);
-            this.groupBox1.Controls.Add(this.TxtStaffName);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.LblName);
-            this.groupBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(27, 24);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(521, 358);
-            this.groupBox1.TabIndex = 13;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Personal Details";
-            // 
-            // TxtStaffID
-            // 
-            this.TxtStaffID.Location = new System.Drawing.Point(206, 42);
-            this.TxtStaffID.Name = "TxtStaffID";
-            this.TxtStaffID.Size = new System.Drawing.Size(254, 34);
-            this.TxtStaffID.TabIndex = 19;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label19.Location = new System.Drawing.Point(27, 45);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(30, 25);
-            this.label19.TabIndex = 18;
-            this.label19.Text = "ID";
-            // 
-            // DtDOB
-            // 
-            this.DtDOB.Location = new System.Drawing.Point(204, 249);
-            this.DtDOB.Name = "DtDOB";
-            this.DtDOB.Size = new System.Drawing.Size(255, 34);
-            this.DtDOB.TabIndex = 17;
-            // 
-            // CmbCategory
-            // 
-            this.CmbCategory.FormattingEnabled = true;
-            this.CmbCategory.Location = new System.Drawing.Point(204, 289);
-            this.CmbCategory.Name = "CmbCategory";
-            this.CmbCategory.Size = new System.Drawing.Size(255, 36);
-            this.CmbCategory.TabIndex = 16;
-            // 
-            // CmbGender
-            // 
-            this.CmbGender.FormattingEnabled = true;
-            this.CmbGender.Location = new System.Drawing.Point(206, 209);
-            this.CmbGender.Name = "CmbGender";
-            this.CmbGender.Size = new System.Drawing.Size(255, 36);
-            this.CmbGender.TabIndex = 15;
-            // 
-            // TxtFatherName
-            // 
-            this.TxtFatherName.Location = new System.Drawing.Point(205, 126);
-            this.TxtFatherName.Name = "TxtFatherName";
-            this.TxtFatherName.Size = new System.Drawing.Size(255, 34);
-            this.TxtFatherName.TabIndex = 14;
-            // 
-            // TxtMotherName
-            // 
-            this.TxtMotherName.Location = new System.Drawing.Point(205, 169);
-            this.TxtMotherName.Name = "TxtMotherName";
-            this.TxtMotherName.Size = new System.Drawing.Size(255, 34);
-            this.TxtMotherName.TabIndex = 13;
-            // 
-            // TxtStaffName
-            // 
-            this.TxtStaffName.Location = new System.Drawing.Point(205, 86);
-            this.TxtStaffName.Name = "TxtStaffName";
-            this.TxtStaffName.Size = new System.Drawing.Size(255, 34);
-            this.TxtStaffName.TabIndex = 12;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(27, 295);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(88, 25);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Category";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(27, 247);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 25);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "D.O.B";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(27, 209);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(74, 25);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Gender";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(27, 164);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(140, 25);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Mother\'s Name";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(27, 123);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(129, 25);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Father\'s Name";
-            // 
-            // LblName
-            // 
-            this.LblName.AutoSize = true;
-            this.LblName.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.LblName.Location = new System.Drawing.Point(27, 80);
-            this.LblName.Name = "LblName";
-            this.LblName.Size = new System.Drawing.Size(61, 25);
-            this.LblName.TabIndex = 6;
-            this.LblName.Text = "Name";
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.BackColor = System.Drawing.Color.MediumTurquoise;
-            this.tabPage1.Controls.Add(this.BtnDelete);
-            this.tabPage1.Controls.Add(this.DataGridViewStaff);
-            this.tabPage1.Location = new System.Drawing.Point(4, 37);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1211, 777);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "View";
-            // 
-            // BtnDelete
-            // 
-            this.BtnDelete.BackColor = System.Drawing.Color.Azure;
-            this.BtnDelete.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.BtnDelete.Location = new System.Drawing.Point(129, 669);
-            this.BtnDelete.Name = "BtnDelete";
-            this.BtnDelete.Padding = new System.Windows.Forms.Padding(5);
-            this.BtnDelete.Size = new System.Drawing.Size(112, 46);
-            this.BtnDelete.TabIndex = 17;
-            this.BtnDelete.Text = "Delete";
-            this.BtnDelete.UseVisualStyleBackColor = false;
-            // 
-            // DataGridViewStaff
-            // 
-            this.DataGridViewStaff.BackgroundColor = System.Drawing.Color.MediumTurquoise;
-            this.DataGridViewStaff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridViewStaff.Location = new System.Drawing.Point(25, 22);
-            this.DataGridViewStaff.Name = "DataGridViewStaff";
-            this.DataGridViewStaff.RowHeadersWidth = 62;
-            this.DataGridViewStaff.RowTemplate.Height = 33;
-            this.DataGridViewStaff.Size = new System.Drawing.Size(1157, 629);
-            this.DataGridViewStaff.TabIndex = 0;
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Font = new System.Drawing.Font("Franklin Gothic Medium", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tabControl1.Location = new System.Drawing.Point(12, 62);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1219, 862);
-            this.tabControl1.TabIndex = 0;
+            this.TxtIDUpdate.Validating += new System.ComponentModel.CancelEventHandler(this.TxtIDUpdate_Validating);
+            // 
+            // lblSearchStaff
+            // 
+            this.lblSearchStaff.AutoSize = true;
+            this.lblSearchStaff.Location = new System.Drawing.Point(41, 34);
+            this.lblSearchStaff.Name = "lblSearchStaff";
+            this.lblSearchStaff.Size = new System.Drawing.Size(84, 28);
+            this.lblSearchStaff.TabIndex = 0;
+            this.lblSearchStaff.Text = "Staff ID";
+            // 
+            // tabPageAdd
+            // 
+            this.tabPageAdd.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.tabPageAdd.Controls.Add(this.grpBoxContactDetail);
+            this.tabPageAdd.Controls.Add(this.BtnReset);
+            this.tabPageAdd.Controls.Add(this.BtnSave);
+            this.tabPageAdd.Controls.Add(this.grpBoxWorkDetail);
+            this.tabPageAdd.Controls.Add(this.grpBoxPersonalDetail);
+            this.tabPageAdd.Location = new System.Drawing.Point(4, 37);
+            this.tabPageAdd.Name = "tabPageAdd";
+            this.tabPageAdd.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageAdd.Size = new System.Drawing.Size(1354, 844);
+            this.tabPageAdd.TabIndex = 1;
+            this.tabPageAdd.Text = "Add";
+            // 
+            // grpBoxContactDetail
+            // 
+            this.grpBoxContactDetail.Controls.Add(this.TxtPassword);
+            this.grpBoxContactDetail.Controls.Add(this.lblpassword);
+            this.grpBoxContactDetail.Controls.Add(this.TxtAddress);
+            this.grpBoxContactDetail.Controls.Add(this.lblAddress);
+            this.grpBoxContactDetail.Controls.Add(this.CmbState);
+            this.grpBoxContactDetail.Controls.Add(this.CmbCity);
+            this.grpBoxContactDetail.Controls.Add(this.TxtOtherConNo);
+            this.grpBoxContactDetail.Controls.Add(this.TxtMobNo);
+            this.grpBoxContactDetail.Controls.Add(this.TxtEmail);
+            this.grpBoxContactDetail.Controls.Add(this.lblOtherContact);
+            this.grpBoxContactDetail.Controls.Add(this.lblMobile);
+            this.grpBoxContactDetail.Controls.Add(this.lblEmail);
+            this.grpBoxContactDetail.Controls.Add(this.lblCity);
+            this.grpBoxContactDetail.Controls.Add(this.lblState);
+            this.grpBoxContactDetail.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.grpBoxContactDetail.Location = new System.Drawing.Point(610, 24);
+            this.grpBoxContactDetail.Name = "grpBoxContactDetail";
+            this.grpBoxContactDetail.Size = new System.Drawing.Size(524, 390);
+            this.grpBoxContactDetail.TabIndex = 31;
+            this.grpBoxContactDetail.TabStop = false;
+            this.grpBoxContactDetail.Text = "Contact Details";
+            // 
+            // TxtPassword
+            // 
+            this.TxtPassword.Location = new System.Drawing.Point(204, 173);
+            this.TxtPassword.Name = "TxtPassword";
+            this.TxtPassword.PasswordChar = '*';
+            this.TxtPassword.Size = new System.Drawing.Size(254, 34);
+            this.TxtPassword.TabIndex = 50;
+            this.TxtPassword.Validating += new System.ComponentModel.CancelEventHandler(this.TxtPassword_Validating);
             // 
             // lblpassword
             // 
@@ -1140,102 +757,169 @@ namespace Staff_Management
             this.lblpassword.TabIndex = 26;
             this.lblpassword.Text = "Password";
             // 
-            // TxtPassword
+            // TxtAddress
             // 
-            this.TxtPassword.Location = new System.Drawing.Point(204, 173);
-            this.TxtPassword.Name = "TxtPassword";
-            this.TxtPassword.Size = new System.Drawing.Size(254, 34);
-            this.TxtPassword.TabIndex = 27;
+            this.TxtAddress.Location = new System.Drawing.Point(202, 294);
+            this.TxtAddress.Multiline = true;
+            this.TxtAddress.Name = "TxtAddress";
+            this.TxtAddress.Size = new System.Drawing.Size(256, 75);
+            this.TxtAddress.TabIndex = 65;
             // 
-            // TxtPasswordUpdate
+            // lblAddress
             // 
-            this.TxtPasswordUpdate.Location = new System.Drawing.Point(204, 172);
-            this.TxtPasswordUpdate.Name = "TxtPasswordUpdate";
-            this.TxtPasswordUpdate.PasswordChar = '*';
-            this.TxtPasswordUpdate.Size = new System.Drawing.Size(254, 34);
-            this.TxtPasswordUpdate.TabIndex = 29;
+            this.lblAddress.AutoSize = true;
+            this.lblAddress.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblAddress.Location = new System.Drawing.Point(29, 297);
+            this.lblAddress.Name = "lblAddress";
+            this.lblAddress.Size = new System.Drawing.Size(79, 25);
+            this.lblAddress.TabIndex = 24;
+            this.lblAddress.Text = "Address";
             // 
-            // label40
+            // CmbState
             // 
-            this.label40.AutoSize = true;
-            this.label40.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label40.Location = new System.Drawing.Point(31, 177);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(90, 25);
-            this.label40.TabIndex = 28;
-            this.label40.Text = "Password";
+            this.CmbState.DropDownWidth = 213;
+            this.CmbState.FormattingEnabled = true;
+            this.CmbState.Location = new System.Drawing.Point(204, 45);
+            this.CmbState.Name = "CmbState";
+            this.CmbState.Size = new System.Drawing.Size(254, 36);
+            this.CmbState.TabIndex = 35;
+            this.CmbState.SelectedIndexChanged += new System.EventHandler(this.CmbState_SelectedIndexChanged);
             // 
-            // lblrole
+            // CmbCity
             // 
-            this.lblrole.AutoSize = true;
-            this.lblrole.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblrole.Location = new System.Drawing.Point(28, 89);
-            this.lblrole.Name = "lblrole";
-            this.lblrole.Size = new System.Drawing.Size(49, 25);
-            this.lblrole.TabIndex = 37;
-            this.lblrole.Text = "Role";
+            this.CmbCity.FormattingEnabled = true;
+            this.CmbCity.Location = new System.Drawing.Point(204, 87);
+            this.CmbCity.Name = "CmbCity";
+            this.CmbCity.Size = new System.Drawing.Size(254, 36);
+            this.CmbCity.TabIndex = 40;
             // 
-            // CmbRoleUpdate
+            // TxtOtherConNo
             // 
-            this.CmbRoleUpdate.FormattingEnabled = true;
-            this.CmbRoleUpdate.Location = new System.Drawing.Point(148, 83);
-            this.CmbRoleUpdate.Name = "CmbRoleUpdate";
-            this.CmbRoleUpdate.Size = new System.Drawing.Size(198, 36);
-            this.CmbRoleUpdate.TabIndex = 38;
+            this.TxtOtherConNo.Location = new System.Drawing.Point(204, 253);
+            this.TxtOtherConNo.Name = "TxtOtherConNo";
+            this.TxtOtherConNo.Size = new System.Drawing.Size(254, 34);
+            this.TxtOtherConNo.TabIndex = 60;
+            this.TxtOtherConNo.Validating += new System.ComponentModel.CancelEventHandler(this.TxtOtherConNo_Validating);
             // 
-            // CmbDeptUpdate
+            // TxtMobNo
             // 
-            this.CmbDeptUpdate.FormattingEnabled = true;
-            this.CmbDeptUpdate.Location = new System.Drawing.Point(483, 41);
-            this.CmbDeptUpdate.Name = "CmbDeptUpdate";
-            this.CmbDeptUpdate.Size = new System.Drawing.Size(207, 36);
-            this.CmbDeptUpdate.TabIndex = 26;
+            this.TxtMobNo.Location = new System.Drawing.Point(204, 213);
+            this.TxtMobNo.Name = "TxtMobNo";
+            this.TxtMobNo.Size = new System.Drawing.Size(254, 34);
+            this.TxtMobNo.TabIndex = 55;
+            this.TxtMobNo.Validating += new System.ComponentModel.CancelEventHandler(this.TxtMobNo_Validating);
             // 
-            // label37
+            // TxtEmail
             // 
-            this.label37.AutoSize = true;
-            this.label37.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label37.Location = new System.Drawing.Point(370, 41);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(114, 25);
-            this.label37.TabIndex = 25;
-            this.label37.Text = "Department";
+            this.TxtEmail.Location = new System.Drawing.Point(204, 132);
+            this.TxtEmail.Name = "TxtEmail";
+            this.TxtEmail.Size = new System.Drawing.Size(254, 34);
+            this.TxtEmail.TabIndex = 45;
+            this.TxtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.TxtEmail_Validating);
             // 
-            // CmbDesgUpdate
+            // lblOtherContact
             // 
-            this.CmbDesgUpdate.FormattingEnabled = true;
-            this.CmbDesgUpdate.Location = new System.Drawing.Point(148, 137);
-            this.CmbDesgUpdate.Name = "CmbDesgUpdate";
-            this.CmbDesgUpdate.Size = new System.Drawing.Size(198, 36);
-            this.CmbDesgUpdate.TabIndex = 38;
+            this.lblOtherContact.AutoSize = true;
+            this.lblOtherContact.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblOtherContact.Location = new System.Drawing.Point(31, 258);
+            this.lblOtherContact.Name = "lblOtherContact";
+            this.lblOtherContact.Size = new System.Drawing.Size(163, 25);
+            this.lblOtherContact.TabIndex = 17;
+            this.lblOtherContact.Text = "Other Contact No.";
             // 
-            // label39
+            // lblMobile
             // 
-            this.label39.AutoSize = true;
-            this.label39.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label39.Location = new System.Drawing.Point(27, 137);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(113, 25);
-            this.label39.TabIndex = 37;
-            this.label39.Text = "Designation";
+            this.lblMobile.AutoSize = true;
+            this.lblMobile.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblMobile.Location = new System.Drawing.Point(31, 219);
+            this.lblMobile.Name = "lblMobile";
+            this.lblMobile.Size = new System.Drawing.Size(105, 25);
+            this.lblMobile.TabIndex = 16;
+            this.lblMobile.Text = "Mobile No.";
             // 
-            // CmbRole
+            // lblEmail
             // 
-            this.CmbRole.FormattingEnabled = true;
-            this.CmbRole.Location = new System.Drawing.Point(148, 91);
-            this.CmbRole.Name = "CmbRole";
-            this.CmbRole.Size = new System.Drawing.Size(198, 36);
-            this.CmbRole.TabIndex = 40;
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblEmail.Location = new System.Drawing.Point(31, 138);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(79, 25);
+            this.lblEmail.TabIndex = 15;
+            this.lblEmail.Text = "Email ID";
             // 
-            // label41
+            // lblCity
             // 
-            this.label41.AutoSize = true;
-            this.label41.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label41.Location = new System.Drawing.Point(29, 91);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(49, 25);
-            this.label41.TabIndex = 39;
-            this.label41.Text = "Role";
+            this.lblCity.AutoSize = true;
+            this.lblCity.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblCity.Location = new System.Drawing.Point(31, 94);
+            this.lblCity.Name = "lblCity";
+            this.lblCity.Size = new System.Drawing.Size(44, 25);
+            this.lblCity.TabIndex = 14;
+            this.lblCity.Text = "City";
+            // 
+            // lblState
+            // 
+            this.lblState.AutoSize = true;
+            this.lblState.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblState.Location = new System.Drawing.Point(31, 51);
+            this.lblState.Name = "lblState";
+            this.lblState.Size = new System.Drawing.Size(54, 25);
+            this.lblState.TabIndex = 12;
+            this.lblState.Text = "State";
+            // 
+            // BtnReset
+            // 
+            this.BtnReset.BackColor = System.Drawing.Color.Azure;
+            this.BtnReset.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.BtnReset.Location = new System.Drawing.Point(405, 728);
+            this.BtnReset.Name = "BtnReset";
+            this.BtnReset.Padding = new System.Windows.Forms.Padding(5);
+            this.BtnReset.Size = new System.Drawing.Size(112, 46);
+            this.BtnReset.TabIndex = 125;
+            this.BtnReset.Text = "Reset";
+            this.BtnReset.UseVisualStyleBackColor = false;
+            this.BtnReset.Click += new System.EventHandler(this.BtnResetStaff_Click);
+            // 
+            // BtnSave
+            // 
+            this.BtnSave.BackColor = System.Drawing.Color.Azure;
+            this.BtnSave.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.BtnSave.Location = new System.Drawing.Point(233, 728);
+            this.BtnSave.Name = "BtnSave";
+            this.BtnSave.Padding = new System.Windows.Forms.Padding(5);
+            this.BtnSave.Size = new System.Drawing.Size(112, 46);
+            this.BtnSave.TabIndex = 120;
+            this.BtnSave.Text = "Save";
+            this.BtnSave.UseVisualStyleBackColor = false;
+            this.BtnSave.Click += new System.EventHandler(this.BtnSaveStaff_Click);
+            // 
+            // grpBoxWorkDetail
+            // 
+            this.grpBoxWorkDetail.Controls.Add(this.CmbDept);
+            this.grpBoxWorkDetail.Controls.Add(this.lblDepartment);
+            this.grpBoxWorkDetail.Controls.Add(this.CmbRole);
+            this.grpBoxWorkDetail.Controls.Add(this.lblRole);
+            this.grpBoxWorkDetail.Controls.Add(this.CmbSubject3);
+            this.grpBoxWorkDetail.Controls.Add(this.CmbSubject2);
+            this.grpBoxWorkDetail.Controls.Add(this.TxtSalary);
+            this.grpBoxWorkDetail.Controls.Add(this.lblSalary);
+            this.grpBoxWorkDetail.Controls.Add(this.CmbSubject1);
+            this.grpBoxWorkDetail.Controls.Add(this.lblSubject);
+            this.grpBoxWorkDetail.Controls.Add(this.DtJoiningDate);
+            this.grpBoxWorkDetail.Controls.Add(this.CmbDesg);
+            this.grpBoxWorkDetail.Controls.Add(this.CmbQual);
+            this.grpBoxWorkDetail.Controls.Add(this.TxtExp);
+            this.grpBoxWorkDetail.Controls.Add(this.lblExp);
+            this.grpBoxWorkDetail.Controls.Add(this.lblJoiningDate);
+            this.grpBoxWorkDetail.Controls.Add(this.lblQualification);
+            this.grpBoxWorkDetail.Controls.Add(this.lblDesignation);
+            this.grpBoxWorkDetail.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.grpBoxWorkDetail.Location = new System.Drawing.Point(27, 446);
+            this.grpBoxWorkDetail.Name = "grpBoxWorkDetail";
+            this.grpBoxWorkDetail.Size = new System.Drawing.Size(1156, 257);
+            this.grpBoxWorkDetail.TabIndex = 66;
+            this.grpBoxWorkDetail.TabStop = false;
+            this.grpBoxWorkDetail.Text = "Work Details";
             // 
             // CmbDept
             // 
@@ -1243,17 +927,387 @@ namespace Staff_Management
             this.CmbDept.Location = new System.Drawing.Point(483, 42);
             this.CmbDept.Name = "CmbDept";
             this.CmbDept.Size = new System.Drawing.Size(210, 36);
-            this.CmbDept.TabIndex = 42;
+            this.CmbDept.TabIndex = 75;
+            this.CmbDept.SelectedIndexChanged += new System.EventHandler(this.CmbDept_SelectedIndexChanged);
             // 
-            // label14
+            // lblDepartment
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label14.Location = new System.Drawing.Point(364, 42);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(114, 25);
-            this.label14.TabIndex = 41;
-            this.label14.Text = "Department";
+            this.lblDepartment.AutoSize = true;
+            this.lblDepartment.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblDepartment.Location = new System.Drawing.Point(364, 42);
+            this.lblDepartment.Name = "lblDepartment";
+            this.lblDepartment.Size = new System.Drawing.Size(114, 25);
+            this.lblDepartment.TabIndex = 41;
+            this.lblDepartment.Text = "Department";
+            // 
+            // CmbRole
+            // 
+            this.CmbRole.FormattingEnabled = true;
+            this.CmbRole.Location = new System.Drawing.Point(148, 91);
+            this.CmbRole.Name = "CmbRole";
+            this.CmbRole.Size = new System.Drawing.Size(198, 36);
+            this.CmbRole.TabIndex = 85;
+            // 
+            // lblRole
+            // 
+            this.lblRole.AutoSize = true;
+            this.lblRole.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblRole.Location = new System.Drawing.Point(29, 91);
+            this.lblRole.Name = "lblRole";
+            this.lblRole.Size = new System.Drawing.Size(49, 25);
+            this.lblRole.TabIndex = 39;
+            this.lblRole.Text = "Role";
+            // 
+            // CmbSubject3
+            // 
+            this.CmbSubject3.FormattingEnabled = true;
+            this.CmbSubject3.Location = new System.Drawing.Point(483, 173);
+            this.CmbSubject3.Name = "CmbSubject3";
+            this.CmbSubject3.Size = new System.Drawing.Size(210, 36);
+            this.CmbSubject3.TabIndex = 100;
+            // 
+            // CmbSubject2
+            // 
+            this.CmbSubject2.FormattingEnabled = true;
+            this.CmbSubject2.Location = new System.Drawing.Point(483, 131);
+            this.CmbSubject2.Name = "CmbSubject2";
+            this.CmbSubject2.Size = new System.Drawing.Size(210, 36);
+            this.CmbSubject2.TabIndex = 95;
+            this.CmbSubject2.SelectedIndexChanged += new System.EventHandler(this.CmbSubject2_SelectedIndexChanged);
+            // 
+            // TxtSalary
+            // 
+            this.TxtSalary.Location = new System.Drawing.Point(146, 187);
+            this.TxtSalary.Name = "TxtSalary";
+            this.TxtSalary.Size = new System.Drawing.Size(200, 34);
+            this.TxtSalary.TabIndex = 115;
+            this.TxtSalary.Validating += new System.ComponentModel.CancelEventHandler(this.TxtSalary_Validating);
+            // 
+            // lblSalary
+            // 
+            this.lblSalary.AutoSize = true;
+            this.lblSalary.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblSalary.Location = new System.Drawing.Point(27, 190);
+            this.lblSalary.Name = "lblSalary";
+            this.lblSalary.Size = new System.Drawing.Size(62, 25);
+            this.lblSalary.TabIndex = 31;
+            this.lblSalary.Text = "Salary";
+            // 
+            // CmbSubject1
+            // 
+            this.CmbSubject1.FormattingEnabled = true;
+            this.CmbSubject1.Location = new System.Drawing.Point(483, 91);
+            this.CmbSubject1.Name = "CmbSubject1";
+            this.CmbSubject1.Size = new System.Drawing.Size(210, 36);
+            this.CmbSubject1.TabIndex = 90;
+            this.CmbSubject1.SelectedIndexChanged += new System.EventHandler(this.CmbSubject1_SelectedIndexChanged);
+            // 
+            // lblSubject
+            // 
+            this.lblSubject.AutoSize = true;
+            this.lblSubject.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblSubject.Location = new System.Drawing.Point(378, 91);
+            this.lblSubject.Name = "lblSubject";
+            this.lblSubject.Size = new System.Drawing.Size(74, 25);
+            this.lblSubject.TabIndex = 29;
+            this.lblSubject.Text = "Subject";
+            // 
+            // DtJoiningDate
+            // 
+            this.DtJoiningDate.Location = new System.Drawing.Point(847, 40);
+            this.DtJoiningDate.Name = "DtJoiningDate";
+            this.DtJoiningDate.Size = new System.Drawing.Size(288, 34);
+            this.DtJoiningDate.TabIndex = 80;
+            // 
+            // CmbDesg
+            // 
+            this.CmbDesg.FormattingEnabled = true;
+            this.CmbDesg.Location = new System.Drawing.Point(146, 136);
+            this.CmbDesg.Name = "CmbDesg";
+            this.CmbDesg.Size = new System.Drawing.Size(200, 36);
+            this.CmbDesg.TabIndex = 110;
+            // 
+            // CmbQual
+            // 
+            this.CmbQual.FormattingEnabled = true;
+            this.CmbQual.Location = new System.Drawing.Point(148, 35);
+            this.CmbQual.Name = "CmbQual";
+            this.CmbQual.Size = new System.Drawing.Size(198, 36);
+            this.CmbQual.TabIndex = 70;
+            // 
+            // TxtExp
+            // 
+            this.TxtExp.Location = new System.Drawing.Point(847, 91);
+            this.TxtExp.Multiline = true;
+            this.TxtExp.Name = "TxtExp";
+            this.TxtExp.Size = new System.Drawing.Size(288, 75);
+            this.TxtExp.TabIndex = 105;
+            // 
+            // lblExp
+            // 
+            this.lblExp.AutoSize = true;
+            this.lblExp.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblExp.Location = new System.Drawing.Point(729, 91);
+            this.lblExp.Name = "lblExp";
+            this.lblExp.Size = new System.Drawing.Size(102, 25);
+            this.lblExp.TabIndex = 21;
+            this.lblExp.Text = "Experience";
+            // 
+            // lblJoiningDate
+            // 
+            this.lblJoiningDate.AutoSize = true;
+            this.lblJoiningDate.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblJoiningDate.Location = new System.Drawing.Point(729, 35);
+            this.lblJoiningDate.Name = "lblJoiningDate";
+            this.lblJoiningDate.Size = new System.Drawing.Size(78, 50);
+            this.lblJoiningDate.TabIndex = 20;
+            this.lblJoiningDate.Text = "Joining \r\nDate";
+            // 
+            // lblQualification
+            // 
+            this.lblQualification.AutoSize = true;
+            this.lblQualification.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblQualification.Location = new System.Drawing.Point(27, 41);
+            this.lblQualification.Name = "lblQualification";
+            this.lblQualification.Size = new System.Drawing.Size(118, 25);
+            this.lblQualification.TabIndex = 8;
+            this.lblQualification.Text = "Qualification";
+            // 
+            // lblDesignation
+            // 
+            this.lblDesignation.AutoSize = true;
+            this.lblDesignation.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblDesignation.Location = new System.Drawing.Point(27, 137);
+            this.lblDesignation.Name = "lblDesignation";
+            this.lblDesignation.Size = new System.Drawing.Size(113, 25);
+            this.lblDesignation.TabIndex = 7;
+            this.lblDesignation.Text = "Designation";
+            // 
+            // grpBoxPersonalDetail
+            // 
+            this.grpBoxPersonalDetail.Controls.Add(this.TxtStaffID);
+            this.grpBoxPersonalDetail.Controls.Add(this.lblID);
+            this.grpBoxPersonalDetail.Controls.Add(this.DtDOB);
+            this.grpBoxPersonalDetail.Controls.Add(this.CmbCategory);
+            this.grpBoxPersonalDetail.Controls.Add(this.CmbGender);
+            this.grpBoxPersonalDetail.Controls.Add(this.TxtFatherName);
+            this.grpBoxPersonalDetail.Controls.Add(this.TxtMotherName);
+            this.grpBoxPersonalDetail.Controls.Add(this.TxtStaffName);
+            this.grpBoxPersonalDetail.Controls.Add(this.lblCategory);
+            this.grpBoxPersonalDetail.Controls.Add(this.lblDOB);
+            this.grpBoxPersonalDetail.Controls.Add(this.lblGender);
+            this.grpBoxPersonalDetail.Controls.Add(this.lblMName);
+            this.grpBoxPersonalDetail.Controls.Add(this.lblFName);
+            this.grpBoxPersonalDetail.Controls.Add(this.LblName);
+            this.grpBoxPersonalDetail.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.grpBoxPersonalDetail.Location = new System.Drawing.Point(27, 24);
+            this.grpBoxPersonalDetail.Name = "grpBoxPersonalDetail";
+            this.grpBoxPersonalDetail.Size = new System.Drawing.Size(521, 358);
+            this.grpBoxPersonalDetail.TabIndex = 1;
+            this.grpBoxPersonalDetail.TabStop = false;
+            this.grpBoxPersonalDetail.Text = "Personal Details";
+            // 
+            // TxtStaffID
+            // 
+            this.TxtStaffID.Location = new System.Drawing.Point(206, 42);
+            this.TxtStaffID.Name = "TxtStaffID";
+            this.TxtStaffID.Size = new System.Drawing.Size(254, 34);
+            this.TxtStaffID.TabIndex = 1;
+            this.TxtStaffID.Validating += new System.ComponentModel.CancelEventHandler(this.TxtStaffID_Validating);
+            // 
+            // lblID
+            // 
+            this.lblID.AutoSize = true;
+            this.lblID.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblID.Location = new System.Drawing.Point(27, 45);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(30, 25);
+            this.lblID.TabIndex = 18;
+            this.lblID.Text = "ID";
+            // 
+            // DtDOB
+            // 
+            this.DtDOB.Location = new System.Drawing.Point(204, 249);
+            this.DtDOB.Name = "DtDOB";
+            this.DtDOB.Size = new System.Drawing.Size(255, 34);
+            this.DtDOB.TabIndex = 25;
+            // 
+            // CmbCategory
+            // 
+            this.CmbCategory.FormattingEnabled = true;
+            this.CmbCategory.Location = new System.Drawing.Point(204, 289);
+            this.CmbCategory.Name = "CmbCategory";
+            this.CmbCategory.Size = new System.Drawing.Size(255, 36);
+            this.CmbCategory.TabIndex = 30;
+            // 
+            // CmbGender
+            // 
+            this.CmbGender.FormattingEnabled = true;
+            this.CmbGender.Location = new System.Drawing.Point(206, 209);
+            this.CmbGender.Name = "CmbGender";
+            this.CmbGender.Size = new System.Drawing.Size(255, 36);
+            this.CmbGender.TabIndex = 20;
+            // 
+            // TxtFatherName
+            // 
+            this.TxtFatherName.Location = new System.Drawing.Point(205, 126);
+            this.TxtFatherName.Name = "TxtFatherName";
+            this.TxtFatherName.Size = new System.Drawing.Size(255, 34);
+            this.TxtFatherName.TabIndex = 10;
+            // 
+            // TxtMotherName
+            // 
+            this.TxtMotherName.Location = new System.Drawing.Point(205, 169);
+            this.TxtMotherName.Name = "TxtMotherName";
+            this.TxtMotherName.Size = new System.Drawing.Size(255, 34);
+            this.TxtMotherName.TabIndex = 15;
+            // 
+            // TxtStaffName
+            // 
+            this.TxtStaffName.Location = new System.Drawing.Point(205, 86);
+            this.TxtStaffName.Name = "TxtStaffName";
+            this.TxtStaffName.Size = new System.Drawing.Size(255, 34);
+            this.TxtStaffName.TabIndex = 5;
+            this.TxtStaffName.Validating += new System.ComponentModel.CancelEventHandler(this.TxtStaffName_Validating);
+            // 
+            // lblCategory
+            // 
+            this.lblCategory.AutoSize = true;
+            this.lblCategory.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblCategory.Location = new System.Drawing.Point(27, 295);
+            this.lblCategory.Name = "lblCategory";
+            this.lblCategory.Size = new System.Drawing.Size(88, 25);
+            this.lblCategory.TabIndex = 11;
+            this.lblCategory.Text = "Category";
+            // 
+            // lblDOB
+            // 
+            this.lblDOB.AutoSize = true;
+            this.lblDOB.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblDOB.Location = new System.Drawing.Point(29, 257);
+            this.lblDOB.Name = "lblDOB";
+            this.lblDOB.Size = new System.Drawing.Size(56, 25);
+            this.lblDOB.TabIndex = 10;
+            this.lblDOB.Text = "D.O.B";
+            // 
+            // lblGender
+            // 
+            this.lblGender.AutoSize = true;
+            this.lblGender.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblGender.Location = new System.Drawing.Point(27, 209);
+            this.lblGender.Name = "lblGender";
+            this.lblGender.Size = new System.Drawing.Size(74, 25);
+            this.lblGender.TabIndex = 9;
+            this.lblGender.Text = "Gender";
+            // 
+            // lblMName
+            // 
+            this.lblMName.AutoSize = true;
+            this.lblMName.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblMName.Location = new System.Drawing.Point(27, 164);
+            this.lblMName.Name = "lblMName";
+            this.lblMName.Size = new System.Drawing.Size(140, 25);
+            this.lblMName.TabIndex = 8;
+            this.lblMName.Text = "Mother\'s Name";
+            // 
+            // lblFName
+            // 
+            this.lblFName.AutoSize = true;
+            this.lblFName.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblFName.Location = new System.Drawing.Point(27, 123);
+            this.lblFName.Name = "lblFName";
+            this.lblFName.Size = new System.Drawing.Size(129, 25);
+            this.lblFName.TabIndex = 7;
+            this.lblFName.Text = "Father\'s Name";
+            // 
+            // LblName
+            // 
+            this.LblName.AutoSize = true;
+            this.LblName.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LblName.Location = new System.Drawing.Point(27, 80);
+            this.LblName.Name = "LblName";
+            this.LblName.Size = new System.Drawing.Size(61, 25);
+            this.LblName.TabIndex = 6;
+            this.LblName.Text = "Name";
+            // 
+            // tabPageView
+            // 
+            this.tabPageView.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.tabPageView.Controls.Add(this.BtnQuit);
+            this.tabPageView.Controls.Add(this.BtnDelete);
+            this.tabPageView.Controls.Add(this.DataGridViewStaff);
+            this.tabPageView.Location = new System.Drawing.Point(4, 37);
+            this.tabPageView.Name = "tabPageView";
+            this.tabPageView.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageView.Size = new System.Drawing.Size(1354, 844);
+            this.tabPageView.TabIndex = 0;
+            this.tabPageView.Text = "View";
+            // 
+            // BtnQuit
+            // 
+            this.BtnQuit.BackColor = System.Drawing.Color.Azure;
+            this.BtnQuit.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.BtnQuit.Location = new System.Drawing.Point(640, 770);
+            this.BtnQuit.Name = "BtnQuit";
+            this.BtnQuit.Padding = new System.Windows.Forms.Padding(5);
+            this.BtnQuit.Size = new System.Drawing.Size(112, 46);
+            this.BtnQuit.TabIndex = 18;
+            this.BtnQuit.Text = "Quit";
+            this.BtnQuit.UseVisualStyleBackColor = false;
+            this.BtnQuit.Click += new System.EventHandler(this.BtnQuit_Click);
+            // 
+            // BtnDelete
+            // 
+            this.BtnDelete.BackColor = System.Drawing.Color.Azure;
+            this.BtnDelete.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.BtnDelete.Location = new System.Drawing.Point(499, 770);
+            this.BtnDelete.Name = "BtnDelete";
+            this.BtnDelete.Padding = new System.Windows.Forms.Padding(5);
+            this.BtnDelete.Size = new System.Drawing.Size(112, 46);
+            this.BtnDelete.TabIndex = 17;
+            this.BtnDelete.Text = "Delete";
+            this.BtnDelete.UseVisualStyleBackColor = false;
+            // 
+            // DataGridViewStaff
+            // 
+            this.DataGridViewStaff.BackgroundColor = System.Drawing.Color.MediumTurquoise;
+            this.DataGridViewStaff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridViewStaff.Location = new System.Drawing.Point(3, 3);
+            this.DataGridViewStaff.Name = "DataGridViewStaff";
+            this.DataGridViewStaff.RowHeadersWidth = 62;
+            this.DataGridViewStaff.RowTemplate.Height = 33;
+            this.DataGridViewStaff.Size = new System.Drawing.Size(1351, 714);
+            this.DataGridViewStaff.TabIndex = 0;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPageView);
+            this.tabControl1.Controls.Add(this.tabPageAdd);
+            this.tabControl1.Controls.Add(this.tabPageUpdate);
+            this.tabControl1.Font = new System.Drawing.Font("Franklin Gothic Medium", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tabControl1.Location = new System.Drawing.Point(0, 51);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1362, 885);
+            this.tabControl1.TabIndex = 2;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            this.errorProvider1.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider1.Icon")));
+            // 
+            // LblStaff
+            // 
+            this.LblStaff.BackColor = System.Drawing.Color.MintCream;
+            this.LblStaff.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LblStaff.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LblStaff.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.LblStaff.Location = new System.Drawing.Point(0, 0);
+            this.LblStaff.Name = "LblStaff";
+            this.LblStaff.Size = new System.Drawing.Size(1362, 39);
+            this.LblStaff.TabIndex = 1;
+            this.LblStaff.Text = "Staff Details";
+            this.LblStaff.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Staff
             // 
@@ -1261,141 +1315,148 @@ namespace Staff_Management
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkCyan;
             this.ClientSize = new System.Drawing.Size(1362, 936);
+            this.Controls.Add(this.LblStaff);
             this.Controls.Add(this.tabControl1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Staff";
             this.Text = "Staff";
             this.Load += new System.EventHandler(this.Staff_Load);
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.tabPage1.ResumeLayout(false);
+            this.tabPageUpdate.ResumeLayout(false);
+            this.tabPageUpdate.PerformLayout();
+            this.grpBoxUpdateWorkDetail.ResumeLayout(false);
+            this.grpBoxUpdateWorkDetail.PerformLayout();
+            this.grpBoxUpdateContactDetail.ResumeLayout(false);
+            this.grpBoxUpdateContactDetail.PerformLayout();
+            this.grpBoxUpdatePersonalDetail.ResumeLayout(false);
+            this.grpBoxUpdatePersonalDetail.PerformLayout();
+            this.tabPageAdd.ResumeLayout(false);
+            this.grpBoxContactDetail.ResumeLayout(false);
+            this.grpBoxContactDetail.PerformLayout();
+            this.grpBoxWorkDetail.ResumeLayout(false);
+            this.grpBoxWorkDetail.PerformLayout();
+            this.grpBoxPersonalDetail.ResumeLayout(false);
+            this.grpBoxPersonalDetail.PerformLayout();
+            this.tabPageView.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewStaff)).EndInit();
             this.tabControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private TabPage tabPage3;
-        private Button BtnUpdateStaff;
-        private GroupBox groupBox5;
+        private TabPage tabPageUpdate;
+        private Button BtnUpdate;
+        private GroupBox grpBoxUpdateContactDetail;
         private ComboBox CmbStateUpdate;
         private ComboBox CmbCityUpdate;
         private TextBox TxtOtherConNoUpdate;
         private TextBox TxtMobNoUpdate;
         private TextBox TxtEmailUpdate;
-        private Label label28;
-        private Label label29;
-        private Label label30;
-        private Label label31;
-        private Label label33;
-        private GroupBox groupBox4;
+        private Label lblUpdateOther;
+        private Label lblUpdateMobile;
+        private Label lblUpdateEmail;
+        private Label lblUpdateCity;
+        private Label lblUpdateState;
+        private GroupBox grpBoxUpdatePersonalDetail;
         private DateTimePicker DtDOBUpdate;
         private ComboBox CmbCategoryUpdate;
         private ComboBox CmbGenderUpdate;
         private TextBox TxtFatherNameUpdate;
         private TextBox TxtMotherNameUpdate;
         private TextBox TxtStaffNameUpdate;
-        private Label label22;
-        private Label label23;
-        private Label label24;
-        private Label label25;
-        private Label label26;
-        private Label label27;
+        private Label lblUpdateCategory;
+        private Label lblUpdateDOB;
+        private Label lblUpdateGender;
+        private Label lblUpdateMName;
+        private Label lblUpdateFName;
+        private Label lblUpdateName;
         private Button BtnSearch;
         private TextBox TxtIDUpdate;
-        private Label label20;
-        private TabPage tabPage2;
-        private Button BtnResetStaff;
-        private Button BtnSaveStaff;
-        private GroupBox groupBox3;
+        private Label lblSearchStaff;
+        private TabPage tabPageAdd;
+        private Button BtnReset;
+        private Button BtnSave;
+        private GroupBox grpBoxWorkDetail;
         private DateTimePicker DtJoiningDate;
         private ComboBox CmbDesg;
         private ComboBox CmbQual;
         private TextBox TxtExp;
-        private Label label18;
-        private Label label17;
-        private Label label13;
-        private Label label12;
-        private GroupBox groupBox1;
+        private Label lblExp;
+        private Label lblJoiningDate;
+        private Label lblQualification;
+        private Label lblDesignation;
+        private GroupBox grpBoxPersonalDetail;
         private TextBox TxtStaffID;
-        private Label label19;
+        private Label lblID;
         private DateTimePicker DtDOB;
         private ComboBox CmbCategory;
         private ComboBox CmbGender;
         private TextBox TxtFatherName;
         private TextBox TxtMotherName;
         private TextBox TxtStaffName;
-        private Label label5;
-        private Label label1;
-        private Label label4;
-        private Label label3;
-        private Label label2;
+        private Label lblCategory;
+        private Label lblDOB;
+        private Label lblGender;
+        private Label lblMName;
+        private Label lblFName;
         private Label LblName;
-        private TabPage tabPage1;
+        private TabPage tabPageView;
         private DataGridView DataGridViewStaff;
         private TabControl tabControl1;
         private Button BtnResetUpdatePage;
         private TextBox TxtAddressUpdate;
-        private Label label32;
+        private Label lblUpdateAddress;
         private Button BtnDelete;
-        private GroupBox groupBox2;
+        private GroupBox grpBoxContactDetail;
         private TextBox TxtAddress;
-        private Label label6;
+        private Label lblAddress;
         private ComboBox CmbState;
         private ComboBox CmbCity;
         private TextBox TxtOtherConNo;
         private TextBox TxtMobNo;
         private TextBox TxtEmail;
-        private Label label7;
-        private Label label8;
-        private Label label9;
-        private Label label10;
-        private Label label11;
+        private Label lblOtherContact;
+        private Label lblMobile;
+        private Label lblEmail;
+        private Label lblCity;
+        private Label lblState;
         private ComboBox CmbSubject3;
         private ComboBox CmbSubject2;
         private TextBox TxtSalary;
-        private Label label16;
+        private Label lblSalary;
         private ComboBox CmbSubject1;
-        private Label label15;
-        private GroupBox groupBox6;
+        private Label lblSubject;
+        private GroupBox grpBoxUpdateWorkDetail;
         private ComboBox CmbSubject3Update;
         private ComboBox CmbSubject2Update;
         private TextBox TxtSalaryUpdate;
-        private Label label21;
+        private Label lblUpdateSalary;
         private ComboBox CmbSubject1Update;
-        private Label label34;
+        private Label lblUpdateSubject;
         private DateTimePicker DtJoiningDateUpdate;
         private ComboBox CmbQualUpdate;
         private TextBox TxtExpUpdate;
-        private Label label35;
-        private Label label36;
-        private Label label38;
+        private Label lblUpdateExp;
+        private Label lblUpdateJoiningDate;
+        private Label lblUpdateQualification;
         private Label lblpassword;
         private TextBox TxtPassword;
         private TextBox TxtPasswordUpdate;
-        private Label label40;
-        private Label lblrole;
+        private Label lblUpdatePassword;
+        private Label lblUpdateRole;
         private ComboBox CmbRoleUpdate;
         private ComboBox CmbDeptUpdate;
         private ComboBox CmbDesgUpdate;
-        private Label label37;
-        private Label label39;
+        private Label lblUpdateDepartment;
+        private Label lblUpdateDesignation;
         private ComboBox CmbDept;
-        private Label label14;
+        private Label lblDepartment;
         private ComboBox CmbRole;
-        private Label label41;
+        private Label lblRole;
+        private ErrorProvider errorProvider1;
+        private Button BtnQuit;
+        private Label LblStaff;
     }
 }

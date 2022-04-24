@@ -18,6 +18,7 @@ namespace Staff_Management
 
         private void Subject_Load(object sender, EventArgs e)
         {
+            ResourceHelper.SetLabel(this);
             ViewSubject();
             FillDept();
         }
@@ -40,33 +41,35 @@ namespace Staff_Management
         }
         private void BtnSave_Click(object sender, EventArgs e)
         {
+            if(ValidateChildren(ValidationConstraints.Enabled))
+            {
+                if (TxtSubject.Text == null)
+                {
+                    MessageBox.Show("Please Enter Subject name..");
+                    return;
+                }
+                if (Convert.ToInt32(CmbDept.SelectedValue) == 0)
+                {
+                    MessageBox.Show("Please Select Department..");
+                    return;
+                }
+                tblSubject objtblSubject = new tblSubject();
+                objtblSubject.ID = 0;
+                objtblSubject.SubjectName = TxtSubject.Text.ToString();
+                objtblSubject.DeptID = Convert.ToInt32(CmbDept.SelectedValue);
 
-            if(TxtSubject.Text == null)
-            {
-                MessageBox.Show("Please Enter Subject name..");
-                return;
-            }
-            if(Convert.ToInt32(CmbDept.SelectedValue)==0)
-            {
-                MessageBox.Show("Please Select Department..");
-                return;
-            }
-            tblSubject objtblSubject = new tblSubject();
-            objtblSubject.ID = 0;
-            objtblSubject.SubjectName = TxtSubject.Text.ToString();
-            objtblSubject.DeptID = Convert.ToInt32(CmbDept.SelectedValue);
-
-            var val = RestAPIHelper.PostAsync<tblSubject>("api/Subject/InsertSubject", objtblSubject);
-            if (val == null)
-            {
-                MessageBox.Show("Addition Failed..");
-            }
-            else
-            {
-                MessageBox.Show("Subject Added Succesfully..");
-            }
-            ResetPage();
-            ViewSubject();
+                var val = RestAPIHelper.PostAsync<tblSubject>("api/Subject/InsertSubject", objtblSubject);
+                if (val == null)
+                {
+                    MessageBox.Show("Addition Failed..");
+                }
+                else
+                {
+                    MessageBox.Show("Subject Added Succesfully..");
+                }
+                ResetPage();
+                ViewSubject();
+            }           
         }
         private void ResetPage()
         {
@@ -76,6 +79,32 @@ namespace Staff_Management
         private void BtnReset_Click(object sender, EventArgs e)
         {
             ResetPage();
+        }
+
+        private void TxtSubject_Validating(object sender, CancelEventArgs e)
+        {
+            if (tabControl1.SelectedTab == tabPageAdd)
+            {
+                if (Validators.RequiredValidation(TxtSubject.Text))
+                {
+                    if (Validators.IsValidText(TxtSubject.Text))
+                    {
+                        errorProvider1.Clear();
+                    }
+                    else
+                    {
+                        errorProvider1.SetError(TxtSubject, ResourceHelper.GetValue("INVALID_CHARACTER"));
+                        TxtSubject.Focus();
+                        e.Cancel = true;
+                    }
+                }
+                else
+                {
+                    errorProvider1.SetError(TxtSubject, ResourceHelper.GetValue("REQUIRED_VALIDATION_FAIL"));
+                    TxtSubject.Focus();
+                    e.Cancel = true;
+                }
+            }
         }
     }
 }

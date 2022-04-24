@@ -1,3 +1,4 @@
+using Setu.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,7 @@ namespace Staff_Management
 {
     internal static class Program
     {
+        
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
@@ -17,7 +19,7 @@ namespace Staff_Management
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Staff());
+            Application.Run(new Login());
         }
     }
 }

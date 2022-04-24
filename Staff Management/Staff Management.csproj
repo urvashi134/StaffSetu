@@ -8,16 +8,38 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="EntityWork\" />
+    <Compile Remove="EntityWork\**" />
+    <EmbeddedResource Remove="EntityWork\**" />
+    <None Remove="EntityWork\**" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.7" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="System.Resources.ResourceManager" Version="4.3.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Entities\Setu.Entities.csproj" />
+    <ProjectReference Include="..\Setu.Common\Setu.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="DevExpress.Utils.v21.2">
+      <HintPath>..\..\..\..\..\DevExpress\Components\Offline Packages\devexpress.win.design\21.2.6\lib\net5.0-windows\DevExpress.Utils.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v21.2">
+      <HintPath>..\..\..\..\..\DevExpress\Components\Offline Packages\devexpress.win.design\21.2.6\lib\net5.0-windows\DevExpress.XtraEditors.v21.2.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resource\Resource_Label.hi.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resource\Resource_Label.en.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>

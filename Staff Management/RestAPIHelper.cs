@@ -46,7 +46,7 @@ namespace Staff_Management
                     return default(T);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //logger.Information("RestAPICall failed to get data using url " + url);
                 //logger.Error(ex.Message, ex);
@@ -77,7 +77,7 @@ namespace Staff_Management
                     return default(T);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //logger.Information("RestAPICall failed to get data using url " + url);
                 //logger.Error(ex.Message, ex);
@@ -101,7 +101,7 @@ namespace Staff_Management
                     return default(T);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //logger.Information("RestAPICall failed to get data using url " + url);
                 //logger.Error(ex.Message, ex);

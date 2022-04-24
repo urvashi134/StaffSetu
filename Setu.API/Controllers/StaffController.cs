@@ -27,6 +27,11 @@ namespace Setu.API.Controllers
         {
             return staffContext.tblStaff.FirstOrDefault(x => x.ID == id);
         }
+        [HttpGet("GetStaffByEmailPassword/{email},{password}")]
+        public tblStaff GetStaffByEmailPassword(string email,string password)
+        {
+            return staffContext.tblStaff.FirstOrDefault(x=> x.EmailID == email && x.Password == password);
+        }
         [HttpPost("InsertStaff")]
         public tblStaff InsertStaff(tblStaff objtblStaff)
         {

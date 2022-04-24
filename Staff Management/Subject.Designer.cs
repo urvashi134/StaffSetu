@@ -28,28 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPageView = new System.Windows.Forms.TabPage();
             this.DataGridViewSubject = new System.Windows.Forms.DataGridView();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.BtnCancel = new System.Windows.Forms.Button();
+            this.tabPageAdd = new System.Windows.Forms.TabPage();
+            this.CmbDept = new System.Windows.Forms.ComboBox();
             this.BtnReset = new System.Windows.Forms.Button();
             this.BtnSave = new System.Windows.Forms.Button();
             this.TxtSubject = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.CmbDept = new System.Windows.Forms.ComboBox();
+            this.lblDepartment = new System.Windows.Forms.Label();
+            this.LblName = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tabPageView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewSubject)).BeginInit();
-            this.tabPage2.SuspendLayout();
+            this.tabPageAdd.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPageView);
+            this.tabControl1.Controls.Add(this.tabPageAdd);
             this.tabControl1.Font = new System.Drawing.Font("Franklin Gothic Medium", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tabControl1.Location = new System.Drawing.Point(12, 63);
             this.tabControl1.Name = "tabControl1";
@@ -57,16 +59,16 @@
             this.tabControl1.Size = new System.Drawing.Size(1112, 684);
             this.tabControl1.TabIndex = 1;
             // 
-            // tabPage1
+            // tabPageView
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.MediumTurquoise;
-            this.tabPage1.Controls.Add(this.DataGridViewSubject);
-            this.tabPage1.Location = new System.Drawing.Point(4, 37);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1104, 643);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "View";
+            this.tabPageView.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.tabPageView.Controls.Add(this.DataGridViewSubject);
+            this.tabPageView.Location = new System.Drawing.Point(4, 37);
+            this.tabPageView.Name = "tabPageView";
+            this.tabPageView.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageView.Size = new System.Drawing.Size(1104, 643);
+            this.tabPageView.TabIndex = 0;
+            this.tabPageView.Text = "View";
             // 
             // DataGridViewSubject
             // 
@@ -89,34 +91,29 @@
             this.DataGridViewSubject.Size = new System.Drawing.Size(968, 553);
             this.DataGridViewSubject.TabIndex = 0;
             // 
-            // tabPage2
+            // tabPageAdd
             // 
-            this.tabPage2.BackColor = System.Drawing.Color.MediumTurquoise;
-            this.tabPage2.Controls.Add(this.CmbDept);
-            this.tabPage2.Controls.Add(this.BtnCancel);
-            this.tabPage2.Controls.Add(this.BtnReset);
-            this.tabPage2.Controls.Add(this.BtnSave);
-            this.tabPage2.Controls.Add(this.TxtSubject);
-            this.tabPage2.Controls.Add(this.label3);
-            this.tabPage2.Controls.Add(this.label2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 37);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1104, 643);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Add";
+            this.tabPageAdd.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.tabPageAdd.Controls.Add(this.CmbDept);
+            this.tabPageAdd.Controls.Add(this.BtnReset);
+            this.tabPageAdd.Controls.Add(this.BtnSave);
+            this.tabPageAdd.Controls.Add(this.TxtSubject);
+            this.tabPageAdd.Controls.Add(this.lblDepartment);
+            this.tabPageAdd.Controls.Add(this.LblName);
+            this.tabPageAdd.Location = new System.Drawing.Point(4, 37);
+            this.tabPageAdd.Name = "tabPageAdd";
+            this.tabPageAdd.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageAdd.Size = new System.Drawing.Size(1104, 643);
+            this.tabPageAdd.TabIndex = 1;
+            this.tabPageAdd.Text = "Add";
             // 
-            // BtnCancel
+            // CmbDept
             // 
-            this.BtnCancel.BackColor = System.Drawing.Color.Azure;
-            this.BtnCancel.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.BtnCancel.Location = new System.Drawing.Point(375, 266);
-            this.BtnCancel.Name = "BtnCancel";
-            this.BtnCancel.Padding = new System.Windows.Forms.Padding(5);
-            this.BtnCancel.Size = new System.Drawing.Size(112, 46);
-            this.BtnCancel.TabIndex = 19;
-            this.BtnCancel.Text = "Cancel";
-            this.BtnCancel.UseVisualStyleBackColor = false;
+            this.CmbDept.FormattingEnabled = true;
+            this.CmbDept.Location = new System.Drawing.Point(180, 151);
+            this.CmbDept.Name = "CmbDept";
+            this.CmbDept.Size = new System.Drawing.Size(286, 36);
+            this.CmbDept.TabIndex = 20;
             // 
             // BtnReset
             // 
@@ -150,32 +147,29 @@
             this.TxtSubject.Name = "TxtSubject";
             this.TxtSubject.Size = new System.Drawing.Size(288, 32);
             this.TxtSubject.TabIndex = 4;
+            this.TxtSubject.Validating += new System.ComponentModel.CancelEventHandler(this.TxtSubject_Validating);
             // 
-            // label3
+            // lblDepartment
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(32, 149);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(126, 28);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Department";
+            this.lblDepartment.AutoSize = true;
+            this.lblDepartment.Location = new System.Drawing.Point(32, 149);
+            this.lblDepartment.Name = "lblDepartment";
+            this.lblDepartment.Size = new System.Drawing.Size(126, 28);
+            this.lblDepartment.TabIndex = 2;
+            this.lblDepartment.Text = "Department";
             // 
-            // label2
+            // LblName
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(32, 86);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 28);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Name";
+            this.LblName.AutoSize = true;
+            this.LblName.Location = new System.Drawing.Point(32, 86);
+            this.LblName.Name = "LblName";
+            this.LblName.Size = new System.Drawing.Size(69, 28);
+            this.LblName.TabIndex = 1;
+            this.LblName.Text = "Name";
             // 
-            // CmbDept
+            // errorProvider1
             // 
-            this.CmbDept.FormattingEnabled = true;
-            this.CmbDept.Location = new System.Drawing.Point(180, 151);
-            this.CmbDept.Name = "CmbDept";
-            this.CmbDept.Size = new System.Drawing.Size(286, 36);
-            this.CmbDept.TabIndex = 20;
+            this.errorProvider1.ContainerControl = this;
             // 
             // Subject
             // 
@@ -188,10 +182,11 @@
             this.Text = "Subject";
             this.Load += new System.EventHandler(this.Subject_Load);
             this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
+            this.tabPageView.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewSubject)).EndInit();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.tabPageAdd.ResumeLayout(false);
+            this.tabPageAdd.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -199,15 +194,15 @@
         #endregion
 
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPageView;
         private System.Windows.Forms.DataGridView DataGridViewSubject;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Button BtnCancel;
+        private System.Windows.Forms.TabPage tabPageAdd;
         private System.Windows.Forms.Button BtnReset;
         private System.Windows.Forms.Button BtnSave;
         private System.Windows.Forms.TextBox TxtSubject;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblDepartment;
+        private System.Windows.Forms.Label LblName;
         private System.Windows.Forms.ComboBox CmbDept;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

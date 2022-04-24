@@ -18,28 +18,33 @@ namespace Staff_Management
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            tbldepartment objtbldepartment = new tbldepartment();
-            objtbldepartment.ID = 0;
-            objtbldepartment.Name = TxtDeptName.Text;
-            objtbldepartment.Location = TxtDeptLocation.Text;
-
-            var val = RestAPIHelper.PostAsync<tbldepartment>("api/Department/InsertDepartment", objtbldepartment);
-
-            if (val == null)
+            if(ValidateChildren(ValidationConstraints.Enabled))
             {
-                MessageBox.Show("Addition Failed..");
-            }
-            else
-            {
-                MessageBox.Show("Department Added Succesfully..");
-            }
+                tbldepartment objtbldepartment = new tbldepartment();
+                objtbldepartment.ID = 0;
+                objtbldepartment.Name = TxtDeptName.Text;
+                objtbldepartment.Location = TxtDeptLocation.Text;
 
-            ResetPage();
-            ViewDepartments();
+                var val = RestAPIHelper.PostAsync<tbldepartment>("api/Department/InsertDepartment", objtbldepartment);
+
+                if (val == null)
+                {
+                    MessageBox.Show("Addition Failed..");
+                }
+                else
+                {
+                    MessageBox.Show("Department Added Succesfully..");
+                }
+
+                ResetPage();
+                ViewDepartments();
+            }
         }
+            
 
         private void Department_Load(object sender, EventArgs e)
         {
+            ResourceHelper.SetLabel(this);
             ViewDepartments();
           
         }
@@ -89,30 +94,144 @@ namespace Staff_Management
 
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
-            tbldepartment objtbldepartment = new tbldepartment();
-            int id = Convert.ToInt32(TxtIDUpdate.Text);
-            //var objtbldepartment = RestAPIHelper.GetAsync<tbldepartment>($"api/Department/GetDepartmentByID/{id}");
-            objtbldepartment.ID = id;
-            objtbldepartment.Name = TxtNameUpdate.Text.ToString();
-            objtbldepartment.Location = TxtLocationUpdate.Text.ToString();
-
-            var val = RestAPIHelper.PostAsync<tbldepartment>("api/Department/UpdateDepartment", objtbldepartment);
-
-            if(val == null)
+            if(ValidateChildren(ValidationConstraints.Enabled))
             {
-                MessageBox.Show("Update Failed..");
+                tbldepartment objtbldepartment = new tbldepartment();
+                int id = Convert.ToInt32(TxtIDUpdate.Text);
+                //var objtbldepartment = RestAPIHelper.GetAsync<tbldepartment>($"api/Department/GetDepartmentByID/{id}");
+                objtbldepartment.ID = id;
+                objtbldepartment.Name = TxtNameUpdate.Text.ToString();
+                objtbldepartment.Location = TxtLocationUpdate.Text.ToString();
+
+                var val = RestAPIHelper.PostAsync<tbldepartment>("api/Department/UpdateDepartment", objtbldepartment);
+
+                if (val == null)
+                {
+                    MessageBox.Show("Update Failed..");
+                }
+                else
+                {
+                    MessageBox.Show("Updated Succesfully..");
+                }
+                ResetUpdatePage();
+                ViewDepartments();
             }
-            else
-            {
-                MessageBox.Show("Updated Succesfully..");
-            }
-            ResetUpdatePage();
-            ViewDepartments();
         }
 
         private void BtnResetUpdate_Click(object sender, EventArgs e)
         {
             ResetUpdatePage();
+        }
+
+        private void TxtDeptName_Validating(object sender, CancelEventArgs e)
+        {
+            if(tabControl1.SelectedTab == tabPageAdd)
+            {
+                if (Validators.RequiredValidation(TxtDeptName.Text))
+                {
+                    if (Validators.IsValidText(TxtDeptName.Text))
+                    {
+                        errorProvider1.Clear();
+                    }
+                    else
+                    {
+                        errorProvider1.SetError(TxtDeptName, ResourceHelper.GetValue("INVALID_CHARACTER"));
+                        TxtDeptName.Focus();
+                        e.Cancel = true;
+                    }
+                }
+                else
+                {
+                    errorProvider1.SetError(TxtDeptName, ResourceHelper.GetValue("REQUIRED_VALIDATION_FAIL"));
+                    TxtDeptName.Focus();
+                    e.Cancel = true;
+                }
+            }            
+        }
+
+        private void TxtDeptLocation_Validating(object sender, CancelEventArgs e)
+        {
+            if(tabControl1.SelectedTab == tabPageAdd)
+            {
+                if (Validators.RequiredValidation(TxtDeptLocation.Text))
+                {
+                    errorProvider1.Clear();
+                }
+                else
+                {
+                    errorProvider1.SetError(TxtDeptLocation, ResourceHelper.GetValue("REQUIRED_VALIDATION_FAIL"));
+                    TxtDeptLocation.Focus();
+                    e.Cancel = true;
+                }
+            }           
+        }
+
+        private void TxtIDUpdate_Validating(object sender, CancelEventArgs e)
+        {
+            if(tabControl1.SelectedTab == tabPageUpdate)
+            {
+                if (Validators.RequiredValidation(TxtIDUpdate.Text))
+                {
+                    if (Validators.IsNumeric(TxtIDUpdate.Text))
+                    {
+                        errorProvider1.Clear();
+                    }
+                    else
+                    {
+                        errorProvider1.SetError(TxtIDUpdate, ResourceHelper.GetValue("NUMERIC_VALIDATION_FAIL"));
+                        TxtIDUpdate.Focus();
+                        e.Cancel = true;
+                    }
+                }
+                else
+                {
+                    errorProvider1.SetError(TxtIDUpdate, ResourceHelper.GetValue("REQUIRED_VALIDATION_FAIL"));
+                    TxtIDUpdate.Focus();
+                    e.Cancel = true;
+                }
+            }   
+        }
+        private void TxtNameUpdate_Validating(object sender, CancelEventArgs e)
+        {
+            if(tabControl1.SelectedTab == tabPageUpdate)
+            {
+                if (Validators.RequiredValidation(TxtNameUpdate.Text))
+                {
+                    if (Validators.IsValidText(TxtNameUpdate.Text))
+                    {
+                        errorProvider1.Clear();
+                    }
+                    else
+                    {
+                        errorProvider1.SetError(TxtNameUpdate, ResourceHelper.GetValue("INVALID_CHARACTER"));
+                        TxtNameUpdate.Focus();
+                        e.Cancel = true;
+                    }
+                }
+                else
+                {
+                    errorProvider1.SetError(TxtNameUpdate, ResourceHelper.GetValue("REQUIRED_VALIDATION_FAIL"));
+                    TxtNameUpdate.Focus();
+                    e.Cancel = true;
+                }
+            }
+            
+        }
+        private void TxtLocationUpdate_Validating(object sender, CancelEventArgs e)
+        {
+            if(tabControl1.SelectedTab==tabPageUpdate)
+            {
+                if (Validators.RequiredValidation(TxtLocationUpdate.Text))
+                {
+                    errorProvider1.Clear();
+                }
+                else
+                {
+                    errorProvider1.SetError(TxtLocationUpdate, ResourceHelper.GetValue("REQUIRED_VALIDATION_FAIL"));
+                    TxtLocationUpdate.Focus();
+                    e.Cancel = true;
+                }
+            }           
         }
     }
 }

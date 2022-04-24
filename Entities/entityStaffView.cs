@@ -13,8 +13,8 @@ namespace Setu.Entities
         public char Gender { get; set; }
         public DateTime Dob { get; set; }
         public string Category { get; set; }
-        public string? StateName { get; set; }
-        public string? CityName { get; set; }
+        public string StateName { get; set; }
+        public string CityName { get; set; }
         public string Address { get; set; }
         public string EmailID { get; set; }
         public string Password { get; set; }
@@ -25,8 +25,8 @@ namespace Setu.Entities
         public string DesignationName { get; set; }
         public string DepartmentName { get; set; }
         public string Subject1Name { get; set; }
-        public string? Subject2Name { get; set; }
-        public string? Subject3Name { get; set; }
+        public string Subject2Name { get; set; }
+        public string Subject3Name { get; set; }
         public decimal Salary { get; set; }
         public DateTime JoiningDate { get; set; }
         public string Experience { get; set; }

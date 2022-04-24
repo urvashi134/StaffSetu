@@ -30,43 +30,44 @@ namespace Staff_Management
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPageView = new System.Windows.Forms.TabPage();
             this.DataGridViewDepartment = new System.Windows.Forms.DataGridView();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
+            this.tabPageAdd = new System.Windows.Forms.TabPage();
             this.BtnReset = new System.Windows.Forms.Button();
             this.BtnSave = new System.Windows.Forms.Button();
             this.TxtDeptLocation = new System.Windows.Forms.TextBox();
             this.TxtDeptName = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.lblLocation = new System.Windows.Forms.Label();
+            this.LblName = new System.Windows.Forms.Label();
+            this.tabPageUpdate = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.BtnCancelUpdate = new System.Windows.Forms.Button();
-            this.BtnResetUpdate = new System.Windows.Forms.Button();
+            this.BtnResetUpdatePage = new System.Windows.Forms.Button();
             this.BtnUpdate = new System.Windows.Forms.Button();
             this.TxtLocationUpdate = new System.Windows.Forms.TextBox();
             this.TxtNameUpdate = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblUpdateLocation = new System.Windows.Forms.Label();
+            this.lblUpdateName = new System.Windows.Forms.Label();
             this.BtnSearch = new System.Windows.Forms.Button();
             this.TxtIDUpdate = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblID = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tabPageView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewDepartment)).BeginInit();
-            this.tabPage2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
+            this.tabPageAdd.SuspendLayout();
+            this.tabPageUpdate.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPageView);
+            this.tabControl1.Controls.Add(this.tabPageAdd);
+            this.tabControl1.Controls.Add(this.tabPageUpdate);
             this.tabControl1.Font = new System.Drawing.Font("Franklin Gothic Medium", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tabControl1.Location = new System.Drawing.Point(12, 74);
             this.tabControl1.Name = "tabControl1";
@@ -74,30 +75,30 @@ namespace Staff_Management
             this.tabControl1.Size = new System.Drawing.Size(1112, 684);
             this.tabControl1.TabIndex = 0;
             // 
-            // tabPage1
+            // tabPageView
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.MediumTurquoise;
-            this.tabPage1.Controls.Add(this.DataGridViewDepartment);
-            this.tabPage1.Location = new System.Drawing.Point(4, 37);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1104, 643);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "View";
+            this.tabPageView.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.tabPageView.Controls.Add(this.DataGridViewDepartment);
+            this.tabPageView.Location = new System.Drawing.Point(4, 37);
+            this.tabPageView.Name = "tabPageView";
+            this.tabPageView.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageView.Size = new System.Drawing.Size(1104, 643);
+            this.tabPageView.TabIndex = 0;
+            this.tabPageView.Text = "View";
             // 
             // DataGridViewDepartment
             // 
             this.DataGridViewDepartment.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DataGridViewDepartment.BackgroundColor = System.Drawing.Color.MediumTurquoise;
             this.DataGridViewDepartment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightBlue;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Franklin Gothic Medium", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DataGridViewDepartment.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightBlue;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Franklin Gothic Medium", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DataGridViewDepartment.DefaultCellStyle = dataGridViewCellStyle3;
             this.DataGridViewDepartment.Location = new System.Drawing.Point(25, 35);
             this.DataGridViewDepartment.Name = "DataGridViewDepartment";
             this.DataGridViewDepartment.ReadOnly = true;
@@ -106,34 +107,21 @@ namespace Staff_Management
             this.DataGridViewDepartment.Size = new System.Drawing.Size(851, 499);
             this.DataGridViewDepartment.TabIndex = 0;
             // 
-            // tabPage2
+            // tabPageAdd
             // 
-            this.tabPage2.BackColor = System.Drawing.Color.MediumTurquoise;
-            this.tabPage2.Controls.Add(this.button1);
-            this.tabPage2.Controls.Add(this.BtnReset);
-            this.tabPage2.Controls.Add(this.BtnSave);
-            this.tabPage2.Controls.Add(this.TxtDeptLocation);
-            this.tabPage2.Controls.Add(this.TxtDeptName);
-            this.tabPage2.Controls.Add(this.label3);
-            this.tabPage2.Controls.Add(this.label2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 37);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1104, 643);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Add";
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Azure;
-            this.button1.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(375, 266);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(5);
-            this.button1.Size = new System.Drawing.Size(112, 46);
-            this.button1.TabIndex = 19;
-            this.button1.Text = "Cancel";
-            this.button1.UseVisualStyleBackColor = false;
+            this.tabPageAdd.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.tabPageAdd.Controls.Add(this.BtnReset);
+            this.tabPageAdd.Controls.Add(this.BtnSave);
+            this.tabPageAdd.Controls.Add(this.TxtDeptLocation);
+            this.tabPageAdd.Controls.Add(this.TxtDeptName);
+            this.tabPageAdd.Controls.Add(this.lblLocation);
+            this.tabPageAdd.Controls.Add(this.LblName);
+            this.tabPageAdd.Location = new System.Drawing.Point(4, 37);
+            this.tabPageAdd.Name = "tabPageAdd";
+            this.tabPageAdd.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageAdd.Size = new System.Drawing.Size(1104, 643);
+            this.tabPageAdd.TabIndex = 1;
+            this.tabPageAdd.Text = "Add";
             // 
             // BtnReset
             // 
@@ -168,6 +156,7 @@ namespace Staff_Management
             this.TxtDeptLocation.Name = "TxtDeptLocation";
             this.TxtDeptLocation.Size = new System.Drawing.Size(288, 67);
             this.TxtDeptLocation.TabIndex = 5;
+            this.TxtDeptLocation.Validating += new System.ComponentModel.CancelEventHandler(this.TxtDeptLocation_Validating);
             // 
             // TxtDeptName
             // 
@@ -175,77 +164,65 @@ namespace Staff_Management
             this.TxtDeptName.Name = "TxtDeptName";
             this.TxtDeptName.Size = new System.Drawing.Size(288, 32);
             this.TxtDeptName.TabIndex = 4;
+            this.TxtDeptName.Validating += new System.ComponentModel.CancelEventHandler(this.TxtDeptName_Validating);
             // 
-            // label3
+            // lblLocation
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(29, 146);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(93, 28);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Location";
+            this.lblLocation.AutoSize = true;
+            this.lblLocation.Location = new System.Drawing.Point(29, 146);
+            this.lblLocation.Name = "lblLocation";
+            this.lblLocation.Size = new System.Drawing.Size(93, 28);
+            this.lblLocation.TabIndex = 2;
+            this.lblLocation.Text = "Location";
             // 
-            // label2
+            // LblName
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(29, 83);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 28);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Name";
+            this.LblName.AutoSize = true;
+            this.LblName.Location = new System.Drawing.Point(29, 83);
+            this.LblName.Name = "LblName";
+            this.LblName.Size = new System.Drawing.Size(69, 28);
+            this.LblName.TabIndex = 1;
+            this.LblName.Text = "Name";
             // 
-            // tabPage3
+            // tabPageUpdate
             // 
-            this.tabPage3.BackColor = System.Drawing.Color.MediumTurquoise;
-            this.tabPage3.Controls.Add(this.groupBox1);
-            this.tabPage3.Controls.Add(this.BtnSearch);
-            this.tabPage3.Controls.Add(this.TxtIDUpdate);
-            this.tabPage3.Controls.Add(this.label4);
-            this.tabPage3.Location = new System.Drawing.Point(4, 37);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1104, 643);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Update";
+            this.tabPageUpdate.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.tabPageUpdate.Controls.Add(this.groupBox1);
+            this.tabPageUpdate.Controls.Add(this.BtnSearch);
+            this.tabPageUpdate.Controls.Add(this.TxtIDUpdate);
+            this.tabPageUpdate.Controls.Add(this.lblID);
+            this.tabPageUpdate.Location = new System.Drawing.Point(4, 37);
+            this.tabPageUpdate.Name = "tabPageUpdate";
+            this.tabPageUpdate.Size = new System.Drawing.Size(1104, 643);
+            this.tabPageUpdate.TabIndex = 2;
+            this.tabPageUpdate.Text = "Update";
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.BtnCancelUpdate);
-            this.groupBox1.Controls.Add(this.BtnResetUpdate);
+            this.groupBox1.Controls.Add(this.BtnResetUpdatePage);
             this.groupBox1.Controls.Add(this.BtnUpdate);
             this.groupBox1.Controls.Add(this.TxtLocationUpdate);
             this.groupBox1.Controls.Add(this.TxtNameUpdate);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.lblUpdateLocation);
+            this.groupBox1.Controls.Add(this.lblUpdateName);
             this.groupBox1.Location = new System.Drawing.Point(29, 95);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(472, 293);
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             // 
-            // BtnCancelUpdate
+            // BtnResetUpdatePage
             // 
-            this.BtnCancelUpdate.BackColor = System.Drawing.Color.Azure;
-            this.BtnCancelUpdate.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.BtnCancelUpdate.Location = new System.Drawing.Point(332, 204);
-            this.BtnCancelUpdate.Name = "BtnCancelUpdate";
-            this.BtnCancelUpdate.Padding = new System.Windows.Forms.Padding(5);
-            this.BtnCancelUpdate.Size = new System.Drawing.Size(112, 46);
-            this.BtnCancelUpdate.TabIndex = 32;
-            this.BtnCancelUpdate.Text = "Cancel";
-            this.BtnCancelUpdate.UseVisualStyleBackColor = false;
-            // 
-            // BtnResetUpdate
-            // 
-            this.BtnResetUpdate.BackColor = System.Drawing.Color.Azure;
-            this.BtnResetUpdate.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.BtnResetUpdate.Location = new System.Drawing.Point(174, 204);
-            this.BtnResetUpdate.Name = "BtnResetUpdate";
-            this.BtnResetUpdate.Padding = new System.Windows.Forms.Padding(5);
-            this.BtnResetUpdate.Size = new System.Drawing.Size(112, 46);
-            this.BtnResetUpdate.TabIndex = 31;
-            this.BtnResetUpdate.Text = "Reset";
-            this.BtnResetUpdate.UseVisualStyleBackColor = false;
-            this.BtnResetUpdate.Click += new System.EventHandler(this.BtnResetUpdate_Click);
+            this.BtnResetUpdatePage.BackColor = System.Drawing.Color.Azure;
+            this.BtnResetUpdatePage.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.BtnResetUpdatePage.Location = new System.Drawing.Point(174, 204);
+            this.BtnResetUpdatePage.Name = "BtnResetUpdatePage";
+            this.BtnResetUpdatePage.Padding = new System.Windows.Forms.Padding(5);
+            this.BtnResetUpdatePage.Size = new System.Drawing.Size(112, 46);
+            this.BtnResetUpdatePage.TabIndex = 31;
+            this.BtnResetUpdatePage.Text = "Reset";
+            this.BtnResetUpdatePage.UseVisualStyleBackColor = false;
+            this.BtnResetUpdatePage.Click += new System.EventHandler(this.BtnResetUpdate_Click);
             // 
             // BtnUpdate
             // 
@@ -267,6 +244,7 @@ namespace Staff_Management
             this.TxtLocationUpdate.Name = "TxtLocationUpdate";
             this.TxtLocationUpdate.Size = new System.Drawing.Size(288, 67);
             this.TxtLocationUpdate.TabIndex = 29;
+            this.TxtLocationUpdate.Validating += new System.ComponentModel.CancelEventHandler(this.TxtLocationUpdate_Validating);
             // 
             // TxtNameUpdate
             // 
@@ -274,24 +252,25 @@ namespace Staff_Management
             this.TxtNameUpdate.Name = "TxtNameUpdate";
             this.TxtNameUpdate.Size = new System.Drawing.Size(288, 32);
             this.TxtNameUpdate.TabIndex = 28;
+            this.TxtNameUpdate.Validating += new System.ComponentModel.CancelEventHandler(this.TxtNameUpdate_Validating);
             // 
-            // label5
+            // lblUpdateLocation
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(18, 102);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(93, 28);
-            this.label5.TabIndex = 27;
-            this.label5.Text = "Location";
+            this.lblUpdateLocation.AutoSize = true;
+            this.lblUpdateLocation.Location = new System.Drawing.Point(18, 102);
+            this.lblUpdateLocation.Name = "lblUpdateLocation";
+            this.lblUpdateLocation.Size = new System.Drawing.Size(93, 28);
+            this.lblUpdateLocation.TabIndex = 27;
+            this.lblUpdateLocation.Text = "Location";
             // 
-            // label6
+            // lblUpdateName
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(18, 38);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(69, 28);
-            this.label6.TabIndex = 26;
-            this.label6.Text = "Name";
+            this.lblUpdateName.AutoSize = true;
+            this.lblUpdateName.Location = new System.Drawing.Point(18, 38);
+            this.lblUpdateName.Name = "lblUpdateName";
+            this.lblUpdateName.Size = new System.Drawing.Size(69, 28);
+            this.lblUpdateName.TabIndex = 26;
+            this.lblUpdateName.Text = "Name";
             // 
             // BtnSearch
             // 
@@ -312,15 +291,20 @@ namespace Staff_Management
             this.TxtIDUpdate.Name = "TxtIDUpdate";
             this.TxtIDUpdate.Size = new System.Drawing.Size(126, 32);
             this.TxtIDUpdate.TabIndex = 5;
+            this.TxtIDUpdate.Validating += new System.ComponentModel.CancelEventHandler(this.TxtIDUpdate_Validating);
             // 
-            // label4
+            // lblID
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(29, 33);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(32, 28);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "ID";
+            this.lblID.AutoSize = true;
+            this.lblID.Location = new System.Drawing.Point(29, 33);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(32, 28);
+            this.lblID.TabIndex = 4;
+            this.lblID.Text = "ID";
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // Department
             // 
@@ -333,14 +317,15 @@ namespace Staff_Management
             this.Text = "Department";
             this.Load += new System.EventHandler(this.Department_Load);
             this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
+            this.tabPageView.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewDepartment)).EndInit();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
+            this.tabPageAdd.ResumeLayout(false);
+            this.tabPageAdd.PerformLayout();
+            this.tabPageUpdate.ResumeLayout(false);
+            this.tabPageUpdate.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -349,27 +334,26 @@ namespace Staff_Management
 
 
         private TabControl tabControl1;
-        private TabPage tabPage1;
-        private TabPage tabPage2;
-        private TabPage tabPage3;
+        private TabPage tabPageView;
+        private TabPage tabPageAdd;
+        private TabPage tabPageUpdate;
         private DataGridView DataGridViewDepartment;
-        private Label label2;
-        private Label label3;
+        private Label LblName;
+        private Label lblLocation;
         private TextBox TxtDeptLocation;
         private TextBox TxtDeptName;
         private Button BtnSave;
-        private Button button1;
         private Button BtnReset;
         private TextBox TxtIDUpdate;
-        private Label label4;
+        private Label lblID;
         private Button BtnSearch;
         private GroupBox groupBox1;
-        private Button BtnCancelUpdate;
-        private Button BtnResetUpdate;
+        private Button BtnResetUpdatePage;
         private Button BtnUpdate;
         private TextBox TxtLocationUpdate;
         private TextBox TxtNameUpdate;
-        private Label label5;
-        private Label label6;
+        private Label lblUpdateLocation;
+        private Label lblUpdateName;
+        private ErrorProvider errorProvider1;
     }
 }

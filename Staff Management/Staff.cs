@@ -2,9 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Staff_Management
@@ -21,10 +18,35 @@ namespace Staff_Management
         }
         private void Staff_Load(object sender, EventArgs e)
         {
-            ViewStaff();
-            FillCmbsAdd();
+            ResourceHelper.SetLabel(this);
+            if (GlobalData.role.Equals("staff", StringComparison.InvariantCultureIgnoreCase))
+            {
+                tabControl1.TabPages.Remove(tabPageView);
+                tabControl1.TabPages.Remove(tabPageAdd);
+                TxtIDUpdate.Text = GlobalData.ID.ToString();
+                BtnSearch.Enabled = false;
+                BtnSearch_Click(sender, e);
+                TxtIDUpdate.Enabled = false;
+                CmbRoleUpdate.Enabled = false;
+                CmbDesgUpdate.Enabled = false;
+                TxtSalaryUpdate.Enabled = false;
+                CmbDeptUpdate.Enabled = false;
+                CmbSubject1Update.Enabled = false;
+                CmbSubject2Update.Enabled = false;
+                CmbSubject3Update.Enabled = false;
+                DtJoiningDateUpdate.Enabled = false;
+                BtnResetUpdatePage.Enabled = false;
+            }
+            else
+            {
+                
+                ViewStaff();
+                FillCmbsAdd();
+            }
+            
             FillCmbsUpdate();
             isFormLoaded = true;
+            ActiveControl = tabControl1;
         }
         private void ViewStaff()
         {
@@ -152,11 +174,18 @@ namespace Staff_Management
         }
         private void FillRoleAdd()
         {
+            List<ComboBoxDataSources> comboBoxDataSources = StaffHelper.FillRole();
+            CmbRole.DataSource = comboBoxDataSources;
+            CmbRole.DisplayMember = "DisplayMember";
+            CmbRole.ValueMember = "Value";
 
         }
         private void FillRoleUpdate()
         {
-
+            List<ComboBoxDataSources> comboBoxDataSources = StaffHelper.FillRole();
+            CmbRoleUpdate.DataSource = comboBoxDataSources;
+            CmbRoleUpdate.DisplayMember = "DisplayMember";
+            CmbRoleUpdate.ValueMember = "Value";
         }
         private void FillDesgAdd()
         {
@@ -331,142 +360,90 @@ namespace Staff_Management
         }
         private void BtnSaveStaff_Click(object sender, EventArgs e)
         {
-           if(string.IsNullOrEmpty(TxtStaffID.Text))
+            if (ValidateChildren(ValidationConstraints.Enabled))
             {
-                MessageBox.Show("Please Enter Staff ID..");
-                return;
-            }
-           if (string.IsNullOrEmpty(TxtStaffName.Text))
-            {
-                MessageBox.Show("Please Enter Staff Name..");
-                return;
-            }
-            if (TxtEmail.Text.Length == 0)
-            {
-                MessageBox.Show("Please Enter Email..");
-                return;
-            }
-            if (!TxtEmail.Text.Contains('@'))
-            {
-                MessageBox.Show("Please check your Email..");
-                return;
-            }
-            if(TxtPassword.Text.Length == 0)
-            {
-                MessageBox.Show("Please Enter Password");
-                return;
-            }
-            if(TxtPassword.Text.Length < 8 || TxtPassword.Text.Length >15)
-            {
-                MessageBox.Show("Password must have 8-15 letters..");
-                return;
-            }
-            if(TxtMobNo.Text.Length == 0)
-            {
-                MessageBox.Show("Please Enter Mobile Number..");
-                return;
-            }
-            if (!long.TryParse(TxtMobNo.Text, out long mobile))
-            {
-                MessageBox.Show("Please check your Mobile Number..");
-                return;
-            }
-            if (TxtMobNo.Text.Length != 10)
-            {
-                MessageBox.Show("Please check length of Mobile Number..");
-                return;
-            }
-           
-            if (TxtOtherConNo.Text.Length != 0)
-            {
-                if (TxtOtherConNo.Text.Length > 11 || TxtOtherConNo.Text.Length < 10)
+                int desgId = Convert.ToInt32(CmbDesg.SelectedValue);
+                if (desgId == 0)
                 {
-                    MessageBox.Show("Please check length of Alternate Contact Number..");
+                    MessageBox.Show("Please Select Designation..");
                     return;
                 }
+                if (deptId == 0)
+                {
+                    MessageBox.Show("Please Select Department..");
+                    return;
+                }
+                int subId = Convert.ToInt32(CmbSubject1.SelectedValue);
+                if (subId == 0)
+                {
+                    MessageBox.Show("Please Select atleast 1 subject..");
+                    return;
+                }
+                tblStaff objtblStaff = new tblStaff();
+                objtblStaff.ID = Convert.ToInt32(TxtStaffID.Text.ToString());
+                objtblStaff.StaffName = TxtStaffName.Text.ToString();
+                objtblStaff.FatherName = TxtFatherName.Text.ToString();
+                objtblStaff.MotherName = TxtMotherName.Text.ToString();
+                objtblStaff.Gender = Convert.ToChar(CmbGender.SelectedValue);
+                objtblStaff.Dob = DtDOB.Value;
+                objtblStaff.Category = CmbCategory.Text.ToString();
+
+                int stateId = Convert.ToInt32(CmbState.SelectedValue);
+                if (stateId == 0)
+                    objtblStaff.StateID = null;
+                else
+                    objtblStaff.StateID = stateId;
+                int cityId = Convert.ToInt32(CmbCity.SelectedValue);
+                if (cityId == 0)
+                    objtblStaff.CityID = null;
+                else
+                    objtblStaff.CityID = stateId;
+
+                objtblStaff.EmailID = TxtEmail.Text.ToString();
+                objtblStaff.Password = TxtPassword.Text.ToString();
+
+                objtblStaff.MobileNo = Convert.ToInt64(TxtMobNo.Text);
+
+                if (string.IsNullOrEmpty(TxtOtherConNo.Text))
+                    objtblStaff.OtherContactNo = null;
+                else
+                    objtblStaff.OtherContactNo = Convert.ToInt64(TxtOtherConNo.Text);
+
+                objtblStaff.Address = TxtAddress.Text.ToString();
+
+                objtblStaff.Role = CmbRole.Text.ToString();
+                objtblStaff.Qualification = CmbQual.Text.ToString();
+                objtblStaff.DesignationID = desgId;
+                objtblStaff.DepartmentID = deptId;
+                objtblStaff.Salary = Convert.ToDecimal(TxtSalary.Text.ToString());
+                objtblStaff.Subject1ID = subId;
+                int sub2Id = Convert.ToInt32(CmbSubject2.SelectedValue);
+                if (sub2Id == 0)
+                    objtblStaff.Subject2ID = null;
+                else
+                    objtblStaff.Subject2ID = sub2Id;
+                int sub3Id = Convert.ToInt32(CmbSubject3.SelectedValue);
+                if (sub3Id == 0)
+                    objtblStaff.Subject3ID = null;
+                else
+                    objtblStaff.Subject3ID = sub3Id;
+
+                objtblStaff.JoiningDate = DtJoiningDate.Value;
+                objtblStaff.Experience = TxtExp.Text.ToString();
+
+                var val = RestAPIHelper.PostAsync<tblStaff>("api/Staff/InsertStaff", objtblStaff);
+
+                if (val == null)
+                {
+                    MessageBox.Show("Addition Failed..");
+                }
+                else
+                {
+                    MessageBox.Show("Staff Added Successfully..");
+                }
+                ResetAddPage();
+                ViewStaff();
             }
-            
-            int desgId = Convert.ToInt32(CmbDesg.SelectedValue);
-            if (desgId == 0)
-            {
-                MessageBox.Show("Please Select Designation..");
-                return;
-            }
-            if (deptId == 0)
-            {
-                MessageBox.Show("Please Select Department..");
-                return;
-            }
-            int subId = Convert.ToInt32(CmbSubject1.SelectedValue);
-            if (subId == 0)
-            {
-                MessageBox.Show("Please Select atleast 1 subject..");
-                return;
-            }
-            tblStaff objtblStaff = new tblStaff();
-            objtblStaff.ID = Convert.ToInt32(TxtStaffID.Text.ToString());
-            objtblStaff.StaffName = TxtStaffName.Text.ToString();
-            objtblStaff.FatherName = TxtFatherName.Text.ToString();
-            objtblStaff.MotherName = TxtMotherName.Text.ToString();
-            objtblStaff.Gender = Convert.ToChar(CmbGender.SelectedValue);
-            objtblStaff.Dob = DtDOB.Value;
-            objtblStaff.Category = CmbCategory.Text.ToString();
-
-            int stateId = Convert.ToInt32(CmbState.SelectedValue);
-            if (stateId == 0)
-                objtblStaff.StateID = null;
-            else
-                objtblStaff.StateID = stateId;
-            int cityId = Convert.ToInt32(CmbCity.SelectedValue);
-            if (cityId == 0)
-                objtblStaff.CityID = null;
-            else
-                objtblStaff.CityID = stateId;
-
-            objtblStaff.EmailID = TxtEmail.Text.ToString();
-            objtblStaff.Password = TxtPassword.Text.ToString();
-           
-            objtblStaff.MobileNo = Convert.ToInt64(TxtMobNo.Text);
-
-            if (string.IsNullOrEmpty(TxtOtherConNo.Text))
-                objtblStaff.OtherContactNo = null;
-            else
-                objtblStaff.OtherContactNo = Convert.ToInt64(TxtOtherConNo.Text);
-            
-            objtblStaff.Address = TxtAddress.Text.ToString();
-
-            objtblStaff.Role = CmbRole.Text.ToString();
-            objtblStaff.Qualification = CmbQual.Text.ToString();
-            objtblStaff.DesignationID = desgId;
-            objtblStaff.DepartmentID = deptId;
-            objtblStaff.Salary = Convert.ToDecimal(TxtSalary.Text.ToString());
-            objtblStaff.Subject1ID = subId;
-            int sub2Id = Convert.ToInt32(CmbSubject2.SelectedValue);
-            if (sub2Id == 0)
-                objtblStaff.Subject2ID = null;
-            else
-                objtblStaff.Subject2ID = sub2Id;
-            int sub3Id = Convert.ToInt32(CmbSubject3.SelectedValue);
-            if (sub3Id == 0)
-                objtblStaff.Subject3ID = null;
-            else
-                objtblStaff.Subject3ID = sub3Id;
-
-            objtblStaff.JoiningDate = DtJoiningDate.Value;
-            objtblStaff.Experience = TxtExp.Text.ToString();
-
-            var val = RestAPIHelper.PostAsync<tblStaff>("api/Staff/InsertStaff", objtblStaff);
-
-            if(val == null)
-            {
-                MessageBox.Show("Addition Failed..");
-            }
-            else
-            {
-                MessageBox.Show("Staff Added Successfully..");
-            }
-            ResetAddPage();
-            ViewStaff();
         }
 
         private void BtnResetStaff_Click(object sender, EventArgs e)
@@ -482,202 +459,145 @@ namespace Staff_Management
 
         private void BtnSearch_Click(object sender, EventArgs e)
         {
-            if(string.IsNullOrEmpty(TxtIDUpdate.Text))
-            {
-                MessageBox.Show("Please Enter Staff ID..");
-                return;
-            }
-            int id = Convert.ToInt32(TxtIDUpdate.Text);
-            var val = RestAPIHelper.GetAsync<tblStaff>($"api/Staff/GetStaffByID/{id}");
+           
+                int id = Convert.ToInt32(TxtIDUpdate.Text);
+                var val = RestAPIHelper.GetAsync<tblStaff>($"api/Staff/GetStaffByID/{id}");
 
-            if (val == null)
-            {
-                MessageBox.Show("No Staff Found with Given ID..");
-                ResetUpdatePage();
-                return;
-            }
+                if (val == null)
+                {
+                    MessageBox.Show("No Staff Found with Given ID..");
+                    ResetUpdatePage();
+                    return;
+                }                                  
+
+            TxtStaffNameUpdate.Text = val.StaffName;
+            TxtFatherNameUpdate.Text = val.FatherName;
+            TxtMotherNameUpdate.Text = val.MotherName;
+            CmbGenderUpdate.SelectedValue = val.Gender.ToString();
+            DtDOBUpdate.Value = val.Dob;
+            CmbCategoryUpdate.Text = val.Category;
+            if (val.StateID == null)
+                CmbStateUpdate.SelectedValue = val.StateID.ToString();
             else
-            {
-                TxtStaffNameUpdate.Text = val.StaffName;
-                TxtFatherNameUpdate.Text = val.FatherName;
-                TxtMotherNameUpdate.Text =val.MotherName;   
-                CmbGenderUpdate.SelectedValue = val.Gender.ToString();
-                DtDOBUpdate.Value = val.Dob;
-                CmbCategoryUpdate.Text = val.Category;
-                if(val.StateID == null)
-                   CmbStateUpdate.SelectedValue = val.StateID.ToString();
-                else
-                    CmbStateUpdate.SelectedValue = val.StateID;
-                if (val.CityID == null)
-                    CmbCityUpdate.SelectedValue = val.CityID.ToString();
-                else
-                    CmbCityUpdate.SelectedValue = val.CityID;
+                CmbStateUpdate.SelectedValue = val.StateID;
+            if (val.CityID == null)
+                CmbCityUpdate.SelectedValue = val.CityID.ToString();
+            else
+                CmbCityUpdate.SelectedValue = val.CityID;
 
-                TxtEmailUpdate.Text = val.EmailID;
-                TxtPasswordUpdate.Text = val.Password;
-                TxtMobNoUpdate.Text = val.MobileNo.ToString();
-                TxtOtherConNoUpdate.Text = val.OtherContactNo.ToString();
-                TxtAddressUpdate.Text = val.Address;
-                CmbQualUpdate.Text = val.Qualification;
-                CmbRole.Text = val.Role;
-                CmbDesgUpdate.SelectedValue = val.DesignationID;
-                CmbDeptUpdate.SelectedValue = val.DepartmentID;
-                TxtSalaryUpdate.Text = val.Salary.ToString();
-                DtJoiningDateUpdate.Value = val.JoiningDate;
-                CmbSubject1Update.SelectedValue = val.Subject1ID;
-                if (val.Subject2ID == null)
-                    CmbSubject2Update.SelectedValue = val.Subject2ID.ToString();
-                else
-                    CmbSubject2Update.SelectedValue = val.Subject2ID;
-                if (val.Subject3ID == null)
-                    CmbSubject3Update.SelectedValue = val.Subject3ID.ToString();
-                else
-                    CmbSubject3Update.SelectedValue = val.Subject3ID;
+            TxtEmailUpdate.Text = val.EmailID;
+            TxtPasswordUpdate.Text = val.Password;
+            TxtMobNoUpdate.Text = val.MobileNo.ToString();
+            TxtOtherConNoUpdate.Text = val.OtherContactNo.ToString();
+            TxtAddressUpdate.Text = val.Address;
+            CmbQualUpdate.Text = val.Qualification;
+            CmbRole.Text = val.Role;
+            CmbDesgUpdate.SelectedValue = val.DesignationID;
+            CmbDeptUpdate.SelectedValue = val.DepartmentID;
+            TxtSalaryUpdate.Text = val.Salary.ToString();
+            DtJoiningDateUpdate.Value = val.JoiningDate;
+            CmbSubject1Update.SelectedValue = val.Subject1ID;
+            if (val.Subject2ID == null)
+                CmbSubject2Update.SelectedValue = val.Subject2ID.ToString();
+            else
+                CmbSubject2Update.SelectedValue = val.Subject2ID;
+            if (val.Subject3ID == null)
+                CmbSubject3Update.SelectedValue = val.Subject3ID.ToString();
+            else
+                CmbSubject3Update.SelectedValue = val.Subject3ID;
 
-                TxtExpUpdate.Text = val.Experience;
+            TxtExpUpdate.Text = val.Experience;
 
-            }
         }
 
         private void BtnUpdateStaff_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(TxtIDUpdate.Text))
+            if(ValidateChildren(ValidationConstraints.Enabled))
             {
-                MessageBox.Show("Please Enter Staff ID..");
-                return;
-            }
-            if(string.IsNullOrEmpty(TxtStaffNameUpdate.Text))
-            {
-                MessageBox.Show("Please Enter Staff Name..");
-                return;
-            }
-            if (TxtEmailUpdate.Text.Length == 0)
-            {
-                MessageBox.Show("Please Enter Email..");
-                return;
-            }
-            if (!TxtEmailUpdate.Text.Contains('@'))
-            {
-                MessageBox.Show("Please check your Email..");
-                return;
-            }
-            if (TxtPasswordUpdate.Text.Length == 0)
-            {
-                MessageBox.Show("Please Enter Password");
-                return;
-            }
-            if (TxtPasswordUpdate.Text.Length < 8 || TxtPasswordUpdate.Text.Length > 15)
-            {
-                MessageBox.Show("Password must have 8-15 letters..");
-                return;
-            }
-            if (TxtMobNoUpdate.Text.Length == 0)
-            {
-                MessageBox.Show("Please Enter Mobile Number..");
-                return;
-            }
-            if (!long.TryParse(TxtMobNoUpdate.Text, out long mobile))
-            {
-                MessageBox.Show("Please check your Mobile Number..");
-                return;
-            }
-            if (TxtMobNoUpdate.Text.Length != 10)
-            {
-                MessageBox.Show("Please check length of Mobile Number..");
-                return;
-            }
-
-            if (TxtOtherConNoUpdate.Text.Length != 0)
-            {
-                if (TxtOtherConNoUpdate.Text.Length > 11 || TxtOtherConNoUpdate.Text.Length < 10)
+                int desgId = Convert.ToInt32(CmbDesgUpdate.SelectedValue);
+                if (desgId == 0)
                 {
-                    MessageBox.Show("Please check length of Alternate Contact Number..");
+                    MessageBox.Show("Please Select Designation..");
                     return;
                 }
+                if (deptIdUpdate == 0)
+                {
+                    MessageBox.Show("Please Select Department..");
+                    return;
+                }
+                int subId = Convert.ToInt32(CmbSubject1Update.SelectedValue);
+                if (subId == 0)
+                {
+                    MessageBox.Show("Please Select atleast 1 subject..");
+                    return;
+                }
+                int staffid = Convert.ToInt32(TxtIDUpdate.Text);
+                tblStaff objtblStaff = new tblStaff();
+
+                objtblStaff.ID = staffid;
+                objtblStaff.StaffName = TxtStaffNameUpdate.Text.ToString();
+                objtblStaff.FatherName = TxtFatherNameUpdate.Text.ToString();
+                objtblStaff.MotherName = TxtMotherNameUpdate.Text.ToString();
+                objtblStaff.Gender = Convert.ToChar(CmbGenderUpdate.SelectedValue);
+                objtblStaff.Dob = DtDOBUpdate.Value;
+                objtblStaff.Category = CmbCategoryUpdate.Text.ToString();
+
+                int stateId = Convert.ToInt32(CmbStateUpdate.SelectedValue);
+                if (stateId == 0)
+                    objtblStaff.StateID = null;
+                else
+                    objtblStaff.StateID = stateId;
+                int cityId = Convert.ToInt32(CmbCityUpdate.SelectedValue);
+                if (cityId == 0)
+                    objtblStaff.CityID = null;
+                else
+                    objtblStaff.CityID = stateId;
+
+                objtblStaff.EmailID = TxtEmailUpdate.Text.ToString();
+                objtblStaff.Password = TxtPasswordUpdate.Text.ToString();
+
+                objtblStaff.MobileNo = Convert.ToInt64(TxtMobNoUpdate.Text);
+
+                if (string.IsNullOrEmpty(TxtOtherConNoUpdate.Text))
+                    objtblStaff.OtherContactNo = null;
+                else
+                    objtblStaff.OtherContactNo = Convert.ToInt64(TxtOtherConNoUpdate.Text);
+
+                objtblStaff.Address = TxtAddressUpdate.Text.ToString();
+
+                objtblStaff.Qualification = CmbQualUpdate.Text.ToString();
+                objtblStaff.Role = CmbRoleUpdate.Text.ToString();
+                objtblStaff.DesignationID = desgId;
+                objtblStaff.DepartmentID = Convert.ToInt32(CmbDeptUpdate.SelectedValue);
+                objtblStaff.Salary = Convert.ToDecimal(TxtSalaryUpdate.Text.ToString());
+                objtblStaff.Subject1ID = subId;
+                int sub2Id = Convert.ToInt32(CmbSubject2Update.SelectedValue);
+                if (sub2Id == 0)
+                    objtblStaff.Subject2ID = null;
+                else
+                    objtblStaff.Subject2ID = sub2Id;
+                int sub3Id = Convert.ToInt32(CmbSubject3Update.SelectedValue);
+                if (sub3Id == 0)
+                    objtblStaff.Subject3ID = null;
+                else
+                    objtblStaff.Subject3ID = sub3Id;
+
+                objtblStaff.JoiningDate = DtJoiningDateUpdate.Value;
+                objtblStaff.Experience = TxtExpUpdate.Text.ToString();
+
+                var val = RestAPIHelper.PostAsync<tblStaff>("api/Staff/UpdateStaff", objtblStaff);
+                if (val == null)
+                {
+                    MessageBox.Show("Update Failed..");
+                }
+                else
+                {
+                    MessageBox.Show("Updated Succesfully..");
+                }
+                ResetUpdatePage();
+                ViewStaff();
             }
-
-            int desgId = Convert.ToInt32(CmbDesgUpdate.SelectedValue);
-            if (desgId == 0)
-            {
-                MessageBox.Show("Please Select Designation..");
-                return;
-            }
-            if (deptIdUpdate == 0)
-            {
-                MessageBox.Show("Please Select Department..");
-                return;
-            }
-            int subId = Convert.ToInt32(CmbSubject1Update.SelectedValue);
-            if (subId == 0)
-            {
-                MessageBox.Show("Please Select atleast 1 subject..");
-                return;
-            }
-            int staffid = Convert.ToInt32(TxtIDUpdate.Text);
-            tblStaff objtblStaff = new tblStaff();
-
-            objtblStaff.ID = staffid;
-            objtblStaff.StaffName = TxtStaffNameUpdate.Text.ToString();
-            objtblStaff.FatherName = TxtFatherNameUpdate.Text.ToString();
-            objtblStaff.MotherName = TxtMotherNameUpdate.Text.ToString();
-            objtblStaff.Gender = Convert.ToChar(CmbGenderUpdate.SelectedValue);
-            objtblStaff.Dob = DtDOBUpdate.Value;
-            objtblStaff.Category = CmbCategoryUpdate.Text.ToString();
-
-            int stateId = Convert.ToInt32(CmbStateUpdate.SelectedValue);
-            if (stateId == 0)
-                objtblStaff.StateID = null;
-            else
-                objtblStaff.StateID = stateId;
-            int cityId = Convert.ToInt32(CmbCityUpdate.SelectedValue);
-            if (cityId == 0)
-                objtblStaff.CityID = null;
-            else
-                objtblStaff.CityID = stateId;
-
-            objtblStaff.EmailID = TxtEmailUpdate.Text.ToString();
-            objtblStaff.Password = TxtPasswordUpdate.Text.ToString();
-
-            objtblStaff.MobileNo = Convert.ToInt64(TxtMobNoUpdate.Text);
-
-            if (string.IsNullOrEmpty(TxtOtherConNoUpdate.Text))
-                objtblStaff.OtherContactNo = null;
-            else
-                objtblStaff.OtherContactNo = Convert.ToInt64(TxtOtherConNoUpdate.Text);
-
-            objtblStaff.Address = TxtAddressUpdate.Text.ToString();
-
-            objtblStaff.Qualification = CmbQualUpdate.Text.ToString();
-            objtblStaff.Role = CmbRoleUpdate.Text.ToString();
-            objtblStaff.DesignationID = desgId;
-            objtblStaff.DepartmentID = Convert.ToInt32(CmbDeptUpdate.SelectedValue);
-            objtblStaff.Salary = Convert.ToDecimal(TxtSalaryUpdate.Text.ToString());
-            objtblStaff.Subject1ID = subId;
-            int sub2Id = Convert.ToInt32(CmbSubject2Update.SelectedValue);
-            if (sub2Id == 0)
-                objtblStaff.Subject2ID = null;
-            else
-                objtblStaff.Subject2ID = sub2Id;
-            int sub3Id = Convert.ToInt32(CmbSubject3Update.SelectedValue);
-            if (sub3Id == 0)
-                objtblStaff.Subject3ID = null;
-            else
-                objtblStaff.Subject3ID = sub3Id;
-
-            objtblStaff.JoiningDate = DtJoiningDateUpdate.Value;
-            objtblStaff.Experience = TxtExpUpdate.Text.ToString();
-
-            var val = RestAPIHelper.PostAsync<tblStaff>("api/Staff/UpdateStaff",objtblStaff);
-            if (val == null)
-            {
-                MessageBox.Show("Update Failed..");
-            }
-            else
-            {
-                MessageBox.Show("Updated Succesfully..");
-            }
-            ResetUpdatePage();
-            ViewStaff();
+            
         }
 
         private void BtnResetUpdatePage_Click(object sender, EventArgs e)
@@ -726,8 +646,366 @@ namespace Staff_Management
 
         private void CmbSubject2Update_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(isFormLoaded)
-                FillSubject3Update();   
+            if (isFormLoaded)
+                FillSubject3Update();
+        }
+        private void TxtStaffID_Validating(object sender, CancelEventArgs e)
+        {
+            if(tabControl1.SelectedTab == tabPageAdd)
+            {
+                if (Validators.RequiredValidation(TxtStaffID.Text))
+                {
+                    if (Validators.IsNumeric(TxtStaffID.Text))
+                    {
+                        errorProvider1.Clear();
+                    }
+                    else
+                    {
+                        errorProvider1.SetError(TxtStaffID, ResourceHelper.GetValue("NUMERIC_VALIDATION_FAIL"));
+                        TxtStaffID.Focus();
+                        e.Cancel = true;
+                    }
+                }
+                else
+                {
+                    errorProvider1.SetError(TxtStaffID, ResourceHelper.GetValue("REQUIRED_VALIDATION_FAIL"));
+                    TxtStaffID.Focus();
+                    e.Cancel = true;
+                }
+            }          
+        }
+
+        private void TxtEmail_Validating(object sender, CancelEventArgs e)
+        {
+            if(tabControl1.SelectedTab == tabPageAdd)
+            {
+                if (Validators.RequiredValidation(TxtEmail.Text))
+                {
+                    if (Validators.IsValidEmail(TxtEmail.Text))
+                    {
+                        errorProvider1.Clear();
+                    }
+                    else
+                    {
+                        errorProvider1.SetError(TxtEmail, ResourceHelper.GetValue("EMAIL_VALIDATION_FAIL"));
+                        TxtEmail.Focus();
+                        e.Cancel = true;
+                    }
+                }
+                else
+                {
+                    errorProvider1.SetError(TxtEmail, ResourceHelper.GetValue("REQUIRED_VALIDATION_FAIL"));
+                    TxtEmail.Focus();
+                    e.Cancel = true;
+                }
+            }           
+        }
+
+        private void TxtStaffName_Validating(object sender, CancelEventArgs e)
+        {
+            if (tabControl1.SelectedTab == tabPageAdd)
+            {
+                if (Validators.RequiredValidation(TxtStaffName.Text))
+                {
+                    if (Validators.IsValidText(TxtStaffName.Text))
+                    {
+                        errorProvider1.Clear();
+                    }
+                    else
+                    {
+                        errorProvider1.SetError(TxtStaffName, ResourceHelper.GetValue("INVALID_CHARACTER"));
+                        TxtStaffName.Focus();
+                        e.Cancel = true;
+                    }
+                }
+                else
+                {
+                    errorProvider1.SetError(TxtStaffName, ResourceHelper.GetValue("REQUIRED_VALIDATION_FAIL"));
+                    TxtStaffName.Focus();
+                    e.Cancel = true;
+                }
+            }          
+        }
+
+        private void TxtPassword_Validating(object sender, CancelEventArgs e)
+        {
+            if (tabControl1.SelectedTab == tabPageAdd)
+            {
+                if (Validators.RequiredValidation(TxtPassword.Text))
+                {
+                    if (Validators.IsValidPassword(TxtPassword.Text))
+                    {
+                        errorProvider1.Clear();
+                    }
+                    else
+                    {
+                        errorProvider1.SetError(TxtPassword, ResourceHelper.GetValue("INVALID_PASSWORD"));
+                        TxtPassword.Focus();
+                    }
+                }
+                else
+                {
+                    errorProvider1.SetError(TxtPassword, ResourceHelper.GetValue("REQUIRED_VALIDATION_FAIL"));
+                    TxtPassword.Focus();
+                }
+            }            
+        }
+
+        private void TxtMobNo_Validating(object sender, CancelEventArgs e)
+        {
+            if (tabControl1.SelectedTab == tabPageAdd)
+            {
+                if (Validators.RequiredValidation(TxtMobNo.Text))
+                {
+                    if (Validators.IsValidMobile(TxtMobNo.Text))
+                    {
+                        errorProvider1.Clear();
+                    }
+                    else
+                    {
+                        errorProvider1.SetError(TxtMobNo, ResourceHelper.GetValue("INVALID_MOBILE"));
+                        TxtMobNo.Focus();
+                        e.Cancel = true;
+                    }
+                }
+                else
+                {
+                    errorProvider1.SetError(TxtMobNo, ResourceHelper.GetValue("REQUIRED_VALIDATION_FAIL"));
+                    TxtMobNo.Focus();
+                    e.Cancel = true;
+                }
+            }           
+        }
+
+        private void TxtOtherConNo_Validating(object sender, CancelEventArgs e)
+        {
+            if (tabControl1.SelectedTab == tabPageAdd)
+            {
+                if (!string.IsNullOrEmpty(TxtOtherConNo.Text))
+                {
+                    if (Validators.IsValidMobile(TxtOtherConNo.Text))
+                    {
+                        errorProvider1.Clear();
+                    }
+                    else
+                    {
+                        errorProvider1.SetError(TxtOtherConNo, ResourceHelper.GetValue("INVALID_MOBILE"));
+                        TxtOtherConNo.Focus();
+                        e.Cancel = true;
+                    }
+                }
+            }           
+        }
+        private void TxtSalary_Validating(object sender, CancelEventArgs e)
+        {
+            if (tabControl1.SelectedTab == tabPageAdd)
+            {
+                if (Validators.RequiredValidation(TxtSalary.Text))
+                {
+                    if (Validators.IsDouble(TxtSalary.Text))
+                    {
+                        errorProvider1.Clear();
+                    }
+                    else
+                    {
+                        errorProvider1.SetError(TxtSalary, ResourceHelper.GetValue("INVALID_SALARY"));
+                        TxtSalary.Focus();
+                        e.Cancel = true;
+                    }
+                }
+                else
+                {
+                    errorProvider1.SetError(TxtSalary, ResourceHelper.GetValue("REQUIRED_VALIDATION_FAIL"));
+                    TxtSalary.Focus();
+                    e.Cancel = true;
+                }
+            }
+        }
+
+        private void TxtIDUpdate_Validating(object sender, CancelEventArgs e)
+        {
+            if (tabControl1.SelectedTab == tabPageUpdate)
+            {
+                if (Validators.RequiredValidation(TxtIDUpdate.Text))
+                {
+                    if (Validators.IsNumeric(TxtIDUpdate.Text))
+                    {
+                        errorProvider1.Clear();
+                    }
+                    else
+                    {
+                        errorProvider1.SetError(TxtIDUpdate, ResourceHelper.GetValue("NUMERIC_VALIDATION_FAIL"));
+                        TxtIDUpdate.Focus();
+                        e.Cancel = true;
+                    }
+                }
+                else
+                {
+                    errorProvider1.SetError(TxtIDUpdate, ResourceHelper.GetValue("REQUIRED_VALIDATION_FAIL"));
+                    TxtIDUpdate.Focus();
+                    e.Cancel = true;
+                }
+            }           
+        }
+        private void TxtStaffNameUpdate_Validating(object sender, CancelEventArgs e)
+        {
+            if (tabControl1.SelectedTab == tabPageUpdate)
+            {
+                if (Validators.RequiredValidation(TxtStaffNameUpdate.Text))
+                {
+                    if (Validators.IsValidText(TxtStaffNameUpdate.Text))
+                    {
+                        errorProvider1.Clear();
+                    }
+                    else
+                    {
+                        errorProvider1.SetError(TxtStaffNameUpdate, ResourceHelper.GetValue("INVALID_CHARACTER"));
+                        TxtStaffNameUpdate.Focus();
+                        e.Cancel = true;
+                    }
+                }
+                else
+                {
+                    errorProvider1.SetError(TxtStaffNameUpdate, ResourceHelper.GetValue("REQUIRED_VALIDATION_FAIL"));
+                    TxtStaffNameUpdate.Focus();
+                    e.Cancel = true;
+                }
+            }          
+        }
+
+        private void TxtEmailUpdate_Validating(object sender, CancelEventArgs e)
+        {
+            if (tabControl1.SelectedTab == tabPageUpdate)
+            {
+                if (Validators.RequiredValidation(TxtEmailUpdate.Text))
+                {
+                    if (Validators.IsValidEmail(TxtEmailUpdate.Text))
+                    {
+                        errorProvider1.Clear();
+                    }
+                    else
+                    {
+                        errorProvider1.SetError(TxtEmailUpdate, ResourceHelper.GetValue("EMAIL_VALIDATION_FAIL"));
+                        TxtEmailUpdate.Focus();
+                        e.Cancel = true;
+                    }
+                }
+                else
+                {
+                    errorProvider1.SetError(TxtEmailUpdate, ResourceHelper.GetValue("REQUIRED_VALIDATION_FAIL"));
+                    TxtEmailUpdate.Focus();
+                    e.Cancel = true;
+                }
+            }            
+        }
+
+        private void TxtPasswordUpdate_Validating(object sender, CancelEventArgs e)
+        {
+            if (tabControl1.SelectedTab == tabPageUpdate)
+            {
+                if (Validators.RequiredValidation(TxtPasswordUpdate.Text))
+                {
+                    if (Validators.IsValidPassword(TxtPasswordUpdate.Text))
+                    {
+                        errorProvider1.Clear();
+                    }
+                    else
+                    {
+                        errorProvider1.SetError(TxtPasswordUpdate, ResourceHelper.GetValue("INVALID PASSWORD"));
+                        TxtPasswordUpdate.Focus();
+                        e.Cancel = true;
+                    }
+                }
+                else
+                {
+                    errorProvider1.SetError(TxtPasswordUpdate, ResourceHelper.GetValue("REQUIRED_VALIDATION_FAIL"));
+                    TxtPasswordUpdate.Focus();
+                    e.Cancel = true;
+                }
+            }           
+        }
+        private void TxtSalaryUpdate_Validating(object sender, CancelEventArgs e)
+        {
+            if (tabControl1.SelectedTab == tabPageUpdate)
+            {
+                if (Validators.RequiredValidation(TxtSalaryUpdate.Text))
+                {
+                    if (Validators.IsDouble(TxtSalaryUpdate.Text))
+                    {
+                        errorProvider1.Clear();
+                    }
+                    else
+                    {
+                        errorProvider1.SetError(TxtSalaryUpdate, ResourceHelper.GetValue("INVALID_SALARY"));
+                        TxtSalaryUpdate.Focus();
+                        e.Cancel = true;
+                    }
+                }
+                else
+                {
+                    errorProvider1.SetError(TxtSalaryUpdate, ResourceHelper.GetValue("REQUIRED_VALIDATION_FAIL"));
+                    TxtSalaryUpdate.Focus();
+                    e.Cancel = true;
+                }
+            }          
+        }
+        private void TxtMobNoUpdate_Validating(object sender, CancelEventArgs e)
+        {
+            if (tabControl1.SelectedTab == tabPageUpdate)
+            {
+                if (Validators.RequiredValidation(TxtMobNoUpdate.Text))
+                {
+                    if (Validators.IsValidMobile(TxtMobNoUpdate.Text))
+                    {
+                        errorProvider1.Clear();
+                    }
+                    else
+                    {
+                        errorProvider1.SetError(TxtMobNoUpdate, ResourceHelper.GetValue("INVALID_MOBILE"));
+                        TxtMobNoUpdate.Focus();
+                        e.Cancel = true;
+                    }
+                }
+                else
+                {
+                    errorProvider1.SetError(TxtMobNoUpdate, ResourceHelper.GetValue("REQUIRED_VALIDATION_FAIL"));
+                    TxtMobNoUpdate.Focus();
+                    e.Cancel = true;
+                }
+            }           
+        }
+
+        private void BtnQuit_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Escape)
+            {
+                this.Close();
+            }
+
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+        private void TxtOtherConNoUpdate_Validating(object sender, CancelEventArgs e)
+        {
+            if (tabControl1.SelectedTab == tabPageUpdate)
+            {
+                if (string.IsNullOrEmpty(TxtOtherConNoUpdate.Text))
+                {
+                    if (Validators.IsValidMobile(TxtOtherConNoUpdate.Text))
+                    {
+                        errorProvider1.Clear();
+                    }
+                    else
+                    {
+                        errorProvider1.SetError(TxtOtherConNoUpdate, ResourceHelper.GetValue("INVALID_MOBILE"));
+                        TxtOtherConNoUpdate.Focus();
+                        e.Cancel = true;
+                    }
+                }
+            }
         }
 
     }

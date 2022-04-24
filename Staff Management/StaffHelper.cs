@@ -13,12 +13,12 @@ namespace Staff_Management
 
             comboBoxDataSources.Add(new ComboBoxDataSources()
             {
-                Value = "Male",
+                Value = "M",
                 DisplayMember = "Male"
             });
             comboBoxDataSources.Add(new ComboBoxDataSources()
             {
-                Value = "Female",
+                Value = "F",
                 DisplayMember = "Female"
             });
 
