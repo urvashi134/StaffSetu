@@ -19,7 +19,7 @@ namespace Setu.API.Controllers
         }
 
         [HttpGet("GetDesignation")]
-        public IList<tblDesignation> GetDepartment()
+        public IList<tblDesignation> GetDesignation()
         {
             return (staffContext.tblDesignation.ToList());
         }

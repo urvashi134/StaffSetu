@@ -60,7 +60,7 @@ namespace Staff_Management
         /// <param name="url"></param>
         /// <param name="urlParameters"></param>
         /// <returns></returns>
-        public static T PostAsync<T>(string url, T urlParameters)
+        public static T PostAsync<T>(string url, object urlParameters)
         {
             try
             {

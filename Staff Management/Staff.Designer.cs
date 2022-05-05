@@ -160,7 +160,7 @@ namespace Staff_Management
             // 
             // tabPageUpdate
             // 
-            this.tabPageUpdate.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.tabPageUpdate.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tabPageUpdate.Controls.Add(this.grpBoxUpdateWorkDetail);
             this.tabPageUpdate.Controls.Add(this.BtnResetUpdatePage);
             this.tabPageUpdate.Controls.Add(this.BtnUpdate);
@@ -701,7 +701,7 @@ namespace Staff_Management
             // 
             // tabPageAdd
             // 
-            this.tabPageAdd.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.tabPageAdd.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tabPageAdd.Controls.Add(this.grpBoxContactDetail);
             this.tabPageAdd.Controls.Add(this.BtnReset);
             this.tabPageAdd.Controls.Add(this.BtnSave);
@@ -1232,7 +1232,7 @@ namespace Staff_Management
             // 
             // tabPageView
             // 
-            this.tabPageView.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.tabPageView.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.tabPageView.Controls.Add(this.BtnQuit);
             this.tabPageView.Controls.Add(this.BtnDelete);
             this.tabPageView.Controls.Add(this.DataGridViewStaff);
@@ -1270,7 +1270,7 @@ namespace Staff_Management
             // 
             // DataGridViewStaff
             // 
-            this.DataGridViewStaff.BackgroundColor = System.Drawing.Color.MediumTurquoise;
+            this.DataGridViewStaff.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.DataGridViewStaff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridViewStaff.Location = new System.Drawing.Point(3, 3);
             this.DataGridViewStaff.Name = "DataGridViewStaff";
@@ -1298,7 +1298,7 @@ namespace Staff_Management
             // 
             // LblStaff
             // 
-            this.LblStaff.BackColor = System.Drawing.Color.MintCream;
+            this.LblStaff.BackColor = System.Drawing.SystemColors.ControlLight;
             this.LblStaff.Dock = System.Windows.Forms.DockStyle.Top;
             this.LblStaff.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LblStaff.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -1313,7 +1313,7 @@ namespace Staff_Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DarkCyan;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1362, 936);
             this.Controls.Add(this.LblStaff);
             this.Controls.Add(this.tabControl1);

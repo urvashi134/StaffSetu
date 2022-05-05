@@ -18,19 +18,7 @@ namespace Staff_Management
             TxtUsername.Focus();
             ActiveControl = TxtUsername;
         }
-        public void CheckLogin()
-        {
-            if(TxtUsername.Text == null)
-            {
-                MessageBox.Show("Please Enter Username..");
-                return;
-            }
-            if(TxtPassword.Text == null)
-            {
-                MessageBox.Show("Please Enter Password..");
-                return;
-            }
-        }
+        
         private void ResetPage()
         {
             TxtUsername.Text = string.Empty;

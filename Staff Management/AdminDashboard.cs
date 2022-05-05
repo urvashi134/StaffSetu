@@ -86,16 +86,21 @@ namespace Staff_Management
             }
         }
 
-        private void addToolStripMenuItem_Click(object sender, EventArgs e)
+        private void MarkIndividualAttendenceToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Add_attendence add_Attendence = new Add_attendence();
             DisplayForm(add_Attendence);
         }
 
-        private void rulesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void MarkMultipleAttendenceToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+
         }
-        
+
+        private void AttendenceRulesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Attendence_Rules attendence_Rules = new Attendence_Rules();
+            DisplayForm(attendence_Rules);
+        }
     }
 }

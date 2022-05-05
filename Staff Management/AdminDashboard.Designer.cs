@@ -37,12 +37,16 @@ namespace Staff_Management
             this.DesignationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SubjectToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.AttendenceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MarkAttendenceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MarkIndividualAttendenceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MarkMultipleAttendenceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AttendenceRulesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.userwiseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.monthwiseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.leaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rulesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,41 +82,92 @@ namespace Staff_Management
             // StaffToolStripMenuItem
             // 
             this.StaffToolStripMenuItem.Name = "StaffToolStripMenuItem";
-            this.StaffToolStripMenuItem.Size = new System.Drawing.Size(209, 34);
+            this.StaffToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.StaffToolStripMenuItem.Text = "Staff";
             this.StaffToolStripMenuItem.Click += new System.EventHandler(this.StaffToolStripMenuItem_Click);
             // 
             // DeaprtmentToolStripMenuItem
             // 
             this.DeaprtmentToolStripMenuItem.Name = "DeaprtmentToolStripMenuItem";
-            this.DeaprtmentToolStripMenuItem.Size = new System.Drawing.Size(209, 34);
+            this.DeaprtmentToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.DeaprtmentToolStripMenuItem.Text = "Department";
             this.DeaprtmentToolStripMenuItem.Click += new System.EventHandler(this.DeaprtmentToolStripMenuItem_Click);
             // 
             // DesignationToolStripMenuItem
             // 
             this.DesignationToolStripMenuItem.Name = "DesignationToolStripMenuItem";
-            this.DesignationToolStripMenuItem.Size = new System.Drawing.Size(209, 34);
+            this.DesignationToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.DesignationToolStripMenuItem.Text = "Designation";
             this.DesignationToolStripMenuItem.Click += new System.EventHandler(this.DesignationToolStripMenuItem_Click);
             // 
             // SubjectToolStripMenuItem1
             // 
             this.SubjectToolStripMenuItem1.Name = "SubjectToolStripMenuItem1";
-            this.SubjectToolStripMenuItem1.Size = new System.Drawing.Size(209, 34);
+            this.SubjectToolStripMenuItem1.Size = new System.Drawing.Size(270, 34);
             this.SubjectToolStripMenuItem1.Text = "Subject";
             this.SubjectToolStripMenuItem1.Click += new System.EventHandler(this.SubjectToolStripMenuItem1_Click);
             // 
             // AttendenceToolStripMenuItem
             // 
             this.AttendenceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addToolStripMenuItem,
-            this.rulesToolStripMenuItem,
+            this.MarkAttendenceToolStripMenuItem,
+            this.AttendenceRulesToolStripMenuItem,
             this.viewToolStripMenuItem});
             this.AttendenceToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.AttendenceToolStripMenuItem.Name = "AttendenceToolStripMenuItem";
             this.AttendenceToolStripMenuItem.Size = new System.Drawing.Size(118, 29);
             this.AttendenceToolStripMenuItem.Text = "Attendence";
+            // 
+            // MarkAttendenceToolStripMenuItem
+            // 
+            this.MarkAttendenceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MarkIndividualAttendenceToolStripMenuItem,
+            this.MarkMultipleAttendenceToolStripMenuItem});
+            this.MarkAttendenceToolStripMenuItem.Name = "MarkAttendenceToolStripMenuItem";
+            this.MarkAttendenceToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.MarkAttendenceToolStripMenuItem.Text = "Mark ";
+            // 
+            // MarkIndividualAttendenceToolStripMenuItem
+            // 
+            this.MarkIndividualAttendenceToolStripMenuItem.Name = "MarkIndividualAttendenceToolStripMenuItem";
+            this.MarkIndividualAttendenceToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.MarkIndividualAttendenceToolStripMenuItem.Text = "Individual";
+            this.MarkIndividualAttendenceToolStripMenuItem.Click += new System.EventHandler(this.MarkIndividualAttendenceToolStripMenuItem_Click);
+            // 
+            // MarkMultipleAttendenceToolStripMenuItem
+            // 
+            this.MarkMultipleAttendenceToolStripMenuItem.Name = "MarkMultipleAttendenceToolStripMenuItem";
+            this.MarkMultipleAttendenceToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.MarkMultipleAttendenceToolStripMenuItem.Text = "Multiple";
+            this.MarkMultipleAttendenceToolStripMenuItem.Click += new System.EventHandler(this.MarkMultipleAttendenceToolStripMenuItem_Click);
+            // 
+            // AttendenceRulesToolStripMenuItem
+            // 
+            this.AttendenceRulesToolStripMenuItem.Name = "AttendenceRulesToolStripMenuItem";
+            this.AttendenceRulesToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.AttendenceRulesToolStripMenuItem.Text = "Rules";
+            this.AttendenceRulesToolStripMenuItem.Click += new System.EventHandler(this.AttendenceRulesToolStripMenuItem_Click);
+            // 
+            // viewToolStripMenuItem
+            // 
+            this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.userwiseToolStripMenuItem,
+            this.monthwiseToolStripMenuItem});
+            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.viewToolStripMenuItem.Text = "View";
+            // 
+            // userwiseToolStripMenuItem
+            // 
+            this.userwiseToolStripMenuItem.Name = "userwiseToolStripMenuItem";
+            this.userwiseToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.userwiseToolStripMenuItem.Text = "User-wise";
+            // 
+            // monthwiseToolStripMenuItem
+            // 
+            this.monthwiseToolStripMenuItem.Name = "monthwiseToolStripMenuItem";
+            this.monthwiseToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.monthwiseToolStripMenuItem.Text = "Month-wise";
             // 
             // leaveToolStripMenuItem
             // 
@@ -135,26 +190,6 @@ namespace Staff_Management
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1362, 905);
             this.panel1.TabIndex = 1;
-            // 
-            // addToolStripMenuItem
-            // 
-            this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.addToolStripMenuItem.Text = "Mark ";
-            this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
-            // 
-            // rulesToolStripMenuItem
-            // 
-            this.rulesToolStripMenuItem.Name = "rulesToolStripMenuItem";
-            this.rulesToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.rulesToolStripMenuItem.Text = "Rules";
-            this.rulesToolStripMenuItem.Click += new System.EventHandler(this.rulesToolStripMenuItem_Click);
-            // 
-            // viewToolStripMenuItem
-            // 
-            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.viewToolStripMenuItem.Text = "View";
             // 
             // AdminDashboard
             // 
@@ -190,8 +225,12 @@ namespace Staff_Management
         private ToolStripMenuItem SubjectToolStripMenuItem1;
         private ToolStripMenuItem salaryToolStripMenuItem;
         private Panel panel1;
-        private ToolStripMenuItem addToolStripMenuItem;
-        private ToolStripMenuItem rulesToolStripMenuItem;
+        private ToolStripMenuItem MarkAttendenceToolStripMenuItem;
+        private ToolStripMenuItem AttendenceRulesToolStripMenuItem;
         private ToolStripMenuItem viewToolStripMenuItem;
+        private ToolStripMenuItem MarkIndividualAttendenceToolStripMenuItem;
+        private ToolStripMenuItem MarkMultipleAttendenceToolStripMenuItem;
+        private ToolStripMenuItem userwiseToolStripMenuItem;
+        private ToolStripMenuItem monthwiseToolStripMenuItem;
     }
 }

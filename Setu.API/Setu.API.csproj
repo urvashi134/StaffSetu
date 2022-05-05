@@ -16,6 +16,43 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="Setu.API.deps.json" />
+    <Content Remove="Setu.API.runtimeconfig.json" />
+    <Content Remove="web.config" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Microsoft.EntityFrameworkCore.Abstractions.dll" />
+    <None Remove="Microsoft.EntityFrameworkCore.dll" />
+    <None Remove="Microsoft.EntityFrameworkCore.Relational.dll" />
+    <None Remove="Microsoft.Extensions.Caching.Abstractions.dll" />
+    <None Remove="Microsoft.Extensions.Caching.Memory.dll" />
+    <None Remove="Microsoft.Extensions.Configuration.Abstractions.dll" />
+    <None Remove="Microsoft.Extensions.DependencyInjection.Abstractions.dll" />
+    <None Remove="Microsoft.Extensions.DependencyInjection.dll" />
+    <None Remove="Microsoft.Extensions.Logging.Abstractions.dll" />
+    <None Remove="Microsoft.Extensions.Logging.dll" />
+    <None Remove="Microsoft.Extensions.Options.dll" />
+    <None Remove="Microsoft.Extensions.Primitives.dll" />
+    <None Remove="MySqlConnector.dll" />
+    <None Remove="Pomelo.EntityFrameworkCore.MySql.dll" />
+    <None Remove="Setu.API.deploy-readme.txt" />
+    <None Remove="Setu.API.deploy.cmd" />
+    <None Remove="Setu.API.dll" />
+    <None Remove="Setu.API.exe" />
+    <None Remove="Setu.API.Parameters.xml" />
+    <None Remove="Setu.API.pdb" />
+    <None Remove="Setu.API.SetParameters.xml" />
+    <None Remove="Setu.API.SourceManifest.xml" />
+    <None Remove="Setu.API.zip" />
+    <None Remove="Setu.Entities.dll" />
+    <None Remove="Setu.Entities.pdb" />
+    <None Remove="System.Collections.Immutable.dll" />
+    <None Remove="System.ComponentModel.Annotations.dll" />
+    <None Remove="System.Diagnostics.DiagnosticSource.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.0">
       <PrivateAssets>all</PrivateAssets>
@@ -27,6 +64,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Entities\Setu.Entities.csproj" />
+    <ProjectReference Include="..\Setu.Common\Setu.Common.csproj" />
   </ItemGroup>
 
 

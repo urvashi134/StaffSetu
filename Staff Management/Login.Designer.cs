@@ -31,7 +31,7 @@ namespace Staff_Management
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblWelcome = new System.Windows.Forms.Label();
             this.grpBoxLogin = new System.Windows.Forms.GroupBox();
             this.BtnReset = new System.Windows.Forms.Button();
             this.TxtPassword = new System.Windows.Forms.TextBox();
@@ -46,20 +46,20 @@ namespace Staff_Management
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // lblWelcome
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.MediumTurquoise;
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label1.Font = new System.Drawing.Font("MV Boli", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(149, 20);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(20);
-            this.label1.Size = new System.Drawing.Size(514, 88);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Welcome To College Setu";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblWelcome.AutoSize = true;
+            this.lblWelcome.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.lblWelcome.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblWelcome.Font = new System.Drawing.Font("MV Boli", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblWelcome.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblWelcome.Location = new System.Drawing.Point(149, 20);
+            this.lblWelcome.Name = "lblWelcome";
+            this.lblWelcome.Padding = new System.Windows.Forms.Padding(20);
+            this.lblWelcome.Size = new System.Drawing.Size(487, 88);
+            this.lblWelcome.TabIndex = 0;
+            this.lblWelcome.Text = "Welcome To Staff Setu";
+            this.lblWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // grpBoxLogin
             // 
@@ -163,7 +163,7 @@ namespace Staff_Management
             this.ClientSize = new System.Drawing.Size(805, 514);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.grpBoxLogin);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblWelcome);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.Name = "Login";
@@ -181,7 +181,7 @@ namespace Staff_Management
 
         #endregion
 
-        private Label label1;
+        private Label lblWelcome;
         private GroupBox grpBoxLogin;
         private Label lblpassword;
         private Label LblUsername;
