@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{586B9250-AD49-4FEE-98DB-1019F65481A3}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>StaffSetu</RootNamespace>
+    <AssemblyName>StaffSetu</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MANTRA.MFS100">
+      <HintPath>..\Third Party DLL\MANTRA.MFS100.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.5.0.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Add_attendence.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add_attendence.Designer.cs">
+      <DependentUpon>Add_attendence.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminDashboard.Designer.cs">
+      <DependentUpon>AdminDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AttendenceRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AttendenceRegister.Designer.cs">
+      <DependentUpon>AttendenceRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AttendenceRules.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AttendenceRules.Designer.cs">
+      <DependentUpon>AttendenceRules.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Attendence_Rules.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Attendence_Rules.Designer.cs">
+      <DependentUpon>Attendence_Rules.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Helper\ComboBoxDataSources.cs" />
+    <Compile Include="Helper\ConvertTime.cs" />
+    <Compile Include="DailyAttendence.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DailyAttendence.Designer.cs">
+      <DependentUpon>DailyAttendence.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Department.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Department.Designer.cs">
+      <DependentUpon>Department.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Designation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Designation.Designer.cs">
+      <DependentUpon>Designation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\AttendenceRulesDTO.cs" />
+    <Compile Include="Helper\ExtensionMethodHelper.cs" />
+    <Compile Include="GlobalData.cs" />
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\MessageTypeEnum.cs" />
+    <Compile Include="MonthWiseAttendence.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MonthWiseAttendence.Designer.cs">
+      <DependentUpon>MonthWiseAttendence.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Helper\ResourceHelper.cs" />
+    <Compile Include="Helper\RestAPIHelper.cs" />
+    <Compile Include="Staff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Staff.Designer.cs">
+      <DependentUpon>Staff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\StaffHelper.cs" />
+    <Compile Include="Staff_New.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Staff_New.Designer.cs">
+      <DependentUpon>Staff_New.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Subject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Subject.Designer.cs">
+      <DependentUpon>Subject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\TimeTypeEnum.cs" />
+    <Compile Include="Helper\Validators.cs" />
+    <Compile Include="UserWiseAttendence.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserWiseAttendence.Designer.cs">
+      <DependentUpon>UserWiseAttendence.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Add_attendence.resx">
+      <DependentUpon>Add_attendence.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminDashboard.resx">
+      <DependentUpon>AdminDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AttendenceRegister.resx">
+      <DependentUpon>AttendenceRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AttendenceRules.resx">
+      <DependentUpon>AttendenceRules.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Attendence_Rules.resx">
+      <DependentUpon>Attendence_Rules.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DailyAttendence.resx">
+      <DependentUpon>DailyAttendence.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Department.resx">
+      <DependentUpon>Department.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Designation.resx">
+      <DependentUpon>Designation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MonthWiseAttendence.resx">
+      <DependentUpon>MonthWiseAttendence.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Resource\Resource_Label.en.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource\Resource_Label.hi.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Staff.resx">
+      <DependentUpon>Staff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Staff_New.resx">
+      <DependentUpon>Staff_New.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Subject.resx">
+      <DependentUpon>Subject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserWiseAttendence.resx">
+      <DependentUpon>UserWiseAttendence.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entities\Setu.Entities.csproj">
+      <Project>{21334c45-2e51-4d47-ab40-33bc0c6c4b41}</Project>
+      <Name>Setu.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Setu.Common\Setu.Common.csproj">
+      <Project>{ea4c74ad-7e35-45ee-9a4b-b8583e6c1f72}</Project>
+      <Name>Setu.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

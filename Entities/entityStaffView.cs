@@ -30,6 +30,10 @@ namespace Setu.Entities
         public decimal Salary { get; set; }
         public DateTime JoiningDate { get; set; }
         public string Experience { get; set; }
+        public string AccountNo { get; set; }
+        public string AccountName { get; set; }
+        public string IfscCode { get; set; }
+        public string UpiId { get; set; }
 
     }
 }

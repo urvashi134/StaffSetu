@@ -19,7 +19,17 @@ namespace Setu.API.Controllers
         {
             this.staffContext = staffContext;
         }
-        [HttpPost("GetAttendenceByStaffIdDate")]
+        [HttpGet("GetAttendenceByStaffIdMonthYear/{obj}")]
+        public IList<tblAttendence> GetAttendenceByStaffIdMonthYear(UserAttendenceReport obj)
+        {
+            return staffContext.tblAttendence.Where(x => x.StaffID == obj.StaffId && x.myDate>=obj.AttendenceFrom && x.myDate<=obj.AttendenceTill).ToList();
+        }
+        [HttpGet("GetAttendenceByMonthYear/{obj}")]
+        public IList<tblAttendence> GetAttendenceByMonthYear(UserAttendenceReport obj)
+        {
+            return staffContext.tblAttendence.Where(x => x.myDate >= obj.AttendenceFrom && x.myDate <= obj.AttendenceTill).ToList();
+        }
+        [HttpPost("GetAttendenceByStaffIdDate/{obj}")]
         public tblAttendence GetAttendenceByStaffIdDate(AttendenceRules obj)
         {
             return staffContext.tblAttendence.FirstOrDefault(x => x.StaffID == obj.staffId && x.myDate == obj.date);
@@ -37,6 +47,29 @@ namespace Setu.API.Controllers
             staffContext.tblAttendence.Update(objtblAttendence);
             staffContext.SaveChanges();
             return objtblAttendence;
+        }
+        [HttpPost("GetAttendenceByDate")]
+        public List<AttendenceRegisterResponseDTO> GetAttendenceByDate(AttendenceRules obj)
+        {
+            List<AttendenceRegisterResponseDTO> attendenceRegisterResponseDTOs = new List<AttendenceRegisterResponseDTO>(); 
+            var dayAttendence = staffContext.tblAttendence.Where(x => x.myDate == obj.date);
+            foreach (tblStaff staff in staffContext.tblStaff.ToList())
+            {
+                AttendenceRegisterResponseDTO attendenceRegisterResponseDTO = new AttendenceRegisterResponseDTO
+                {
+                    StaffID = staff.ID,
+                    StaffName = staff.StaffName
+                };
+                var staffDayAttendence = dayAttendence.FirstOrDefault(x => x.StaffID == staff.ID);
+                if(staffDayAttendence != null)
+                {
+                    attendenceRegisterResponseDTO.Status = staffDayAttendence.Status == 'P' ? "Present": staffDayAttendence.Status == 'A' ? "Absent"  :"Leave";
+                    attendenceRegisterResponseDTO.StartTime = staffDayAttendence.StartTime;
+                    attendenceRegisterResponseDTO.EndTime = staffDayAttendence.EndTime;
+                }
+                attendenceRegisterResponseDTOs.Add(attendenceRegisterResponseDTO);
+            }
+            return attendenceRegisterResponseDTOs;
         }
     }
 }
