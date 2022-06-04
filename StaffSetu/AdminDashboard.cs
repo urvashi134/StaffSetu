@@ -62,7 +62,9 @@ namespace Staff_Management
                 }
                 allItems.ForEach(x =>
                 {
-                    if (x == StaffToolStripMenuItem || x == MasterToolStripMenuItem)
+                    if (x == StaffToolStripMenuItem || x== DeaprtmentToolStripMenuItem
+                    || x== DesignationToolStripMenuItem || x== SubjectToolStripMenuItem1
+                    || x == MasterToolStripMenuItem )
                     {
                         x.Visible = true;
                     }
@@ -117,5 +119,6 @@ namespace Staff_Management
             MonthWiseAttendence monthWiseAttendence = new MonthWiseAttendence();
             DisplayForm(monthWiseAttendence);
         }
+        
     }
 }

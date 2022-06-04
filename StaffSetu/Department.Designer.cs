@@ -31,13 +31,12 @@ namespace Staff_Management
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageView = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.DataGridViewDepartment = new System.Windows.Forms.DataGridView();
             this.BtnDelete = new System.Windows.Forms.Button();
-            this.BtnQuit = new System.Windows.Forms.Button();
             this.tabPageAdd = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.lblName = new System.Windows.Forms.Label();
@@ -110,8 +109,7 @@ namespace Staff_Management
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel2.Controls.Add(this.DataGridViewDepartment, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.BtnDelete, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.BtnQuit, 3, 1);
+            this.tableLayoutPanel2.Controls.Add(this.BtnDelete, 3, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -126,14 +124,14 @@ namespace Staff_Management
             this.DataGridViewDepartment.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DataGridViewDepartment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tableLayoutPanel2.SetColumnSpan(this.DataGridViewDepartment, 4);
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.LightBlue;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Franklin Gothic Medium", 11F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DataGridViewDepartment.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightBlue;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Franklin Gothic Medium", 11F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DataGridViewDepartment.DefaultCellStyle = dataGridViewCellStyle1;
             this.DataGridViewDepartment.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DataGridViewDepartment.Location = new System.Drawing.Point(3, 2);
             this.DataGridViewDepartment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -149,7 +147,7 @@ namespace Staff_Management
             this.BtnDelete.BackColor = System.Drawing.Color.Azure;
             this.BtnDelete.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnDelete.Font = new System.Drawing.Font("Merriweather Black", 8F);
-            this.BtnDelete.Location = new System.Drawing.Point(771, 581);
+            this.BtnDelete.Location = new System.Drawing.Point(891, 581);
             this.BtnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnDelete.Name = "BtnDelete";
             this.BtnDelete.Padding = new System.Windows.Forms.Padding(4);
@@ -157,20 +155,7 @@ namespace Staff_Management
             this.BtnDelete.TabIndex = 19;
             this.BtnDelete.Text = "Delete";
             this.BtnDelete.UseVisualStyleBackColor = false;
-            // 
-            // BtnQuit
-            // 
-            this.BtnQuit.BackColor = System.Drawing.Color.Azure;
-            this.BtnQuit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnQuit.Font = new System.Drawing.Font("Merriweather Black", 8F);
-            this.BtnQuit.Location = new System.Drawing.Point(891, 581);
-            this.BtnQuit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.BtnQuit.Name = "BtnQuit";
-            this.BtnQuit.Padding = new System.Windows.Forms.Padding(4);
-            this.BtnQuit.Size = new System.Drawing.Size(94, 40);
-            this.BtnQuit.TabIndex = 20;
-            this.BtnQuit.Text = "Quit";
-            this.BtnQuit.UseVisualStyleBackColor = false;
+            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // tabPageAdd
             // 
@@ -566,7 +551,6 @@ namespace Staff_Management
         private Label lb_DeptMaster;
         private TableLayoutPanel tableLayoutPanel2;
         private Button BtnDelete;
-        private Button BtnQuit;
         private TableLayoutPanel tableLayoutPanel3;
         private TableLayoutPanel tableLayoutPanel4;
         private Button BtnSave;

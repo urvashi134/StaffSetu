@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ADDITION_SUCCESSFULL" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ADDITION_UNSUCCESSFULL" xml:space="preserve">
+    <value />
+  </data>
   <data name="BtnDelete" xml:space="preserve">
     <value>Delete</value>
   </data>
@@ -137,6 +143,9 @@
   </data>
   <data name="BtnUpdate" xml:space="preserve">
     <value>Update</value>
+  </data>
+  <data name="DELETION_SUCCESSFUL" xml:space="preserve">
+    <value>Deletion Performed Successfully</value>
   </data>
   <data name="EMAIL_VALIDATION_FAIL" xml:space="preserve">
     <value>Email is not valid</value>
@@ -159,11 +168,26 @@
   <data name="INVALID_SALARY" xml:space="preserve">
     <value>Salary is not valid</value>
   </data>
+  <data name="lblAbsentDays" xml:space="preserve">
+    <value>Absent Days</value>
+  </data>
   <data name="lblAddress" xml:space="preserve">
     <value>Adderss</value>
   </data>
+  <data name="lblAddUserReg_FingerprintImpression" xml:space="preserve">
+    <value>Fingerprint Impression</value>
+  </data>
+  <data name="lblAttendenceFrom" xml:space="preserve">
+    <value>From</value>
+  </data>
+  <data name="lblAttendenceTill" xml:space="preserve">
+    <value>To</value>
+  </data>
   <data name="lblCity" xml:space="preserve">
     <value>City</value>
+  </data>
+  <data name="lblDate" xml:space="preserve">
+    <value>Date</value>
   </data>
   <data name="lblDepartment" xml:space="preserve">
     <value>Department</value>
@@ -177,6 +201,9 @@
   <data name="lblEmail" xml:space="preserve">
     <value>Email</value>
   </data>
+  <data name="lblEndTime" xml:space="preserve">
+    <value>End Time</value>
+  </data>
   <data name="lblExp" xml:space="preserve">
     <value>Experience</value>
   </data>
@@ -186,11 +213,20 @@
   <data name="lblGender" xml:space="preserve">
     <value>Gender</value>
   </data>
+  <data name="lblHoursDays" xml:space="preserve">
+    <value>Working Hours / Days</value>
+  </data>
   <data name="lblID" xml:space="preserve">
     <value>ID</value>
   </data>
   <data name="lblJoiningDate" xml:space="preserve">
     <value>Joining Date</value>
+  </data>
+  <data name="lblLeaveAllowed" xml:space="preserve">
+    <value>Leaves Allowed</value>
+  </data>
+  <data name="lblLeaves" xml:space="preserve">
+    <value>Leaves</value>
   </data>
   <data name="lblLocation" xml:space="preserve">
     <value>Location</value>
@@ -201,6 +237,12 @@
   <data name="lblMobile" xml:space="preserve">
     <value>Mobile</value>
   </data>
+  <data name="lblMonth" xml:space="preserve">
+    <value>Month</value>
+  </data>
+  <data name="lblMonthlySalary" xml:space="preserve">
+    <value>Monthly Salary</value>
+  </data>
   <data name="LblName" xml:space="preserve">
     <value>Name</value>
   </data>
@@ -210,20 +252,41 @@
   <data name="lblpassword" xml:space="preserve">
     <value>Password</value>
   </data>
+  <data name="lblPresentDays" xml:space="preserve">
+    <value>Present Days</value>
+  </data>
   <data name="lblQualification" xml:space="preserve">
     <value>Qualification</value>
   </data>
   <data name="lblRole" xml:space="preserve">
     <value>Role</value>
   </data>
+  <data name="lblRuleName" xml:space="preserve">
+    <value>Rule Name</value>
+  </data>
   <data name="lblSalary" xml:space="preserve">
     <value>Salary</value>
+  </data>
+  <data name="lblSalaryCalculated" xml:space="preserve">
+    <value>Salary Calculated</value>
+  </data>
+  <data name="lblSalaryCalculation" xml:space="preserve">
+    <value>Salary Calculation</value>
   </data>
   <data name="lblSearchStaff" xml:space="preserve">
     <value>Staff ID</value>
   </data>
+  <data name="lblStaffID" xml:space="preserve">
+    <value>Staff ID</value>
+  </data>
+  <data name="lblStartTime" xml:space="preserve">
+    <value>Start Time</value>
+  </data>
   <data name="lblState" xml:space="preserve">
     <value>State</value>
+  </data>
+  <data name="lblStatus" xml:space="preserve">
+    <value>Status</value>
   </data>
   <data name="lblSubject" xml:space="preserve">
     <value>Subject</value>
@@ -261,11 +324,17 @@
   <data name="lblUpdateGender" xml:space="preserve">
     <value>Gender</value>
   </data>
+  <data name="lblUpdateHoursDays" xml:space="preserve">
+    <value>Working Hours / Days</value>
+  </data>
   <data name="lblUpdateID" xml:space="preserve">
     <value>ID</value>
   </data>
   <data name="lblUpdateJoiningDate" xml:space="preserve">
     <value>Joining Date</value>
+  </data>
+  <data name="lblUpdateLeaveAllowed" xml:space="preserve">
+    <value>Leaves Allowed</value>
   </data>
   <data name="lblUpdateLocation" xml:space="preserve">
     <value>Location</value>
@@ -291,8 +360,14 @@
   <data name="lblUpdateRole" xml:space="preserve">
     <value>Role</value>
   </data>
+  <data name="lblUpdateRuleName" xml:space="preserve">
+    <value>Rule Name</value>
+  </data>
   <data name="lblUpdateSalary" xml:space="preserve">
     <value>Salary</value>
+  </data>
+  <data name="lblUpdateSalaryCalculation" xml:space="preserve">
+    <value>Salary Calculation</value>
   </data>
   <data name="lblUpdateState" xml:space="preserve">
     <value>State</value>
@@ -302,6 +377,42 @@
   </data>
   <data name="LblUsername" xml:space="preserve">
     <value>Email</value>
+  </data>
+  <data name="lblWelcome" xml:space="preserve">
+    <value>Welcome To Staff Setu</value>
+  </data>
+  <data name="lblWorkingHours" xml:space="preserve">
+    <value>Working Hours</value>
+  </data>
+  <data name="lblYear" xml:space="preserve">
+    <value>Year</value>
+  </data>
+  <data name="lb_AttendenceRules" xml:space="preserve">
+    <value>Attendence Rules</value>
+  </data>
+  <data name="lb_ConfirmAttendence" xml:space="preserve">
+    <value>Confirm Attendence</value>
+  </data>
+  <data name="lb_DeptMaster" xml:space="preserve">
+    <value>Department</value>
+  </data>
+  <data name="lb_DesgMaster" xml:space="preserve">
+    <value>Designation</value>
+  </data>
+  <data name="lb_MarkDailyAttendence" xml:space="preserve">
+    <value>Daily Attendence</value>
+  </data>
+  <data name="lb_MonthlyAttendenceReport" xml:space="preserve">
+    <value>Monthly Attendence Report</value>
+  </data>
+  <data name="lb_SubjectMaster" xml:space="preserve">
+    <value>Subjects</value>
+  </data>
+  <data name="lb_UserAttendenceReport" xml:space="preserve">
+    <value>User Attendence Report</value>
+  </data>
+  <data name="lb_UserwiseSalaryReport" xml:space="preserve">
+    <value>User Salary Report</value>
   </data>
   <data name="MSG_DEVICE_REMOVED" xml:space="preserve">
     <value>Device Removed</value>
@@ -329,6 +440,15 @@
   </data>
   <data name="NUMERIC_VALIDATION_FAIL" xml:space="preserve">
     <value>Only Integers are allowed</value>
+  </data>
+  <data name="rdBtnAbsent" xml:space="preserve">
+    <value>Absent</value>
+  </data>
+  <data name="rdBtnLeave" xml:space="preserve">
+    <value>Leave</value>
+  </data>
+  <data name="rdBtnPresent" xml:space="preserve">
+    <value>Present</value>
   </data>
   <data name="REQUIRED_VALIDATION_FAIL" xml:space="preserve">
     <value>Field is Required</value>

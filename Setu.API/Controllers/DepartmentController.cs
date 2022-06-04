@@ -4,6 +4,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Setu.API.Models;
+using Setu.Common.DTO;
 using Setu.Entities;
 
 namespace Setu.API.Controllers
@@ -48,6 +49,47 @@ namespace Setu.API.Controllers
             staffContext.tbldepartment.Update(objtbldepartment);
             staffContext.SaveChanges();
             return objtbldepartment ;
+        }
+
+        [HttpDelete("DeleteDepartment/{id}")]
+        public ApiResponse<Boolean> DeleteDepartment(int id)
+        {
+            try
+            {
+                tbldepartment tbl = GetDepartmentByID(id);
+
+                ApiResponse<Boolean> result = new ApiResponse<Boolean>();
+                result.Data = false;
+
+                if (tbl == null)
+                {
+                    result.IsSuccessfull = false;
+                    result.ErrorMessage = "Department does not exist";
+                }
+                else if (tbl.IsActive == false)
+                {
+                    result.IsSuccessfull = false;
+                    result.ErrorMessage = "Department already deleted";
+                }
+                else
+                {
+
+                    tbl.IsActive = false;
+                    UpdateDepartment(tbl);
+                    result.IsSuccessfull = true;
+                    result.ErrorMessage = "Department Successfully Deleted";
+                }
+                return result;
+            }
+            catch (Exception e)
+            {
+                ApiResponse<Boolean> result = new ApiResponse<Boolean>();
+                result.Data = false;
+                result.IsSuccessfull = false;
+                result.ErrorMessage = e.Message;
+                return result;
+            }
+
         }
     }
 }

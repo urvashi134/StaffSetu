@@ -91,6 +91,14 @@
     <Compile Include="BaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ConfirmAttendence.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfirmAttendence.Designer.cs">
+      <DependentUpon>ConfirmAttendence.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\StaffView.cs" />
+    <Compile Include="DTO\UserwiseSalaryView.cs" />
     <Compile Include="Helper\ComboBoxDataSources.cs" />
     <Compile Include="Helper\ConvertTime.cs" />
     <Compile Include="DailyAttendence.cs">
@@ -158,6 +166,12 @@
     <Compile Include="UserWiseAttendence.Designer.cs">
       <DependentUpon>UserWiseAttendence.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserWiseSalary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserWiseSalary.Designer.cs">
+      <DependentUpon>UserWiseSalary.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Add_attendence.resx">
       <DependentUpon>Add_attendence.cs</DependentUpon>
     </EmbeddedResource>
@@ -172,6 +186,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Attendence_Rules.resx">
       <DependentUpon>Attendence_Rules.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseForm.resx">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfirmAttendence.resx">
+      <DependentUpon>ConfirmAttendence.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DailyAttendence.resx">
       <DependentUpon>DailyAttendence.cs</DependentUpon>
@@ -215,6 +235,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserWiseAttendence.resx">
       <DependentUpon>UserWiseAttendence.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserWiseSalary.resx">
+      <DependentUpon>UserWiseSalary.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

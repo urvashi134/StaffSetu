@@ -276,6 +276,15 @@ namespace Staff_Management
                 TxtSalaryCalDays.Visible = false;
         }
 
+        private void BtnQuit_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = DisplayMessage(ResourceHelper.GetValue("Msg_Quit"), FORMNAME, MessageTypeEnum.INPUTBOX);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Close();
+            }
+        }
+
         private void rdBtnDaywiseUpdate_CheckedChanged(object sender, EventArgs e)
         {
             if (rdBtnDaywiseUpdate.Checked)

@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ADDITION_UNSUCCESSFULL" xml:space="preserve">
+    <value />
+  </data>
   <data name="BtnDelete" xml:space="preserve">
     <value>मिटाना</value>
   </data>
@@ -137,6 +140,9 @@
   </data>
   <data name="BtnUpdate" xml:space="preserve">
     <value>अपडेट</value>
+  </data>
+  <data name="DELETION_SUCCESSFUL" xml:space="preserve">
+    <value />
   </data>
   <data name="EMAIL_VALIDATION_FAIL" xml:space="preserve">
     <value>विद्युतडाक मान्य नहीं है</value>
@@ -159,11 +165,26 @@
   <data name="INVALID_SALARY" xml:space="preserve">
     <value>वेतन मान्य नहीं है</value>
   </data>
+  <data name="lblAbsentDays" xml:space="preserve">
+    <value />
+  </data>
   <data name="lblAddress" xml:space="preserve">
     <value>पता</value>
   </data>
+  <data name="lblAddUserReg_FingerprintImpression" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblAttendenceFrom" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblAttendenceTill" xml:space="preserve">
+    <value />
+  </data>
   <data name="lblCity" xml:space="preserve">
     <value>शहर</value>
+  </data>
+  <data name="lblDate" xml:space="preserve">
+    <value />
   </data>
   <data name="lblDepartment" xml:space="preserve">
     <value>विभाग</value>
@@ -177,6 +198,9 @@
   <data name="lblEmail" xml:space="preserve">
     <value>ईमेल</value>
   </data>
+  <data name="lblEndTime" xml:space="preserve">
+    <value />
+  </data>
   <data name="lblExp" xml:space="preserve">
     <value>अनुभव</value>
   </data>
@@ -186,11 +210,20 @@
   <data name="lblGender" xml:space="preserve">
     <value>लिंग</value>
   </data>
+  <data name="lblHoursDays" xml:space="preserve">
+    <value />
+  </data>
   <data name="lblID" xml:space="preserve">
     <value>पहचान</value>
   </data>
   <data name="lblJoiningDate" xml:space="preserve">
     <value>कार्यग्रहण तारीख</value>
+  </data>
+  <data name="lblLeaveAllowed" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblLeaves" xml:space="preserve">
+    <value />
   </data>
   <data name="lblLocation" xml:space="preserve">
     <value>जगह</value>
@@ -201,6 +234,12 @@
   <data name="lblMobile" xml:space="preserve">
     <value>मोबाइल नंबर</value>
   </data>
+  <data name="lblMonth" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblMonthlySalary" xml:space="preserve">
+    <value />
+  </data>
   <data name="LblName" xml:space="preserve">
     <value>नाम</value>
   </data>
@@ -210,20 +249,41 @@
   <data name="lblpassword" xml:space="preserve">
     <value>पासवर्ड</value>
   </data>
+  <data name="lblPresentDays" xml:space="preserve">
+    <value />
+  </data>
   <data name="lblQualification" xml:space="preserve">
     <value>योग्यता</value>
   </data>
   <data name="lblRole" xml:space="preserve">
     <value>भूमिका</value>
   </data>
+  <data name="lblRuleName" xml:space="preserve">
+    <value />
+  </data>
   <data name="lblSalary" xml:space="preserve">
     <value>वेतन</value>
+  </data>
+  <data name="lblSalaryCalculated" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblSalaryCalculation" xml:space="preserve">
+    <value />
   </data>
   <data name="lblSearchStaff" xml:space="preserve">
     <value>स्टाफ आईडी</value>
   </data>
+  <data name="lblStaffID" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblStartTime" xml:space="preserve">
+    <value />
+  </data>
   <data name="lblState" xml:space="preserve">
     <value>राज्य</value>
+  </data>
+  <data name="lblStatus" xml:space="preserve">
+    <value />
   </data>
   <data name="lblSubject" xml:space="preserve">
     <value>विषय</value>
@@ -261,11 +321,17 @@
   <data name="lblUpdateGender" xml:space="preserve">
     <value>लिंग</value>
   </data>
+  <data name="lblUpdateHoursDays" xml:space="preserve">
+    <value />
+  </data>
   <data name="lblUpdateID" xml:space="preserve">
     <value>पहचान</value>
   </data>
   <data name="lblUpdateJoiningDate" xml:space="preserve">
     <value>कार्यग्रहण तारीख</value>
+  </data>
+  <data name="lblUpdateLeaveAllowed" xml:space="preserve">
+    <value />
   </data>
   <data name="lblUpdateLocation" xml:space="preserve">
     <value>जगह</value>
@@ -291,8 +357,14 @@
   <data name="lblUpdateRole" xml:space="preserve">
     <value>भूमिका</value>
   </data>
+  <data name="lblUpdateRuleName" xml:space="preserve">
+    <value />
+  </data>
   <data name="lblUpdateSalary" xml:space="preserve">
     <value>वेतन</value>
+  </data>
+  <data name="lblUpdateSalaryCalculation" xml:space="preserve">
+    <value />
   </data>
   <data name="lblUpdateState" xml:space="preserve">
     <value>राज्य</value>
@@ -302,6 +374,42 @@
   </data>
   <data name="LblUsername" xml:space="preserve">
     <value>ईमेल</value>
+  </data>
+  <data name="lblWelcome" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblWorkingHours" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblYear" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lb_AttendenceRules" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lb_ConfirmAttendence" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lb_DeptMaster" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lb_DesgMaster" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lb_MarkDailyAttendence" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lb_MonthlyAttendenceReport" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lb_SubjectMaster" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lb_UserAttendenceReport" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lb_UserwiseSalaryReport" xml:space="preserve">
+    <value />
   </data>
   <data name="MSG_DEVICE_REMOVED" xml:space="preserve">
     <value>डिवाइस हटाया गया</value>
@@ -329,6 +437,15 @@
   </data>
   <data name="NUMERIC_VALIDATION_FAIL" xml:space="preserve">
     <value>केवल पूर्णांकों की अनुमति है</value>
+  </data>
+  <data name="rdBtnAbsent" xml:space="preserve">
+    <value />
+  </data>
+  <data name="rdBtnLeave" xml:space="preserve">
+    <value />
+  </data>
+  <data name="rdBtnPresent" xml:space="preserve">
+    <value />
   </data>
   <data name="REQUIRED_VALIDATION_FAIL" xml:space="preserve">
     <value>क्षेत्रआवश्यक है</value>

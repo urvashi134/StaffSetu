@@ -19,5 +19,6 @@ namespace Setu.API.Models
         public DbSet<tblSubject> tblSubject { get; set; }
         public DbSet<tblAttendenceRules> tblAttendenceRule { get; set; }
         public DbSet<tblAttendence> tblAttendence { get; set; }
+        public DbSet<tblConfirmedAttendence> tblConfirmedAttendences { get; set; }
     }
 }

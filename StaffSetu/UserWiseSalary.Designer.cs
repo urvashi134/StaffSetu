@@ -1,6 +1,6 @@
 ﻿namespace StaffSetu
 {
-    partial class MonthWiseAttendence
+    partial class UserWiseSalary
     {
         /// <summary>
         /// Required designer variable.
@@ -28,18 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.lb_MonthlyAttendenceReport = new System.Windows.Forms.Label();
+            this.lb_UserwiseSalaryReport = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblMonth = new System.Windows.Forms.Label();
+            this.lblID = new System.Windows.Forms.Label();
+            this.TxtStaffId = new System.Windows.Forms.TextBox();
             this.lblYear = new System.Windows.Forms.Label();
-            this.CmbMonth = new System.Windows.Forms.ComboBox();
             this.CmbYear = new System.Windows.Forms.ComboBox();
             this.BtnSearch = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewSalary = new System.Windows.Forms.DataGridView();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSalary)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -47,7 +50,7 @@
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Controls.Add(this.lb_MonthlyAttendenceReport, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lb_UserwiseSalaryReport, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -58,56 +61,66 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1008, 730);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // lb_MonthlyAttendenceReport
+            // lb_UserwiseSalaryReport
             // 
-            this.lb_MonthlyAttendenceReport.BackColor = System.Drawing.Color.RosyBrown;
-            this.lb_MonthlyAttendenceReport.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lb_MonthlyAttendenceReport.Font = new System.Drawing.Font("Merriweather", 15.75F, System.Drawing.FontStyle.Bold);
-            this.lb_MonthlyAttendenceReport.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lb_MonthlyAttendenceReport.Location = new System.Drawing.Point(3, 0);
-            this.lb_MonthlyAttendenceReport.Name = "lb_MonthlyAttendenceReport";
-            this.lb_MonthlyAttendenceReport.Size = new System.Drawing.Size(1002, 58);
-            this.lb_MonthlyAttendenceReport.TabIndex = 2;
-            this.lb_MonthlyAttendenceReport.Text = "Monthly Attendence Report";
-            this.lb_MonthlyAttendenceReport.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_UserwiseSalaryReport.BackColor = System.Drawing.Color.LightCoral;
+            this.lb_UserwiseSalaryReport.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lb_UserwiseSalaryReport.Font = new System.Drawing.Font("Merriweather", 15.75F, System.Drawing.FontStyle.Bold);
+            this.lb_UserwiseSalaryReport.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lb_UserwiseSalaryReport.Location = new System.Drawing.Point(3, 0);
+            this.lb_UserwiseSalaryReport.Name = "lb_UserwiseSalaryReport";
+            this.lb_UserwiseSalaryReport.Size = new System.Drawing.Size(1002, 58);
+            this.lb_UserwiseSalaryReport.TabIndex = 3;
+            this.lb_UserwiseSalaryReport.Text = "User Salary Report";
+            this.lb_UserwiseSalaryReport.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.ColumnCount = 5;
+            this.tableLayoutPanel2.ColumnCount = 4;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Controls.Add(this.lblMonth, 1, 1);
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.lblID, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.TxtStaffId, 2, 1);
             this.tableLayoutPanel2.Controls.Add(this.lblYear, 1, 2);
-            this.tableLayoutPanel2.Controls.Add(this.CmbMonth, 2, 1);
             this.tableLayoutPanel2.Controls.Add(this.CmbYear, 2, 2);
-            this.tableLayoutPanel2.Controls.Add(this.BtnSearch, 4, 2);
-            this.tableLayoutPanel2.Controls.Add(this.dataGridView1, 1, 3);
+            this.tableLayoutPanel2.Controls.Add(this.BtnSearch, 2, 3);
+            this.tableLayoutPanel2.Controls.Add(this.dataGridViewSalary, 1, 4);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 61);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 4;
+            this.tableLayoutPanel2.RowCount = 5;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 82F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 73F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1002, 666);
-            this.tableLayoutPanel2.TabIndex = 3;
+            this.tableLayoutPanel2.TabIndex = 4;
             // 
-            // lblMonth
+            // lblID
             // 
-            this.lblMonth.AutoSize = true;
-            this.lblMonth.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblMonth.Font = new System.Drawing.Font("Merriweather", 9.749999F);
-            this.lblMonth.Location = new System.Drawing.Point(23, 20);
-            this.lblMonth.Name = "lblMonth";
-            this.lblMonth.Size = new System.Drawing.Size(186, 58);
-            this.lblMonth.TabIndex = 1;
-            this.lblMonth.Text = "Month";
-            this.lblMonth.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblID.AutoSize = true;
+            this.lblID.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblID.Font = new System.Drawing.Font("Merriweather", 9.749999F);
+            this.lblID.Location = new System.Drawing.Point(23, 20);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(190, 58);
+            this.lblID.TabIndex = 1;
+            this.lblID.Text = "ID";
+            this.lblID.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // TxtStaffId
+            // 
+            this.TxtStaffId.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TxtStaffId.Font = new System.Drawing.Font("Merriweather", 9.749999F);
+            this.TxtStaffId.Location = new System.Drawing.Point(219, 22);
+            this.TxtStaffId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TxtStaffId.Name = "TxtStaffId";
+            this.TxtStaffId.Size = new System.Drawing.Size(288, 32);
+            this.TxtStaffId.TabIndex = 6;
+            this.TxtStaffId.Validating += new System.ComponentModel.CancelEventHandler(this.TxtStaffId_Validating);
             // 
             // lblYear
             // 
@@ -116,36 +129,26 @@
             this.lblYear.Font = new System.Drawing.Font("Merriweather", 9.749999F);
             this.lblYear.Location = new System.Drawing.Point(23, 78);
             this.lblYear.Name = "lblYear";
-            this.lblYear.Size = new System.Drawing.Size(186, 58);
-            this.lblYear.TabIndex = 2;
+            this.lblYear.Size = new System.Drawing.Size(190, 58);
+            this.lblYear.TabIndex = 39;
             this.lblYear.Text = "Year";
             this.lblYear.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // CmbMonth
-            // 
-            this.CmbMonth.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CmbMonth.Font = new System.Drawing.Font("Merriweather", 9.749999F);
-            this.CmbMonth.FormattingEnabled = true;
-            this.CmbMonth.Location = new System.Drawing.Point(215, 23);
-            this.CmbMonth.Name = "CmbMonth";
-            this.CmbMonth.Size = new System.Drawing.Size(234, 33);
-            this.CmbMonth.TabIndex = 3;
             // 
             // CmbYear
             // 
             this.CmbYear.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CmbYear.Font = new System.Drawing.Font("Merriweather", 9.749999F);
             this.CmbYear.FormattingEnabled = true;
-            this.CmbYear.Location = new System.Drawing.Point(215, 81);
+            this.CmbYear.Location = new System.Drawing.Point(219, 81);
             this.CmbYear.Name = "CmbYear";
-            this.CmbYear.Size = new System.Drawing.Size(234, 33);
-            this.CmbYear.TabIndex = 4;
+            this.CmbYear.Size = new System.Drawing.Size(288, 33);
+            this.CmbYear.TabIndex = 38;
             // 
             // BtnSearch
             // 
             this.BtnSearch.BackColor = System.Drawing.Color.Azure;
             this.BtnSearch.Font = new System.Drawing.Font("Merriweather Black", 9F);
-            this.BtnSearch.Location = new System.Drawing.Point(475, 80);
+            this.BtnSearch.Location = new System.Drawing.Point(219, 138);
             this.BtnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnSearch.Name = "BtnSearch";
             this.BtnSearch.Padding = new System.Windows.Forms.Padding(4);
@@ -155,31 +158,36 @@
             this.BtnSearch.UseVisualStyleBackColor = false;
             this.BtnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
-            // dataGridView1
+            // dataGridViewSalary
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tableLayoutPanel2.SetColumnSpan(this.dataGridView1, 4);
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(23, 139);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(976, 524);
-            this.dataGridView1.TabIndex = 35;
+            this.dataGridViewSalary.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tableLayoutPanel2.SetColumnSpan(this.dataGridViewSalary, 3);
+            this.dataGridViewSalary.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewSalary.Location = new System.Drawing.Point(23, 197);
+            this.dataGridViewSalary.Name = "dataGridViewSalary";
+            this.dataGridViewSalary.RowHeadersWidth = 62;
+            this.dataGridViewSalary.RowTemplate.Height = 28;
+            this.dataGridViewSalary.Size = new System.Drawing.Size(976, 466);
+            this.dataGridViewSalary.TabIndex = 40;
             // 
-            // MonthWiseAttendence
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // UserWiseSalary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 730);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "MonthWiseAttendence";
-            this.Text = "MonthWiseAttendence";
-            this.Load += new System.EventHandler(this.MonthWiseAttendence_Load);
+            this.Name = "UserWiseSalary";
+            this.Text = "UserWiseSalary";
+            this.Load += new System.EventHandler(this.UserWiseSalary_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSalary)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -187,13 +195,14 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label lb_MonthlyAttendenceReport;
+        private System.Windows.Forms.Label lb_UserwiseSalaryReport;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Label lblMonth;
+        private System.Windows.Forms.Label lblID;
+        private System.Windows.Forms.TextBox TxtStaffId;
         private System.Windows.Forms.Label lblYear;
-        private System.Windows.Forms.ComboBox CmbMonth;
         private System.Windows.Forms.ComboBox CmbYear;
         private System.Windows.Forms.Button BtnSearch;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewSalary;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

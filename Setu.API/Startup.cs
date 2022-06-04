@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Setu.API.Models;
 using Microsoft.OpenApi.Models;
+using Setu.API.PaymenGatewayHelper.Cashfree;
 
 namespace Setu.API
 {
@@ -30,6 +31,8 @@ namespace Setu.API
         {
             string mySqlConnectionStr = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContextPool<StaffContext>(options => options.UseMySql(mySqlConnectionStr, ServerVersion.AutoDetect(mySqlConnectionStr)));
+            services.AddScoped<CashFreeDetails>();
+            services.AddScoped<CashFreeGateway>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

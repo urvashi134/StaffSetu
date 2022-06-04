@@ -1,6 +1,8 @@
 ﻿using MANTRA;
+using Setu.Common.DTO;
 using Setu.Entities;
 using Staff_Management;
+using StaffSetu.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,6 +32,7 @@ namespace Staff_Management
         public Staff_New()
         {
             InitializeComponent();
+            FORMNAME = this.Text;
         }
         private void Staff_Load(object sender, EventArgs e)
         {
@@ -66,17 +69,24 @@ namespace Staff_Management
         private void ViewStaff()
         {
             var val = RestAPIHelper.GetAsync<List<tblStaff>>("api/Staff/GetStaff");
-            List<entityStaffView> tbl = new List<entityStaffView>();
+            List<StaffView> tbl = new List<StaffView>();
 
+            if(val==null)
+            {
+                return;
+            }
             for (int i = 0; i < val.Count; i++)
             {
-                tbl.Add(new entityStaffView());
+                tbl.Add(new StaffView());
 
                 tbl[i].ID = val[i].ID;
                 tbl[i].StaffName = val[i].StaffName;
                 tbl[i].FatherName = val[i].FatherName;
                 tbl[i].MotherName = val[i].MotherName;
-                tbl[i].Gender = val[i].Gender;
+                if (val[i].Gender == 'M')
+                    tbl[i].Gender = "Male";
+                else
+                    tbl[i].Gender = "Female";
                 tbl[i].Dob = val[i].Dob;
                 tbl[i].Category = val[i].Category;
                 if (val[i].state != null)
@@ -85,7 +95,7 @@ namespace Staff_Management
                     tbl[i].CityName = val[i].city.CityName;
                 tbl[i].Address = val[i].Address;
                 tbl[i].EmailID = val[i].EmailID;
-                tbl[i].Password = val[i].Password;
+               
                 tbl[i].MobileNo = val[i].MobileNo;
                 // if(val[i].OtherContactNo != null)
                 tbl[i].OtherContactNo = val[i].OtherContactNo;
@@ -467,11 +477,13 @@ namespace Staff_Management
 
                 if (val == null)
                 {
-                    MessageBox.Show("Addition Failed..");
+                    //MessageBox.Show("Addition Failed..");
+                    DisplayMessage(ResourceHelper.GetValue("ADDITION_SUCCESSFULL"),FORMNAME,MessageTypeEnum.ERROR);
                 }
                 else
                 {
-                    MessageBox.Show("Staff Added Successfully..");
+                    //MessageBox.Show("Staff Added Successfully..");
+                    DisplayMessage(ResourceHelper.GetValue("ADDITION_UNSUCCESSFULL"), FORMNAME, MessageTypeEnum.ERROR);
                 }
                 ResetAddPage();
                 ViewStaff();
@@ -1027,7 +1039,6 @@ namespace Staff_Management
                 }
             }
         }
-
         private void BtnQuit_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = DisplayMessage(ResourceHelper.GetValue("Msg_Quit"), FORMNAME, MessageTypeEnum.INPUTBOX);
@@ -1231,7 +1242,25 @@ namespace Staff_Management
         {
 
         }
-    
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            var id = DataGridViewStaff.SelectedRows[0].Cells["ID"].Value;
+
+             var val = RestAPIHelper.DeleteAsync<ApiResponse<Boolean>>($"api/Staff/DeleteStaff/{id}");
+
+            if(val.IsSuccessfull== true)
+            {
+                DisplayMessage(val.ErrorMessage, FORMNAME, MessageTypeEnum.SUCCESS);
+                //MessageBox.Show("Staff Deleted");
+            }
+            else
+            {
+                DisplayMessage(val.ErrorMessage, FORMNAME, MessageTypeEnum.ERROR);
+                //MessageBox.Show(val.ErrorMessage);
+            }
+        }
+
         private string GetFingerPrintANSI()
         {
             try

@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace StaffSetu
 {
-    public partial class MonthWiseAttendence : Form
+    public partial class MonthWiseAttendence : BaseForm
     {
         public MonthWiseAttendence()
         {
@@ -68,17 +68,38 @@ namespace StaffSetu
 
             for(int i=0;i<val.Count;i++)
             {
-                if()
-                {
+                
+                //if()
+                //{
 
-                }
-                else
-                {
-                    tbl.Add(new MonthlyAttendenceReportView());
-                }
+                //}
+                //else
+                //{
+                //    tbl.Add(new MonthlyAttendenceReportView());
+                //}
                 
 
             }
+        }
+
+        private void BtnQuit_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = DisplayMessage(ResourceHelper.GetValue("Msg_Quit"), FORMNAME, MessageTypeEnum.INPUTBOX);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Close();
+            }
+        }
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Escape)
+            {
+                object sender = new object();
+                EventArgs eventArgs = new EventArgs();
+                BtnQuit_Click(sender, eventArgs);
+            }
+
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }

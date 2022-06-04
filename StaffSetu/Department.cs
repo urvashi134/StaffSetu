@@ -1,4 +1,5 @@
-﻿using Setu.Entities;
+﻿using Setu.Common.DTO;
+using Setu.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace Staff_Management
         public Department()
         {
             InitializeComponent();
+            FORMNAME = this.Text;
         }
 
         private void BtnSave_Click_1(object sender, EventArgs e)
@@ -44,6 +46,11 @@ namespace Staff_Management
         private void Department_Load(object sender, EventArgs e)
         {
             ResourceHelper.SetLabel(this);
+            if (GlobalData.role.Equals("staff", StringComparison.InvariantCultureIgnoreCase))
+            {
+                tabControl1.TabPages.Remove(tabPageAdd);
+                tabControl1.TabPages.Remove(tabPageUpdate);
+            }
             ViewDepartments();
           
         }
@@ -51,6 +58,10 @@ namespace Staff_Management
         {
             var val = RestAPIHelper.GetAsync<List<tbldepartment>>("api/Department/GetDepartment");
             DataGridViewDepartment.DataSource = val;
+            foreach(DataGridViewColumn dataGridViewColumn in   DataGridViewDepartment.Columns)
+            {
+                dataGridViewColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
         }
         private void ResetPage()
         {
@@ -232,6 +243,45 @@ namespace Staff_Management
         private void BtnResetUpdate_Click(object sender, EventArgs e)
         {
             ResetUpdatePage();
+        }
+
+        private void BtnQuit_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = DisplayMessage(ResourceHelper.GetValue("Msg_Quit"), FORMNAME, MessageTypeEnum.INPUTBOX);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Close();
+
+            }
+        }
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Escape)
+            {
+                object sender = new object();
+                EventArgs eventArgs = new EventArgs();
+                BtnQuit_Click(sender, eventArgs);
+            }
+
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            var id = DataGridViewDepartment.SelectedRows[0].Cells["ID"].Value;
+
+            var val = RestAPIHelper.DeleteAsync<ApiResponse<Boolean>>($"api/Department/DeleteDepartment/{id}");
+
+            if (val.IsSuccessfull == true)
+            {
+                DisplayMessage(val.ErrorMessage, FORMNAME, MessageTypeEnum.SUCCESS);
+                //MessageBox.Show("Deleted");
+            }
+            else
+            {
+                DisplayMessage(val.ErrorMessage, FORMNAME, MessageTypeEnum.ERROR);
+                //MessageBox.Show(val.ErrorMessage);
+            }
         }
     }
 }

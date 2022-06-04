@@ -32,7 +32,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lb_UserAttendenceReport = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblId = new System.Windows.Forms.Label();
+            this.lblID = new System.Windows.Forms.Label();
             this.TxtStaffId = new System.Windows.Forms.TextBox();
             this.dataGridViewAttendence = new System.Windows.Forms.DataGridView();
             this.lblAttendenceFrom = new System.Windows.Forms.Label();
@@ -84,7 +84,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.lblId, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.lblID, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.TxtStaffId, 2, 1);
             this.tableLayoutPanel2.Controls.Add(this.dataGridViewAttendence, 1, 4);
             this.tableLayoutPanel2.Controls.Add(this.lblAttendenceFrom, 1, 2);
@@ -104,17 +104,17 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1112, 666);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
-            // lblId
+            // lblID
             // 
-            this.lblId.AutoSize = true;
-            this.lblId.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblId.Font = new System.Drawing.Font("Merriweather", 9.749999F);
-            this.lblId.Location = new System.Drawing.Point(23, 20);
-            this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(208, 58);
-            this.lblId.TabIndex = 0;
-            this.lblId.Text = "ID";
-            this.lblId.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblID.AutoSize = true;
+            this.lblID.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblID.Font = new System.Drawing.Font("Merriweather", 9.749999F);
+            this.lblID.Location = new System.Drawing.Point(23, 20);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(208, 58);
+            this.lblID.TabIndex = 0;
+            this.lblID.Text = "ID";
+            this.lblID.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // TxtStaffId
             // 
@@ -229,7 +229,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label lb_UserAttendenceReport;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Label lblId;
+        private System.Windows.Forms.Label lblID;
         private System.Windows.Forms.TextBox TxtStaffId;
         private System.Windows.Forms.DataGridView dataGridViewAttendence;
         private System.Windows.Forms.Button BtnSearch;

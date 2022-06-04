@@ -34,7 +34,7 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.lblDate = new System.Windows.Forms.Label();
             this.lblStaffID = new System.Windows.Forms.Label();
-            this.Lb_AddUserReg_FingerprintImpression = new System.Windows.Forms.Label();
+            this.lblAddUserReg_FingerprintImpression = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
             this.lblStartTime = new System.Windows.Forms.Label();
             this.lblEndTime = new System.Windows.Forms.Label();
@@ -61,7 +61,6 @@
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Controls.Add(this.lb_MarkDailyAttendence, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -70,7 +69,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 92F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1512, 1050);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1178, 730);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // lb_MarkDailyAttendence
@@ -81,35 +80,36 @@
             this.lb_MarkDailyAttendence.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lb_MarkDailyAttendence.Location = new System.Drawing.Point(3, 0);
             this.lb_MarkDailyAttendence.Name = "lb_MarkDailyAttendence";
-            this.lb_MarkDailyAttendence.Size = new System.Drawing.Size(1506, 84);
+            this.lb_MarkDailyAttendence.Size = new System.Drawing.Size(1172, 58);
             this.lb_MarkDailyAttendence.TabIndex = 1;
             this.lb_MarkDailyAttendence.Text = "Daily Attendence";
             this.lb_MarkDailyAttendence.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.ColumnCount = 4;
+            this.tableLayoutPanel2.ColumnCount = 5;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.Controls.Add(this.lblDate, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.lblStaffID, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.Lb_AddUserReg_FingerprintImpression, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.lblStatus, 0, 4);
-            this.tableLayoutPanel2.Controls.Add(this.lblStartTime, 0, 5);
-            this.tableLayoutPanel2.Controls.Add(this.lblEndTime, 0, 6);
-            this.tableLayoutPanel2.Controls.Add(this.DtToday, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.TxtStaffID, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.rdBtnAbsent, 1, 4);
-            this.tableLayoutPanel2.Controls.Add(this.rdBtnPresent, 2, 4);
-            this.tableLayoutPanel2.Controls.Add(this.rdBtnLeave, 3, 4);
-            this.tableLayoutPanel2.Controls.Add(this.timeStart, 1, 5);
-            this.tableLayoutPanel2.Controls.Add(this.timeEnd, 1, 6);
-            this.tableLayoutPanel2.Controls.Add(this.PictureBx_AddUserReg_FingerprintImpression, 1, 2);
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 1, 8);
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23F));
+            this.tableLayoutPanel2.Controls.Add(this.lblDate, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lblStaffID, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.lblAddUserReg_FingerprintImpression, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.lblStatus, 1, 4);
+            this.tableLayoutPanel2.Controls.Add(this.lblStartTime, 1, 5);
+            this.tableLayoutPanel2.Controls.Add(this.lblEndTime, 1, 6);
+            this.tableLayoutPanel2.Controls.Add(this.DtToday, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.TxtStaffID, 2, 1);
+            this.tableLayoutPanel2.Controls.Add(this.rdBtnAbsent, 2, 4);
+            this.tableLayoutPanel2.Controls.Add(this.rdBtnPresent, 3, 4);
+            this.tableLayoutPanel2.Controls.Add(this.rdBtnLeave, 4, 4);
+            this.tableLayoutPanel2.Controls.Add(this.timeStart, 2, 5);
+            this.tableLayoutPanel2.Controls.Add(this.timeEnd, 2, 6);
+            this.tableLayoutPanel2.Controls.Add(this.PictureBx_AddUserReg_FingerprintImpression, 2, 2);
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 2, 8);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 87);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 61);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 9;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6F));
@@ -121,7 +121,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 52F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1506, 960);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1172, 666);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // lblDate
@@ -129,9 +129,9 @@
             this.lblDate.AutoSize = true;
             this.lblDate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblDate.Font = new System.Drawing.Font("Merriweather", 9.749999F);
-            this.lblDate.Location = new System.Drawing.Point(3, 0);
+            this.lblDate.Location = new System.Drawing.Point(23, 0);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(370, 57);
+            this.lblDate.Size = new System.Drawing.Size(282, 39);
             this.lblDate.TabIndex = 3;
             this.lblDate.Text = "Date";
             this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -141,35 +141,35 @@
             this.lblStaffID.AutoSize = true;
             this.lblStaffID.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblStaffID.Font = new System.Drawing.Font("Merriweather", 9.749999F);
-            this.lblStaffID.Location = new System.Drawing.Point(3, 57);
+            this.lblStaffID.Location = new System.Drawing.Point(23, 39);
             this.lblStaffID.Name = "lblStaffID";
-            this.lblStaffID.Size = new System.Drawing.Size(370, 57);
+            this.lblStaffID.Size = new System.Drawing.Size(282, 39);
             this.lblStaffID.TabIndex = 6;
             this.lblStaffID.Text = "Staff ID";
             this.lblStaffID.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // Lb_AddUserReg_FingerprintImpression
+            // lblAddUserReg_FingerprintImpression
             // 
-            this.Lb_AddUserReg_FingerprintImpression.AutoSize = true;
-            this.Lb_AddUserReg_FingerprintImpression.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Lb_AddUserReg_FingerprintImpression.Font = new System.Drawing.Font("Merriweather", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lb_AddUserReg_FingerprintImpression.Location = new System.Drawing.Point(4, 114);
-            this.Lb_AddUserReg_FingerprintImpression.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Lb_AddUserReg_FingerprintImpression.Name = "Lb_AddUserReg_FingerprintImpression";
-            this.tableLayoutPanel2.SetRowSpan(this.Lb_AddUserReg_FingerprintImpression, 2);
-            this.Lb_AddUserReg_FingerprintImpression.Size = new System.Drawing.Size(368, 114);
-            this.Lb_AddUserReg_FingerprintImpression.TabIndex = 36;
-            this.Lb_AddUserReg_FingerprintImpression.Text = "Fingerprint Impression";
-            this.Lb_AddUserReg_FingerprintImpression.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblAddUserReg_FingerprintImpression.AutoSize = true;
+            this.lblAddUserReg_FingerprintImpression.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblAddUserReg_FingerprintImpression.Font = new System.Drawing.Font("Merriweather", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddUserReg_FingerprintImpression.Location = new System.Drawing.Point(24, 78);
+            this.lblAddUserReg_FingerprintImpression.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAddUserReg_FingerprintImpression.Name = "lblAddUserReg_FingerprintImpression";
+            this.tableLayoutPanel2.SetRowSpan(this.lblAddUserReg_FingerprintImpression, 2);
+            this.lblAddUserReg_FingerprintImpression.Size = new System.Drawing.Size(280, 78);
+            this.lblAddUserReg_FingerprintImpression.TabIndex = 36;
+            this.lblAddUserReg_FingerprintImpression.Text = "Fingerprint Impression";
+            this.lblAddUserReg_FingerprintImpression.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblStatus
             // 
             this.lblStatus.AutoSize = true;
             this.lblStatus.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblStatus.Font = new System.Drawing.Font("Merriweather", 9.749999F);
-            this.lblStatus.Location = new System.Drawing.Point(3, 228);
+            this.lblStatus.Location = new System.Drawing.Point(23, 156);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(370, 57);
+            this.lblStatus.Size = new System.Drawing.Size(282, 39);
             this.lblStatus.TabIndex = 37;
             this.lblStatus.Text = "Status";
             this.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -179,9 +179,9 @@
             this.lblStartTime.AutoSize = true;
             this.lblStartTime.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblStartTime.Font = new System.Drawing.Font("Merriweather", 9.749999F);
-            this.lblStartTime.Location = new System.Drawing.Point(3, 285);
+            this.lblStartTime.Location = new System.Drawing.Point(23, 195);
             this.lblStartTime.Name = "lblStartTime";
-            this.lblStartTime.Size = new System.Drawing.Size(370, 57);
+            this.lblStartTime.Size = new System.Drawing.Size(282, 39);
             this.lblStartTime.TabIndex = 38;
             this.lblStartTime.Text = "Start Time";
             this.lblStartTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -191,9 +191,9 @@
             this.lblEndTime.AutoSize = true;
             this.lblEndTime.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblEndTime.Font = new System.Drawing.Font("Merriweather", 9.749999F);
-            this.lblEndTime.Location = new System.Drawing.Point(3, 342);
+            this.lblEndTime.Location = new System.Drawing.Point(23, 234);
             this.lblEndTime.Name = "lblEndTime";
-            this.lblEndTime.Size = new System.Drawing.Size(370, 57);
+            this.lblEndTime.Size = new System.Drawing.Size(282, 39);
             this.lblEndTime.TabIndex = 39;
             this.lblEndTime.Text = "End Time";
             this.lblEndTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -202,21 +202,21 @@
             // 
             this.DtToday.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DtToday.Font = new System.Drawing.Font("Merriweather", 10.25F);
-            this.DtToday.Location = new System.Drawing.Point(379, 2);
+            this.DtToday.Location = new System.Drawing.Point(311, 2);
             this.DtToday.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.DtToday.Name = "DtToday";
             this.DtToday.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.DtToday.Size = new System.Drawing.Size(370, 33);
+            this.DtToday.Size = new System.Drawing.Size(316, 33);
             this.DtToday.TabIndex = 40;
             // 
             // TxtStaffID
             // 
             this.TxtStaffID.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtStaffID.Font = new System.Drawing.Font("Merriweather", 9.749999F);
-            this.TxtStaffID.Location = new System.Drawing.Point(379, 59);
+            this.TxtStaffID.Location = new System.Drawing.Point(311, 41);
             this.TxtStaffID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtStaffID.Name = "TxtStaffID";
-            this.TxtStaffID.Size = new System.Drawing.Size(370, 32);
+            this.TxtStaffID.Size = new System.Drawing.Size(316, 32);
             this.TxtStaffID.TabIndex = 41;
             this.TxtStaffID.Leave += new System.EventHandler(this.TxtStaffID_Leave);
             this.TxtStaffID.Validating += new System.ComponentModel.CancelEventHandler(this.TxtStaffID_Validating);
@@ -226,10 +226,10 @@
             this.rdBtnAbsent.AutoSize = true;
             this.rdBtnAbsent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rdBtnAbsent.Font = new System.Drawing.Font("Merriweather", 8.249999F);
-            this.rdBtnAbsent.Location = new System.Drawing.Point(380, 232);
+            this.rdBtnAbsent.Location = new System.Drawing.Point(312, 160);
             this.rdBtnAbsent.Margin = new System.Windows.Forms.Padding(4);
             this.rdBtnAbsent.Name = "rdBtnAbsent";
-            this.rdBtnAbsent.Size = new System.Drawing.Size(368, 49);
+            this.rdBtnAbsent.Size = new System.Drawing.Size(314, 31);
             this.rdBtnAbsent.TabIndex = 43;
             this.rdBtnAbsent.Text = "Absent";
             this.rdBtnAbsent.UseVisualStyleBackColor = true;
@@ -240,10 +240,10 @@
             this.rdBtnPresent.Checked = true;
             this.rdBtnPresent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rdBtnPresent.Font = new System.Drawing.Font("Merriweather", 8.249999F);
-            this.rdBtnPresent.Location = new System.Drawing.Point(756, 232);
+            this.rdBtnPresent.Location = new System.Drawing.Point(634, 160);
             this.rdBtnPresent.Margin = new System.Windows.Forms.Padding(4);
             this.rdBtnPresent.Name = "rdBtnPresent";
-            this.rdBtnPresent.Size = new System.Drawing.Size(368, 49);
+            this.rdBtnPresent.Size = new System.Drawing.Size(268, 31);
             this.rdBtnPresent.TabIndex = 42;
             this.rdBtnPresent.TabStop = true;
             this.rdBtnPresent.Text = "Present";
@@ -255,10 +255,10 @@
             this.rdBtnLeave.AutoSize = true;
             this.rdBtnLeave.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rdBtnLeave.Font = new System.Drawing.Font("Merriweather", 8.249999F);
-            this.rdBtnLeave.Location = new System.Drawing.Point(1132, 232);
+            this.rdBtnLeave.Location = new System.Drawing.Point(910, 160);
             this.rdBtnLeave.Margin = new System.Windows.Forms.Padding(4);
             this.rdBtnLeave.Name = "rdBtnLeave";
-            this.rdBtnLeave.Size = new System.Drawing.Size(370, 49);
+            this.rdBtnLeave.Size = new System.Drawing.Size(258, 31);
             this.rdBtnLeave.TabIndex = 44;
             this.rdBtnLeave.Text = "On Leave";
             this.rdBtnLeave.UseVisualStyleBackColor = true;
@@ -268,11 +268,11 @@
             this.timeStart.Dock = System.Windows.Forms.DockStyle.Fill;
             this.timeStart.Font = new System.Drawing.Font("Merriweather", 10.25F);
             this.timeStart.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.timeStart.Location = new System.Drawing.Point(379, 287);
+            this.timeStart.Location = new System.Drawing.Point(311, 197);
             this.timeStart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.timeStart.Name = "timeStart";
             this.timeStart.ShowUpDown = true;
-            this.timeStart.Size = new System.Drawing.Size(370, 33);
+            this.timeStart.Size = new System.Drawing.Size(316, 33);
             this.timeStart.TabIndex = 45;
             // 
             // timeEnd
@@ -280,21 +280,21 @@
             this.timeEnd.Dock = System.Windows.Forms.DockStyle.Fill;
             this.timeEnd.Font = new System.Drawing.Font("Merriweather", 10.25F);
             this.timeEnd.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.timeEnd.Location = new System.Drawing.Point(379, 344);
+            this.timeEnd.Location = new System.Drawing.Point(311, 236);
             this.timeEnd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.timeEnd.Name = "timeEnd";
             this.timeEnd.ShowUpDown = true;
-            this.timeEnd.Size = new System.Drawing.Size(370, 33);
+            this.timeEnd.Size = new System.Drawing.Size(316, 33);
             this.timeEnd.TabIndex = 46;
             // 
             // PictureBx_AddUserReg_FingerprintImpression
             // 
             this.PictureBx_AddUserReg_FingerprintImpression.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PictureBx_AddUserReg_FingerprintImpression.Location = new System.Drawing.Point(380, 119);
+            this.PictureBx_AddUserReg_FingerprintImpression.Location = new System.Drawing.Point(312, 83);
             this.PictureBx_AddUserReg_FingerprintImpression.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PictureBx_AddUserReg_FingerprintImpression.Name = "PictureBx_AddUserReg_FingerprintImpression";
             this.tableLayoutPanel2.SetRowSpan(this.PictureBx_AddUserReg_FingerprintImpression, 2);
-            this.PictureBx_AddUserReg_FingerprintImpression.Size = new System.Drawing.Size(368, 104);
+            this.PictureBx_AddUserReg_FingerprintImpression.Size = new System.Drawing.Size(314, 68);
             this.PictureBx_AddUserReg_FingerprintImpression.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PictureBx_AddUserReg_FingerprintImpression.TabIndex = 47;
             this.PictureBx_AddUserReg_FingerprintImpression.TabStop = false;
@@ -309,13 +309,13 @@
             this.tableLayoutPanel3.Controls.Add(this.BtnSave, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.BtnReset, 2, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(379, 459);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(311, 315);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 3;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 62F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(370, 498);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(316, 348);
             this.tableLayoutPanel3.TabIndex = 48;
             // 
             // BtnSave
@@ -356,7 +356,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1512, 1050);
+            this.ClientSize = new System.Drawing.Size(1178, 730);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "DailyAttendence";
             this.Text = "DailyAttendence";
@@ -380,7 +380,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Label lblStaffID;
-        private System.Windows.Forms.Label Lb_AddUserReg_FingerprintImpression;
+        private System.Windows.Forms.Label lblAddUserReg_FingerprintImpression;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Label lblStartTime;
         private System.Windows.Forms.Label lblEndTime;

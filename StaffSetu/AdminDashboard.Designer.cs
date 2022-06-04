@@ -44,11 +44,11 @@ namespace Staff_Management
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userwiseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.monthwiseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.leaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblLoginName = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -62,8 +62,8 @@ namespace Staff_Management
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MasterToolStripMenuItem,
             this.AttendenceToolStripMenuItem,
-            this.leaveToolStripMenuItem,
-            this.salaryToolStripMenuItem});
+            this.salaryToolStripMenuItem,
+            this.logoutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Margin = new System.Windows.Forms.Padding(0, 6, 0, 6);
             this.menuStrip1.Name = "menuStrip1";
@@ -87,28 +87,28 @@ namespace Staff_Management
             // StaffToolStripMenuItem
             // 
             this.StaffToolStripMenuItem.Name = "StaffToolStripMenuItem";
-            this.StaffToolStripMenuItem.Size = new System.Drawing.Size(265, 42);
+            this.StaffToolStripMenuItem.Size = new System.Drawing.Size(270, 42);
             this.StaffToolStripMenuItem.Text = "Staff";
             this.StaffToolStripMenuItem.Click += new System.EventHandler(this.StaffToolStripMenuItem_Click);
             // 
             // DeaprtmentToolStripMenuItem
             // 
             this.DeaprtmentToolStripMenuItem.Name = "DeaprtmentToolStripMenuItem";
-            this.DeaprtmentToolStripMenuItem.Size = new System.Drawing.Size(265, 42);
+            this.DeaprtmentToolStripMenuItem.Size = new System.Drawing.Size(270, 42);
             this.DeaprtmentToolStripMenuItem.Text = "Department";
             this.DeaprtmentToolStripMenuItem.Click += new System.EventHandler(this.DeaprtmentToolStripMenuItem_Click);
             // 
             // DesignationToolStripMenuItem
             // 
             this.DesignationToolStripMenuItem.Name = "DesignationToolStripMenuItem";
-            this.DesignationToolStripMenuItem.Size = new System.Drawing.Size(265, 42);
+            this.DesignationToolStripMenuItem.Size = new System.Drawing.Size(270, 42);
             this.DesignationToolStripMenuItem.Text = "Designation";
             this.DesignationToolStripMenuItem.Click += new System.EventHandler(this.DesignationToolStripMenuItem_Click);
             // 
             // SubjectToolStripMenuItem1
             // 
             this.SubjectToolStripMenuItem1.Name = "SubjectToolStripMenuItem1";
-            this.SubjectToolStripMenuItem1.Size = new System.Drawing.Size(265, 42);
+            this.SubjectToolStripMenuItem1.Size = new System.Drawing.Size(270, 42);
             this.SubjectToolStripMenuItem1.Text = "Subject";
             this.SubjectToolStripMenuItem1.Click += new System.EventHandler(this.SubjectToolStripMenuItem1_Click);
             // 
@@ -129,7 +129,7 @@ namespace Staff_Management
             this.MarkIndividualAttendenceToolStripMenuItem,
             this.MarkMultipleAttendenceToolStripMenuItem});
             this.MarkAttendenceToolStripMenuItem.Name = "MarkAttendenceToolStripMenuItem";
-            this.MarkAttendenceToolStripMenuItem.Size = new System.Drawing.Size(270, 42);
+            this.MarkAttendenceToolStripMenuItem.Size = new System.Drawing.Size(190, 42);
             this.MarkAttendenceToolStripMenuItem.Text = "Mark ";
             // 
             // MarkIndividualAttendenceToolStripMenuItem
@@ -149,7 +149,7 @@ namespace Staff_Management
             // AttendenceRulesToolStripMenuItem
             // 
             this.AttendenceRulesToolStripMenuItem.Name = "AttendenceRulesToolStripMenuItem";
-            this.AttendenceRulesToolStripMenuItem.Size = new System.Drawing.Size(270, 42);
+            this.AttendenceRulesToolStripMenuItem.Size = new System.Drawing.Size(190, 42);
             this.AttendenceRulesToolStripMenuItem.Text = "Rules";
             this.AttendenceRulesToolStripMenuItem.Click += new System.EventHandler(this.AttendenceRulesToolStripMenuItem_Click);
             // 
@@ -159,35 +159,28 @@ namespace Staff_Management
             this.userwiseToolStripMenuItem,
             this.monthwiseToolStripMenuItem});
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(270, 42);
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(190, 42);
             this.viewToolStripMenuItem.Text = "View";
             // 
             // userwiseToolStripMenuItem
             // 
             this.userwiseToolStripMenuItem.Name = "userwiseToolStripMenuItem";
-            this.userwiseToolStripMenuItem.Size = new System.Drawing.Size(270, 42);
+            this.userwiseToolStripMenuItem.Size = new System.Drawing.Size(269, 42);
             this.userwiseToolStripMenuItem.Text = "User-wise";
             this.userwiseToolStripMenuItem.Click += new System.EventHandler(this.userwiseToolStripMenuItem_Click);
             // 
             // monthwiseToolStripMenuItem
             // 
             this.monthwiseToolStripMenuItem.Name = "monthwiseToolStripMenuItem";
-            this.monthwiseToolStripMenuItem.Size = new System.Drawing.Size(270, 42);
+            this.monthwiseToolStripMenuItem.Size = new System.Drawing.Size(269, 42);
             this.monthwiseToolStripMenuItem.Text = "Month-wise";
             this.monthwiseToolStripMenuItem.Click += new System.EventHandler(this.monthwiseToolStripMenuItem_Click);
-            // 
-            // leaveToolStripMenuItem
-            // 
-            this.leaveToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.leaveToolStripMenuItem.Name = "leaveToolStripMenuItem";
-            this.leaveToolStripMenuItem.Size = new System.Drawing.Size(100, 37);
-            this.leaveToolStripMenuItem.Text = "Leave";
             // 
             // salaryToolStripMenuItem
             // 
             this.salaryToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.salaryToolStripMenuItem.Name = "salaryToolStripMenuItem";
-            this.salaryToolStripMenuItem.Size = new System.Drawing.Size(106, 37);
+            this.salaryToolStripMenuItem.Size = new System.Drawing.Size(106, 39);
             this.salaryToolStripMenuItem.Text = "Salary";
             // 
             // panel1
@@ -226,6 +219,13 @@ namespace Staff_Management
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1370, 708);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
+            // logoutToolStripMenuItem
+            // 
+            this.logoutToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(116, 37);
+            this.logoutToolStripMenuItem.Text = "Logout";
+            // 
             // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -257,9 +257,8 @@ namespace Staff_Management
         private ToolStripMenuItem StaffToolStripMenuItem;
         private ToolStripMenuItem DeaprtmentToolStripMenuItem;
         private ToolStripMenuItem DesignationToolStripMenuItem;
-        private ToolStripMenuItem leaveToolStripMenuItem;
-        private ToolStripMenuItem SubjectToolStripMenuItem1;
         private ToolStripMenuItem salaryToolStripMenuItem;
+        private ToolStripMenuItem SubjectToolStripMenuItem1;
         private Panel panel1;
         private ToolStripMenuItem MarkAttendenceToolStripMenuItem;
         private ToolStripMenuItem AttendenceRulesToolStripMenuItem;
@@ -270,5 +269,6 @@ namespace Staff_Management
         private ToolStripMenuItem monthwiseToolStripMenuItem;
         private Label lblLoginName;
         private TableLayoutPanel tableLayoutPanel1;
+        private ToolStripMenuItem logoutToolStripMenuItem;
     }
 }

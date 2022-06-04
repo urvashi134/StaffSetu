@@ -121,5 +121,32 @@ namespace Staff_Management
                 return default(T);
             }
         }
+
+        public static T DeleteAsync<T>(string url)
+        {
+            try
+            {
+                using(var client = GetHttpClient())
+                {
+                    //var stringPayload = JsonConvert.SerializeObject(payload);
+
+                    //var httpcontent = new StringContent(stringPayload, Encoding.UTF8, "application/json");
+
+                    HttpResponseMessage response = client.DeleteAsync(url).GetAwaiter().GetResult();
+                    if (response.StatusCode == HttpStatusCode.OK)
+                    {
+                        var json = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+                        var result = JsonConvert.DeserializeObject<T>(json);
+                        return result;
+                    }
+
+                    return default(T);
+                }
+            }
+            catch(Exception)
+            {
+                return default(T);
+            }
+        }
     }
 }

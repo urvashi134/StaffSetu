@@ -174,7 +174,7 @@ namespace Staff_Management
             this.MaximizeBox = false;
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "College Setu";
+            this.Text = "Staff Setu";
             this.Load += new System.EventHandler(this.Login_Load);
             this.grpBoxLogin.ResumeLayout(false);
             this.grpBoxLogin.PerformLayout();

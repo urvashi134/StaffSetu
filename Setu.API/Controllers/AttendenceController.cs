@@ -27,7 +27,18 @@ namespace Setu.API.Controllers
         [HttpGet("GetAttendenceByMonthYear/{obj}")]
         public IList<tblAttendence> GetAttendenceByMonthYear(UserAttendenceReport obj)
         {
-            return staffContext.tblAttendence.Where(x => x.myDate >= obj.AttendenceFrom && x.myDate <= obj.AttendenceTill).ToList();
+            var val = staffContext.tblAttendence.Where(x => x.myDate >= obj.AttendenceFrom && x.myDate <= obj.AttendenceTill).GroupBy(c => new
+            {
+                c.StaffID,
+                c.Status
+            }).Select(gcs => new
+            {
+                StaffId = gcs.Key.StaffID,
+                Status = gcs.Key.Status,
+                TotalCount = gcs.Count(),
+            }).ToList();
+            //int count = val.Count;
+            return (IList<tblAttendence>)val;
         }
         [HttpPost("GetAttendenceByStaffIdDate/{obj}")]
         public tblAttendence GetAttendenceByStaffIdDate(AttendenceRules obj)

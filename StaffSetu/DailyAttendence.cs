@@ -353,5 +353,24 @@ namespace Staff_Management
         {
             ResetPage();
         }
+        private void BtnQuit_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = DisplayMessage(ResourceHelper.GetValue("Msg_Quit"), FORMNAME, MessageTypeEnum.INPUTBOX);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Close();
+            }
+        }
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Escape)
+            {
+                object sender = new object();
+                EventArgs eventArgs = new EventArgs();
+                BtnQuit_Click(sender, eventArgs);
+            }
+
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
     }
 }

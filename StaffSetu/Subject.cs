@@ -19,13 +19,25 @@ namespace Staff_Management
         private void Subject_Load(object sender, EventArgs e)
         {
             ResourceHelper.SetLabel(this);
+            if (GlobalData.role.Equals("staff", StringComparison.InvariantCultureIgnoreCase))
+            {
+                tabControl1.TabPages.Remove(tabPageAdd);
+            }
+            else
+            {
+                FillDept();
+            }
             ViewSubject();
-            FillDept();
         }
         private void ViewSubject()
         {
             var val = RestAPIHelper.GetAsync<List<tblSubject>>("api/Subject/GetSubject");
             DataGridViewSubject.DataSource = val;
+
+            foreach(DataGridViewColumn dataGridViewColumn in DataGridViewSubject.Columns)
+            {
+                dataGridViewColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
         }
         private void FillDept()
         {
@@ -105,6 +117,27 @@ namespace Staff_Management
                     e.Cancel = true;
                 }
             }
+        }
+
+        private void BtnQuit_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = DisplayMessage(ResourceHelper.GetValue("Msg_Quit"), FORMNAME, MessageTypeEnum.INPUTBOX);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Close();
+
+            }
+        }
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Escape)
+            {
+                object sender = new object();
+                EventArgs eventArgs = new EventArgs();
+                BtnQuit_Click(sender, eventArgs);
+            }
+
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }

@@ -20,6 +20,11 @@ namespace Staff_Management
         {
             var val = RestAPIHelper.GetAsync<List<tblDesignation>>("api/Designation/GetDesignation");
             DataGridViewDesg.DataSource = val;
+
+            foreach (DataGridViewColumn dataGridViewColumn in DataGridViewDesg.Columns)
+            {
+                dataGridViewColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
         }
         private void BtnSaveDesg_Click(object sender, EventArgs e)
         {
@@ -48,6 +53,10 @@ namespace Staff_Management
         private void Designation_Load(object sender, EventArgs e)
         {
             ResourceHelper.SetLabel(this);
+            if (GlobalData.role.Equals("staff", StringComparison.InvariantCultureIgnoreCase))
+            {
+                tabControl1.TabPages.Remove(tabPageAdd);
+            }
             ViewDesg();
         }
         private void ResetDesg()
@@ -83,6 +92,26 @@ namespace Staff_Management
                     e.Cancel = true;
                 }
             }
+        }
+
+        private void BtnQuit_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = DisplayMessage(ResourceHelper.GetValue("Msg_Quit"), FORMNAME, MessageTypeEnum.INPUTBOX);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Close();
+            }
+        }
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Escape)
+            {
+                object sender = new object();
+                EventArgs eventArgs = new EventArgs();
+                BtnQuit_Click(sender, eventArgs);
+            }
+
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }

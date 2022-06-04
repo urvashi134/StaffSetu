@@ -57,5 +57,7 @@ namespace Setu.Entities
         public string AccountName { get; set; }
         public string IfscCode { get; set; }
         public string UpiId { get; set; }
+
+        public Boolean IsActive { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Setu.Entities
 {
@@ -8,5 +9,6 @@ namespace Setu.Entities
         public int ID { get; set; }
         public string Name { get; set; }
         public string Location { get; set; }
+        public Boolean IsActive { get; set; }
     }
 }

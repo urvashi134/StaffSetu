@@ -36,7 +36,6 @@
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
             this.DataGridViewStaff = new System.Windows.Forms.DataGridView();
             this.BtnDelete = new System.Windows.Forms.Button();
-            this.BtnQuit = new System.Windows.Forms.Button();
             this.tabPageAdd = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -257,8 +256,7 @@
             this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel12.Controls.Add(this.DataGridViewStaff, 0, 0);
-            this.tableLayoutPanel12.Controls.Add(this.BtnDelete, 1, 1);
-            this.tableLayoutPanel12.Controls.Add(this.BtnQuit, 3, 1);
+            this.tableLayoutPanel12.Controls.Add(this.BtnDelete, 3, 1);
             this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel12.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel12.Name = "tableLayoutPanel12";
@@ -270,11 +268,13 @@
             // 
             // DataGridViewStaff
             // 
+            this.DataGridViewStaff.AllowUserToAddRows = false;
             this.DataGridViewStaff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tableLayoutPanel12.SetColumnSpan(this.DataGridViewStaff, 4);
             this.DataGridViewStaff.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DataGridViewStaff.Location = new System.Drawing.Point(3, 3);
             this.DataGridViewStaff.Name = "DataGridViewStaff";
+            this.DataGridViewStaff.ReadOnly = true;
             this.DataGridViewStaff.RowHeadersWidth = 62;
             this.DataGridViewStaff.RowTemplate.Height = 28;
             this.DataGridViewStaff.Size = new System.Drawing.Size(982, 569);
@@ -285,7 +285,7 @@
             this.BtnDelete.BackColor = System.Drawing.Color.Azure;
             this.BtnDelete.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnDelete.Font = new System.Drawing.Font("Merriweather Black", 8F);
-            this.BtnDelete.Location = new System.Drawing.Point(771, 577);
+            this.BtnDelete.Location = new System.Drawing.Point(891, 577);
             this.BtnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnDelete.Name = "BtnDelete";
             this.BtnDelete.Padding = new System.Windows.Forms.Padding(4);
@@ -293,21 +293,7 @@
             this.BtnDelete.TabIndex = 18;
             this.BtnDelete.Text = "Delete";
             this.BtnDelete.UseVisualStyleBackColor = false;
-            // 
-            // BtnQuit
-            // 
-            this.BtnQuit.BackColor = System.Drawing.Color.Azure;
-            this.BtnQuit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnQuit.Font = new System.Drawing.Font("Merriweather Black", 8F);
-            this.BtnQuit.Location = new System.Drawing.Point(891, 577);
-            this.BtnQuit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.BtnQuit.Name = "BtnQuit";
-            this.BtnQuit.Padding = new System.Windows.Forms.Padding(4);
-            this.BtnQuit.Size = new System.Drawing.Size(94, 40);
-            this.BtnQuit.TabIndex = 19;
-            this.BtnQuit.Text = "Quit";
-            this.BtnQuit.UseVisualStyleBackColor = false;
-            this.BtnQuit.Click += new System.EventHandler(this.BtnQuit_Click);
+            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // tabPageAdd
             // 
@@ -2318,7 +2304,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
         private System.Windows.Forms.DataGridView DataGridViewStaff;
         private System.Windows.Forms.Button BtnDelete;
-        private System.Windows.Forms.Button BtnQuit;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel13;
         private System.Windows.Forms.Label lblBankDetails;
         private System.Windows.Forms.Label lbAccNumber;
