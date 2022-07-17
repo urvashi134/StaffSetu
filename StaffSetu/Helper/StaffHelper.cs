@@ -1,4 +1,6 @@
-﻿using Setu.Entities;
+﻿using Setu.Common.DTO;
+using Setu.Entities;
+using Staff_Management.Helper;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -120,46 +122,50 @@ namespace Staff_Management
             comboBoxDataSources.Add(new ComboBoxDataSources()
             {
                 Value = "1",
-                DisplayMember = "Admin"
+                DisplayMember = RolesConstant.ROLE_ADMIN
             });
             comboBoxDataSources.Add(new ComboBoxDataSources()
             {
                 Value = "2",
-                DisplayMember = "Staff"
+                DisplayMember = RolesConstant.ROLE_DEPT_ADMIN
             });
+            comboBoxDataSources.Add(new ComboBoxDataSources()
+            {
+                Value = "3",
+                DisplayMember = RolesConstant.ROLE_STAFF
+            });
+
             return comboBoxDataSources;
         }
        public static List<tblState> FillState()
         {
-            var val = RestAPIHelper.GetAsync<List<tblState>>("api/State/GetState");
+            var val = RestAPIHelper.GetAsync<List<tblState>>(ApiConstants.API_GET_STATE_GETSTATE);
+
+            List<tblState> tbl = new List<tblState>();
             tblState tblState = new tblState();
             tblState.ID = 0;
             tblState.StateName = "-Select-";
 
-            val.Insert(0, tblState);
-            return val;
-        }
-        public static List<tblDesignation> FillDesignation()
-        {
-            var val = RestAPIHelper.GetAsync<List<tblDesignation>>("api/Designation/GetDesignation");
-            tblDesignation tblDesg = new tblDesignation();
-            tblDesg.ID = 0;
-            tblDesg.Name = "-Select-";
-            val.Insert(0, tblDesg);
-            return val;
+            if (val == null)
+                tbl.Add(tblState);
+            else
+            {
+                tbl = val;
+                tbl.Insert(0, tblState);
+            }
+                
+            return tbl;
         }
         public static List<tblCity> FillCityByStateID(int id)
         {
-            var val = RestAPIHelper.GetAsync<List<tblCity>>($"api/City/GetCityByStateID/{id}");
+            //var val = RestAPIHelper.GetAsync<List<tblCity>>($"api/City/GetCityByStateID/{id}");
+            var val = RestAPIHelper.GetAsync<List<tblCity>>($"{ApiConstants.API_GET_CITY_GETCITY_BY_STATE}/{id}");
             tblCity tblCity = new tblCity();
             tblCity.ID = 0;
             tblCity.CityName = "-Select-";
             tblCity.StateID = 0;
             if (val == null)
             {
-                // List<tblCity> lstCity = new List<tblCity>();
-                // lstCity.Add(tblCity);
-                // CmbCity.DataSource = lstCity;
                 val.Add(tblCity);
             }
             else
@@ -168,15 +174,47 @@ namespace Staff_Management
             }
             return val;
         }
+        public static List<tblDesignation> FillDesignation()
+        {
+            var response = RestAPIHelper.GetAsync<ApiResponse<List<tblDesignation>>>(ApiConstants.API_GET_DESIGNATION_GETDESIGNATION);
+            List<tblDesignation> tbl = new List<tblDesignation>();
+            tblDesignation tblDesg = new tblDesignation();
+            tblDesg.ID = 0;
+            tblDesg.Name = "-Select-";
+
+            if (response.IsSuccessfull == true)
+            {
+                tbl = response.Data;
+                tbl.Insert(0, tblDesg);
+            }
+            else
+            {
+                tbl.Add(tblDesg);
+            }
+           
+            return tbl;
+        }
+        
         public static List<tbldepartment> FillDepartment()
         {
-            var val = RestAPIHelper.GetAsync<List<tbldepartment>>("api/Department/GetDepartment");
+          //  var val = RestAPIHelper.GetAsync<List<tbldepartment>>(ApiConstants.API_GET_DEPARTMENT_GETDEPARTMENT);
+            var response = RestAPIHelper.GetAsync<ApiResponse<List<tbldepartment>>>(ApiConstants.API_GET_DEPARTMENT_GETDEPARTMENT);
+            List<tbldepartment> tbl = new List<tbldepartment>();
             tbldepartment tblDept = new tbldepartment();
             tblDept.ID = 0;
             tblDept.Name = "-Select-";
 
-            val.Insert(0, tblDept);
-            return val;
+            if (response.IsSuccessfull == true)
+            {
+                tbl = response.Data;
+                tbl.Insert(0, tblDept);
+            }
+            else
+            {
+                tbl.Add(tblDept);
+            }
+
+            return tbl;
         }
         public static List<tblSubject> FillSubject1(List<tblSubject> subjects1)
         {

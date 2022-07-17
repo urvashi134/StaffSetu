@@ -1,4 +1,5 @@
-﻿using StaffSetu;
+﻿using Setu.Common.DTO;
+using StaffSetu;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +16,14 @@ namespace Staff_Management
         {
             InitializeComponent();
         }
-
+        protected override void WndProc(ref Message m)
+        {
+            if (m.Msg == 0x10) // The upper right "X" was clicked
+            {
+                AutoValidate = AutoValidate.Disable; //Deactivate all validations
+            }
+            base.WndProc(ref m);
+        }
         private void DisplayForm(Form myForm)
         {
             myForm.Dock = DockStyle.Fill;
@@ -52,7 +60,7 @@ namespace Staff_Management
 
         private void AdminDashboard_Load(object sender, EventArgs e)
         {
-            if (GlobalData.role.Equals("staff", StringComparison.InvariantCultureIgnoreCase))
+            if (GlobalData.role.Equals(RolesConstant.ROLE_STAFF, StringComparison.InvariantCultureIgnoreCase))
             {
                 List<ToolStripMenuItem> allItems = new List<ToolStripMenuItem>();
                 foreach (ToolStripMenuItem toolItem in this.menuStrip1.Items)
@@ -62,9 +70,10 @@ namespace Staff_Management
                 }
                 allItems.ForEach(x =>
                 {
-                    if (x == StaffToolStripMenuItem || x== DeaprtmentToolStripMenuItem
-                    || x== DesignationToolStripMenuItem || x== SubjectToolStripMenuItem1
-                    || x == MasterToolStripMenuItem )
+                    if (x == StaffToolStripMenuItem || x == MasterToolStripMenuItem ||
+                    x==SubjectToolStripMenuItem1||x==AttendenceToolStripMenuItem || x==AttendenceRulesToolStripMenuItem ||
+                    x==viewToolStripMenuItem || x==userwiseToolStripMenuItem || x==salaryToolStripMenuItem || x==salaryreportToolStripMenuItem
+                    || x== logoutToolStripMenuItem)
                     {
                         x.Visible = true;
                     }
@@ -74,6 +83,7 @@ namespace Staff_Management
                     }
                 });
             }
+            
             lblLoginName.Text = GlobalData.loginName;
             
         }
@@ -119,6 +129,24 @@ namespace Staff_Management
             MonthWiseAttendence monthWiseAttendence = new MonthWiseAttendence();
             DisplayForm(monthWiseAttendence);
         }
-        
+
+        private void confirmSalaryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfirmAttendence confirm  = new ConfirmAttendence();
+            DisplayForm(confirm);
+
+        }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+
+        private void reportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UserWiseSalary salaryReport = new UserWiseSalary();
+            DisplayForm(salaryReport);
+        }
     }
 }

@@ -417,14 +417,80 @@
   <data name="MSG_DEVICE_REMOVED" xml:space="preserve">
     <value>Device Removed</value>
   </data>
+  <data name="MSG_ERROR_ADD_ATTENDENCE" xml:space="preserve">
+    <value>There is an issue in saving attendence.</value>
+  </data>
+  <data name="MSG_ERROR_ADD_DEPARTMENT" xml:space="preserve">
+    <value>There is some issue in adding department.</value>
+  </data>
+  <data name="MSG_ERROR_ADD_DESIGNATION" xml:space="preserve">
+    <value>There is an issue in adding designation.</value>
+  </data>
+  <data name="MSG_ERROR_ADD_STAFF" xml:space="preserve">
+    <value>There is issue in updating staff.</value>
+  </data>
+  <data name="MSG_ERROR_ADD_SUBJECT" xml:space="preserve">
+    <value>There is an issue in adding subject.</value>
+  </data>
+  <data name="MSG_ERROR_CALLING_API" xml:space="preserve">
+    <value>There is issue in connecting server. Please check is server running.</value>
+  </data>
+  <data name="MSG_ERROR_DELETE_DEPARTMENT" xml:space="preserve">
+    <value>There is an issue in deleting department.</value>
+  </data>
+  <data name="MSG_ERROR_DELETE_STAFF" xml:space="preserve">
+    <value>There is an issue in deleting staff.</value>
+  </data>
+  <data name="MSG_ERROR_DELETE_SUBJECT" xml:space="preserve">
+    <value>There is an issue in deleting subject.</value>
+  </data>
   <data name="MSG_ERROR_DEVICE_INITIATE" xml:space="preserve">
     <value>Error in device initialization</value>
   </data>
   <data name="MSG_ERROR_DEVICE_NOT_CONNECTED" xml:space="preserve">
     <value>Device not connected</value>
   </data>
+  <data name="MSG_ERROR_ENTER_DEPT_ID" xml:space="preserve">
+    <value>Please enter correct department id.</value>
+  </data>
+  <data name="MSG_ERROR_ENTER_STAFF_ID" xml:space="preserve">
+    <value>Please enter correct staff id.</value>
+  </data>
+  <data name="MSG_ERROR_NO_DEPARTMENT" xml:space="preserve">
+    <value>No department found with given ID.</value>
+  </data>
+  <data name="MSG_ERROR_NO_STAFF" xml:space="preserve">
+    <value>No Staff Found with Given ID.</value>
+  </data>
+  <data name="MSG_ERROR_SELECTION_DEPARTMENT" xml:space="preserve">
+    <value>Please Select Department.</value>
+  </data>
+  <data name="MSG_ERROR_SELECTION_DESIGNATION" xml:space="preserve">
+    <value>Please Select Designation.</value>
+  </data>
+  <data name="MSG_ERROR_SELF_ATTENDENCE" xml:space="preserve">
+    <value>You cannot add your own attendence.</value>
+  </data>
+  <data name="MSG_ERROR_STAFF_NOT_ACCESSIBLE" xml:space="preserve">
+    <value>This staff is not accessible to you.</value>
+  </data>
+  <data name="MSG_ERROR_STAFF_NOT_EXISTING" xml:space="preserve">
+    <value>This staff does not exist.</value>
+  </data>
   <data name="MSG_ERROR_STARTTIME_LESS_ENDTIME" xml:space="preserve">
     <value>Start time is greater than end time.</value>
+  </data>
+  <data name="MSG_ERROR_UPDATE_ATTENDENCE" xml:space="preserve">
+    <value>There is an issue in updating attendence.</value>
+  </data>
+  <data name="MSG_ERROR_UPDATING_ATTENDENCE" xml:space="preserve">
+    <value>There is issue in updating attendence.</value>
+  </data>
+  <data name="MSG_ERROR_UPDATING_DEPARTMENT" xml:space="preserve">
+    <value>There is issue in updating department.</value>
+  </data>
+  <data name="MSG_ERROR_UPDATING_STAFF" xml:space="preserve">
+    <value>There is an issue in updating Staff.</value>
   </data>
   <data name="MSG_FINGERPRINT_CAPTURE_SUCCESS" xml:space="preserve">
     <value>Finger print captured successfully.</value>
@@ -432,11 +498,47 @@
   <data name="Msg_Quit" xml:space="preserve">
     <value>Are you sure, you want to Quit?</value>
   </data>
+  <data name="MSG_SUCCESS_ADD_ATTENDENCE" xml:space="preserve">
+    <value>Attendence saved succesfully.</value>
+  </data>
+  <data name="MSG_SUCCESS_ADD_DEPARTMENT" xml:space="preserve">
+    <value>Department added successfully.</value>
+  </data>
+  <data name="MSG_SUCCESS_ADD_DESIGNATION" xml:space="preserve">
+    <value>Designation added successfully.</value>
+  </data>
+  <data name="MSG_SUCCESS_ADD_STAFF" xml:space="preserve">
+    <value>Staff added successfully.</value>
+  </data>
+  <data name="MSG_SUCCESS_ADD_SUBJECT" xml:space="preserve">
+    <value>Subject added successfully.</value>
+  </data>
+  <data name="MSG_SUCCESS_DELETE_DEPARTMENT" xml:space="preserve">
+    <value>Department deleted successfully.</value>
+  </data>
+  <data name="MSG_SUCCESS_DELETE_STAFF" xml:space="preserve">
+    <value>Staff deleted successfully.</value>
+  </data>
+  <data name="MSG_SUCCESS_DELETE_SUBJECT" xml:space="preserve">
+    <value>Subject deleted successfully.</value>
+  </data>
+  <data name="MSG_SUCCESS_UPDATE_ATTENDENCE" xml:space="preserve">
+    <value>Attendence updated successfully.</value>
+  </data>
+  <data name="MSG_SUCCESS_UPDATING_ATTENDENCE" xml:space="preserve">
+    <value>Attendence updated successfully.</value>
+  </data>
+  <data name="MSG_SUCCESS_UPDATING_DEPARTMENT" xml:space="preserve">
+    <value>Department detail updated successfully.</value>
+  </data>
+  <data name="MSG_SUCCESS_UPDATING_STAFF" xml:space="preserve">
+    <value>Staff detail updated successfully.</value>
+  </data>
   <data name="NO_MATCH_ANY_USER" xml:space="preserve">
     <value>User does not exist.</value>
   </data>
   <data name="NO_RECORD_FOUND" xml:space="preserve">
-    <value>No record found for specified user.</value>
+    <value>No record found.</value>
   </data>
   <data name="NUMERIC_VALIDATION_FAIL" xml:space="preserve">
     <value>Only Integers are allowed</value>

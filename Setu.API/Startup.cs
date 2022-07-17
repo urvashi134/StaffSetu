@@ -14,6 +14,12 @@ using Microsoft.EntityFrameworkCore;
 using Setu.API.Models;
 using Microsoft.OpenApi.Models;
 using Setu.API.PaymenGatewayHelper.Cashfree;
+using Setu.Common;
+using Setu.Common.MailHelper;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Setu.API.JwtRepository;
 
 namespace Setu.API
 {
@@ -33,8 +39,36 @@ namespace Setu.API
             services.AddDbContextPool<StaffContext>(options => options.UseMySql(mySqlConnectionStr, ServerVersion.AutoDetect(mySqlConnectionStr)));
             services.AddScoped<CashFreeDetails>();
             services.AddScoped<CashFreeGateway>();
+            services.AddScoped<EmailHelper>();
+            services.AddScoped<UserContext>();
+            services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
+            services.AddTransient<IMailService, MailService>();
+
+            services.AddAuthentication(
+                options =>
+                {
+                    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                }
+            ).AddJwtBearer(o =>
+            {
+                var key = Encoding.UTF8.GetBytes(Configuration["JWT:Key"]);
+                o.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = Configuration["JWT:Issuer"],
+                    ValidAudience = Configuration["JWT:Audience"],
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateLifetime = true,
+                    ValidateIssuer = false,
+                    ValidateAudience = false
+                };
+            });
+
             services.AddControllers();
-            services.AddSwaggerGen(c =>
+
+            services.AddSingleton<IJWTManager, JWTManager>();
+           services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Setu.API", Version = "v1" });
             });
@@ -53,9 +87,9 @@ namespace Setu.API
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
-
+            app.UseMiddleware<JWTMiddleware>();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

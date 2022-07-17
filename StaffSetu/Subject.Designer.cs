@@ -34,6 +34,7 @@
             this.tabPageView = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.DataGridViewSubject = new System.Windows.Forms.DataGridView();
+            this.BtnQuit = new System.Windows.Forms.Button();
             this.BtnDelete = new System.Windows.Forms.Button();
             this.tabPageAdd = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -91,7 +92,8 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel2.Controls.Add(this.DataGridViewSubject, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.BtnDelete, 3, 1);
+            this.tableLayoutPanel2.Controls.Add(this.BtnQuit, 3, 1);
+            this.tableLayoutPanel2.Controls.Add(this.BtnDelete, 1, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -124,12 +126,25 @@
             this.DataGridViewSubject.Size = new System.Drawing.Size(982, 575);
             this.DataGridViewSubject.TabIndex = 0;
             // 
+            // BtnQuit
+            // 
+            this.BtnQuit.BackColor = System.Drawing.Color.Azure;
+            this.BtnQuit.Font = new System.Drawing.Font("Merriweather Black", 8F);
+            this.BtnQuit.Location = new System.Drawing.Point(891, 581);
+            this.BtnQuit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BtnQuit.Name = "BtnQuit";
+            this.BtnQuit.Padding = new System.Windows.Forms.Padding(4);
+            this.BtnQuit.Size = new System.Drawing.Size(94, 40);
+            this.BtnQuit.TabIndex = 22;
+            this.BtnQuit.Text = "Quit";
+            this.BtnQuit.UseVisualStyleBackColor = false;
+            // 
             // BtnDelete
             // 
             this.BtnDelete.BackColor = System.Drawing.Color.Azure;
             this.BtnDelete.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnDelete.Font = new System.Drawing.Font("Merriweather Black", 8F);
-            this.BtnDelete.Location = new System.Drawing.Point(891, 581);
+            this.BtnDelete.Location = new System.Drawing.Point(771, 581);
             this.BtnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnDelete.Name = "BtnDelete";
             this.BtnDelete.Padding = new System.Windows.Forms.Padding(4);
@@ -137,6 +152,7 @@
             this.BtnDelete.TabIndex = 21;
             this.BtnDelete.Text = "Delete";
             this.BtnDelete.UseVisualStyleBackColor = false;
+            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // tabPageAdd
             // 
@@ -344,6 +360,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label lb_SubjectMaster;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Button BtnQuit;
         private System.Windows.Forms.Button BtnDelete;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;

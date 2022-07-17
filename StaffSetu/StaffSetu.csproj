@@ -33,6 +33,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>3-02.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="MANTRA.MFS100">
       <HintPath>..\Third Party DLL\MANTRA.MFS100.dll</HintPath>
@@ -58,12 +61,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Add_attendence.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Add_attendence.Designer.cs">
-      <DependentUpon>Add_attendence.cs</DependentUpon>
-    </Compile>
     <Compile Include="AdminDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,12 +79,6 @@
     <Compile Include="AttendenceRules.Designer.cs">
       <DependentUpon>AttendenceRules.cs</DependentUpon>
     </Compile>
-    <Compile Include="Attendence_Rules.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Attendence_Rules.Designer.cs">
-      <DependentUpon>Attendence_Rules.cs</DependentUpon>
-    </Compile>
     <Compile Include="BaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +90,7 @@
     </Compile>
     <Compile Include="DTO\StaffView.cs" />
     <Compile Include="DTO\UserwiseSalaryView.cs" />
+    <Compile Include="Helper\ApiConstants.cs" />
     <Compile Include="Helper\ComboBoxDataSources.cs" />
     <Compile Include="Helper\ConvertTime.cs" />
     <Compile Include="DailyAttendence.cs">
@@ -119,7 +111,7 @@
     <Compile Include="Designation.Designer.cs">
       <DependentUpon>Designation.cs</DependentUpon>
     </Compile>
-    <Compile Include="DTO\AttendenceRulesDTO.cs" />
+    <Compile Include="DTO\AttendenceRulesView.cs" />
     <Compile Include="Helper\ExtensionMethodHelper.cs" />
     <Compile Include="GlobalData.cs" />
     <Compile Include="Login.cs">
@@ -139,12 +131,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Helper\ResourceHelper.cs" />
     <Compile Include="Helper\RestAPIHelper.cs" />
-    <Compile Include="Staff.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Staff.Designer.cs">
-      <DependentUpon>Staff.cs</DependentUpon>
-    </Compile>
     <Compile Include="Helper\StaffHelper.cs" />
     <Compile Include="Staff_New.cs">
       <SubType>Form</SubType>
@@ -172,9 +158,6 @@
     <Compile Include="UserWiseSalary.Designer.cs">
       <DependentUpon>UserWiseSalary.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Add_attendence.resx">
-      <DependentUpon>Add_attendence.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="AdminDashboard.resx">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -183,9 +166,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AttendenceRules.resx">
       <DependentUpon>AttendenceRules.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Attendence_Rules.resx">
-      <DependentUpon>Attendence_Rules.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
@@ -220,12 +200,11 @@
     </Compile>
     <EmbeddedResource Include="Resource\Resource_Label.en.resx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resource\Resource_Label.hi.resx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Staff.resx">
-      <DependentUpon>Staff.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Staff_New.resx">
       <DependentUpon>Staff_New.cs</DependentUpon>
@@ -263,6 +242,8 @@
       <Name>Setu.Common</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="3-02.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

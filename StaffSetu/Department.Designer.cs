@@ -31,12 +31,17 @@ namespace Staff_Management
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageView = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.DataGridViewDepartment = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DeptName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Location = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsActive = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.BtnDelete = new System.Windows.Forms.Button();
+            this.BtnQuit = new System.Windows.Forms.Button();
             this.tabPageAdd = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.lblName = new System.Windows.Forms.Label();
@@ -109,7 +114,8 @@ namespace Staff_Management
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel2.Controls.Add(this.DataGridViewDepartment, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.BtnDelete, 3, 1);
+            this.tableLayoutPanel2.Controls.Add(this.BtnDelete, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.BtnQuit, 3, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -123,15 +129,20 @@ namespace Staff_Management
             // 
             this.DataGridViewDepartment.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DataGridViewDepartment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridViewDepartment.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.DeptName,
+            this.Location,
+            this.IsActive});
             this.tableLayoutPanel2.SetColumnSpan(this.DataGridViewDepartment, 4);
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightBlue;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Franklin Gothic Medium", 11F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DataGridViewDepartment.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightBlue;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Franklin Gothic Medium", 11F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DataGridViewDepartment.DefaultCellStyle = dataGridViewCellStyle3;
             this.DataGridViewDepartment.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DataGridViewDepartment.Location = new System.Drawing.Point(3, 2);
             this.DataGridViewDepartment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -142,12 +153,49 @@ namespace Staff_Management
             this.DataGridViewDepartment.Size = new System.Drawing.Size(982, 575);
             this.DataGridViewDepartment.TabIndex = 0;
             // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.MinimumWidth = 8;
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Width = 68;
+            // 
+            // DeptName
+            // 
+            this.DeptName.DataPropertyName = "Name";
+            this.DeptName.HeaderText = "Name";
+            this.DeptName.MinimumWidth = 8;
+            this.DeptName.Name = "DeptName";
+            this.DeptName.ReadOnly = true;
+            this.DeptName.Width = 105;
+            // 
+            // Location
+            // 
+            this.Location.DataPropertyName = "Location";
+            this.Location.HeaderText = "Location";
+            this.Location.MinimumWidth = 8;
+            this.Location.Name = "Location";
+            this.Location.ReadOnly = true;
+            this.Location.Width = 129;
+            // 
+            // IsActive
+            // 
+            this.IsActive.DataPropertyName = "IsActive";
+            this.IsActive.HeaderText = "IsActive";
+            this.IsActive.MinimumWidth = 8;
+            this.IsActive.Name = "IsActive";
+            this.IsActive.ReadOnly = true;
+            this.IsActive.Visible = false;
+            this.IsActive.Width = 91;
+            // 
             // BtnDelete
             // 
             this.BtnDelete.BackColor = System.Drawing.Color.Azure;
             this.BtnDelete.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnDelete.Font = new System.Drawing.Font("Merriweather Black", 8F);
-            this.BtnDelete.Location = new System.Drawing.Point(891, 581);
+            this.BtnDelete.Location = new System.Drawing.Point(771, 581);
             this.BtnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnDelete.Name = "BtnDelete";
             this.BtnDelete.Padding = new System.Windows.Forms.Padding(4);
@@ -156,6 +204,20 @@ namespace Staff_Management
             this.BtnDelete.Text = "Delete";
             this.BtnDelete.UseVisualStyleBackColor = false;
             this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
+            // 
+            // BtnQuit
+            // 
+            this.BtnQuit.BackColor = System.Drawing.Color.Azure;
+            this.BtnQuit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnQuit.Font = new System.Drawing.Font("Merriweather Black", 8F);
+            this.BtnQuit.Location = new System.Drawing.Point(891, 581);
+            this.BtnQuit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BtnQuit.Name = "BtnQuit";
+            this.BtnQuit.Padding = new System.Windows.Forms.Padding(4);
+            this.BtnQuit.Size = new System.Drawing.Size(94, 40);
+            this.BtnQuit.TabIndex = 20;
+            this.BtnQuit.Text = "Quit";
+            this.BtnQuit.UseVisualStyleBackColor = false;
             // 
             // tabPageAdd
             // 
@@ -412,7 +474,7 @@ namespace Staff_Management
             this.BtnSearch.Name = "BtnSearch";
             this.BtnSearch.Padding = new System.Windows.Forms.Padding(4);
             this.BtnSearch.Size = new System.Drawing.Size(124, 50);
-            this.BtnSearch.TabIndex = 32;
+            this.BtnSearch.TabIndex = 7;
             this.BtnSearch.Text = "Search";
             this.BtnSearch.UseVisualStyleBackColor = false;
             this.BtnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
@@ -444,7 +506,7 @@ namespace Staff_Management
             this.BtnUpdate.Name = "BtnUpdate";
             this.BtnUpdate.Padding = new System.Windows.Forms.Padding(4);
             this.BtnUpdate.Size = new System.Drawing.Size(131, 44);
-            this.BtnUpdate.TabIndex = 20;
+            this.BtnUpdate.TabIndex = 35;
             this.BtnUpdate.Text = "Update";
             this.BtnUpdate.UseVisualStyleBackColor = false;
             this.BtnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click_1);
@@ -459,7 +521,7 @@ namespace Staff_Management
             this.BtnResetUpdate.Name = "BtnResetUpdate";
             this.BtnResetUpdate.Padding = new System.Windows.Forms.Padding(4);
             this.BtnResetUpdate.Size = new System.Drawing.Size(132, 44);
-            this.BtnResetUpdate.TabIndex = 21;
+            this.BtnResetUpdate.TabIndex = 40;
             this.BtnResetUpdate.Text = "Reset";
             this.BtnResetUpdate.UseVisualStyleBackColor = false;
             this.BtnResetUpdate.Click += new System.EventHandler(this.BtnResetUpdate_Click);
@@ -551,6 +613,7 @@ namespace Staff_Management
         private Label lb_DeptMaster;
         private TableLayoutPanel tableLayoutPanel2;
         private Button BtnDelete;
+        private Button BtnQuit;
         private TableLayoutPanel tableLayoutPanel3;
         private TableLayoutPanel tableLayoutPanel4;
         private Button BtnSave;
@@ -560,5 +623,9 @@ namespace Staff_Management
         private TableLayoutPanel tableLayoutPanel6;
         private Button BtnUpdate;
         private Button BtnResetUpdate;
+        private DataGridViewTextBoxColumn ID;
+        private DataGridViewTextBoxColumn DeptName;
+        private DataGridViewTextBoxColumn Location;
+        private DataGridViewCheckBoxColumn IsActive;
     }
 }

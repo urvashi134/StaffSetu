@@ -30,6 +30,7 @@ namespace Staff_Management
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminDashboard));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.MasterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.StaffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,10 +46,12 @@ namespace Staff_Management
             this.userwiseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.monthwiseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.confirmSalaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salaryreportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblLoginName = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -57,7 +60,6 @@ namespace Staff_Management
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(204)))), ((int)(((byte)(192)))));
             this.menuStrip1.Font = new System.Drawing.Font("Merriweather", 12F, System.Drawing.FontStyle.Bold);
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MasterToolStripMenuItem,
@@ -87,28 +89,28 @@ namespace Staff_Management
             // StaffToolStripMenuItem
             // 
             this.StaffToolStripMenuItem.Name = "StaffToolStripMenuItem";
-            this.StaffToolStripMenuItem.Size = new System.Drawing.Size(270, 42);
+            this.StaffToolStripMenuItem.Size = new System.Drawing.Size(265, 42);
             this.StaffToolStripMenuItem.Text = "Staff";
             this.StaffToolStripMenuItem.Click += new System.EventHandler(this.StaffToolStripMenuItem_Click);
             // 
             // DeaprtmentToolStripMenuItem
             // 
             this.DeaprtmentToolStripMenuItem.Name = "DeaprtmentToolStripMenuItem";
-            this.DeaprtmentToolStripMenuItem.Size = new System.Drawing.Size(270, 42);
+            this.DeaprtmentToolStripMenuItem.Size = new System.Drawing.Size(265, 42);
             this.DeaprtmentToolStripMenuItem.Text = "Department";
             this.DeaprtmentToolStripMenuItem.Click += new System.EventHandler(this.DeaprtmentToolStripMenuItem_Click);
             // 
             // DesignationToolStripMenuItem
             // 
             this.DesignationToolStripMenuItem.Name = "DesignationToolStripMenuItem";
-            this.DesignationToolStripMenuItem.Size = new System.Drawing.Size(270, 42);
+            this.DesignationToolStripMenuItem.Size = new System.Drawing.Size(265, 42);
             this.DesignationToolStripMenuItem.Text = "Designation";
             this.DesignationToolStripMenuItem.Click += new System.EventHandler(this.DesignationToolStripMenuItem_Click);
             // 
             // SubjectToolStripMenuItem1
             // 
             this.SubjectToolStripMenuItem1.Name = "SubjectToolStripMenuItem1";
-            this.SubjectToolStripMenuItem1.Size = new System.Drawing.Size(270, 42);
+            this.SubjectToolStripMenuItem1.Size = new System.Drawing.Size(265, 42);
             this.SubjectToolStripMenuItem1.Text = "Subject";
             this.SubjectToolStripMenuItem1.Click += new System.EventHandler(this.SubjectToolStripMenuItem1_Click);
             // 
@@ -129,7 +131,7 @@ namespace Staff_Management
             this.MarkIndividualAttendenceToolStripMenuItem,
             this.MarkMultipleAttendenceToolStripMenuItem});
             this.MarkAttendenceToolStripMenuItem.Name = "MarkAttendenceToolStripMenuItem";
-            this.MarkAttendenceToolStripMenuItem.Size = new System.Drawing.Size(190, 42);
+            this.MarkAttendenceToolStripMenuItem.Size = new System.Drawing.Size(270, 42);
             this.MarkAttendenceToolStripMenuItem.Text = "Mark ";
             // 
             // MarkIndividualAttendenceToolStripMenuItem
@@ -149,7 +151,7 @@ namespace Staff_Management
             // AttendenceRulesToolStripMenuItem
             // 
             this.AttendenceRulesToolStripMenuItem.Name = "AttendenceRulesToolStripMenuItem";
-            this.AttendenceRulesToolStripMenuItem.Size = new System.Drawing.Size(190, 42);
+            this.AttendenceRulesToolStripMenuItem.Size = new System.Drawing.Size(270, 42);
             this.AttendenceRulesToolStripMenuItem.Text = "Rules";
             this.AttendenceRulesToolStripMenuItem.Click += new System.EventHandler(this.AttendenceRulesToolStripMenuItem_Click);
             // 
@@ -159,29 +161,54 @@ namespace Staff_Management
             this.userwiseToolStripMenuItem,
             this.monthwiseToolStripMenuItem});
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(190, 42);
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(270, 42);
             this.viewToolStripMenuItem.Text = "View";
             // 
             // userwiseToolStripMenuItem
             // 
             this.userwiseToolStripMenuItem.Name = "userwiseToolStripMenuItem";
-            this.userwiseToolStripMenuItem.Size = new System.Drawing.Size(269, 42);
+            this.userwiseToolStripMenuItem.Size = new System.Drawing.Size(270, 42);
             this.userwiseToolStripMenuItem.Text = "User-wise";
             this.userwiseToolStripMenuItem.Click += new System.EventHandler(this.userwiseToolStripMenuItem_Click);
             // 
             // monthwiseToolStripMenuItem
             // 
             this.monthwiseToolStripMenuItem.Name = "monthwiseToolStripMenuItem";
-            this.monthwiseToolStripMenuItem.Size = new System.Drawing.Size(269, 42);
+            this.monthwiseToolStripMenuItem.Size = new System.Drawing.Size(270, 42);
             this.monthwiseToolStripMenuItem.Text = "Month-wise";
             this.monthwiseToolStripMenuItem.Click += new System.EventHandler(this.monthwiseToolStripMenuItem_Click);
             // 
             // salaryToolStripMenuItem
             // 
+            this.salaryToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.confirmSalaryToolStripMenuItem,
+            this.salaryreportToolStripMenuItem});
             this.salaryToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.salaryToolStripMenuItem.Name = "salaryToolStripMenuItem";
-            this.salaryToolStripMenuItem.Size = new System.Drawing.Size(106, 39);
+            this.salaryToolStripMenuItem.Size = new System.Drawing.Size(106, 37);
             this.salaryToolStripMenuItem.Text = "Salary";
+            // 
+            // confirmSalaryToolStripMenuItem
+            // 
+            this.confirmSalaryToolStripMenuItem.Name = "confirmSalaryToolStripMenuItem";
+            this.confirmSalaryToolStripMenuItem.Size = new System.Drawing.Size(301, 42);
+            this.confirmSalaryToolStripMenuItem.Text = "Confirm Salary";
+            this.confirmSalaryToolStripMenuItem.Click += new System.EventHandler(this.confirmSalaryToolStripMenuItem_Click);
+            // 
+            // salaryreportToolStripMenuItem
+            // 
+            this.salaryreportToolStripMenuItem.Name = "salaryreportToolStripMenuItem";
+            this.salaryreportToolStripMenuItem.Size = new System.Drawing.Size(301, 42);
+            this.salaryreportToolStripMenuItem.Text = "Report";
+            this.salaryreportToolStripMenuItem.Click += new System.EventHandler(this.reportToolStripMenuItem_Click);
+            // 
+            // logoutToolStripMenuItem
+            // 
+            this.logoutToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(116, 37);
+            this.logoutToolStripMenuItem.Text = "Logout";
+            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
             // panel1
             // 
@@ -219,13 +246,6 @@ namespace Staff_Management
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1370, 708);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
-            // logoutToolStripMenuItem
-            // 
-            this.logoutToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(116, 37);
-            this.logoutToolStripMenuItem.Text = "Logout";
-            // 
             // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -235,10 +255,10 @@ namespace Staff_Management
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.lblLoginName);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.Name = "AdminDashboard";
-            this.ShowIcon = false;
             this.Text = "Dashboard";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.AdminDashboard_Load);
@@ -270,5 +290,7 @@ namespace Staff_Management
         private Label lblLoginName;
         private TableLayoutPanel tableLayoutPanel1;
         private ToolStripMenuItem logoutToolStripMenuItem;
+        private ToolStripMenuItem confirmSalaryToolStripMenuItem;
+        private ToolStripMenuItem salaryreportToolStripMenuItem;
     }
 }

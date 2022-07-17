@@ -1,6 +1,7 @@
 ﻿using MANTRA;
 using Setu.Common.DTO;
 using Setu.Entities;
+using Staff_Management.Helper;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,6 +29,7 @@ namespace Staff_Management
         public DailyAttendence()
         {
             InitializeComponent();
+            FORMNAME = this.Text;
         }
 
         private void Add_attendence_Load(object sender, EventArgs e)
@@ -57,9 +59,9 @@ namespace Staff_Management
                 GlobalData.mfs100.OnCaptureCompleted += OnCaptureCompleted;
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                DisplayMessage(ex.Message, FORMNAME, MessageTypeEnum.ERROR);
+                
             }
         }
 
@@ -142,7 +144,7 @@ namespace Staff_Management
             }
             catch (Exception ex)
             {
-                DisplayMessage(ex.Message, FORMNAME, MessageTypeEnum.ERROR);
+                //DisplayMessage(ex.Message, FORMNAME, MessageTypeEnum.ERROR);
             }
         }
 
@@ -154,41 +156,50 @@ namespace Staff_Management
             try
             {
                 DataTable data = new DataTable();
-                var staffs = RestAPIHelper.GetAsync<IList<tblStaff>>($"api/Staff/GetStaffForLogin");
+               // var staffs = RestAPIHelper.GetAsync<IList<tblStaff>>($"api/Staff/GetStaffForLogin");
+                var response = RestAPIHelper.GetAsync<ApiResponse<List<tblStaff>>>(ApiConstants.API_GET_STAFF_GETSTAFFFORLOGIN);
 
-                foreach (tblStaff staff in staffs)
+                if(response.IsSuccessfull == true)
                 {
-                    if (staff.FingerPrintANSI != null)
+                    List<tblStaff> staffs = response.Data;
+                    foreach (tblStaff staff in staffs)
                     {
-                        fingerprintData.FingerImage.RotateFlip(RotateFlipType.Rotate270FlipNone);
-                        if (bmp != null)
-                            bmp.Dispose();
-
-                        PictureBox pictureBox = PictureBx_AddUserReg_FingerprintImpression;
-                        bmp = new Bitmap(pictureBox.Width, pictureBox.Height, pictureBox.CreateGraphics());
-                        var graph = Graphics.FromImage(bmp);
-                        graph.DrawImage(fingerprintData.FingerImage, 0, 0, pictureBox.Width, pictureBox.Height);
-                        pictureBox.Image = bmp;
-                        pictureBox.Refresh();
-
-                        byte[] storedFPByte = Convert.FromBase64String(staff.FingerPrintANSI);
-                        int ret = GlobalData.mfs100.MatchANSI(storedFPByte, fingerprintData.ANSITemplate, ref score);
-                        if (score >= MatchThreshold)
+                        if (staff.FingerPrintANSI != null)
                         {
-                            matchFlag = true;
-                            TxtStaffID.Text = staff.ID.ToString();
-                            break;
+                            fingerprintData.FingerImage.RotateFlip(RotateFlipType.Rotate270FlipNone);
+                            if (bmp != null)
+                                bmp.Dispose();
+
+                            PictureBox pictureBox = PictureBx_AddUserReg_FingerprintImpression;
+                            bmp = new Bitmap(pictureBox.Width, pictureBox.Height, pictureBox.CreateGraphics());
+                            var graph = Graphics.FromImage(bmp);
+                            graph.DrawImage(fingerprintData.FingerImage, 0, 0, pictureBox.Width, pictureBox.Height);
+                            pictureBox.Image = bmp;
+                            pictureBox.Refresh();
+
+                            byte[] storedFPByte = Convert.FromBase64String(staff.FingerPrintANSI);
+                            int ret = GlobalData.mfs100.MatchANSI(storedFPByte, fingerprintData.ANSITemplate, ref score);
+                            if (score >= MatchThreshold)
+                            {
+                                matchFlag = true;
+                                TxtStaffID.Text = staff.ID.ToString();
+                                break;
+                            }
                         }
                     }
-                }
 
-                if (matchFlag)
-                {
-                    return GlobalData.SUCCESS;
+                    if (matchFlag)
+                    {
+                        return GlobalData.SUCCESS;
+                    }
+                    else
+                    {
+                        GlobalData.mfs100.StartCapture();
+                        return ResourceHelper.GetValue("NO_MATCH_ANY_USER");
+                    }
                 }
                 else
                 {
-                    GlobalData.mfs100.StartCapture();
                     return ResourceHelper.GetValue("NO_MATCH_ANY_USER");
                 }
             }
@@ -202,61 +213,72 @@ namespace Staff_Management
         {
             if (ValidateChildren(ValidationConstraints.Enabled))
             {
-                tblAttendence tblAttendence = new tblAttendence
+                int staffId = Convert.ToInt32(TxtStaffID.Text);
+                if(GlobalData.role == RolesConstant.ROLE_DEPT_ADMIN && GlobalData.ID==staffId)
                 {
-                    ID = id,
-                    StaffID = Convert.ToInt32(TxtStaffID.Text),
-                    myDate = DtToday.Value
-                };
-                if (rdBtnPresent.Checked)
-                {
-                    tblAttendence.Status = 'P';
-                    tblAttendence.StartTime = timeStart.Value.ToString("HH:mm");
-                    tblAttendence.EndTime = timeEnd.Value.ToString("HH:mm");
-                    //string startTime = "08:00";
-                    //string[] delim = { ":" };
-                    //string[] start = startTime.Split(delim, StringSplitOptions.RemoveEmptyEntries);
-                    //DateTime dt = new DateTime(0, 0, 0, Convert.ToInt32(start[0]), Convert.ToInt32(start[1]), 0);
+                    DisplayMessage(ResourceHelper.GetValue("MSG_ERROR_SELF_ATTENDENCE"), FORMNAME, MessageTypeEnum.ERROR);
                 }
                 else
                 {
-                    tblAttendence.StartTime = "00:00";
-                    tblAttendence.EndTime = "00:00";
-                    if (rdBtnAbsent.Checked)
-                        tblAttendence.Status = 'A';
-                    else
-                        tblAttendence.Status = 'L';
-                }
-                if (id == 0)
-                {
-                    var val = RestAPIHelper.PostAsync<tblAttendence>("api/Attendence/InsertAttendence", tblAttendence);
-                    if (val == null)
+                    tblAttendence tblAttendence = new tblAttendence
                     {
-                        // MessageBox.Show(ResourceHelper.GetValue("UNSUCCESSFULL_ATTENDENCE_ADDITION"));
-                        MessageBox.Show("Not Successfull");
+                        ID = id,
+                        StaffID = staffId,
+                        myDate = DtToday.Value
+                    };
+                    if (rdBtnPresent.Checked)
+                    {
+                        tblAttendence.Status = 'P';
+                        tblAttendence.StartTime = timeStart.Value.ToString("HH:mm");
+                        tblAttendence.EndTime = timeEnd.Value.ToString("HH:mm");
+                        //string startTime = "08:00";
+                        //string[] delim = { ":" };
+                        //string[] start = startTime.Split(delim, StringSplitOptions.RemoveEmptyEntries);
+                        //DateTime dt = new DateTime(0, 0, 0, Convert.ToInt32(start[0]), Convert.ToInt32(start[1]), 0);
                     }
                     else
                     {
-                        //MessageBox.Show(ResourceHelper.GetValue("SUCCESSFULL"));
-                        MessageBox.Show("Successfull");
+                        if (rdBtnAbsent.Checked)
+                            tblAttendence.Status = 'A';
+                        else
+                            tblAttendence.Status = 'L';
+                        tblAttendence.StartTime = "00:00";
+                        tblAttendence.EndTime = "00:00";
                     }
-                }
-                else
-                {
-                    var val = RestAPIHelper.PostAsync<tblAttendence>("api/Attendence/UpdateAttendence", tblAttendence);
-                    if (val == null)
+                    if (id == 0)
                     {
-                        // MessageBox.Show(ResourceHelper.GetValue(""));
-                        MessageBox.Show("Unsuccessfull");
-                    }
+                        var response = RestAPIHelper.PostAsync<ApiResponse<tblAttendence>>(ApiConstants.API_POST_ATTENDENCE_INSERT_ATTENDENCE, tblAttendence);
 
+                        if (response.IsSuccessfull == true)
+                        {
+                            // MessageBox.Show(ResourceHelper.GetValue("UNSUCCESSFULL_ATTENDENCE_ADDITION"));
+                            DisplayMessage(ResourceHelper.GetValue("MSG_SUCCESS_ADD_ATTENDENCE"), FORMNAME, MessageTypeEnum.SUCCESS);
+
+                        }
+                        else
+                        {
+                            //MessageBox.Show(ResourceHelper.GetValue("SUCCESSFULL"));
+                            DisplayMessage(ResourceHelper.GetValue("MSG_ERROR_ADD_ATTENDENCE"), FORMNAME, MessageTypeEnum.ERROR);
+                        }
+                    }
                     else
                     {
-                        MessageBox.Show("Successfull");
-                        //MessageBox.Show(ResourceHelper.GetValue(""));
-                    }
+                        var response = RestAPIHelper.PostAsync<ApiResponse<tblAttendence>>(ApiConstants.API_POST_ATTENDENCE_UPDATE_ATTENDENCE, tblAttendence);
+                        if (response.IsSuccessfull == true)
+                        {
 
+                            DisplayMessage(ResourceHelper.GetValue("MSG_SUCCESS_UPDATE_ATTENDENCE"), FORMNAME, MessageTypeEnum.SUCCESS);
+                        }
+
+                        else
+                        {
+                            DisplayMessage(ResourceHelper.GetValue("MSG_ERROR_UPDATE_ATTENDENCE"), FORMNAME, MessageTypeEnum.ERROR);
+
+                        }
+
+                    }
                 }
+                
                 ResetPage();
 
             }
@@ -290,11 +312,16 @@ namespace Staff_Management
             {
                 timeStart.Enabled = true;
                 timeEnd.Enabled = true;
+                timeStart.Value = DateTime.Now;
+                timeEnd.Value = DateTime.Now;
             }
             else
             {
                 timeStart.Enabled = false;
                 timeEnd.Enabled = false;
+                DateTime dt = new DateTime(DateTime.Now.Year, 1, 1, 0, 0, 0);
+                timeStart.Value = dt;
+                timeEnd.Value = dt;
             }
         }
         private void ResetPage()
@@ -303,10 +330,13 @@ namespace Staff_Management
             {
                 TxtStaffID.Text = string.Empty;
                 DtToday.Value = DateTime.Today;
+                PictureBx_AddUserReg_FingerprintImpression.Image = null;
+                PictureBx_AddUserReg_FingerprintImpression.Refresh();
                 rdBtnPresent.Checked = true;
-                DateTime dt = new DateTime(DateTime.Now.Year, 1, 1, 0, 0, 0);
-                timeStart.Value = dt;
-                timeEnd.Value = dt;
+                //DateTime dt = new DateTime(DateTime.Now.Year, 1, 1, 0, 0, 0);
+                timeStart.Value = DateTime.Now;
+                timeEnd.Value = DateTime.Now;
+                ConfigureFingerPrintDevice();
             }
             catch (Exception e)
             {
@@ -323,9 +353,10 @@ namespace Staff_Management
                 Setu.Common.DTO.AttendenceRules obj = new Setu.Common.DTO.AttendenceRules();
                 obj.staffId = staffId;
                 obj.date = date;
-                var val = RestAPIHelper.PostAsync<tblAttendence>("api/Attendence/GetAttendenceByStaffIdDate", obj);
-                if (val != null)
+                var response = RestAPIHelper.PostAsync<ApiResponse<tblAttendence>>(ApiConstants.API_POST_ATTENDENCE_GET_DAILYATTENDENCE_ID_DATE, obj);               
+                if (response.IsSuccessfull== true)
                 {
+                    var val = response.Data;
                     id = val.ID;
                     if (val.Status == 'P')
                         rdBtnPresent.Checked = true;
@@ -338,14 +369,33 @@ namespace Staff_Management
                     string[] start = val.StartTime.Split(delim, StringSplitOptions.RemoveEmptyEntries);
                     DateTime dt1 = new DateTime(date.Year, date.Month, date.Day, Convert.ToInt32(start[0]), Convert.ToInt32(start[1]), 0);
                     timeStart.Value = dt1;
-                    string[] end = val.EndTime.Split(delim, StringSplitOptions.RemoveEmptyEntries);
-                    DateTime dt2 = new DateTime(date.Year, date.Month, date.Day, Convert.ToInt32(end[0]), Convert.ToInt32(end[1]), 0);
-                    timeEnd.Value = dt2;
+                    if(val.StartTime==val.EndTime)
+                    {
+                        timeEnd.Value = DateTime.Now;
+                    }
+                    else
+                    {
+                        string[] end = val.EndTime.Split(delim, StringSplitOptions.RemoveEmptyEntries);
+                        DateTime dt2 = new DateTime(date.Year, date.Month, date.Day, Convert.ToInt32(end[0]), Convert.ToInt32(end[1]), 0);
+                        timeEnd.Value = dt2;
+                    }
+                    
+                }
+                else
+                {
+                    if(response.ErrorMessage == ApiResponseConstants.MESSAGE_INACCESSIBLE)
+                    {
+                        DisplayMessage(ResourceHelper.GetValue("MSG_ERROR_STAFF_NOT_ACCESSIBLE"), FORMNAME, MessageTypeEnum.ERROR);
+                    }
+                    else if(response.ErrorMessage == ApiResponseConstants.MESSAGE_STAFF_NOT_EXISTING)
+                    {
+                        DisplayMessage(ResourceHelper.GetValue("MSG_ERROR_STAFF_NOT_EXISTING"), FORMNAME, MessageTypeEnum.ERROR);
+                    }
                 }
             }
             catch (Exception)
             {
-
+                
             }
         }
 

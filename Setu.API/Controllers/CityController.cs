@@ -17,7 +17,6 @@ namespace Setu.API.Controllers
         {
             this.staffContext = staffContext;
         }
-
         [HttpGet("GetCityByStateID/{id}")]
         public IList<tblCity> GetCityByStateID(int id)
         {

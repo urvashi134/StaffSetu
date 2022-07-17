@@ -1,13 +1,11 @@
 ﻿using Setu.Common.DTO;
 using System;
+using Setu.Entities;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using Staff_Management.Helper;
 
 namespace Staff_Management
 {
@@ -23,29 +21,26 @@ namespace Staff_Management
         public AttendenceRegister()
         {
             InitializeComponent();
+            FORMNAME = this.Text;
         }
 
         private void AttendenceRegister_Load(object sender, EventArgs e)
         {
-            string strDate = DateTime.Now.ToString("dd-MM-yyyyy");
             DtAttendenceDate.Value = DateTime.Now;
             if (GetAttendenceByDate())
             {
-                //SetDtStatus();
                 ResourceHelper.SetLabel(this);
                 ActiveControl = DtAttendenceDate;
-                FORMNAME = ResourceHelper.GetValue("lblAttendenceRegister");
-
             }
             else
             {
-                this.Close();
+                Close();
             }
         }
 
         private void DtAttendenceDate_ValueChanged(object sender, EventArgs e)
         {
-            LbDay.Text = "(" + DtAttendenceDate.Value.ToString("ddd") + ")"; 
+            LbDay.Text = "(" + DtAttendenceDate.Value.Equals("ddd") + ")"; 
             GetAttendenceByDate();
         }
 
@@ -53,17 +48,32 @@ namespace Staff_Management
         {
             bool result = true;
 
-            Setu.Common.DTO.AttendenceRules attendenceRules = new Setu.Common.DTO.AttendenceRules();
-            attendenceRules.date = DateTime.Now.Date;
-            var val = RestAPIHelper.PostAsync<List<AttendenceRegisterResponseDTO>>("api/Attendence/GetAttendenceByDate", attendenceRules);
+            Setu.Common.DTO.AttendenceRules attendenceRules = new Setu.Common.DTO.AttendenceRules
+            {
+                date = DtAttendenceDate.Value
+            };
+            var val = RestAPIHelper.PostAsync<ApiResponse<List<AttendenceRegisterResponseDTO>>>(ApiConstants.API_POST_ATTENDENCE_GET_ATTENDENCE_BY_DATE, attendenceRules);
             if (val != null)
             {
-                dataGridAttendence.DataSource = val;
+                if (val.IsSuccessfull)
+                {
+                    dataGridAttendence.DataSource = val.Data;
+                    foreach (DataGridViewRow row in dataGridAttendence.Rows)
+                    {
+                        SetColumnReadOnly(row.Cells["Status"].ToString(), row.Index);
+                        
+                    }
+                }
+                else
+                {
+                    DisplayMessage(ResourceHelper.GetValue("NO_RECORD_FOUND"), FORMNAME, MessageTypeEnum.ERROR);
+                }
             }
             else
             {
-                DisplayMessage(ResourceHelper.GetValue("NO_RECORD_FOUND"), FORMNAME, MessageTypeEnum.ERROR);
+                DisplayMessage(ResourceHelper.GetValue("MSG_ERROR_CALLING_API"), FORMNAME, MessageTypeEnum.ERROR);
             }
+
             return result;
         }
 
@@ -88,32 +98,6 @@ namespace Staff_Management
             {
                 var column = (ComboBox)e.Control;
                 column.SelectedIndexChanged += Status_SelectedIndexChanged;
-                //TextBox txtbox = (TextBox)e.Control;
-                //txtbox.TextChanged += StatusTextBox_TextChanged;
-                //txtbox.KeyUp -= TextBoxOfAutoComplete_KeyUp;
-                //txtbox.Leave += Status_Leave;
-                //var WorkingTime = (dataGridAttendence.Rows[_ROWINDEX].Cells["WorkingTime"].Value);
-                //DataRow dataRow = _DtStatus.Select(_Status + "='" + ResourceHelper.GetValue(AttendanceStatusEnum.Half_Day.ToString()) + "'").FirstOrDefault();
-                //if (!(WorkingTime.IsStringNullOrEmpty()))
-                //{
-                //    if (dataRow != null)
-                //    {
-                //        _DtStatus.Rows.Remove(dataRow);
-                //    }
-                //}
-                //else if (dataRow == null)
-                //{
-                //    AttendanceStatusEnum status = AttendanceStatusEnum.Half_Day;
-                //    _DtStatus.Rows.Add((short)status, ResourceHelper.GetValue(status.ToString()));
-                //}
-                //SetDataGrid(_DtStatus, ref DatagridAutoComp, StatusColumn, StatusFitler, txtbox.Text);
-                //DatagridAutoComp.Enter -= DatagridAutoComp_Enter;
-                //DatagridAutoComp.Enter += DatagridAutoComp_Enter;
-                //DatagridAutoComp.RowEnter -= DatagridAutoComp_RowEnter;
-                //DatagridAutoComp.RowEnter += DatagridAutoComp_RowEnter;
-                //CreateAutoComplete(dataGridAttendence, DatagridAutoComp, this, true);
-                //iSelectedRow = -1;
-                //DatagridAutoComp.Visible = false;
             }
             else if (dataGridAttendence.CurrentCell.OwningColumn.Name == _StartTime || dataGridAttendence.CurrentCell.OwningColumn.Name == _EndTime)
             {
@@ -122,14 +106,6 @@ namespace Staff_Management
                 txtbox.Leave += Time_TextLeave;
 
             }
-            else if (dataGridAttendence.CurrentCell.OwningColumn.Name == _WorkingHrs)
-            {
-                //TextBox txtbox = (TextBox)e.Control;
-                //txtbox.KeyPress += TxtBreakTime_KeyPress;
-                //txtbox.Leave += BreakTime_TextLeave;
-
-            }
-
         }
 
         private void Status_SelectedIndexChanged(object sender, EventArgs e)
@@ -159,14 +135,12 @@ namespace Staff_Management
             {
                 dataGridAttendence.Rows[Index].Cells[_StartTime].ReadOnly = false;
                 dataGridAttendence.Rows[Index].Cells[_EndTime].ReadOnly = false;
-                //DataGridAccountGroup.Rows[Index].Cells[_WorkingHrs].ReadOnly = false;
             }
             else
             {
 
                 dataGridAttendence.Rows[Index].Cells[_StartTime].ReadOnly = true;
                 dataGridAttendence.Rows[Index].Cells[_EndTime].ReadOnly = true;
-                // DataGridAccountGroup.Rows[Index].Cells[_WorkingHrs].ReadOnly = true;
                 dataGridAttendence.Rows[Index].Cells[_StartTime].Value = string.Empty;
                 dataGridAttendence.Rows[Index].Cells[_EndTime].Value = string.Empty;
                 dataGridAttendence.Rows[Index].Cells[_WorkingHrs].Value = string.Empty;
@@ -246,18 +220,17 @@ namespace Staff_Management
             }
             else if (dataGridAttendence.CurrentCell.OwningColumn.Name == _StartTime)
             {
-                textBox.Text = Time.Hour + ":" + Time.Minute + " " + TimeTypeEnum.AM.ToString();
+                textBox.Text = Time.Hour + ":" + Time.Minute + " " + Time.type;
             }
             else if (dataGridAttendence.CurrentCell.OwningColumn.Name == _EndTime)
             {
-                textBox.Text = Time.Hour + ":" + Time.Minute + " " + TimeTypeEnum.PM.ToString();
+                textBox.Text = Time.Hour + ":" + Time.Minute + " " + Time.type;
             }
             if (!string.IsNullOrEmpty(time.Replace(":", "")))
             {
                 dataGridAttendence.CurrentCell.Value = textBox.Text;
                 SetWorkingHrs(dataGridAttendence.CurrentCell.RowIndex);
             }
-            //DataGridAccountGroup.EndEdit();
         }
 
         private void SetWorkingHrs(int index)
@@ -382,5 +355,96 @@ namespace Staff_Management
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int index = 0;
+                List<tblAttendence> tblAttendences = new List<tblAttendence>();
+                foreach (DataGridViewRow row in dataGridAttendence.Rows)
+                {
+                    if(!row.Cells["Status"].IsStringNullOrEmpty())
+                    {
+                        if (RowIndexToUpdate.Contains(index))
+                        {
+                            tblAttendence tblAttendence = new tblAttendence();
+                            tblAttendence.ID = Convert.ToInt32(row.Cells["ID"].Value);
+                            tblAttendence.StaffID = Convert.ToInt32(row.Cells["StaffId"].Value);
+                            tblAttendence.myDate = DtAttendenceDate.Value;
+                            tblAttendence.Status = row.Cells["Status"].Value.ToString()[0];
+                            if (tblAttendence.Status == 'P')
+                            {
+                                var startTime = ConvertTime24Format(Convert.ToString(row.Cells["StartTime"].Value));
+                                tblAttendence.StartTime = startTime;
+                                tblAttendence.EndTime = ConvertTime24Format(Convert.ToString(row.Cells["EndTime"].Value));
+                            }
+                            tblAttendences.Add(tblAttendence);
+                        }
+                    }
+                    
+                    index++;
+                }
+                var val = RestAPIHelper.PostAsync<ApiResponse<bool>>(ApiConstants.API_POST_ATTENDENCE_INSERT_UPDATE, tblAttendences);
+                if (val != null)
+                {
+                    if (val.IsSuccessfull)
+                    {
+                        DisplayMessage(ResourceHelper.GetValue("MSG_SUCCESS_UPDATING_ATTENDENCE"), FORMNAME, MessageTypeEnum.SUCCESS); ;
+                    }
+                    else
+                    {
+                        DisplayMessage(ResourceHelper.GetValue("MSG_ERROR_UPDATING_ATTENDENCE"), FORMNAME, MessageTypeEnum.ERROR);
+                    }
+                }
+                else
+                {
+                    DisplayMessage(ResourceHelper.GetValue("MSG_ERROR_CALLING_API"), FORMNAME, MessageTypeEnum.ERROR);
+                }
+            }
+            catch (Exception)
+            {
+                DisplayMessage(ResourceHelper.GetValue("MSG_ERROR_UPDATING_ATTENDENCE"), FORMNAME, MessageTypeEnum.ERROR);
+            }
+        }
+        private string ConvertTime24Format(string time)
+        {
+            if (time.Contains(TimeTypeEnum.AM.ToString()))
+            {
+                time = time.Replace(TimeTypeEnum.AM.ToString(), "").Trim();
+            }
+            else if (time.Contains(TimeTypeEnum.PM.ToString()))
+            {
+                time = time.Replace(TimeTypeEnum.PM.ToString(), "").Trim();
+                var timePart = time.Split(new string[] { ":" }, StringSplitOptions.RemoveEmptyEntries);
+                time = (Convert.ToInt32(timePart[0]) + 12) + ":" + timePart[1];
+            }
+            return time;
+        }
+
+        private void dataGridAttendence_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            ConvertTime Time = new ConvertTime();
+
+            int index = 0;
+            foreach (DataGridViewRow row in dataGridAttendence.Rows)
+            {
+                string startTime = Convert.ToString( row.Cells["StartTime"].Value);
+                if (!string.IsNullOrEmpty(startTime))
+                {
+                    string time = Regex.Replace(startTime, "[A-Za-z ]", "");
+                    Time.settime(time, true);
+                    row.Cells["StartTime"].Value =  Time.Hour + ":" + Time.Minute + " " + Time.type;
+                }
+                string endTime = Convert.ToString(row.Cells["EndTime"].Value);
+                if (!string.IsNullOrEmpty(startTime))
+                {
+                    string time = Regex.Replace(endTime, "[A-Za-z ]", "");
+                    Time.settime(time, true);
+                    row.Cells["EndTime"].Value = Time.Hour + ":" + Time.Minute + " " + Time.type;
+                }
+                SetWorkingHrs(index);
+                index++;
+            }
+        }
     }
 }

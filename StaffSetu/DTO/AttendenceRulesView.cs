@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Staff_Management.DTO
 {
-    public class AttendenceRulesDTO
+    public class AttendenceRulesView
     {
         public int ID { get; set; }
         public string RuleName { get; set; }

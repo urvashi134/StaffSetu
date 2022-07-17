@@ -6,6 +6,7 @@ namespace Setu.Common.DTO
 {
     public class AttendenceRegisterResponseDTO
     {
+        public int ID { get; set; }
         public int StaffID { get; set; }
         public string StaffName { get; set; }
         public string Status { get; set; }

@@ -28,7 +28,6 @@ namespace Setu.Entities
         public string EmailID { get; set; }
         public string Password { get; set; }
         public long MobileNo { get; set; }
-        public long? OtherContactNo { get; set; }
         public string Qualification { get; set; }
         public string Role { get; set; }
         public int DesignationID { get; set; }  //fk
@@ -38,7 +37,7 @@ namespace Setu.Entities
         public int DepartmentID { get; set; }   //fk
         [ForeignKey("DepartmentID")]
         public tbldepartment department { get; set; }
-        public int Subject1ID { get; set; }
+        public int? Subject1ID { get; set; }
         [ForeignKey("Subject1ID")]
         public tblSubject subject1 { get; set; }
         public int? Subject2ID { get; set; }

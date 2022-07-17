@@ -1,53 +1,63 @@
-﻿using Setu.Entities;
+﻿using Setu.Common.DTO;
+using Setu.Entities;
+using Staff_Management.Helper;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Staff_Management
 {
     public partial class Subject : BaseForm
     {
+        private bool isValidate = true;
         public Subject()
         {
             InitializeComponent();
+            FORMNAME = this.Text;
         }
 
         private void Subject_Load(object sender, EventArgs e)
         {
             ResourceHelper.SetLabel(this);
-            if (GlobalData.role.Equals("staff", StringComparison.InvariantCultureIgnoreCase))
+            if (GlobalData.role.Equals(RolesConstant.ROLE_STAFF, StringComparison.InvariantCultureIgnoreCase))
             {
                 tabControl1.TabPages.Remove(tabPageAdd);
+              //  this.Controls.Remove(BtnDelete);
             }
             else
             {
+               
                 FillDept();
             }
+            
             ViewSubject();
         }
         private void ViewSubject()
-        {
-            var val = RestAPIHelper.GetAsync<List<tblSubject>>("api/Subject/GetSubject");
-            DataGridViewSubject.DataSource = val;
+        {         
 
-            foreach(DataGridViewColumn dataGridViewColumn in DataGridViewSubject.Columns)
+            var response = RestAPIHelper.GetAsync<ApiResponse<List<SubjectView>>>(ApiConstants.API_GET_SUBJECT_GETSUBJECT);
+
+            if(response.IsSuccessfull == false)
             {
-                dataGridViewColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                return;
             }
+            else
+            {
+                DataGridViewSubject.DataSource = response.Data;
+
+                foreach (DataGridViewColumn dataGridViewColumn in DataGridViewSubject.Columns)
+                {
+                    dataGridViewColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                }
+            }
+            
         }
         private void FillDept()
         {
-            var val = RestAPIHelper.GetAsync<List<tbldepartment>>("api/Department/GetDepartment");
-            tbldepartment tblDept = new tbldepartment();
-            tblDept.ID = 0;
-            tblDept.Name = "-Select-";
-
-            val.Insert(0, tblDept);
-            CmbDept.DataSource = val;
+            List<tbldepartment> tbldepartments = StaffHelper.FillDepartment();
+           
+            CmbDept.DataSource = tbldepartments;
             CmbDept.DisplayMember = "Name";
             CmbDept.ValueMember = "ID";
         }
@@ -55,14 +65,14 @@ namespace Staff_Management
         {
             if(ValidateChildren(ValidationConstraints.Enabled))
             {
-                if (TxtSubject.Text == null)
+                /*if (TxtSubject.Text == null)
                 {
                     MessageBox.Show("Please Enter Subject name..");
                     return;
-                }
+                }*/
                 if (Convert.ToInt32(CmbDept.SelectedValue) == 0)
                 {
-                    MessageBox.Show("Please Select Department..");
+                    DisplayMessage(ResourceHelper.GetValue("MSG_ERROR_ADD_DEPARTMENT"), FORMNAME, MessageTypeEnum.ERROR);
                     return;
                 }
                 tblSubject objtblSubject = new tblSubject();
@@ -70,17 +80,19 @@ namespace Staff_Management
                 objtblSubject.SubjectName = TxtSubject.Text.ToString();
                 objtblSubject.DeptID = Convert.ToInt32(CmbDept.SelectedValue);
 
-                var val = RestAPIHelper.PostAsync<tblSubject>("api/Subject/InsertSubject", objtblSubject);
-                if (val == null)
+                var response = RestAPIHelper.PostAsync<ApiResponse<tblSubject>>(ApiConstants.API_POST_SUBJECT_ADD_SUBJECT, objtblSubject);
+                
+                if (response.IsSuccessfull == false)
                 {
-                    MessageBox.Show("Addition Failed..");
+                    DisplayMessage(ResourceHelper.GetValue("MSG_ERROR_ADD_SUBJECT"), FORMNAME, MessageTypeEnum.ERROR);
                 }
                 else
                 {
-                    MessageBox.Show("Subject Added Succesfully..");
+                    DisplayMessage(ResourceHelper.GetValue("MSG_SUCCESS_ADD_SUBJECT"), FORMNAME, MessageTypeEnum.SUCCESS);
+
+                    ResetPage();
+                    ViewSubject();
                 }
-                ResetPage();
-                ViewSubject();
             }           
         }
         private void ResetPage()
@@ -95,26 +107,29 @@ namespace Staff_Management
 
         private void TxtSubject_Validating(object sender, CancelEventArgs e)
         {
-            if (tabControl1.SelectedTab == tabPageAdd)
+            if (isValidate)
             {
-                if (Validators.RequiredValidation(TxtSubject.Text))
+                if (tabControl1.SelectedTab == tabPageAdd)
                 {
-                    if (Validators.IsValidText(TxtSubject.Text))
+                    if (Validators.RequiredValidation(TxtSubject.Text))
                     {
-                        errorProvider1.Clear();
+                        if (Validators.IsValidText(TxtSubject.Text))
+                        {
+                            errorProvider1.Clear();
+                        }
+                        else
+                        {
+                            errorProvider1.SetError(TxtSubject, ResourceHelper.GetValue("INVALID_CHARACTER"));
+                            TxtSubject.Focus();
+                            e.Cancel = true;
+                        }
                     }
                     else
                     {
-                        errorProvider1.SetError(TxtSubject, ResourceHelper.GetValue("INVALID_CHARACTER"));
+                        errorProvider1.SetError(TxtSubject, ResourceHelper.GetValue("REQUIRED_VALIDATION_FAIL"));
                         TxtSubject.Focus();
                         e.Cancel = true;
                     }
-                }
-                else
-                {
-                    errorProvider1.SetError(TxtSubject, ResourceHelper.GetValue("REQUIRED_VALIDATION_FAIL"));
-                    TxtSubject.Focus();
-                    e.Cancel = true;
                 }
             }
         }
@@ -124,6 +139,7 @@ namespace Staff_Management
             DialogResult dialogResult = DisplayMessage(ResourceHelper.GetValue("Msg_Quit"), FORMNAME, MessageTypeEnum.INPUTBOX);
             if (dialogResult == DialogResult.Yes)
             {
+                isValidate = false;
                 Close();
 
             }
@@ -138,6 +154,25 @@ namespace Staff_Management
             }
 
             return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            var id = DataGridViewSubject.CurrentRow.Cells["ID"].Value;
+
+            var response = RestAPIHelper.DeleteAsync<ApiResponse<Boolean>>($"{ApiConstants.API_DELETE_SUBJECT_DELETESUBJECT}/{id}");
+
+            if (response.IsSuccessfull == true)
+            {
+                DisplayMessage(ResourceHelper.GetValue("MSG_SUCCESS_DELETE_SUBJECT"), FORMNAME, MessageTypeEnum.SUCCESS);
+                //MessageBox.Show("Deleted");
+                ViewSubject();
+            }
+            else
+            {
+                DisplayMessage(ResourceHelper.GetValue("MSG_ERROR_DELETE_SUBJECT"), FORMNAME, MessageTypeEnum.ERROR);
+                //MessageBox.Show(val.ErrorMessage);
+            }
         }
     }
 }

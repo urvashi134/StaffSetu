@@ -1,21 +1,22 @@
 ﻿using MANTRA;
+using Setu.Common.DTO;
 using Setu.Entities;
+using Staff_Management.Helper;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Threading;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
+
 namespace Staff_Management
 {
     public partial class Login :BaseForm
     {
         string key = string.Empty;
-        int quality = Convert.ToInt32(ConfigurationManager.AppSettings["FingerPrintQuality"]);
-        int timeout = Convert.ToInt32(ConfigurationManager.AppSettings["FingerPrintTimeout"]);
         bool bInitFlag = false;
         string sRetVal = string.Empty;
-        bool fingerPrintLogin = false;
         int MatchThreshold = 500;
         public Login()
         {
@@ -38,6 +39,15 @@ namespace Staff_Management
             }
         }
 
+        // To capture the Upper right "X" click
+        protected override void WndProc(ref Message m)
+        {
+            if (m.Msg == 0x10) // The upper right "X" was clicked
+            {
+                AutoValidate = AutoValidate.Disable; //Deactivate all validations
+            }
+            base.WndProc(ref m);
+        }
         private void ConfigureFingerPrintDevice()
         {
             try
@@ -126,7 +136,6 @@ namespace Staff_Management
                     }
                     else
                     {
-                        fingerPrintLogin = true;
                         this.Hide();
                         Thread t = new Thread(new ThreadStart(Safe_DoSomethingOnGui));
                         t.SetApartmentState(ApartmentState.STA);
@@ -148,7 +157,6 @@ namespace Staff_Management
             AdminDashboard objDash = new AdminDashboard();
             objDash.Closed += (s, args) => this.Close();
             Application.Run(objDash);
-            // Do whatever you want with the GUI
         }
         private string MatchFingerPrint(FingerData fingerprintData)
         {
@@ -157,34 +165,43 @@ namespace Staff_Management
 
             try
             {
-                DataTable data = new DataTable();
-                var staffs = RestAPIHelper.GetAsync<IList<tblStaff>>($"api/Staff/GetStaffForLogin");
-
-                foreach(tblStaff staff in staffs)
+                DataTable data = new DataTable();               
+                var response = RestAPIHelper.GetAsync<ApiResponse<List<tblStaff>>>(ApiConstants.API_GET_STAFF_GETSTAFFFORLOGIN);
+                if(response.IsSuccessfull == true)
                 {
-                    if (staff.FingerPrintANSI != null)
+                    List<tblStaff> staffs = response.Data;
+
+                    foreach (tblStaff staff in staffs)
                     {
-                        byte[] storedFPByte = Convert.FromBase64String(staff.FingerPrintANSI);
-                        int ret = GlobalData.mfs100.MatchANSI(storedFPByte, fingerprintData.ANSITemplate, ref score);
-                        if (score >= MatchThreshold)
+                        if (staff.FingerPrintANSI != null)
                         {
-                            matchFlag = true;
-                            GlobalData.role = staff.Role;
-                            GlobalData.ID = staff.ID;
-                            GlobalData.loginName = staff.StaffName;
-                            break;
+                            byte[] storedFPByte = Convert.FromBase64String(staff.FingerPrintANSI);
+                            int ret = GlobalData.mfs100.MatchANSI(storedFPByte, fingerprintData.ANSITemplate, ref score);
+                            if (score >= MatchThreshold)
+                            {
+                                matchFlag = true;
+                                TokenRequest tokenRequest = new TokenRequest();
+                                tokenRequest.Email = staff.EmailID;
+                                tokenRequest.Password = staff.Password;
+                                AuthenticateLogin(tokenRequest);
+                                break;
+                            }
                         }
                     }
-                }
-                
-                if (matchFlag)
-                {
-                    return GlobalData.SUCCESS;
+                    if (matchFlag)
+                    {
+                        return GlobalData.SUCCESS;
+                    }
+                    else
+                    {
+                        GlobalData.mfs100.StartCapture();
+                        return ResourceHelper.GetValue("NO_MATCH_ANY_USER");
+                    }
+
                 }
                 else
                 {
-                    GlobalData.mfs100.StartCapture();
-                    return ResourceHelper.GetValue("NO_MATCH_ANY_USER");
+                    return ResourceHelper.GetValue("NO_MATCH_ANY_USER"); ;
                 }
             }
             catch (Exception ex)
@@ -202,36 +219,20 @@ namespace Staff_Management
         {
             ResetPage();
         }
-
-        private void BtnLogin_Click(object sender, EventArgs e)
+        private void AuthenticateLogin(TokenRequest tokenRequest)
         {
-            if (ValidateChildren(ValidationConstraints.Enabled))
-            {
-                string role = "";
-                int id;
-                string name = "Admin";
-                if (TxtUsername.Text == "a@a.com" && TxtPassword.Text == "p")
-                {
-                    role = "admin";
-                    id = 1;
-                }
-                else
-                {
-                    var val = RestAPIHelper.GetAsync<tblStaff>($"api/Staff/GetStaffByEmailPassword/{TxtUsername.Text},{TxtPassword.Text}");
-                    if (val == null)
-                    {
-                       DisplayMessage(ResourceHelper.GetValue("NO_MATCH_ANY_USER"), FORMNAME, MessageTypeEnum.ERROR);
-                        //MessageBox.Show("Check your EmailId or password..");
-                        return;
-                    }
-                    role = val.Role;
-                    id = val.ID;
-                    name = val.StaffName;
-                }
+            TokenResponse tokenResponse = RestAPIHelper.PostAsync<TokenResponse>(ApiConstants.API_POST_LOGIN_AUTHENTICATE, tokenRequest);
 
-                GlobalData.role = role;
-                GlobalData.ID = id;
-                GlobalData.loginName = name;
+            if (tokenResponse == null)
+            {
+                DisplayMessage(ResourceHelper.GetValue("NO_MATCH_ANY_USER"), FORMNAME, MessageTypeEnum.ERROR);
+            }
+            else
+            {
+                GlobalData.role = tokenResponse.Role;
+                GlobalData.ID = tokenResponse.Id;
+                GlobalData.loginName = tokenResponse.UserName;
+                GlobalData.token = tokenResponse.Token;
                 GlobalData.mfs100.OnCaptureCompleted -= OnCaptureCompleted;
                 GlobalData.mfs100.OnCaptureCompleted += OnCaptureCompleted_End;
                 int iRet = GlobalData.mfs100.StartCapture(9999, 1, false);
@@ -241,31 +242,45 @@ namespace Staff_Management
                 adminDashboard.Show();
                 this.Hide();
             }
+            return;
+        }
+        private void BtnLogin_Click(object sender, EventArgs e)
+        {
+            if (ValidateChildren(ValidationConstraints.Enabled))
+            {
+
+                TokenRequest tokenRequest = new TokenRequest();
+                tokenRequest.Email = TxtUsername.Text;
+                tokenRequest.Password = TxtPassword.Text;
+
+                AuthenticateLogin(tokenRequest);             
+            }
         }
         public void OnCaptureCompleted_End(bool status, int errorCode, string errorMsg, FingerData fingerprintData)
         {
         }
         private void TxtUsername_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if(Validators.RequiredValidation(TxtUsername.Text))
-            {
-                if(Validators.IsValidEmail(TxtUsername.Text))
+            
+                if (Validators.RequiredValidation(TxtUsername.Text))
                 {
-                    errorProvider1.Clear();
+                    if (Validators.IsValidEmail(TxtUsername.Text))
+                    {
+                        errorProvider1.Clear();
+                    }
+                    else
+                    {
+                        errorProvider1.SetError(TxtUsername, ResourceHelper.GetValue("EMAIL_VALIDATION_FAIL"));
+                        TxtUsername.Focus();
+                        e.Cancel = true;
+                    }
                 }
                 else
                 {
-                    errorProvider1.SetError(TxtUsername, ResourceHelper.GetValue("EMAIL_VALIDATION_FAIL"));
+                    errorProvider1.SetError(TxtUsername, ResourceHelper.GetValue("REQUIRED_VALIDATION_FAIL"));
                     TxtUsername.Focus();
                     e.Cancel = true;
                 }
-            }
-            else
-            {
-                errorProvider1.SetError(TxtUsername, ResourceHelper.GetValue("REQUIRED_VALIDATION_FAIL"));
-                TxtUsername.Focus();
-                e.Cancel = true;
-            }
         }
 
         private void TxtPassword_Validating(object sender, System.ComponentModel.CancelEventArgs e)
@@ -280,6 +295,11 @@ namespace Staff_Management
                 errorProvider1.SetError(TxtPassword, ResourceHelper.GetValue("REQUIRED_VALIDATION_FAIL"));
                 TxtPassword.Focus();
             }
+        }
+
+        private void Login_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            
         }
     }
 }

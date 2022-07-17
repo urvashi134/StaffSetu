@@ -1,4 +1,6 @@
-﻿using Setu.Entities;
+﻿using Setu.Common.DTO;
+using Setu.Entities;
+using Staff_Management.Helper;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,7 +21,7 @@ namespace Staff_Management
         private void Staff_Load(object sender, EventArgs e)
         {
             ResourceHelper.SetLabel(this);
-            if (GlobalData.role.Equals("staff", StringComparison.InvariantCultureIgnoreCase))
+            if (GlobalData.role.Equals(RolesConstant.ROLE_STAFF, StringComparison.InvariantCultureIgnoreCase))
             {
                 tabControl1.TabPages.Remove(tabPageView);
                 tabControl1.TabPages.Remove(tabPageAdd);
@@ -38,7 +40,7 @@ namespace Staff_Management
                 BtnResetUpdatePage.Enabled = false;
             }
             else
-            {
+            {               
                 
                 ViewStaff();
                 FillCmbsAdd();
@@ -50,45 +52,56 @@ namespace Staff_Management
         }
         private void ViewStaff()
         {
-            var val = RestAPIHelper.GetAsync<List<tblStaff>>("api/Staff/GetStaff");
-            List<entityStaffView> tbl = new List<entityStaffView>();
+           
+            var response = RestAPIHelper.GetAsync<ApiResponse<List<tblStaff>>>(ApiConstants.API_GET_STAFF_GETSTAFF);
 
-            for(int i = 0; i < val.Count; i++)
+            if(response.IsSuccessfull == false)
             {
-                tbl.Add(new entityStaffView());
-
-                tbl[i].ID = val[i].ID;
-                tbl[i].StaffName = val[i].StaffName;
-                tbl[i].FatherName = val[i].FatherName;
-                tbl[i].MotherName = val[i].MotherName;
-                tbl[i].Gender = val[i].Gender;
-                tbl[i].Dob = val[i].Dob;
-                tbl[i].Category = val[i].Category;
-                if(val[i].state !=null)
-                    tbl[i].StateName = val[i].state.StateName;
-                if(val[i].city !=null)
-                    tbl[i].CityName = val[i].city.CityName;
-                tbl[i].Address = val[i].Address;
-                tbl[i].EmailID = val[i].EmailID;
-                tbl[i].Password = val[i].Password;
-                tbl[i].MobileNo = val[i].MobileNo;
-                // if(val[i].OtherContactNo != null)
-                    tbl[i].OtherContactNo = val[i].OtherContactNo;
-                tbl[i].Qualification = val[i].Qualification;
-                tbl[i].Role = val[i].Role;
-                tbl[i].DesignationName = val[i].designation.Name;
-                tbl[i].DepartmentName = val[i].department.Name;
-                tbl[i].Subject1Name = val[i].subject1.SubjectName;
-                if(val[i].subject2 != null)
-                    tbl[i].Subject2Name = val[i].subject2.SubjectName;
-                if( val[i].subject3 !=null )
-                    tbl[i].Subject3Name = val[i].subject3.SubjectName;
-                tbl[i].Salary = val[i].Salary;
-                tbl[i].JoiningDate = val[i].JoiningDate;
-                tbl[i].Experience = val[i].Experience;
-                
+                MessageBox.Show(response.ErrorMessage);
             }
-            DataGridViewStaff.DataSource = tbl;
+            else
+            {
+                List<entityStaffView> tbl = new List<entityStaffView>();
+                var val = response.Data;
+
+                for (int i = 0; i < val.Count; i++)
+                {
+                    tbl.Add(new entityStaffView());
+
+                    tbl[i].ID = val[i].ID;
+                    tbl[i].StaffName = val[i].StaffName;
+                    tbl[i].FatherName = val[i].FatherName;
+                    tbl[i].MotherName = val[i].MotherName;
+                    tbl[i].Gender = val[i].Gender;
+                    tbl[i].Dob = val[i].Dob;
+                    tbl[i].Category = val[i].Category;
+                    if (val[i].state != null)
+                        tbl[i].StateName = val[i].state.StateName;
+                    if (val[i].city != null)
+                        tbl[i].CityName = val[i].city.CityName;
+                    tbl[i].Address = val[i].Address;
+                    tbl[i].EmailID = val[i].EmailID;
+                    tbl[i].Password = val[i].Password;
+                    tbl[i].MobileNo = val[i].MobileNo;
+                    // if(val[i].OtherContactNo != null)
+                    tbl[i].OtherContactNo = val[i].OtherContactNo;
+                    tbl[i].Qualification = val[i].Qualification;
+                    tbl[i].Role = val[i].Role;
+                    tbl[i].DesignationName = val[i].designation.Name;
+                    tbl[i].DepartmentName = val[i].department.Name;
+                    tbl[i].Subject1Name = val[i].subject1.SubjectName;
+                    if (val[i].subject2 != null)
+                        tbl[i].Subject2Name = val[i].subject2.SubjectName;
+                    if (val[i].subject3 != null)
+                        tbl[i].Subject3Name = val[i].subject3.SubjectName;
+                    tbl[i].Salary = val[i].Salary;
+                    tbl[i].JoiningDate = val[i].JoiningDate;
+                    tbl[i].Experience = val[i].Experience;
+
+                }
+                DataGridViewStaff.DataSource = tbl;
+            }
+            
         }
         private void FillCmbsAdd()
         {

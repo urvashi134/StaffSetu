@@ -33,7 +33,10 @@
             this.lb_AttendenceRules = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageView = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridViewAttendenceRules = new System.Windows.Forms.DataGridView();
+            this.BtnDelete = new System.Windows.Forms.Button();
+            this.BtnQuit = new System.Windows.Forms.Button();
             this.tabPageAdd = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.lblRuleName = new System.Windows.Forms.Label();
@@ -78,12 +81,10 @@
             this.CmbDesgUpdate = new System.Windows.Forms.ComboBox();
             this.BtnSearch = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.BtnDelete = new System.Windows.Forms.Button();
-            this.BtnQuit = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPageView.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAttendenceRules)).BeginInit();
             this.tabPageAdd.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -100,7 +101,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numWorkingHoursUpdate)).BeginInit();
             this.tableLayoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            this.tableLayoutPanel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -156,6 +156,25 @@
             this.tabPageView.Text = "View";
             this.tabPageView.UseVisualStyleBackColor = true;
             // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.ColumnCount = 4;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel6.Controls.Add(this.dataGridViewAttendenceRules, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.BtnDelete, 1, 1);
+            this.tableLayoutPanel6.Controls.Add(this.BtnQuit, 3, 1);
+            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 2;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 93F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(1116, 562);
+            this.tableLayoutPanel6.TabIndex = 1;
+            // 
             // dataGridViewAttendenceRules
             // 
             this.dataGridViewAttendenceRules.AllowUserToAddRows = false;
@@ -169,6 +188,35 @@
             this.dataGridViewAttendenceRules.RowTemplate.Height = 28;
             this.dataGridViewAttendenceRules.Size = new System.Drawing.Size(1110, 516);
             this.dataGridViewAttendenceRules.TabIndex = 0;
+            // 
+            // BtnDelete
+            // 
+            this.BtnDelete.BackColor = System.Drawing.Color.Azure;
+            this.BtnDelete.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnDelete.Font = new System.Drawing.Font("Merriweather Black", 8F);
+            this.BtnDelete.Location = new System.Drawing.Point(899, 524);
+            this.BtnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BtnDelete.Name = "BtnDelete";
+            this.BtnDelete.Padding = new System.Windows.Forms.Padding(4);
+            this.BtnDelete.Size = new System.Drawing.Size(94, 36);
+            this.BtnDelete.TabIndex = 19;
+            this.BtnDelete.Text = "Delete";
+            this.BtnDelete.UseVisualStyleBackColor = false;
+            // 
+            // BtnQuit
+            // 
+            this.BtnQuit.BackColor = System.Drawing.Color.Azure;
+            this.BtnQuit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnQuit.Font = new System.Drawing.Font("Merriweather Black", 8F);
+            this.BtnQuit.Location = new System.Drawing.Point(1019, 524);
+            this.BtnQuit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BtnQuit.Name = "BtnQuit";
+            this.BtnQuit.Padding = new System.Windows.Forms.Padding(4);
+            this.BtnQuit.Size = new System.Drawing.Size(94, 36);
+            this.BtnQuit.TabIndex = 20;
+            this.BtnQuit.Text = "Quit";
+            this.BtnQuit.UseVisualStyleBackColor = false;
+            this.BtnQuit.Click += new System.EventHandler(this.BtnQuit_Click);
             // 
             // tabPageAdd
             // 
@@ -189,7 +237,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 23F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.tableLayoutPanel2.Controls.Add(this.lblRuleName, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.TxtRuleName, 2, 1);
             this.tableLayoutPanel2.Controls.Add(this.lblDesignation, 1, 2);
@@ -226,7 +274,7 @@
             this.lblRuleName.Font = new System.Drawing.Font("Merriweather", 9.749999F);
             this.lblRuleName.Location = new System.Drawing.Point(23, 20);
             this.lblRuleName.Name = "lblRuleName";
-            this.lblRuleName.Size = new System.Drawing.Size(262, 48);
+            this.lblRuleName.Size = new System.Drawing.Size(261, 48);
             this.lblRuleName.TabIndex = 1;
             this.lblRuleName.Text = "Rule Name";
             this.lblRuleName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -235,9 +283,9 @@
             // 
             this.TxtRuleName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtRuleName.Font = new System.Drawing.Font("Merriweather", 9.749999F);
-            this.TxtRuleName.Location = new System.Drawing.Point(291, 23);
+            this.TxtRuleName.Location = new System.Drawing.Point(290, 23);
             this.TxtRuleName.Name = "TxtRuleName";
-            this.TxtRuleName.Size = new System.Drawing.Size(315, 32);
+            this.TxtRuleName.Size = new System.Drawing.Size(314, 32);
             this.TxtRuleName.TabIndex = 6;
             this.TxtRuleName.Validating += new System.ComponentModel.CancelEventHandler(this.TxtRuleName_Validating);
             // 
@@ -248,7 +296,7 @@
             this.lblDesignation.Font = new System.Drawing.Font("Merriweather", 9.749999F);
             this.lblDesignation.Location = new System.Drawing.Point(23, 68);
             this.lblDesignation.Name = "lblDesignation";
-            this.lblDesignation.Size = new System.Drawing.Size(262, 48);
+            this.lblDesignation.Size = new System.Drawing.Size(261, 48);
             this.lblDesignation.TabIndex = 7;
             this.lblDesignation.Text = "Designation";
             this.lblDesignation.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -258,9 +306,9 @@
             this.CmbDesg.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CmbDesg.Font = new System.Drawing.Font("Merriweather", 9.249999F);
             this.CmbDesg.FormattingEnabled = true;
-            this.CmbDesg.Location = new System.Drawing.Point(291, 71);
+            this.CmbDesg.Location = new System.Drawing.Point(290, 71);
             this.CmbDesg.Name = "CmbDesg";
-            this.CmbDesg.Size = new System.Drawing.Size(315, 32);
+            this.CmbDesg.Size = new System.Drawing.Size(314, 32);
             this.CmbDesg.TabIndex = 11;
             // 
             // lblHoursDays
@@ -270,7 +318,7 @@
             this.lblHoursDays.Font = new System.Drawing.Font("Merriweather", 9.749999F);
             this.lblHoursDays.Location = new System.Drawing.Point(23, 116);
             this.lblHoursDays.Name = "lblHoursDays";
-            this.lblHoursDays.Size = new System.Drawing.Size(262, 48);
+            this.lblHoursDays.Size = new System.Drawing.Size(261, 48);
             this.lblHoursDays.TabIndex = 12;
             this.lblHoursDays.Text = "Working Hours / Days";
             this.lblHoursDays.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -280,9 +328,9 @@
             this.panel1.Controls.Add(this.rdBtnHours);
             this.panel1.Controls.Add(this.rdBtnDays);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(291, 119);
+            this.panel1.Location = new System.Drawing.Point(290, 119);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(315, 42);
+            this.panel1.Size = new System.Drawing.Size(314, 42);
             this.panel1.TabIndex = 13;
             // 
             // rdBtnHours
@@ -317,7 +365,7 @@
             this.lblSalaryCalculation.Font = new System.Drawing.Font("Merriweather", 9.749999F);
             this.lblSalaryCalculation.Location = new System.Drawing.Point(23, 164);
             this.lblSalaryCalculation.Name = "lblSalaryCalculation";
-            this.lblSalaryCalculation.Size = new System.Drawing.Size(262, 48);
+            this.lblSalaryCalculation.Size = new System.Drawing.Size(261, 48);
             this.lblSalaryCalculation.TabIndex = 14;
             this.lblSalaryCalculation.Text = "Salary Calculation";
             this.lblSalaryCalculation.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -329,7 +377,7 @@
             this.lblLeaveAllowed.Font = new System.Drawing.Font("Merriweather", 9.749999F);
             this.lblLeaveAllowed.Location = new System.Drawing.Point(23, 212);
             this.lblLeaveAllowed.Name = "lblLeaveAllowed";
-            this.lblLeaveAllowed.Size = new System.Drawing.Size(262, 48);
+            this.lblLeaveAllowed.Size = new System.Drawing.Size(261, 48);
             this.lblLeaveAllowed.TabIndex = 15;
             this.lblLeaveAllowed.Text = "Leaves Allowed";
             this.lblLeaveAllowed.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -339,9 +387,9 @@
             this.panel2.Controls.Add(this.rdBtnMonthly);
             this.panel2.Controls.Add(this.rdBtnDaywise);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(291, 167);
+            this.panel2.Location = new System.Drawing.Point(290, 167);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(315, 42);
+            this.panel2.Size = new System.Drawing.Size(314, 42);
             this.panel2.TabIndex = 16;
             // 
             // rdBtnMonthly
@@ -375,19 +423,19 @@
             // 
             this.numLeaves.Dock = System.Windows.Forms.DockStyle.Fill;
             this.numLeaves.Font = new System.Drawing.Font("Merriweather", 9.749999F);
-            this.numLeaves.Location = new System.Drawing.Point(291, 215);
+            this.numLeaves.Location = new System.Drawing.Point(290, 215);
             this.numLeaves.Name = "numLeaves";
-            this.numLeaves.Size = new System.Drawing.Size(315, 32);
+            this.numLeaves.Size = new System.Drawing.Size(314, 32);
             this.numLeaves.TabIndex = 31;
             // 
             // numWorkingHours
             // 
             this.numWorkingHours.Dock = System.Windows.Forms.DockStyle.Fill;
             this.numWorkingHours.Font = new System.Drawing.Font("Merriweather", 9.749999F);
-            this.numWorkingHours.Location = new System.Drawing.Point(613, 120);
+            this.numWorkingHours.Location = new System.Drawing.Point(611, 120);
             this.numWorkingHours.Margin = new System.Windows.Forms.Padding(4);
             this.numWorkingHours.Name = "numWorkingHours";
-            this.numWorkingHours.Size = new System.Drawing.Size(206, 32);
+            this.numWorkingHours.Size = new System.Drawing.Size(205, 32);
             this.numWorkingHours.TabIndex = 42;
             this.numWorkingHours.Visible = false;
             // 
@@ -395,9 +443,9 @@
             // 
             this.TxtSalaryCalDays.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtSalaryCalDays.Font = new System.Drawing.Font("Merriweather", 9.749999F);
-            this.TxtSalaryCalDays.Location = new System.Drawing.Point(612, 167);
+            this.TxtSalaryCalDays.Location = new System.Drawing.Point(610, 167);
             this.TxtSalaryCalDays.Name = "TxtSalaryCalDays";
-            this.TxtSalaryCalDays.Size = new System.Drawing.Size(208, 32);
+            this.TxtSalaryCalDays.Size = new System.Drawing.Size(207, 32);
             this.TxtSalaryCalDays.TabIndex = 45;
             this.TxtSalaryCalDays.Visible = false;
             this.TxtSalaryCalDays.Validating += new System.ComponentModel.CancelEventHandler(this.TxtSalaryCalDays_Validating);
@@ -411,11 +459,11 @@
             this.tableLayoutPanel3.Controls.Add(this.BtnSave, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.BtnReset, 2, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(291, 311);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(290, 311);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(315, 42);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(314, 42);
             this.tableLayoutPanel3.TabIndex = 48;
             // 
             // BtnSave
@@ -436,7 +484,7 @@
             this.BtnReset.Font = new System.Drawing.Font("Merriweather Black", 8F);
             this.BtnReset.Location = new System.Drawing.Point(170, 3);
             this.BtnReset.Name = "BtnReset";
-            this.BtnReset.Size = new System.Drawing.Size(142, 36);
+            this.BtnReset.Size = new System.Drawing.Size(141, 36);
             this.BtnReset.TabIndex = 47;
             this.BtnReset.Text = "Reset";
             this.BtnReset.UseVisualStyleBackColor = true;
@@ -725,54 +773,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // tableLayoutPanel6
-            // 
-            this.tableLayoutPanel6.ColumnCount = 4;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel6.Controls.Add(this.dataGridViewAttendenceRules, 0, 0);
-            this.tableLayoutPanel6.Controls.Add(this.BtnDelete, 1, 1);
-            this.tableLayoutPanel6.Controls.Add(this.BtnQuit, 3, 1);
-            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 2;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 93F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(1116, 562);
-            this.tableLayoutPanel6.TabIndex = 1;
-            // 
-            // BtnDelete
-            // 
-            this.BtnDelete.BackColor = System.Drawing.Color.Azure;
-            this.BtnDelete.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnDelete.Font = new System.Drawing.Font("Merriweather Black", 8F);
-            this.BtnDelete.Location = new System.Drawing.Point(899, 524);
-            this.BtnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.BtnDelete.Name = "BtnDelete";
-            this.BtnDelete.Padding = new System.Windows.Forms.Padding(4);
-            this.BtnDelete.Size = new System.Drawing.Size(94, 36);
-            this.BtnDelete.TabIndex = 19;
-            this.BtnDelete.Text = "Delete";
-            this.BtnDelete.UseVisualStyleBackColor = false;
-            // 
-            // BtnQuit
-            // 
-            this.BtnQuit.BackColor = System.Drawing.Color.Azure;
-            this.BtnQuit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnQuit.Font = new System.Drawing.Font("Merriweather Black", 8F);
-            this.BtnQuit.Location = new System.Drawing.Point(1019, 524);
-            this.BtnQuit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.BtnQuit.Name = "BtnQuit";
-            this.BtnQuit.Padding = new System.Windows.Forms.Padding(4);
-            this.BtnQuit.Size = new System.Drawing.Size(94, 36);
-            this.BtnQuit.TabIndex = 20;
-            this.BtnQuit.Text = "Quit";
-            this.BtnQuit.UseVisualStyleBackColor = false;
-            this.BtnQuit.Click += new System.EventHandler(this.BtnQuit_Click);
-            // 
             // AttendenceRules
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -785,6 +785,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPageView.ResumeLayout(false);
+            this.tableLayoutPanel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAttendenceRules)).EndInit();
             this.tabPageAdd.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -807,7 +808,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numWorkingHoursUpdate)).EndInit();
             this.tableLayoutPanel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            this.tableLayoutPanel6.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

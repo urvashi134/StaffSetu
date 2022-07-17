@@ -1,6 +1,8 @@
-﻿using Setu.Entities;
+﻿using Setu.Common.DTO;
+using Setu.Entities;
 using Staff_Management;
 using Staff_Management.DTO;
+using Staff_Management.Helper;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,35 +22,49 @@ namespace Staff_Management
         public AttendenceRules()
         {
             InitializeComponent();
+            FORMNAME = this.Text;
         }
 
         private void Attendence_Rules_Load(object sender, EventArgs e)
         {
             ResourceHelper.SetLabel(this);
+            if (GlobalData.role.Equals(RolesConstant.ROLE_ADMIN, StringComparison.InvariantCultureIgnoreCase))
+            {
+                listDesg = StaffHelper.FillDesignation();
+                FillDesg();
+                FillDesgUpdate();
+            }
+            else
+            {
+                tabControl1.TabPages.Remove(tabPageAdd);
+                tabControl1.TabPages.Remove(tabPageUpdate);
+            }
             ViewRules();
-            listDesg = StaffHelper.FillDesignation();
-            FillDesg();
-            FillDesgUpdate();
         }
         private void ViewRules()
         {
-            var val = RestAPIHelper.GetAsync<List<tblAttendenceRules>>("api/AttendenceRules/GetAttendenceRules");
-            List<AttendenceRulesDTO> tbls = new List<AttendenceRulesDTO>();
+            var response = RestAPIHelper.GetAsync<ApiResponse<List<tblAttendenceRules>>>(ApiConstants.API_GET_ATTENDENCERULES_GET_RULES);
 
-            for (int i = 0; i < val.Count; i++)
+            if (response.IsSuccessfull == true)
             {
-                tbls.Add(new AttendenceRulesDTO());
-                tbls[i].ID = val[i].ID;
-                tbls[i].RuleName = val[i].RuleName;
-                tbls[i].Designation = val[i].designation.Name;
-                tbls[i].IsWorkingHours = val[i].WorkingHourDay;
-                tbls[i].WorkingHours = val[i].WorkingHours;
-                tbls[i].IsDayWise = val[i].SalaryCalculation;
-                tbls[i].SalaryCalculationDays = val[i].SalaryCalculationDays;
-                tbls[i].LeavesAllowed = val[i].LeavesAllowed;
+                var val = response.Data;
+                List<AttendenceRulesView> tbls = new List<AttendenceRulesView>();
 
+                for (int i = 0; i < val.Count; i++)
+                {
+                    tbls.Add(new AttendenceRulesView());
+                    tbls[i].ID = val[i].ID;
+                    tbls[i].RuleName = val[i].RuleName;
+                    tbls[i].Designation = val[i].designation.Name;
+                    tbls[i].IsWorkingHours = val[i].WorkingHourDay;
+                    tbls[i].WorkingHours = val[i].WorkingHours;
+                    tbls[i].IsDayWise = val[i].SalaryCalculation;
+                    tbls[i].SalaryCalculationDays = val[i].SalaryCalculationDays;
+                    tbls[i].LeavesAllowed = val[i].LeavesAllowed;
+
+                }
+                dataGridViewAttendenceRules.DataSource = tbls;
             }
-            dataGridViewAttendenceRules.DataSource = tbls;
         }
         private void FillDesg()
         {
@@ -105,17 +121,17 @@ namespace Staff_Management
                     tblAttendenceRules.SalaryCalculation = true;
                 else
                     tblAttendenceRules.SalaryCalculation = false;
-                tblAttendenceRules.SalaryCalculationDays = Convert.ToInt32(TxtSalaryCalDays.Text);
+                    tblAttendenceRules.SalaryCalculationDays = TxtSalaryCalDays.Text.ToInt32();
                 tblAttendenceRules.LeavesAllowed = Convert.ToInt32(numLeaves.Value);
 
-                var val = RestAPIHelper.PostAsync<tblAttendenceRules>("api/AttendenceRules/InsertAttendenceRules", tblAttendenceRules);
-                if (val == null)
+                var response = RestAPIHelper.PostAsync<ApiResponse<tblAttendenceRules>>(ApiConstants.API_POST_ATTENDENCERULES_INSERT_RULES, tblAttendenceRules);
+                if (response.IsSuccessfull == true)
                 {
-                    MessageBox.Show(ResourceHelper.GetValue("UNSUCCESSFULL_ADDITION"));
+                    DisplayMessage(ResourceHelper.GetValue("SUCCESSFULL_ADDITION"), FORMNAME, MessageTypeEnum.SUCCESS);
                 }
                 else
                 {
-                    MessageBox.Show(ResourceHelper.GetValue("SUCCESSFULL_ADDITION"));
+                    DisplayMessage(ResourceHelper.GetValue("UNSUCCESSFULL_ADDITION"), FORMNAME, MessageTypeEnum.ERROR);
                 }
                 ResetAddPage();
                 ViewRules();
@@ -129,7 +145,40 @@ namespace Staff_Management
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            if (!CheckDesg())
+            {
+                return;
+            }
+            int desgId = Convert.ToInt32(CmbDesgUpdate.SelectedValue);
+            var response = RestAPIHelper.GetAsync<ApiResponse<tblAttendenceRules>>($"{ApiConstants.API_GET_ATTENDENCERULES_GET_RULES_BY_DESG}/{desgId}");
 
+            if (response.IsSuccessfull == false)
+            {
+                DisplayMessage(ResourceHelper.GetValue("INVALID_SEARCH_VALUE"), FORMNAME, MessageTypeEnum.ERROR);
+                return;
+            }
+            else
+            {
+                var val = response.Data;
+                desgIdUpdate = desgId;
+                idUpdate = val.ID;
+                TxtRuleNameUpdate.Text = val.RuleName;
+                if (val.WorkingHourDay == true)
+                {
+                    rdBtnHoursUpdate.Checked = true;
+                    numWorkingHoursUpdate.Value = val.WorkingHours;
+                }
+                else
+                    rdBtnDaysUpdate.Checked = true;
+                if (val.SalaryCalculation == true)
+                {
+                    rdBtnDaywiseUpdate.Checked = true;
+                    TxtSalaryCalDaysUpdate.Text = val.SalaryCalculationDays.ToString();
+                }
+                else
+                    rdBtnMonthlyUpdate.Checked = true;
+                numLeavesUpdate.Value = val.LeavesAllowed;
+            }
         }
 
         private void BtnSaveUpdate_Click(object sender, EventArgs e)
@@ -152,14 +201,14 @@ namespace Staff_Management
                 objtblAttendenceRules.SalaryCalculationDays = Convert.ToInt32(TxtSalaryCalDaysUpdate.Text);
                 objtblAttendenceRules.LeavesAllowed = Convert.ToInt32(numLeavesUpdate.Value);
 
-                var val = RestAPIHelper.PostAsync<tblAttendenceRules>("api/AttendenceRules/UpdateAttendenceRules", objtblAttendenceRules);
-                if (val == null)
+                var response = RestAPIHelper.PostAsync<ApiResponse<tblAttendenceRules>>(ApiConstants.API_POST_ATTENDENCERULES_UPDATE_RULES, objtblAttendenceRules);
+                if (response.IsSuccessfull == false)
                 {
-                    MessageBox.Show(ResourceHelper.GetValue("UNSUCCESSFULL_UPDATE"));
+                    DisplayMessage(ResourceHelper.GetValue("UNSUCCESSFULL_UPDATE"), FORMNAME, MessageTypeEnum.ERROR);
                 }
                 else
                 {
-                    MessageBox.Show(ResourceHelper.GetValue("SUCCESSFULL_UPDATE"));
+                    DisplayMessage(ResourceHelper.GetValue("SUCCESSFULL_UPDATE"), FORMNAME, MessageTypeEnum.SUCCESS);
                 }
                 ResetUpdatePage();
                 ViewRules();

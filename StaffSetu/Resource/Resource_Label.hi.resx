@@ -414,14 +414,80 @@
   <data name="MSG_DEVICE_REMOVED" xml:space="preserve">
     <value>डिवाइस हटाया गया</value>
   </data>
+  <data name="MSG_ERROR_ADD_ATTENDENCE" xml:space="preserve">
+    <value>उपस्थिति सहेजने में कोई समस्या है।</value>
+  </data>
+  <data name="MSG_ERROR_ADD_DEPARTMENT" xml:space="preserve">
+    <value>विभाग जोड़ने में कुछ समस्या है।</value>
+  </data>
+  <data name="MSG_ERROR_ADD_DESIGNATION" xml:space="preserve">
+    <value>पदनाम जोड़ने में एक समस्या है।</value>
+  </data>
+  <data name="MSG_ERROR_ADD_STAFF" xml:space="preserve">
+    <value>स्टाफ को अपडेट करने में दिक्कत आ रही है।</value>
+  </data>
+  <data name="MSG_ERROR_ADD_SUBJECT" xml:space="preserve">
+    <value>विषय जोड़ने में एक समस्या है।</value>
+  </data>
+  <data name="MSG_ERROR_CALLING_API" xml:space="preserve">
+    <value>सर्वर जोड़ने में समस्या आ रही है। कृपया जांचें कि सर्वर चल रहा है।</value>
+  </data>
+  <data name="MSG_ERROR_DELETE_DEPARTMENT" xml:space="preserve">
+    <value>विभाग को हटाने में एक समस्या है।</value>
+  </data>
+  <data name="MSG_ERROR_DELETE_STAFF" xml:space="preserve">
+    <value>स्टाफ़ को हटाने में एक समस्या है।</value>
+  </data>
+  <data name="MSG_ERROR_DELETE_SUBJECT" xml:space="preserve">
+    <value>विषय को हटाने में एक समस्या है।</value>
+  </data>
   <data name="MSG_ERROR_DEVICE_INITIATE" xml:space="preserve">
     <value>डिवाइस इनिशियलाइज़ेशन में त्रुटि</value>
   </data>
   <data name="MSG_ERROR_DEVICE_NOT_CONNECTED" xml:space="preserve">
     <value>डिवाइस कनेक्ट नहीं है</value>
   </data>
+  <data name="MSG_ERROR_ENTER_DEPT_ID" xml:space="preserve">
+    <value>कृपया सही विभाग आईडी दर्ज करें।</value>
+  </data>
+  <data name="MSG_ERROR_ENTER_STAFF_ID" xml:space="preserve">
+    <value>कृपया सही स्टाफ आईडी दर्ज करें।</value>
+  </data>
+  <data name="MSG_ERROR_NO_DEPARTMENT" xml:space="preserve">
+    <value>दी गई आईडी के साथ कोई विभाग नहीं मिला।</value>
+  </data>
+  <data name="MSG_ERROR_NO_STAFF" xml:space="preserve">
+    <value>दी गई आईडी वाला कोई कर्मचारी नहीं मिला।</value>
+  </data>
+  <data name="MSG_ERROR_SELECTION_DEPARTMENT" xml:space="preserve">
+    <value>कृपया विभाग का चयन करें।</value>
+  </data>
+  <data name="MSG_ERROR_SELECTION_DESIGNATION" xml:space="preserve">
+    <value>कृपया पदनाम चुनें।</value>
+  </data>
+  <data name="MSG_ERROR_SELF_ATTENDENCE" xml:space="preserve">
+    <value>आप अपनी उपस्थिति नहीं जोड़ सकते।</value>
+  </data>
+  <data name="MSG_ERROR_STAFF_NOT_ACCESSIBLE" xml:space="preserve">
+    <value>यह कर्मचारी आपके लिए सुलभ नहीं है।</value>
+  </data>
+  <data name="MSG_ERROR_STAFF_NOT_EXISTING" xml:space="preserve">
+    <value>यह स्टाफ मौजूद नहीं है।</value>
+  </data>
   <data name="MSG_ERROR_STARTTIME_LESS_ENDTIME" xml:space="preserve">
     <value>प्रारंभ समय समाप्ति समय से बड़ा है।</value>
+  </data>
+  <data name="MSG_ERROR_UPDATE_ATTENDENCE" xml:space="preserve">
+    <value>उपस्थिति अद्यतन करने में एक समस्या है।</value>
+  </data>
+  <data name="MSG_ERROR_UPDATING_ATTENDENCE" xml:space="preserve">
+    <value>उपस्थिति अद्यतन करने में समस्या है।</value>
+  </data>
+  <data name="MSG_ERROR_UPDATING_DEPARTMENT" xml:space="preserve">
+    <value>विभाग को अपडेट करने में समस्या आ रही है।</value>
+  </data>
+  <data name="MSG_ERROR_UPDATING_STAFF" xml:space="preserve">
+    <value>स्टाफ को अपडेट करने में समस्या आ रही है।</value>
   </data>
   <data name="MSG_FINGERPRINT_CAPTURE_SUCCESS" xml:space="preserve">
     <value>फिंगर प्रिंट सफलतापूर्वक कैप्चर किया गया।</value>
@@ -429,23 +495,59 @@
   <data name="Msg_Quit" xml:space="preserve">
     <value>क्या आप वाकई छोड़ना चाहते हैं?</value>
   </data>
+  <data name="MSG_SUCCESS_ADD_ATTENDENCE" xml:space="preserve">
+    <value>उपस्थिति सफलतापूर्वक सहेजी गई।</value>
+  </data>
+  <data name="MSG_SUCCESS_ADD_DEPARTMENT" xml:space="preserve">
+    <value>विभाग सफलतापूर्वक जोड़ा गया।</value>
+  </data>
+  <data name="MSG_SUCCESS_ADD_DESIGNATION" xml:space="preserve">
+    <value>पदनाम सफलतापूर्वक जोड़ा गया।</value>
+  </data>
+  <data name="MSG_SUCCESS_ADD_STAFF" xml:space="preserve">
+    <value>स्टाफ़ सफलतापूर्वक जोड़ा गया.</value>
+  </data>
+  <data name="MSG_SUCCESS_ADD_SUBJECT" xml:space="preserve">
+    <value>विषय सफलतापूर्वक जोड़ा गया।</value>
+  </data>
+  <data name="MSG_SUCCESS_DELETE_DEPARTMENT" xml:space="preserve">
+    <value>विभाग सफलतापूर्वक हटाया गया।</value>
+  </data>
+  <data name="MSG_SUCCESS_DELETE_STAFF" xml:space="preserve">
+    <value>स्टाफ़ को सफलतापूर्वक हटाया गया.</value>
+  </data>
+  <data name="MSG_SUCCESS_DELETE_SUBJECT" xml:space="preserve">
+    <value>विषय सफलतापूर्वक हटाया गया।</value>
+  </data>
+  <data name="MSG_SUCCESS_UPDATE_ATTENDENCE" xml:space="preserve">
+    <value>उपस्थिति सफलतापूर्वक अपडेट की गई।</value>
+  </data>
+  <data name="MSG_SUCCESS_UPDATING_ATTENDENCE" xml:space="preserve">
+    <value>उपस्थिति सफलतापूर्वक अपडेट की गई.</value>
+  </data>
+  <data name="MSG_SUCCESS_UPDATING_DEPARTMENT" xml:space="preserve">
+    <value>विभाग विवरण सफलतापूर्वक अपडेट किया गया।</value>
+  </data>
+  <data name="MSG_SUCCESS_UPDATING_STAFF" xml:space="preserve">
+    <value>स्टाफ विवरण सफलतापूर्वक अपडेट किया गया।</value>
+  </data>
   <data name="NO_MATCH_ANY_USER" xml:space="preserve">
     <value>उपयोगकर्ता मौजूद नहीं है।</value>
   </data>
   <data name="NO_RECORD_FOUND" xml:space="preserve">
-    <value>निर्दिष्ट उपयोगकर्ता के लिए कोई रिकॉर्ड नहीं मिला।</value>
+    <value>कोई रिकॉर्ड नहीं मिला।</value>
   </data>
   <data name="NUMERIC_VALIDATION_FAIL" xml:space="preserve">
-    <value>केवल पूर्णांकों की अनुमति है</value>
+    <value>केवल पूर्णांकों की अनुमति है।</value>
   </data>
   <data name="rdBtnAbsent" xml:space="preserve">
-    <value />
+    <value>अनुपस्थित</value>
   </data>
   <data name="rdBtnLeave" xml:space="preserve">
-    <value />
+    <value>छुट्टी</value>
   </data>
   <data name="rdBtnPresent" xml:space="preserve">
-    <value />
+    <value>उपस्थिति</value>
   </data>
   <data name="REQUIRED_VALIDATION_FAIL" xml:space="preserve">
     <value>क्षेत्रआवश्यक है</value>

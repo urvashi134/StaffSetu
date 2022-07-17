@@ -1,6 +1,7 @@
 ﻿using Setu.Common.DTO;
 using Setu.Entities;
 using Staff_Management;
+using Staff_Management.Helper;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -45,41 +46,36 @@ namespace StaffSetu
             int month = Convert.ToInt32(CmbMonth.SelectedValue);
             int year = Convert.ToInt32(CmbYear.SelectedValue);
 
-            DateTime dt1 = new DateTime(01, month, year, 0, 0, 0);
+            DateTime dt1 = new DateTime(year, month, 1, 0, 0, 0);
             int days = 30;
             if (month == 2)
                 days = 28;
             else if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12)
                 days = 31;
-            DateTime dt2 = new DateTime(days, month, year, 0, 0, 0);
+            DateTime dt2 = new DateTime(year, month, days, 0, 0, 0);
 
             UserAttendenceReport obj = new UserAttendenceReport();
-            obj.StaffId = 0;
+            obj.StaffId = GlobalData.ID;
             obj.AttendenceFrom = dt1;
             obj.AttendenceTill = dt2;
-            var val = RestAPIHelper.GetAsync<List<tblAttendence>>($"api/Attendence/GetAttendenceByMonthYear/{obj}");
 
-            if(val==null)
+            var response = RestAPIHelper.GetAsync<ApiResponse<List<tblAttendence>>>($"{ApiConstants.API_GET_ATTENDENCE_GET_ATTENDENCE_ALL_MONTH_WISE}/{obj}");
+            if(response.IsSuccessfull == true)
+            {
+                List<MonthlyAttendenceReportView> tbl = new List<MonthlyAttendenceReportView>();
+                var val = response.Data;
+
+                for (int i = 0; i < val.Count; i++)
+                {
+                    tbl.Add(new MonthlyAttendenceReportView());
+                    
+                }
+            }
+            else
             {
                 MessageBox.Show("Not Found");
-                return;
             }
-            List<MonthlyAttendenceReportView> tbl = new List<MonthlyAttendenceReportView>();
-
-            for(int i=0;i<val.Count;i++)
-            {
-                
-                //if()
-                //{
-
-                //}
-                //else
-                //{
-                //    tbl.Add(new MonthlyAttendenceReportView());
-                //}
-                
-
-            }
+            
         }
 
         private void BtnQuit_Click(object sender, EventArgs e)

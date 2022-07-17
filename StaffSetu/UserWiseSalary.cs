@@ -1,5 +1,7 @@
-﻿using Setu.Entities;
+﻿using Setu.Common.DTO;
+using Setu.Entities;
 using Staff_Management;
+using Staff_Management.Helper;
 using StaffSetu.DTO;
 using System;
 using System.Collections.Generic;
@@ -18,10 +20,16 @@ namespace StaffSetu
         public UserWiseSalary()
         {
             InitializeComponent();
+            FORMNAME = this.Text;
         }
 
         private void UserWiseSalary_Load(object sender, EventArgs e)
-        {
+        {          
+            if(GlobalData.role.Equals(RolesConstant.ROLE_STAFF, StringComparison.InvariantCultureIgnoreCase))
+            {
+                TxtStaffId.Text = GlobalData.ID.ToString();
+                TxtStaffId.Enabled = false;
+            }
             FillYear();
         }
         private void FillYear()
@@ -34,34 +42,41 @@ namespace StaffSetu
 
         private void BtnSearch_Click(object sender, EventArgs e)
         {
-            if(ValidateChildren(ValidationConstraints.Enabled))
+            GetSalary();
+            
+        }
+        private void GetSalary()
+        {
+            if (ValidateChildren(ValidationConstraints.Enabled))
             {
                 int id = Convert.ToInt32(TxtStaffId.Text);
                 int year = Convert.ToInt32(CmbYear.SelectedValue);
 
-                var val = RestAPIHelper.GetAsync<List<tblConfirmedAttendence>>($"api/Salary/GetSalaryByStaffIdYear/{id}/{year}");
-
-                if(val==null)
+                var response = RestAPIHelper.GetAsync<ApiResponse<List<tblConfirmedAttendence>>>($"{ApiConstants.API_GET_SALARY_GETSALARY_BY_ID_DATE}/{id}/{year}");
+                if (response.IsSuccessfull == true)
                 {
-                    MessageBox.Show("Not Found");
-                    return;
-                }
-                List<UserwiseSalaryView> tbl = new List<UserwiseSalaryView>();
+                    var val = response.Data;
+                    List<UserwiseSalaryView> tbl = new List<UserwiseSalaryView>();
 
-                for (int i = 0; i < val.Count; i++)
+                    for (int i = 0; i < val.Count; i++)
+                    {
+                        tbl.Add(new UserwiseSalaryView());
+                        tbl[i].Month = val[i].month.ToStringMonth();
+                        tbl[i].PresentDays = val[i].PresentDays;
+                        tbl[i].AbsentDays = val[i].AbsentDays;
+                        tbl[i].WorkingHrs = val[i].WorkingHrs;
+                        tbl[i].SalaryCalculated = val[i].SalaryCalculated;
+                    }
+
+                    dataGridViewSalary.DataSource = tbl;
+                }
+                else
                 {
-                    tbl.Add(new UserwiseSalaryView());
-                    tbl[i].Month = val[i].month.ToStringMonth();
-                    tbl[i].PresentDays = val[i].PresentDays;
-                    tbl[i].AbsentDays = val[i].AbsentDays;
-                    tbl[i].WorkingHrs = val[i].WorkingHrs;
-                    tbl[i].SalaryCalculated = val[i].SalaryCalculated;
+                    DisplayMessage(response.ErrorMessage, FORMNAME, MessageTypeEnum.ERROR);
                 }
 
-                dataGridViewSalary.DataSource = tbl;
             }
         }
-
         private void TxtStaffId_Validating(object sender, CancelEventArgs e)
         {
             if (Validators.RequiredValidation(TxtStaffId.Text))

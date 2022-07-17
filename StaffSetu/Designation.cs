@@ -1,4 +1,6 @@
-﻿using Setu.Entities;
+﻿using Setu.Common.DTO;
+using Setu.Entities;
+using Staff_Management.Helper;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,16 +16,25 @@ namespace Staff_Management
         public Designation()
         {
             InitializeComponent();
+            FORMNAME = this.Text;
         }
 
         private void ViewDesg()
         {
-            var val = RestAPIHelper.GetAsync<List<tblDesignation>>("api/Designation/GetDesignation");
-            DataGridViewDesg.DataSource = val;
 
-            foreach (DataGridViewColumn dataGridViewColumn in DataGridViewDesg.Columns)
+            var response = RestAPIHelper.GetAsync<ApiResponse<List<tblDesignation>>>(ApiConstants.API_GET_DESIGNATION_GETDESIGNATION);
+            
+            if(response.IsSuccessfull == true)
             {
-                dataGridViewColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                DataGridViewDesg.DataSource = response.Data;
+                foreach (DataGridViewColumn dataGridViewColumn in DataGridViewDesg.Columns)
+                {
+                    dataGridViewColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                }
+            }
+            else
+            {
+                DisplayMessage(ResourceHelper.GetValue(response.ErrorMessage), FORMNAME, MessageTypeEnum.ERROR);
             }
         }
         private void BtnSaveDesg_Click(object sender, EventArgs e)
@@ -34,26 +45,27 @@ namespace Staff_Management
                 objtblDesignation.ID = 0;
                 objtblDesignation.Name = TxtDesg.Text.ToString();
 
-                var val = RestAPIHelper.PostAsync<tblDesignation>("api/Designation/InsertDesignation", objtblDesignation);
-
-                if (val == null)
+                var response = RestAPIHelper.PostAsync<ApiResponse<tblDesignation>>(ApiConstants.API_POST_DESIGNATION_ADD_DESIGNATION, objtblDesignation);
+                if(response.IsSuccessfull == true)
                 {
-                    MessageBox.Show("Addition Failed..");
-                }
+                    DisplayMessage(ResourceHelper.GetValue("MSG_SUCCESS_ADD_DESIGNATION"), FORMNAME, MessageTypeEnum.SUCCESS);
+                    ResetDesg();
+                    ViewDesg();
+                }              
                 else
                 {
-                    MessageBox.Show("Designation Added Succesfully..");
+                    // response.ErrorMessage ??
+                    DisplayMessage(ResourceHelper.GetValue("MSG_ERROR_ADD_DESIGNATION"), FORMNAME, MessageTypeEnum.ERROR);
                 }
-
-                ResetDesg();
-                ViewDesg();
             }          
         }
 
         private void Designation_Load(object sender, EventArgs e)
         {
             ResourceHelper.SetLabel(this);
-            if (GlobalData.role.Equals("staff", StringComparison.InvariantCultureIgnoreCase))
+            FORMNAME = this.Text;
+            if (GlobalData.role.Equals(RolesConstant.ROLE_DEPT_ADMIN, StringComparison.InvariantCultureIgnoreCase) 
+                || GlobalData.role.Equals(RolesConstant.ROLE_STAFF, StringComparison.InvariantCultureIgnoreCase))
             {
                 tabControl1.TabPages.Remove(tabPageAdd);
             }
@@ -112,6 +124,11 @@ namespace Staff_Management
             }
 
             return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -33,7 +33,8 @@ namespace Setu.API.PaymenGatewayHelper.Cashfree
                 {
                     string Response = HttpResponseMessage.Content.ReadAsStringAsync().Result;
                     AaddBeneficiaryResponse rootobject = JsonConvert.DeserializeObject<AaddBeneficiaryResponse>(Response);
-                    result = true;
+                    if (rootobject.subCode == "200")
+                        result = true;
                 }
                 else
                 {
@@ -43,10 +44,12 @@ namespace Setu.API.PaymenGatewayHelper.Cashfree
             return result;
         }
 
-        public void transferMoney(RequestTransferDTO requestTransferDTO)
+        public bool transferMoney(RequestTransferDTO requestTransferDTO)
         {
+            bool result = false;
             cashFreeDetails.CashFreeConnect();
             HttpResponseMessage HttpResponseMessage = null;
+            requestTransferDTO.amount = 100;
             using (HttpClient httpClient = new HttpClient())
             {
                 httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -55,16 +58,20 @@ namespace Setu.API.PaymenGatewayHelper.Cashfree
                 var httpContent = new StringContent(myContent, Encoding.UTF8, "application/json");
                 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", cashFreeDetails.token);
                 HttpResponseMessage = httpClient.PostAsync(cashFreeDetails.url + "/payout/v1/requestTransfer", httpContent).Result;
-                if (HttpResponseMessage.StatusCode == HttpStatusCode.Created)
+                if (HttpResponseMessage.StatusCode == HttpStatusCode.OK)
                 {
                     string Response = HttpResponseMessage.Content.ReadAsStringAsync().Result;
                     ResponseTransferMoneyDTO rootobject = JsonConvert.DeserializeObject<ResponseTransferMoneyDTO>(Response);
+                    result = true;
+                    if (rootobject.subCode == "200")
+                        result = true;
                 }
                 else
                 {
                     //logger.LogError("Issue in GetPayPalPaymentID : " + HttpResponseMessage.StatusCode + ":" + HttpResponseMessage.Content.ToString());
                 }
             }
+            return result;
         }
 
 

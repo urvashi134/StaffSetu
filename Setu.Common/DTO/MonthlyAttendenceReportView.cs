@@ -6,8 +6,7 @@ namespace Setu.Common.DTO
 {
     public class MonthlyAttendenceReportView
     {
-        public int StaffId { get; set; }
-        public string Name { get; set; }
+        public int StaffID { get; set; }
         public int Present { get; set; }
         public int Absent { get; set; }
         public int Leaves { get; set; }

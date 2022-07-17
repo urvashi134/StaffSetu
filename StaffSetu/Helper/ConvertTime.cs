@@ -68,11 +68,19 @@ namespace Staff_Management
                 {
                     Hour = (Hour.ToInt32() % 12).ToString();
                     type = ResourceHelper.GetValue(TimeTypeEnum.PM.ToString());
+                    if(type == null)
+                    {
+                        type = TimeTypeEnum.PM.ToString();
+                    }
                 }
 
                 else
                 {
                     type = ResourceHelper.GetValue(TimeTypeEnum.AM.ToString());
+                    if (type == null)
+                    {
+                        type = TimeTypeEnum.AM.ToString();
+                    }
                 }
             }
 

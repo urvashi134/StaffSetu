@@ -1,5 +1,6 @@
 ﻿using Setu.Common.DTO;
 using Setu.Entities;
+using Staff_Management.Helper;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,27 +27,27 @@ namespace Staff_Management
                 objtbldepartment.ID = 0;
                 objtbldepartment.Name = TxtDeptName.Text;
                 objtbldepartment.Location = TxtDeptLocation.Text;
-
-                var val = RestAPIHelper.PostAsync<tbldepartment>("api/Department/InsertDepartment", objtbldepartment);
-
-                if (val == null)
+         
+                var response = RestAPIHelper.PostAsync<ApiResponse<tbldepartment>>(ApiConstants.API_GET_DEPARTMENT_INSERTDEPARTMENT, objtbldepartment);
+                if (response.IsSuccessfull == true)
                 {
-                    MessageBox.Show("Addition Failed..");
+                    DisplayMessage(ResourceHelper.GetValue("MSG_SUCCESS_ADD_DEPARTMENT"), FORMNAME, MessageTypeEnum.SUCCESS);
+                    ResetPage();
+                    ViewDepartments();
                 }
                 else
                 {
-                    MessageBox.Show("Department Added Succesfully..");
-                }
-
-                ResetPage();
-                ViewDepartments();
+                    DisplayMessage(ResourceHelper.GetValue("MSG_ERROR_ADD_DEPARTMENT"), FORMNAME, MessageTypeEnum.ERROR);
+                    return;
+                }              
             }
         }
 
         private void Department_Load(object sender, EventArgs e)
         {
             ResourceHelper.SetLabel(this);
-            if (GlobalData.role.Equals("staff", StringComparison.InvariantCultureIgnoreCase))
+            if (GlobalData.role.Equals(RolesConstant.ROLE_STAFF, StringComparison.InvariantCultureIgnoreCase) ||
+                GlobalData.role.Equals(RolesConstant.ROLE_DEPT_ADMIN, StringComparison.InvariantCultureIgnoreCase))
             {
                 tabControl1.TabPages.Remove(tabPageAdd);
                 tabControl1.TabPages.Remove(tabPageUpdate);
@@ -56,12 +57,19 @@ namespace Staff_Management
         }
         private void ViewDepartments()
         {
-            var val = RestAPIHelper.GetAsync<List<tbldepartment>>("api/Department/GetDepartment");
-            DataGridViewDepartment.DataSource = val;
-            foreach(DataGridViewColumn dataGridViewColumn in   DataGridViewDepartment.Columns)
+            var response = RestAPIHelper.GetAsync<ApiResponse<List<tbldepartment>>>(ApiConstants.API_GET_DEPARTMENT_GETDEPARTMENT);
+            if (response.IsSuccessfull == true)
             {
-                dataGridViewColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                DataGridViewDepartment.DataSource = response.Data;
+                foreach (DataGridViewColumn dataGridViewColumn in DataGridViewDepartment.Columns)
+                {
+                    dataGridViewColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                }
             }
+            else
+            {
+                DisplayMessage(ResourceHelper.GetValue(response.ErrorMessage), FORMNAME, MessageTypeEnum.ERROR);
+            }                     
         }
         private void ResetPage()
         {
@@ -195,23 +203,31 @@ namespace Staff_Management
         {
             if (string.IsNullOrEmpty(TxtIDUpdate.Text))
             {
-                MessageBox.Show("Please Enter Department ID..");
+                DisplayMessage(ResourceHelper.GetValue("MSG_ERROR_ENTER_DEPT_ID"), FORMNAME, MessageTypeEnum.ERROR);
                 return;
             }
-            int id = Convert.ToInt32(TxtIDUpdate.Text);
-            var val = RestAPIHelper.GetAsync<tbldepartment>($"api/Department/GetDepartmentByID/{id}");
 
-            if (val == null)
+            int id;
+            if (!int.TryParse(TxtIDUpdate.Text, out id))
             {
-                MessageBox.Show("No Department Found with Given ID..");
-                ResetUpdatePage();
+                DisplayMessage(ResourceHelper.GetValue("MSG_ERROR_ENTER_DEPT_ID"), FORMNAME, MessageTypeEnum.ERROR);
+                TxtIDUpdate.Text = String.Empty;
                 return;
+            }
+
+            var response = RestAPIHelper.GetAsync<ApiResponse<tbldepartment>>($"{ApiConstants.API_GET_DEPARTMENT_GETDEPARTMENTBYID}/{id}");
+            if(response.IsSuccessfull== true)
+            {
+                TxtNameUpdate.Text = response.Data.Name.ToString();
+                TxtLocationUpdate.Text = response.Data.Location.ToString();
             }
             else
             {
-                TxtNameUpdate.Text = val.Name.ToString();
-                TxtLocationUpdate.Text = val.Location.ToString();
+                DisplayMessage(ResourceHelper.GetValue("MSG_ERROR_NO_DEPARTMENT"), FORMNAME, MessageTypeEnum.ERROR);
+                ResetUpdatePage();
+                return;
             }
+           
         }
 
         private void BtnUpdate_Click_1(object sender, EventArgs e)
@@ -220,23 +236,24 @@ namespace Staff_Management
             {
                 tbldepartment objtbldepartment = new tbldepartment();
                 int id = Convert.ToInt32(TxtIDUpdate.Text);
-                //var objtbldepartment = RestAPIHelper.GetAsync<tbldepartment>($"api/Department/GetDepartmentByID/{id}");
+                
                 objtbldepartment.ID = id;
                 objtbldepartment.Name = TxtNameUpdate.Text.ToString();
                 objtbldepartment.Location = TxtLocationUpdate.Text.ToString();
+                objtbldepartment.IsActive = true;
 
-                var val = RestAPIHelper.PostAsync<tbldepartment>("api/Department/UpdateDepartment", objtbldepartment);
-
-                if (val == null)
+                var response = RestAPIHelper.PostAsync<ApiResponse<tbldepartment>>(ApiConstants.API_GET_DEPARTMENT_UPDATEDEPARTMENT, objtbldepartment);
+                if(response.IsSuccessfull == true)
                 {
-                    MessageBox.Show("Update Failed..");
+                    DisplayMessage(ResourceHelper.GetValue("MSG_SUCCESS_UPDATING_DEPARTMENT"), FORMNAME, MessageTypeEnum.SUCCESS);
+                    ResetUpdatePage();
+                    ViewDepartments();
                 }
                 else
                 {
-                    MessageBox.Show("Updated Succesfully..");
+                    DisplayMessage(response.ErrorMessage, FORMNAME, MessageTypeEnum.ERROR);
                 }
-                ResetUpdatePage();
-                ViewDepartments();
+                
             }
         }
 
@@ -268,20 +285,20 @@ namespace Staff_Management
 
         private void BtnDelete_Click(object sender, EventArgs e)
         {
-            var id = DataGridViewDepartment.SelectedRows[0].Cells["ID"].Value;
+            var id = DataGridViewDepartment.CurrentRow.Cells["ID"].Value;
 
-            var val = RestAPIHelper.DeleteAsync<ApiResponse<Boolean>>($"api/Department/DeleteDepartment/{id}");
-
+            var val = RestAPIHelper.DeleteAsync<ApiResponse<Boolean>>($"{ApiConstants.API_DELETE_DEPARTMENT_DELETEDEPARTMENT}/{id}");
             if (val.IsSuccessfull == true)
             {
-                DisplayMessage(val.ErrorMessage, FORMNAME, MessageTypeEnum.SUCCESS);
+                DisplayMessage(ResourceHelper.GetValue("MSG_SUCCESS_DELETE_DEPARTMENT"), FORMNAME, MessageTypeEnum.SUCCESS);
                 //MessageBox.Show("Deleted");
             }
             else
             {
-                DisplayMessage(val.ErrorMessage, FORMNAME, MessageTypeEnum.ERROR);
+                DisplayMessage(ResourceHelper.GetValue("MSG_ERROR_DELETE_DEPARTMENT"), FORMNAME, MessageTypeEnum.ERROR);
                 //MessageBox.Show(val.ErrorMessage);
             }
+            ViewDepartments();
         }
     }
 }

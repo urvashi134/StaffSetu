@@ -36,6 +36,7 @@
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
             this.DataGridViewStaff = new System.Windows.Forms.DataGridView();
             this.BtnDelete = new System.Windows.Forms.Button();
+            this.BtnQuit = new System.Windows.Forms.Button();
             this.tabPageAdd = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -256,7 +257,8 @@
             this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel12.Controls.Add(this.DataGridViewStaff, 0, 0);
-            this.tableLayoutPanel12.Controls.Add(this.BtnDelete, 3, 1);
+            this.tableLayoutPanel12.Controls.Add(this.BtnDelete, 1, 1);
+            this.tableLayoutPanel12.Controls.Add(this.BtnQuit, 3, 1);
             this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel12.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel12.Name = "tableLayoutPanel12";
@@ -268,13 +270,11 @@
             // 
             // DataGridViewStaff
             // 
-            this.DataGridViewStaff.AllowUserToAddRows = false;
             this.DataGridViewStaff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tableLayoutPanel12.SetColumnSpan(this.DataGridViewStaff, 4);
             this.DataGridViewStaff.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DataGridViewStaff.Location = new System.Drawing.Point(3, 3);
             this.DataGridViewStaff.Name = "DataGridViewStaff";
-            this.DataGridViewStaff.ReadOnly = true;
             this.DataGridViewStaff.RowHeadersWidth = 62;
             this.DataGridViewStaff.RowTemplate.Height = 28;
             this.DataGridViewStaff.Size = new System.Drawing.Size(982, 569);
@@ -285,7 +285,7 @@
             this.BtnDelete.BackColor = System.Drawing.Color.Azure;
             this.BtnDelete.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnDelete.Font = new System.Drawing.Font("Merriweather Black", 8F);
-            this.BtnDelete.Location = new System.Drawing.Point(891, 577);
+            this.BtnDelete.Location = new System.Drawing.Point(771, 577);
             this.BtnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnDelete.Name = "BtnDelete";
             this.BtnDelete.Padding = new System.Windows.Forms.Padding(4);
@@ -294,6 +294,21 @@
             this.BtnDelete.Text = "Delete";
             this.BtnDelete.UseVisualStyleBackColor = false;
             this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
+            // 
+            // BtnQuit
+            // 
+            this.BtnQuit.BackColor = System.Drawing.Color.Azure;
+            this.BtnQuit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnQuit.Font = new System.Drawing.Font("Merriweather Black", 8F);
+            this.BtnQuit.Location = new System.Drawing.Point(891, 577);
+            this.BtnQuit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BtnQuit.Name = "BtnQuit";
+            this.BtnQuit.Padding = new System.Windows.Forms.Padding(4);
+            this.BtnQuit.Size = new System.Drawing.Size(94, 40);
+            this.BtnQuit.TabIndex = 19;
+            this.BtnQuit.Text = "Quit";
+            this.BtnQuit.UseVisualStyleBackColor = false;
+            this.BtnQuit.Click += new System.EventHandler(this.BtnQuit_Click);
             // 
             // tabPageAdd
             // 
@@ -458,7 +473,7 @@
             this.CmbGender.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CmbGender.Name = "CmbGender";
             this.CmbGender.Size = new System.Drawing.Size(289, 29);
-            this.CmbGender.TabIndex = 23;
+            this.CmbGender.TabIndex = 24;
             // 
             // lblCategory
             // 
@@ -491,7 +506,7 @@
             this.CmbCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CmbCategory.Name = "CmbCategory";
             this.CmbCategory.Size = new System.Drawing.Size(289, 29);
-            this.CmbCategory.TabIndex = 31;
+            this.CmbCategory.TabIndex = 28;
             // 
             // lblQualification
             // 
@@ -515,7 +530,7 @@
             this.CmbQual.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CmbQual.Name = "CmbQual";
             this.CmbQual.Size = new System.Drawing.Size(289, 29);
-            this.CmbQual.TabIndex = 71;
+            this.CmbQual.TabIndex = 30;
             // 
             // lblFName
             // 
@@ -549,7 +564,7 @@
             this.TxtFatherName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtFatherName.Name = "TxtFatherName";
             this.TxtFatherName.Size = new System.Drawing.Size(289, 32);
-            this.TxtFatherName.TabIndex = 74;
+            this.TxtFatherName.TabIndex = 32;
             // 
             // TxtMotherName
             // 
@@ -559,7 +574,7 @@
             this.TxtMotherName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtMotherName.Name = "TxtMotherName";
             this.TxtMotherName.Size = new System.Drawing.Size(289, 32);
-            this.TxtMotherName.TabIndex = 75;
+            this.TxtMotherName.TabIndex = 34;
             // 
             // tableLayoutPanel4
             // 
@@ -610,7 +625,7 @@
             this.CmbCity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CmbCity.Name = "CmbCity";
             this.CmbCity.Size = new System.Drawing.Size(91, 29);
-            this.CmbCity.TabIndex = 41;
+            this.CmbCity.TabIndex = 42;
             // 
             // lblCity
             // 
@@ -635,7 +650,7 @@
             this.CmbState.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CmbState.Name = "CmbState";
             this.CmbState.Size = new System.Drawing.Size(91, 29);
-            this.CmbState.TabIndex = 36;
+            this.CmbState.TabIndex = 40;
             this.CmbState.SelectedIndexChanged += new System.EventHandler(this.CmbState_SelectedIndexChanged);
             // 
             // lblState
@@ -746,7 +761,7 @@
             this.TxtAddress.Name = "TxtAddress";
             this.tableLayoutPanel4.SetRowSpan(this.TxtAddress, 2);
             this.TxtAddress.Size = new System.Drawing.Size(288, 58);
-            this.TxtAddress.TabIndex = 66;
+            this.TxtAddress.TabIndex = 50;
             // 
             // TxtMobNo
             // 
@@ -757,7 +772,7 @@
             this.TxtMobNo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtMobNo.Name = "TxtMobNo";
             this.TxtMobNo.Size = new System.Drawing.Size(288, 32);
-            this.TxtMobNo.TabIndex = 67;
+            this.TxtMobNo.TabIndex = 48;
             this.TxtMobNo.Validating += new System.ComponentModel.CancelEventHandler(this.TxtMobNo_Validating);
             // 
             // TxtEmail
@@ -769,7 +784,7 @@
             this.TxtEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtEmail.Name = "TxtEmail";
             this.TxtEmail.Size = new System.Drawing.Size(288, 32);
-            this.TxtEmail.TabIndex = 68;
+            this.TxtEmail.TabIndex = 44;
             this.TxtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.TxtEmail_Validating);
             // 
             // TxtPassword
@@ -782,7 +797,7 @@
             this.TxtPassword.Name = "TxtPassword";
             this.TxtPassword.PasswordChar = '*';
             this.TxtPassword.Size = new System.Drawing.Size(288, 32);
-            this.TxtPassword.TabIndex = 69;
+            this.TxtPassword.TabIndex = 46;
             this.TxtPassword.Validating += new System.ComponentModel.CancelEventHandler(this.TxtPassword_Validating);
             // 
             // tableLayoutPanel5
@@ -836,7 +851,7 @@
             this.CmbRole.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CmbRole.Name = "CmbRole";
             this.CmbRole.Size = new System.Drawing.Size(91, 29);
-            this.CmbRole.TabIndex = 86;
+            this.CmbRole.TabIndex = 62;
             // 
             // lblRole
             // 
@@ -860,7 +875,7 @@
             this.CmbDept.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CmbDept.Name = "CmbDept";
             this.CmbDept.Size = new System.Drawing.Size(91, 29);
-            this.CmbDept.TabIndex = 76;
+            this.CmbDept.TabIndex = 60;
             this.CmbDept.SelectedIndexChanged += new System.EventHandler(this.CmbDept_SelectedIndexChanged);
             // 
             // lblDepartment
@@ -911,7 +926,7 @@
             this.CmbDesg.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CmbDesg.Name = "CmbDesg";
             this.CmbDesg.Size = new System.Drawing.Size(288, 29);
-            this.CmbDesg.TabIndex = 111;
+            this.CmbDesg.TabIndex = 64;
             // 
             // lblSubject
             // 
@@ -936,7 +951,7 @@
             this.CmbSubject1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CmbSubject1.Name = "CmbSubject1";
             this.CmbSubject1.Size = new System.Drawing.Size(288, 29);
-            this.CmbSubject1.TabIndex = 113;
+            this.CmbSubject1.TabIndex = 66;
             this.CmbSubject1.SelectedIndexChanged += new System.EventHandler(this.CmbSubject1_SelectedIndexChanged);
             // 
             // CmbSubject2
@@ -950,7 +965,7 @@
             this.CmbSubject2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CmbSubject2.Name = "CmbSubject2";
             this.CmbSubject2.Size = new System.Drawing.Size(288, 29);
-            this.CmbSubject2.TabIndex = 114;
+            this.CmbSubject2.TabIndex = 68;
             this.CmbSubject2.SelectedIndexChanged += new System.EventHandler(this.CmbSubject2_SelectedIndexChanged);
             // 
             // CmbSubject3
@@ -964,7 +979,7 @@
             this.CmbSubject3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CmbSubject3.Name = "CmbSubject3";
             this.CmbSubject3.Size = new System.Drawing.Size(288, 29);
-            this.CmbSubject3.TabIndex = 115;
+            this.CmbSubject3.TabIndex = 70;
             // 
             // lblJoiningDate
             // 
@@ -987,7 +1002,7 @@
             this.DtJoiningDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.DtJoiningDate.Name = "DtJoiningDate";
             this.DtJoiningDate.Size = new System.Drawing.Size(288, 28);
-            this.DtJoiningDate.TabIndex = 117;
+            this.DtJoiningDate.TabIndex = 72;
             // 
             // lblSalary
             // 
@@ -1010,7 +1025,7 @@
             this.TxtSalary.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtSalary.Name = "TxtSalary";
             this.TxtSalary.Size = new System.Drawing.Size(288, 32);
-            this.TxtSalary.TabIndex = 119;
+            this.TxtSalary.TabIndex = 74;
             this.TxtSalary.Validating += new System.ComponentModel.CancelEventHandler(this.TxtSalary_Validating);
             // 
             // lblExp
@@ -1035,7 +1050,7 @@
             this.TxtExp.Multiline = true;
             this.TxtExp.Name = "TxtExp";
             this.TxtExp.Size = new System.Drawing.Size(288, 28);
-            this.TxtExp.TabIndex = 121;
+            this.TxtExp.TabIndex = 76;
             // 
             // tableLayoutPanel6
             // 
@@ -1053,7 +1068,7 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(488, 33);
-            this.tableLayoutPanel6.TabIndex = 3;
+            this.tableLayoutPanel6.TabIndex = 90;
             // 
             // BtnSave
             // 
@@ -1066,7 +1081,7 @@
             this.BtnSave.Name = "BtnSave";
             this.tableLayoutPanel6.SetRowSpan(this.BtnSave, 2);
             this.BtnSave.Size = new System.Drawing.Size(94, 29);
-            this.BtnSave.TabIndex = 121;
+            this.BtnSave.TabIndex = 92;
             this.BtnSave.Text = "Save";
             this.BtnSave.UseVisualStyleBackColor = false;
             this.BtnSave.Click += new System.EventHandler(this.BtnSaveStaff_Click);
@@ -1082,7 +1097,7 @@
             this.BtnReset.Name = "BtnReset";
             this.tableLayoutPanel6.SetRowSpan(this.BtnReset, 2);
             this.BtnReset.Size = new System.Drawing.Size(94, 29);
-            this.BtnReset.TabIndex = 126;
+            this.BtnReset.TabIndex = 94;
             this.BtnReset.Text = "Reset";
             this.BtnReset.UseVisualStyleBackColor = false;
             this.BtnReset.Click += new System.EventHandler(this.BtnResetStaff_Click);
@@ -1172,7 +1187,7 @@
             this.TxtAccNo.Location = new System.Drawing.Point(176, 45);
             this.TxtAccNo.Name = "TxtAccNo";
             this.TxtAccNo.Size = new System.Drawing.Size(289, 32);
-            this.TxtAccNo.TabIndex = 46;
+            this.TxtAccNo.TabIndex = 82;
             // 
             // TxtAccName
             // 
@@ -1180,7 +1195,7 @@
             this.TxtAccName.Location = new System.Drawing.Point(176, 75);
             this.TxtAccName.Name = "TxtAccName";
             this.TxtAccName.Size = new System.Drawing.Size(289, 32);
-            this.TxtAccName.TabIndex = 47;
+            this.TxtAccName.TabIndex = 84;
             // 
             // TxtIfscCode
             // 
@@ -1189,7 +1204,7 @@
             this.TxtIfscCode.Location = new System.Drawing.Point(176, 105);
             this.TxtIfscCode.Name = "TxtIfscCode";
             this.TxtIfscCode.Size = new System.Drawing.Size(289, 32);
-            this.TxtIfscCode.TabIndex = 48;
+            this.TxtIfscCode.TabIndex = 86;
             // 
             // TxtUpiId
             // 
@@ -1198,7 +1213,7 @@
             this.TxtUpiId.Location = new System.Drawing.Point(176, 135);
             this.TxtUpiId.Name = "TxtUpiId";
             this.TxtUpiId.Size = new System.Drawing.Size(289, 32);
-            this.TxtUpiId.TabIndex = 49;
+            this.TxtUpiId.TabIndex = 88;
             // 
             // lblUPIId
             // 
@@ -1209,7 +1224,7 @@
             this.lblUPIId.Name = "lblUPIId";
             this.lblUPIId.Size = new System.Drawing.Size(167, 30);
             this.lblUPIId.TabIndex = 50;
-            this.lblUPIId.Text = "UPI Id";
+            this.lblUPIId.Text = "UPI ID";
             this.lblUPIId.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tabPageUpdate
@@ -1314,7 +1329,7 @@
             this.TxtIDUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtIDUpdate.Name = "TxtIDUpdate";
             this.TxtIDUpdate.Size = new System.Drawing.Size(289, 32);
-            this.TxtIDUpdate.TabIndex = 20;
+            this.TxtIDUpdate.TabIndex = 102;
             this.TxtIDUpdate.Leave += new System.EventHandler(this.TxtIDUpdate_Leave);
             this.TxtIDUpdate.Validating += new System.ComponentModel.CancelEventHandler(this.TxtIDUpdate_Validating);
             // 
@@ -1363,7 +1378,7 @@
             this.TxtStaffNameUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtStaffNameUpdate.Name = "TxtStaffNameUpdate";
             this.TxtStaffNameUpdate.Size = new System.Drawing.Size(289, 32);
-            this.TxtStaffNameUpdate.TabIndex = 22;
+            this.TxtStaffNameUpdate.TabIndex = 104;
             this.TxtStaffNameUpdate.Validating += new System.ComponentModel.CancelEventHandler(this.TxtStaffNameUpdate_Validating);
             // 
             // CmbGenderUpdate
@@ -1376,7 +1391,7 @@
             this.CmbGenderUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CmbGenderUpdate.Name = "CmbGenderUpdate";
             this.CmbGenderUpdate.Size = new System.Drawing.Size(289, 29);
-            this.CmbGenderUpdate.TabIndex = 23;
+            this.CmbGenderUpdate.TabIndex = 106;
             // 
             // lblUpdateCategory
             // 
@@ -1398,7 +1413,7 @@
             this.DtDOBUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.DtDOBUpdate.Name = "DtDOBUpdate";
             this.DtDOBUpdate.Size = new System.Drawing.Size(289, 28);
-            this.DtDOBUpdate.TabIndex = 26;
+            this.DtDOBUpdate.TabIndex = 108;
             // 
             // CmbCategoryUpdate
             // 
@@ -1409,7 +1424,7 @@
             this.CmbCategoryUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CmbCategoryUpdate.Name = "CmbCategoryUpdate";
             this.CmbCategoryUpdate.Size = new System.Drawing.Size(289, 29);
-            this.CmbCategoryUpdate.TabIndex = 31;
+            this.CmbCategoryUpdate.TabIndex = 110;
             // 
             // lblUpdateQualification
             // 
@@ -1433,7 +1448,7 @@
             this.CmbQualUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CmbQualUpdate.Name = "CmbQualUpdate";
             this.CmbQualUpdate.Size = new System.Drawing.Size(289, 29);
-            this.CmbQualUpdate.TabIndex = 71;
+            this.CmbQualUpdate.TabIndex = 112;
             // 
             // lblUpdateFName
             // 
@@ -1467,7 +1482,7 @@
             this.TxtFatherNameUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtFatherNameUpdate.Name = "TxtFatherNameUpdate";
             this.TxtFatherNameUpdate.Size = new System.Drawing.Size(289, 32);
-            this.TxtFatherNameUpdate.TabIndex = 74;
+            this.TxtFatherNameUpdate.TabIndex = 114;
             // 
             // TxtMotherNameUpdate
             // 
@@ -1477,7 +1492,7 @@
             this.TxtMotherNameUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtMotherNameUpdate.Name = "TxtMotherNameUpdate";
             this.TxtMotherNameUpdate.Size = new System.Drawing.Size(289, 32);
-            this.TxtMotherNameUpdate.TabIndex = 75;
+            this.TxtMotherNameUpdate.TabIndex = 116;
             // 
             // tableLayoutPanel9
             // 
@@ -1528,7 +1543,7 @@
             this.CmbCityUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CmbCityUpdate.Name = "CmbCityUpdate";
             this.CmbCityUpdate.Size = new System.Drawing.Size(91, 29);
-            this.CmbCityUpdate.TabIndex = 41;
+            this.CmbCityUpdate.TabIndex = 122;
             // 
             // lblUpdateCity
             // 
@@ -1553,7 +1568,7 @@
             this.CmbStateUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CmbStateUpdate.Name = "CmbStateUpdate";
             this.CmbStateUpdate.Size = new System.Drawing.Size(91, 29);
-            this.CmbStateUpdate.TabIndex = 36;
+            this.CmbStateUpdate.TabIndex = 120;
             this.CmbStateUpdate.SelectedIndexChanged += new System.EventHandler(this.CmbStateUpdate_SelectedIndexChanged);
             // 
             // lblUpdateState
@@ -1664,7 +1679,7 @@
             this.TxtAddressUpdate.Name = "TxtAddressUpdate";
             this.tableLayoutPanel9.SetRowSpan(this.TxtAddressUpdate, 2);
             this.TxtAddressUpdate.Size = new System.Drawing.Size(288, 58);
-            this.TxtAddressUpdate.TabIndex = 66;
+            this.TxtAddressUpdate.TabIndex = 130;
             // 
             // TxtMobNoUpdate
             // 
@@ -1675,7 +1690,7 @@
             this.TxtMobNoUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtMobNoUpdate.Name = "TxtMobNoUpdate";
             this.TxtMobNoUpdate.Size = new System.Drawing.Size(288, 32);
-            this.TxtMobNoUpdate.TabIndex = 67;
+            this.TxtMobNoUpdate.TabIndex = 128;
             this.TxtMobNoUpdate.Validating += new System.ComponentModel.CancelEventHandler(this.TxtMobNoUpdate_Validating);
             // 
             // TxtEmailUpdate
@@ -1687,7 +1702,7 @@
             this.TxtEmailUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtEmailUpdate.Name = "TxtEmailUpdate";
             this.TxtEmailUpdate.Size = new System.Drawing.Size(288, 32);
-            this.TxtEmailUpdate.TabIndex = 68;
+            this.TxtEmailUpdate.TabIndex = 124;
             this.TxtEmailUpdate.Validating += new System.ComponentModel.CancelEventHandler(this.TxtEmailUpdate_Validating);
             // 
             // TxtPasswordUpdate
@@ -1700,7 +1715,7 @@
             this.TxtPasswordUpdate.Name = "TxtPasswordUpdate";
             this.TxtPasswordUpdate.PasswordChar = '*';
             this.TxtPasswordUpdate.Size = new System.Drawing.Size(288, 32);
-            this.TxtPasswordUpdate.TabIndex = 69;
+            this.TxtPasswordUpdate.TabIndex = 126;
             this.TxtPasswordUpdate.Validating += new System.ComponentModel.CancelEventHandler(this.TxtPasswordUpdate_Validating);
             // 
             // tableLayoutPanel10
@@ -1754,7 +1769,7 @@
             this.CmbRoleUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CmbRoleUpdate.Name = "CmbRoleUpdate";
             this.CmbRoleUpdate.Size = new System.Drawing.Size(91, 29);
-            this.CmbRoleUpdate.TabIndex = 86;
+            this.CmbRoleUpdate.TabIndex = 142;
             // 
             // lblUpdateRole
             // 
@@ -1778,7 +1793,7 @@
             this.CmbDeptUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CmbDeptUpdate.Name = "CmbDeptUpdate";
             this.CmbDeptUpdate.Size = new System.Drawing.Size(91, 29);
-            this.CmbDeptUpdate.TabIndex = 76;
+            this.CmbDeptUpdate.TabIndex = 140;
             this.CmbDeptUpdate.SelectedIndexChanged += new System.EventHandler(this.CmbDeptUpdate_SelectedIndexChanged);
             // 
             // lblUpdateDepartment
@@ -1830,7 +1845,7 @@
             this.CmbDesgUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CmbDesgUpdate.Name = "CmbDesgUpdate";
             this.CmbDesgUpdate.Size = new System.Drawing.Size(288, 29);
-            this.CmbDesgUpdate.TabIndex = 111;
+            this.CmbDesgUpdate.TabIndex = 144;
             // 
             // lblUpdateSubject
             // 
@@ -1855,7 +1870,7 @@
             this.CmbSubject1Update.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CmbSubject1Update.Name = "CmbSubject1Update";
             this.CmbSubject1Update.Size = new System.Drawing.Size(288, 29);
-            this.CmbSubject1Update.TabIndex = 113;
+            this.CmbSubject1Update.TabIndex = 146;
             this.CmbSubject1Update.SelectedIndexChanged += new System.EventHandler(this.CmbSubject1Update_SelectedIndexChanged);
             // 
             // CmbSubject2Update
@@ -1869,7 +1884,7 @@
             this.CmbSubject2Update.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CmbSubject2Update.Name = "CmbSubject2Update";
             this.CmbSubject2Update.Size = new System.Drawing.Size(288, 29);
-            this.CmbSubject2Update.TabIndex = 114;
+            this.CmbSubject2Update.TabIndex = 148;
             this.CmbSubject2Update.SelectedIndexChanged += new System.EventHandler(this.CmbSubject2Update_SelectedIndexChanged);
             // 
             // CmbSubject3Update
@@ -1883,7 +1898,7 @@
             this.CmbSubject3Update.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CmbSubject3Update.Name = "CmbSubject3Update";
             this.CmbSubject3Update.Size = new System.Drawing.Size(288, 29);
-            this.CmbSubject3Update.TabIndex = 115;
+            this.CmbSubject3Update.TabIndex = 150;
             // 
             // lblUpdateJoiningDate
             // 
@@ -1906,7 +1921,7 @@
             this.DtJoiningDateUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.DtJoiningDateUpdate.Name = "DtJoiningDateUpdate";
             this.DtJoiningDateUpdate.Size = new System.Drawing.Size(288, 28);
-            this.DtJoiningDateUpdate.TabIndex = 117;
+            this.DtJoiningDateUpdate.TabIndex = 152;
             // 
             // lblUpdateSalary
             // 
@@ -1929,7 +1944,7 @@
             this.TxtSalaryUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtSalaryUpdate.Name = "TxtSalaryUpdate";
             this.TxtSalaryUpdate.Size = new System.Drawing.Size(288, 32);
-            this.TxtSalaryUpdate.TabIndex = 119;
+            this.TxtSalaryUpdate.TabIndex = 154;
             this.TxtSalaryUpdate.Validating += new System.ComponentModel.CancelEventHandler(this.TxtSalaryUpdate_Validating);
             // 
             // lblUpdateExp
@@ -1954,7 +1969,7 @@
             this.TxtExpUpdate.Multiline = true;
             this.TxtExpUpdate.Name = "TxtExpUpdate";
             this.TxtExpUpdate.Size = new System.Drawing.Size(288, 28);
-            this.TxtExpUpdate.TabIndex = 121;
+            this.TxtExpUpdate.TabIndex = 156;
             // 
             // tableLayoutPanel11
             // 
@@ -1972,7 +1987,7 @@
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel11.Size = new System.Drawing.Size(488, 33);
-            this.tableLayoutPanel11.TabIndex = 3;
+            this.tableLayoutPanel11.TabIndex = 170;
             // 
             // BtnUpdate
             // 
@@ -1985,7 +2000,7 @@
             this.BtnUpdate.Name = "BtnUpdate";
             this.tableLayoutPanel11.SetRowSpan(this.BtnUpdate, 2);
             this.BtnUpdate.Size = new System.Drawing.Size(94, 29);
-            this.BtnUpdate.TabIndex = 121;
+            this.BtnUpdate.TabIndex = 172;
             this.BtnUpdate.Text = "Update";
             this.BtnUpdate.UseVisualStyleBackColor = false;
             this.BtnUpdate.Click += new System.EventHandler(this.BtnUpdateStaff_Click);
@@ -2001,7 +2016,7 @@
             this.BtnResetUpdatePage.Name = "BtnResetUpdatePage";
             this.tableLayoutPanel11.SetRowSpan(this.BtnResetUpdatePage, 2);
             this.BtnResetUpdatePage.Size = new System.Drawing.Size(94, 29);
-            this.BtnResetUpdatePage.TabIndex = 126;
+            this.BtnResetUpdatePage.TabIndex = 174;
             this.BtnResetUpdatePage.Text = "Reset";
             this.BtnResetUpdatePage.UseVisualStyleBackColor = false;
             this.BtnResetUpdatePage.Click += new System.EventHandler(this.BtnResetUpdatePage_Click);
@@ -2091,7 +2106,7 @@
             this.TxtAccNoUpdate.Location = new System.Drawing.Point(176, 45);
             this.TxtAccNoUpdate.Name = "TxtAccNoUpdate";
             this.TxtAccNoUpdate.Size = new System.Drawing.Size(289, 32);
-            this.TxtAccNoUpdate.TabIndex = 46;
+            this.TxtAccNoUpdate.TabIndex = 160;
             // 
             // TxtAccNameUpdate
             // 
@@ -2099,7 +2114,7 @@
             this.TxtAccNameUpdate.Location = new System.Drawing.Point(176, 75);
             this.TxtAccNameUpdate.Name = "TxtAccNameUpdate";
             this.TxtAccNameUpdate.Size = new System.Drawing.Size(289, 32);
-            this.TxtAccNameUpdate.TabIndex = 47;
+            this.TxtAccNameUpdate.TabIndex = 162;
             // 
             // TxtIfscCodeUpdate
             // 
@@ -2108,7 +2123,7 @@
             this.TxtIfscCodeUpdate.Location = new System.Drawing.Point(176, 105);
             this.TxtIfscCodeUpdate.Name = "TxtIfscCodeUpdate";
             this.TxtIfscCodeUpdate.Size = new System.Drawing.Size(289, 32);
-            this.TxtIfscCodeUpdate.TabIndex = 48;
+            this.TxtIfscCodeUpdate.TabIndex = 164;
             // 
             // TxtUpiIdUpdate
             // 
@@ -2117,7 +2132,7 @@
             this.TxtUpiIdUpdate.Location = new System.Drawing.Point(176, 135);
             this.TxtUpiIdUpdate.Name = "TxtUpiIdUpdate";
             this.TxtUpiIdUpdate.Size = new System.Drawing.Size(289, 32);
-            this.TxtUpiIdUpdate.TabIndex = 49;
+            this.TxtUpiIdUpdate.TabIndex = 166;
             // 
             // lblUpdateUpiId
             // 
@@ -2304,6 +2319,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
         private System.Windows.Forms.DataGridView DataGridViewStaff;
         private System.Windows.Forms.Button BtnDelete;
+        private System.Windows.Forms.Button BtnQuit;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel13;
         private System.Windows.Forms.Label lblBankDetails;
         private System.Windows.Forms.Label lbAccNumber;

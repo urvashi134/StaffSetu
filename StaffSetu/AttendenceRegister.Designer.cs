@@ -40,13 +40,15 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridAttendence = new System.Windows.Forms.DataGridView();
             this.StaffName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StaffID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.StartTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EndTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WorkingHrs = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Narration = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.lb_AttendenceRegister = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -56,6 +58,7 @@
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAttendence)).BeginInit();
+            this.tableLayoutPanel4.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -178,12 +181,13 @@
             this.dataGridAttendence.ColumnHeadersHeight = 29;
             this.dataGridAttendence.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.StaffName,
-            this.ID,
+            this.StaffID,
             this.Status,
             this.StartTime,
             this.EndTime,
             this.WorkingHrs,
-            this.Narration});
+            this.Narration,
+            this.ID});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -209,6 +213,7 @@
             this.dataGridAttendence.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridAttendence.Size = new System.Drawing.Size(1472, 640);
             this.dataGridAttendence.TabIndex = 5;
+            this.dataGridAttendence.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridAttendence_DataBindingComplete);
             this.dataGridAttendence.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridAttendence_EditingControlShowing);
             // 
             // StaffName
@@ -219,13 +224,13 @@
             this.StaffName.Name = "StaffName";
             this.StaffName.ReadOnly = true;
             // 
-            // ID
+            // StaffID
             // 
-            this.ID.DataPropertyName = "StaffID";
-            this.ID.HeaderText = "ID";
-            this.ID.MinimumWidth = 8;
-            this.ID.Name = "ID";
-            this.ID.Visible = false;
+            this.StaffID.DataPropertyName = "StaffID";
+            this.StaffID.HeaderText = "StaffID";
+            this.StaffID.MinimumWidth = 8;
+            this.StaffID.Name = "StaffID";
+            this.StaffID.Visible = false;
             // 
             // Status
             // 
@@ -267,6 +272,14 @@
             this.Narration.MinimumWidth = 8;
             this.Narration.Name = "Narration";
             // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.MinimumWidth = 8;
+            this.ID.Name = "ID";
+            this.ID.Visible = false;
+            // 
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.ColumnCount = 15;
@@ -285,6 +298,7 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 135F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 16F));
+            this.tableLayoutPanel4.Controls.Add(this.btnUpdate, 7, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(4, 655);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -300,6 +314,20 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(1472, 63);
             this.tableLayoutPanel4.TabIndex = 10;
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.BackColor = System.Drawing.Color.Azure;
+            this.btnUpdate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnUpdate.Font = new System.Drawing.Font("Merriweather Black", 8F);
+            this.btnUpdate.Location = new System.Drawing.Point(709, 2);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(141, 58);
+            this.btnUpdate.TabIndex = 0;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // lb_AttendenceRegister
             // 
@@ -367,7 +395,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "AttendenceRegister";
-            this.Text = "AttedenceRegister";
+            this.Text = "Attedence Register";
             this.Load += new System.EventHandler(this.AttendenceRegister_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -375,6 +403,7 @@
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAttendence)).EndInit();
+            this.tableLayoutPanel4.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -400,12 +429,14 @@
         private System.Windows.Forms.DataGridView dataGridAttendence;
         private System.Windows.Forms.Label lb_AttendenceRegister;
         private System.Windows.Forms.DateTimePicker DtAttendenceDate;
+        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.DataGridViewTextBoxColumn StaffName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StaffID;
         private System.Windows.Forms.DataGridViewComboBoxColumn Status;
         private System.Windows.Forms.DataGridViewTextBoxColumn StartTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn EndTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn WorkingHrs;
         private System.Windows.Forms.DataGridViewTextBoxColumn Narration;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
     }
 }

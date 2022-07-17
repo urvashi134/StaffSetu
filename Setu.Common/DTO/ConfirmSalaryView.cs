@@ -8,10 +8,11 @@ namespace Setu.Common.DTO
     {
         public int StaffId { get; set; }
         public string StaffName { get; set; }
-        public int PresentDays { get; set; }
-        public int AbsentDays { get; set; }
-        public int LeaveDays { get; set; }
+        public float PresentDays { get; set; }
+        public float AbsentDays { get; set; }
+        public float LeaveDays { get; set; }
         public decimal MonthlySalary { get; set; }
-        public decimal SalaryCalculated { get; set; }
+        public float SalaryCalculated { get; set; }
+        public bool IsConfirmed { get; set; }
     }
 }

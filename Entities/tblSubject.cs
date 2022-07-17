@@ -11,6 +11,6 @@ namespace Setu.Entities
         public int ID { get; set; }
         public string SubjectName { get; set; }
         public int DeptID { get; set; }
-        public Boolean IsActive { get; set; }
+        public bool IsActive { get; set; }
     }
 }

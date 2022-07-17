@@ -2,6 +2,7 @@
 using Setu.Common.DTO;
 using Setu.Entities;
 using Staff_Management;
+using Staff_Management.Helper;
 using StaffSetu.DTO;
 using System;
 using System.Collections.Generic;
@@ -33,91 +34,105 @@ namespace Staff_Management
         {
             InitializeComponent();
             FORMNAME = this.Text;
+
         }
         private void Staff_Load(object sender, EventArgs e)
         {
             ResourceHelper.SetLabel(this);
-            if (GlobalData.role.Equals("staff", StringComparison.InvariantCultureIgnoreCase))
+            
+            LoadFormActivity();
+        }
+        private void LoadFormActivity()
+        {
+            if (GlobalData.role.Equals(RolesConstant.ROLE_STAFF, StringComparison.InvariantCultureIgnoreCase))
             {
                 tabControl1.TabPages.Remove(tabPageView);
                 tabControl1.TabPages.Remove(tabPageAdd);
+                FillCmbsUpdate();
+                FillCmbsUpdate();
                 TxtIDUpdate.Text = GlobalData.ID.ToString();
                 TxtIDUpdate.Enabled = false;
+                isFormLoaded = true;
                 SearchUserById();
                 TxtIDUpdate.Enabled = false;
-                CmbRoleUpdate.Enabled = false;
-                CmbDesgUpdate.Enabled = false;
-                TxtSalaryUpdate.Enabled = false;
-                CmbDeptUpdate.Enabled = false;
-                CmbSubject1Update.Enabled = false;
-                CmbSubject2Update.Enabled = false;
-                CmbSubject3Update.Enabled = false;
-                DtJoiningDateUpdate.Enabled = false;
-                BtnResetUpdatePage.Enabled = false;
+                DisableFields();
+
             }
             else
             {
 
                 ViewStaff();
                 FillCmbsAdd();
+                FillCmbsUpdate();
             }
             ConfigureFingerPrintDevice();
-            FillCmbsUpdate();
+            
             isFormLoaded = true;
             ActiveControl = tabControl1;
         }
         private void ViewStaff()
         {
-            var val = RestAPIHelper.GetAsync<List<tblStaff>>("api/Staff/GetStaff");
-            List<StaffView> tbl = new List<StaffView>();
+            //var val = RestAPIHelper.GetAsync<List<tblStaff>>(ApiConstants.API_GET_STAFF_GETSTAFF);
+            var response = RestAPIHelper.GetAsync<ApiResponse<List<tblStaff>>>(ApiConstants.API_GET_STAFF_GETSTAFF);
+            
 
-            if(val==null)
+            if(response.IsSuccessfull == true)
+            {
+                var val = response.Data;
+                List<StaffView> tbl = new List<StaffView>();
+
+                for (int i = 0; i < val.Count; i++)
+                {
+                    tbl.Add(new StaffView());
+
+                    tbl[i].ID = val[i].ID;
+                    tbl[i].StaffName = val[i].StaffName;
+                    tbl[i].FatherName = val[i].FatherName;
+                    tbl[i].MotherName = val[i].MotherName;
+                    if (val[i].Gender == 'M')
+                        tbl[i].Gender = "Male";
+                    else
+                        tbl[i].Gender = "Female";
+                    tbl[i].Dob = val[i].Dob;
+                    tbl[i].Category = val[i].Category;
+                    if (val[i].state != null)
+                        tbl[i].StateName = val[i].state.StateName;
+                    if (val[i].city != null)
+                        tbl[i].CityName = val[i].city.CityName;
+                    tbl[i].Address = val[i].Address;
+                    tbl[i].EmailID = val[i].EmailID;
+
+                    tbl[i].MobileNo = val[i].MobileNo;
+                    // if(val[i].OtherContactNo != null)
+                    tbl[i].Qualification = val[i].Qualification;
+                    tbl[i].Role = val[i].Role;
+                    tbl[i].DesignationName = val[i].designation.Name;
+                    tbl[i].DepartmentName = val[i].department.Name;
+                    if(val[i].subject1 !=null)
+                    tbl[i].Subject1Name = val[i].subject1.SubjectName;
+                    if (val[i].subject2 != null)
+                        tbl[i].Subject2Name = val[i].subject2.SubjectName;
+                    if (val[i].subject3 != null)
+                        tbl[i].Subject3Name = val[i].subject3.SubjectName;
+                    tbl[i].Salary = val[i].Salary;
+                    tbl[i].JoiningDate = val[i].JoiningDate;
+                    tbl[i].Experience = val[i].Experience;
+                    tbl[i].AccountNo = val[i].AccountNo;
+                    tbl[i].AccountName = val[i].AccountName;
+                    tbl[i].IfscCode = val[i].IfscCode;
+                    tbl[i].UpiId = val[i].UpiId;
+
+                }
+                DataGridViewStaff.DataSource = null;
+                DataGridViewStaff.DataSource = tbl;
+                DataGridViewStaff.Refresh();
+            }
+            else
             {
                 return;
+                //DisplayMessage(ResourceHelper.GetValue(response.ErrorMessage), FORMNAME, MessageTypeEnum.ERROR);
             }
-            for (int i = 0; i < val.Count; i++)
-            {
-                tbl.Add(new StaffView());
-
-                tbl[i].ID = val[i].ID;
-                tbl[i].StaffName = val[i].StaffName;
-                tbl[i].FatherName = val[i].FatherName;
-                tbl[i].MotherName = val[i].MotherName;
-                if (val[i].Gender == 'M')
-                    tbl[i].Gender = "Male";
-                else
-                    tbl[i].Gender = "Female";
-                tbl[i].Dob = val[i].Dob;
-                tbl[i].Category = val[i].Category;
-                if (val[i].state != null)
-                    tbl[i].StateName = val[i].state.StateName;
-                if (val[i].city != null)
-                    tbl[i].CityName = val[i].city.CityName;
-                tbl[i].Address = val[i].Address;
-                tbl[i].EmailID = val[i].EmailID;
-               
-                tbl[i].MobileNo = val[i].MobileNo;
-                // if(val[i].OtherContactNo != null)
-                tbl[i].OtherContactNo = val[i].OtherContactNo;
-                tbl[i].Qualification = val[i].Qualification;
-                tbl[i].Role = val[i].Role;
-                tbl[i].DesignationName = val[i].designation.Name;
-                tbl[i].DepartmentName = val[i].department.Name;
-                tbl[i].Subject1Name = val[i].subject1.SubjectName;
-                if (val[i].subject2 != null)
-                    tbl[i].Subject2Name = val[i].subject2.SubjectName;
-                if (val[i].subject3 != null)
-                    tbl[i].Subject3Name = val[i].subject3.SubjectName;
-                tbl[i].Salary = val[i].Salary;
-                tbl[i].JoiningDate = val[i].JoiningDate;
-                tbl[i].Experience = val[i].Experience;
-                tbl[i].AccountNo = val[i].AccountNo;
-                tbl[i].AccountName = val[i].AccountName;
-                tbl[i].IfscCode = val[i].IfscCode;
-                tbl[i].UpiId = val[i].UpiId;
-
-            }
-            DataGridViewStaff.DataSource = tbl;
+            
         }
         private void FillCmbsAdd()
         {
@@ -136,6 +151,7 @@ namespace Staff_Management
             FillGenderUpdate();
             FillCategoryUpdate();
             FillStateUpdate();
+            FillCityUpdate();
             FillQualUpdate();
             FillRoleUpdate();
             FillDesgUpdate();
@@ -204,6 +220,10 @@ namespace Staff_Management
         private void FillRoleAdd()
         {
             List<ComboBoxDataSources> comboBoxDataSources = StaffHelper.FillRole();
+            if(GlobalData.role == RolesConstant.ROLE_DEPT_ADMIN)
+            {
+                comboBoxDataSources.RemoveAll(r => Convert.ToInt32(r.Value) == 1);
+            }
             CmbRole.DataSource = comboBoxDataSources;
             CmbRole.DisplayMember = "DisplayMember";
             CmbRole.ValueMember = "Value";
@@ -266,35 +286,43 @@ namespace Staff_Management
         private void FillSubjectsAdd()
         {
             deptId = Convert.ToInt32(CmbDept.SelectedValue);
-            subjectsByDeptId = RestAPIHelper.GetAsync<List<tblSubject>>($"api/Subject/GetSubjectByDepartmentID/{deptId}");
-
-
-            FillSubject1Add();
-            FillSubject2Add();
-            FillSubject3Add();
+            var response = RestAPIHelper.GetAsync<ApiResponse<List<tblSubject>>>($"{ApiConstants.API_GET_SUBJECT_GETSUBJECTBYDEPT}/{deptId}");
+            
+                subjectsByDeptId = response.Data;
+                FillSubject1Add();
+                FillSubject2Add();
+                FillSubject3Add();
+            
         }
         private void FillSubjectsUpdate()
         {
-            deptIdUpdate = Convert.ToInt32(CmbDeptUpdate.SelectedValue);
-            subjectsByDeptIdUpdate = RestAPIHelper.GetAsync<List<tblSubject>>($"api/Subject/GetSubjectByDepartmentID/{deptIdUpdate}");
-
-
-            FillSubject1Update();
-            FillSubject2Update();
-            FillSubject3Update();
+            deptIdUpdate = Convert.ToInt32(CmbDeptUpdate.SelectedValue);          
+            var response = RestAPIHelper.GetAsync<ApiResponse<List<tblSubject>>>($"{ApiConstants.API_GET_SUBJECT_GETSUBJECTBYDEPT}/{deptIdUpdate}");
+            
+                subjectsByDeptIdUpdate = response.Data;
+                FillSubject1Update();
+                FillSubject2Update();
+                FillSubject3Update();
+            
         }
         private void FillSubject1Add()
         {
-            List<tblSubject> subjects1 = new List<tblSubject>(subjectsByDeptId);
+            List<tblSubject> subjects1 = new List<tblSubject>();
+            if (subjectsByDeptId!=null)
+            {
+                subjects1 = new List<tblSubject>(subjectsByDeptId);
+            }
+                
             StaffHelper.FillSubject1(subjects1);
-
             CmbSubject1.DataSource = subjects1;
             CmbSubject1.DisplayMember = "SubjectName";
             CmbSubject1.ValueMember = "ID";
         }
         private void FillSubject2Add()
         {
-            List<tblSubject> subjects2 = new List<tblSubject>(subjectsByDeptId);
+            List<tblSubject> subjects2 = new List<tblSubject>();
+            if (subjectsByDeptId != null)
+                subjects2 = new List<tblSubject>(subjectsByDeptId);
 
             int idSub1 = Convert.ToInt32(CmbSubject1.SelectedValue);
             StaffHelper.FillSubject2(subjects2, idSub1);
@@ -308,7 +336,10 @@ namespace Staff_Management
         }
         private void FillSubject3Add()
         {
-            List<tblSubject> subjects3 = new List<tblSubject>(subjectsByDeptId);
+            List<tblSubject> subjects3 = new List<tblSubject>();
+            if (subjectsByDeptId != null)
+                subjects3 = new List<tblSubject>(subjectsByDeptId);
+
             int idSub1 = Convert.ToInt32(CmbSubject1.SelectedValue);
             int idSub2 = Convert.ToInt32(CmbSubject2.SelectedValue);
             StaffHelper.FillSubject3(subjects3, idSub1, idSub2);
@@ -321,7 +352,10 @@ namespace Staff_Management
         }
         private void FillSubject1Update()
         {
-            List<tblSubject> subjects1 = new List<tblSubject>(subjectsByDeptIdUpdate);
+            List<tblSubject> subjects1 = new List<tblSubject>();
+            if (subjectsByDeptIdUpdate != null)
+                subjects1 = new List<tblSubject>(subjectsByDeptIdUpdate);
+
             StaffHelper.FillSubject1(subjects1);
 
             CmbSubject1Update.DataSource = subjects1;
@@ -330,7 +364,10 @@ namespace Staff_Management
         }
         private void FillSubject2Update()
         {
-            List<tblSubject> subjects2 = new List<tblSubject>(subjectsByDeptIdUpdate);
+            List<tblSubject> subjects2 = new List<tblSubject>();
+            if (subjectsByDeptIdUpdate != null)
+                subjects2 = new List<tblSubject>(subjectsByDeptIdUpdate);
+
             int idSub1 = Convert.ToInt32(CmbSubject1Update.SelectedValue);
 
             StaffHelper.FillSubject2(subjects2, idSub1);
@@ -343,7 +380,10 @@ namespace Staff_Management
         }
         private void FillSubject3Update()
         {
-            List<tblSubject> subjects3 = new List<tblSubject>(subjectsByDeptIdUpdate);
+            List<tblSubject> subjects3 = new List<tblSubject>();
+            if (subjectsByDeptIdUpdate != null)
+                subjects3 = new List<tblSubject>(subjectsByDeptIdUpdate);
+
             int idSub1 = Convert.ToInt32(CmbSubject1Update.SelectedValue);
             int idSub2 = Convert.ToInt32(CmbSubject2Update.SelectedValue);
 
@@ -402,20 +442,16 @@ namespace Staff_Management
                 int desgId = Convert.ToInt32(CmbDesg.SelectedValue);
                 if (desgId == 0)
                 {
-                    MessageBox.Show("Please Select Designation..");
+                    DisplayMessage(ResourceHelper.GetValue("MSG_ERROR_SELECTION_DESIGNATION"), FORMNAME, MessageTypeEnum.ERROR);
+                    //MessageBox.Show("Please Select Designation..");
                     return;
                 }
                 if (deptId == 0)
                 {
-                    MessageBox.Show("Please Select Department..");
+                    DisplayMessage(ResourceHelper.GetValue("MSG_ERROR_SELECTION_DEPARTMENT"), FORMNAME, MessageTypeEnum.ERROR);
+                    //MessageBox.Show("Please Select Department..");
                     return;
-                }
-                int subId = Convert.ToInt32(CmbSubject1.SelectedValue);
-                if (subId == 0)
-                {
-                    MessageBox.Show("Please Select atleast 1 subject..");
-                    return;
-                }
+                }              
                 tblStaff objtblStaff = new tblStaff();
                 objtblStaff.ID = Convert.ToInt32(TxtStaffID.Text.ToString());
                 objtblStaff.StaffName = TxtStaffName.Text.ToString();
@@ -453,7 +489,11 @@ namespace Staff_Management
                 objtblStaff.DesignationID = desgId;
                 objtblStaff.DepartmentID = deptId;
                 objtblStaff.Salary = Convert.ToDecimal(TxtSalary.Text.ToString());
-                objtblStaff.Subject1ID = subId;
+                int sub1Id = Convert.ToInt32(CmbSubject1.SelectedValue);
+                if (sub1Id == 0)
+                    objtblStaff.Subject1ID = null;
+                else
+                    objtblStaff.Subject1ID = sub1Id;
                 int sub2Id = Convert.ToInt32(CmbSubject2.SelectedValue);
                 if (sub2Id == 0)
                     objtblStaff.Subject2ID = null;
@@ -473,17 +513,17 @@ namespace Staff_Management
                 objtblStaff.AccountName = TxtAccName.Text.ToString();
                 objtblStaff.IfscCode = TxtIfscCode.Text.ToString();
                 objtblStaff.UpiId = TxtUpiId.Text.ToString();
-                var val = RestAPIHelper.PostAsync<tblStaff>("api/Staff/InsertStaff", objtblStaff);
 
-                if (val == null)
+                var response = RestAPIHelper.PostAsync<ApiResponse<tblStaff>>(ApiConstants.API_POST_STAFF_INSERTSTAFF, objtblStaff);
+                if (response.IsSuccessfull == true)
                 {
                     //MessageBox.Show("Addition Failed..");
-                    DisplayMessage(ResourceHelper.GetValue("ADDITION_SUCCESSFULL"),FORMNAME,MessageTypeEnum.ERROR);
+                    DisplayMessage(ResourceHelper.GetValue("MSG_SUCCESS_ADD_STAFF"),FORMNAME,MessageTypeEnum.SUCCESS);
                 }
                 else
                 {
                     //MessageBox.Show("Staff Added Successfully..");
-                    DisplayMessage(ResourceHelper.GetValue("ADDITION_UNSUCCESSFULL"), FORMNAME, MessageTypeEnum.ERROR);
+                    DisplayMessage(ResourceHelper.GetValue("MSG_ERROR_ADD_STAFF"), FORMNAME, MessageTypeEnum.ERROR);
                 }
                 ResetAddPage();
                 ViewStaff();
@@ -503,16 +543,28 @@ namespace Staff_Management
 
         private void SearchUserById()
         {
-
-            int id = Convert.ToInt32(TxtIDUpdate.Text);
-            var val = RestAPIHelper.GetAsync<tblStaff>($"api/Staff/GetStaffByID/{id}");
-
-            if (val == null)
+            if (string.IsNullOrEmpty(TxtIDUpdate.Text))
             {
-                MessageBox.Show("No Staff Found with Given ID..");
+                DisplayMessage(ResourceHelper.GetValue("MSG_ERROR_ENTER_STAFF_ID"), FORMNAME, MessageTypeEnum.ERROR);
+                return;
+            }
+
+            int id;
+            if (!int.TryParse(TxtIDUpdate.Text, out id))
+            {
+                DisplayMessage(ResourceHelper.GetValue("MSG_ERROR_ENTER_STAFF_ID"), FORMNAME, MessageTypeEnum.ERROR);
+                TxtIDUpdate.Text = String.Empty;
+                return;
+            }
+           
+            var response = RestAPIHelper.GetAsync<ApiResponse<tblStaff>>($"{ApiConstants.API_GET_STAFF_GETSTAFFBYID}/{id}");
+            if (response.IsSuccessfull == false)
+            {
+                DisplayMessage(ResourceHelper.GetValue("MSG_ERROR_NO_STAFF"), FORMNAME, MessageTypeEnum.ERROR);
                 ResetUpdatePage();
                 return;
             }
+            var val = response.Data;
 
             TxtStaffNameUpdate.Text = val.StaffName;
             TxtFatherNameUpdate.Text = val.FatherName;
@@ -535,14 +587,18 @@ namespace Staff_Management
             //TxtOtherConNoUpdate.Text = val.OtherContactNo.ToString();
             TxtAddressUpdate.Text = val.Address;
             CmbQualUpdate.Text = val.Qualification;
-            CmbRole.Text = val.Role;
+            CmbRoleUpdate.Text = val.Role;
             CmbDesgUpdate.SelectedValue = val.DesignationID;
             CmbDeptUpdate.SelectedValue = val.DepartmentID;
             deptIdUpdate = val.DepartmentID;
 
             TxtSalaryUpdate.Text = val.Salary.ToString();
             DtJoiningDateUpdate.Value = val.JoiningDate;
-            CmbSubject1Update.SelectedValue = val.Subject1ID;
+            if(val.Subject1ID == null)
+                CmbSubject1Update.SelectedValue = val.Subject1ID.ToString();
+            else
+                CmbSubject1Update.SelectedValue = val.Subject1ID;
+
             if (val.Subject2ID == null)
                 CmbSubject2Update.SelectedValue = val.Subject2ID.ToString();
             else
@@ -558,8 +614,41 @@ namespace Staff_Management
             TxtIfscCodeUpdate.Text = val.IfscCode;
             TxtUpiIdUpdate.Text = val.UpiId;
 
-        }
+            if(GlobalData.role == RolesConstant.ROLE_DEPT_ADMIN && id == GlobalData.ID)
+            {
+                if (id == GlobalData.ID)
+                    DisableFields();
+                else
+                    EnableFields();
+            }
 
+        }
+        private void DisableFields()
+        {
+            CmbRoleUpdate.Enabled = false;
+            CmbDesgUpdate.Enabled = false;
+            TxtSalaryUpdate.Enabled = false;
+            CmbDeptUpdate.Enabled = false;
+            CmbSubject1Update.Enabled = false;
+            CmbSubject2Update.Enabled = false;
+            CmbSubject3Update.Enabled = false;
+            DtJoiningDateUpdate.Enabled = false;
+            TxtExpUpdate.Enabled = false;
+            BtnResetUpdatePage.Enabled = false;
+        }
+        private void EnableFields()
+        {
+            CmbRoleUpdate.Enabled = true;
+            CmbDesgUpdate.Enabled = true;
+            TxtSalaryUpdate.Enabled = true;
+            CmbDeptUpdate.Enabled = true;
+            CmbSubject1Update.Enabled = true;
+            CmbSubject2Update.Enabled = true;
+            CmbSubject3Update.Enabled = true;
+            DtJoiningDateUpdate.Enabled = true;
+            TxtExpUpdate.Enabled = true;
+            BtnResetUpdatePage.Enabled = true;
+        }
         private void BtnUpdateStaff_Click(object sender, EventArgs e)
         {
             if (ValidateChildren(ValidationConstraints.Enabled))
@@ -567,23 +656,19 @@ namespace Staff_Management
                 int desgId = Convert.ToInt32(CmbDesgUpdate.SelectedValue);
                 if (desgId == 0)
                 {
-                    MessageBox.Show("Please Select Designation..");
+                    DisplayMessage(ResourceHelper.GetValue("MSG_ERROR_SELECTION_DESIGNATION"), FORMNAME, MessageTypeEnum.ERROR);
                     return;
                 }
                 if (deptIdUpdate == 0)
                 {
-                    MessageBox.Show("Please Select Department..");
+                    DisplayMessage(ResourceHelper.GetValue("MSG_ERROR_SELECTION_DEPARTMENT"), FORMNAME, MessageTypeEnum.ERROR);
                     return;
                 }
-                int subId = Convert.ToInt32(CmbSubject1Update.SelectedValue);
-                if (subId == 0)
-                {
-                    MessageBox.Show("Please Select atleast 1 subject..");
-                    return;
-                }
+                
                 int staffid = Convert.ToInt32(TxtIDUpdate.Text);
                 tblStaff objtblStaff = new tblStaff();
 
+                objtblStaff.IsActive = true;
                 objtblStaff.ID = staffid;
                 objtblStaff.StaffName = TxtStaffNameUpdate.Text.ToString();
                 objtblStaff.FatherName = TxtFatherNameUpdate.Text.ToString();
@@ -601,7 +686,7 @@ namespace Staff_Management
                 if (cityId == 0)
                     objtblStaff.CityID = null;
                 else
-                    objtblStaff.CityID = stateId;
+                    objtblStaff.CityID = cityId;
 
                 objtblStaff.EmailID = TxtEmailUpdate.Text.ToString();
                 objtblStaff.Password = TxtPasswordUpdate.Text.ToString();
@@ -620,7 +705,12 @@ namespace Staff_Management
                 objtblStaff.DesignationID = desgId;
                 objtblStaff.DepartmentID = Convert.ToInt32(CmbDeptUpdate.SelectedValue);
                 objtblStaff.Salary = Convert.ToDecimal(TxtSalaryUpdate.Text.ToString());
-                objtblStaff.Subject1ID = subId;
+
+                int sub1Id = Convert.ToInt32(CmbSubject1Update.SelectedValue);
+                if (sub1Id == 0)
+                    objtblStaff.Subject1ID = null;
+                else
+                    objtblStaff.Subject1ID = sub1Id;
                 int sub2Id = Convert.ToInt32(CmbSubject2Update.SelectedValue);
                 if (sub2Id == 0)
                     objtblStaff.Subject2ID = null;
@@ -650,17 +740,23 @@ namespace Staff_Management
                 objtblStaff.IfscCode = TxtIfscCodeUpdate.Text.ToString();
                 objtblStaff.UpiId = TxtUpiIdUpdate.Text.ToString();
 
-                var val = RestAPIHelper.PostAsync<tblStaff>("api/Staff/UpdateStaff", objtblStaff);
-                if (val == null)
+                var response = RestAPIHelper.PostAsync<ApiResponse<tblStaff>>(ApiConstants.API_POST_STAFF_UPDATESTAFF,objtblStaff);
+                if (response.IsSuccessfull == false)
                 {
-                    MessageBox.Show("Update Failed..");
+                    DisplayMessage(ResourceHelper.GetValue("MSG_ERROR_UPDATING_STAFF"), FORMNAME, MessageTypeEnum.ERROR);
+                    //MessageBox.Show("Update Failed..");
+                    //DisplayMessage(response.ErrorMessage, FORMNAME, MessageTypeEnum.ERROR);
                 }
                 else
                 {
-                    MessageBox.Show("Updated Succesfully..");
+                    DisplayMessage(ResourceHelper.GetValue("MSG_SUCCESS_UPDATING_STAFF"), FORMNAME, MessageTypeEnum.SUCCESS);
+                   // MessageBox.Show("Updated Succesfully..");
                 }
-                ResetUpdatePage();
-                ViewStaff();
+                if(!(GlobalData.role == RolesConstant.ROLE_STAFF))
+                {
+                    ResetUpdatePage();
+                    ViewStaff();
+                }
             }
 
         }
@@ -673,7 +769,7 @@ namespace Staff_Management
         private void CmbDept_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (isFormLoaded)
-            {
+            {               
                 FillSubjectsAdd();
             }
         }
@@ -1220,9 +1316,16 @@ namespace Staff_Management
         {
             try
             {
-                byte[] fingerPrintData = GlobalData.mfs100.BitmapToBytes(bmp);
-                string encryptedData = Convert.ToBase64String(fingerPrintData);
-                return encryptedData;
+                if (bmp != null)
+                {
+                    byte[] fingerPrintData = GlobalData.mfs100.BitmapToBytes(bmp);
+                    string encryptedData = Convert.ToBase64String(fingerPrintData);
+                    return encryptedData;
+                }
+                else
+                {
+                    return string.Empty;
+                }
             }
             catch (Exception)
             {
@@ -1245,22 +1348,20 @@ namespace Staff_Management
 
         private void BtnDelete_Click(object sender, EventArgs e)
         {
-            var id = DataGridViewStaff.SelectedRows[0].Cells["ID"].Value;
+            var id = DataGridViewStaff.CurrentRow.Cells["ID"].Value;
 
-             var val = RestAPIHelper.DeleteAsync<ApiResponse<Boolean>>($"api/Staff/DeleteStaff/{id}");
+             var response = RestAPIHelper.DeleteAsync<ApiResponse<Boolean>>($"{ApiConstants.API_DELETE_STAFF_DELETESTAFF}/{id}");
 
-            if(val.IsSuccessfull== true)
-            {
-                DisplayMessage(val.ErrorMessage, FORMNAME, MessageTypeEnum.SUCCESS);
-                //MessageBox.Show("Staff Deleted");
+            if(response.IsSuccessfull)
+            {   
+                DisplayMessage(ResourceHelper.GetValue("MSG_SUCCESS_DELETE_STAFF"), FORMNAME, MessageTypeEnum.SUCCESS);
+                LoadFormActivity();
             }
             else
             {
-                DisplayMessage(val.ErrorMessage, FORMNAME, MessageTypeEnum.ERROR);
-                //MessageBox.Show(val.ErrorMessage);
+                DisplayMessage(ResourceHelper.GetValue("MSG_ERROR_DELETE_STAFF"), FORMNAME, MessageTypeEnum.ERROR);
             }
         }
-
         private string GetFingerPrintANSI()
         {
             try

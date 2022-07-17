@@ -1,6 +1,7 @@
 ﻿using Setu.Common.DTO;
 using Setu.Entities;
 using Staff_Management;
+using Staff_Management.Helper;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,15 +33,14 @@ namespace StaffSetu
             obj.AttendenceFrom = DtAttendenceFrom.Value;
             obj.AttendenceTill = DtAttendenceTill.Value;
 
-            var val = RestAPIHelper.GetAsync<List<tblAttendence>>($"api/Attendence/GetAttendenceByStaffIdMonthYear/{obj}");
-
-            if(val==null)
+            var response = RestAPIHelper.GetAsync<ApiResponse<List<tblAttendence>>>($"{ApiConstants.API_GET_ATTENDENCE_GET_ATTENDENCE_ID_MONTH_WISE}/ {obj}");
+            if(response.IsSuccessfull == false)
             {
-                MessageBox.Show("Not Found");
+                MessageBox.Show(response.ErrorMessage);
                 return;
-            }
+            }        
             List<UserAttendenceReportView> tbl = new List<UserAttendenceReportView>();
-
+            var val = response.Data;
             for(int i=0;i<val.Count;i++)
             {
                 tbl.Add(new UserAttendenceReportView());

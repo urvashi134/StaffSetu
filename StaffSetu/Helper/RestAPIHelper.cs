@@ -19,6 +19,7 @@ namespace Staff_Management
             var client = new HttpClient { BaseAddress = new Uri(ConfigurationManager.AppSettings["APIPath"]) };
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", GlobalData.token);
             return client;
         }
 
